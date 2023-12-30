@@ -28,74 +28,82 @@ export declare const AttributesKeyFrameIO: t.TypeC<{
 }>;
 export declare const BlackboardIO: t.TypeC<{
     key: t.StringC;
-    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+    value: t.UnionC<[t.NumberC, t.NullC]>;
+    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
 }>;
 export declare const EnemyAttributesIO: t.TypeC<{
     maxHp: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     atk: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     def: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     magicResistance: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     cost: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     blockCnt: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     moveSpeed: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     attackSpeed: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     baseAttackTime: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     respawnTime: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     hpRecoveryPerSec: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     spRecoveryPerSec: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     maxDeployCount: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     massLevel: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
     baseForceLevel: t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
     }>;
-    tauntLevel: t.TypeC<{
+    tauntLevel: t.UnionC<[t.TypeC<{
         m_defined: t.BooleanC;
-        m_value: t.NumberC;
-    }>;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    epDamageResistance: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    epResistance: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
     stunImmune: t.TypeC<{
         m_defined: t.BooleanC;
         m_value: t.BooleanC;
@@ -104,18 +112,18 @@ export declare const EnemyAttributesIO: t.TypeC<{
         m_defined: t.BooleanC;
         m_value: t.BooleanC;
     }>;
-    sleepImmune: t.TypeC<{
+    sleepImmune: t.UnionC<[t.TypeC<{
         m_defined: t.BooleanC;
         m_value: t.BooleanC;
-    }>;
-    frozenImmune: t.TypeC<{
+    }>, t.UndefinedC]>;
+    frozenImmune: t.UnionC<[t.TypeC<{
         m_defined: t.BooleanC;
         m_value: t.BooleanC;
-    }>;
-    levitateImmune: t.TypeC<{
+    }>, t.UndefinedC]>;
+    levitateImmune: t.UnionC<[t.TypeC<{
         m_defined: t.BooleanC;
         m_value: t.BooleanC;
-    }>;
+    }>, t.UndefinedC]>;
 }>;
 export declare const EnemySkillsIO: t.TypeC<{
     prefabKey: t.StringC;
@@ -123,17 +131,187 @@ export declare const EnemySkillsIO: t.TypeC<{
     cooldown: t.NumberC;
     initCooldown: t.NumberC;
     spCost: t.NumberC;
-    blackboard: t.ArrayC<t.TypeC<{
+    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
         key: t.StringC;
-        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-    }>>;
+        value: t.UnionC<[t.NumberC, t.NullC]>;
+        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+    }>>, t.NullC]>;
 }>;
 export declare const EnemySpDataIO: t.TypeC<{
-    spType: t.NumberC;
+    spType: t.StringC;
     maxSp: t.NumberC;
     initSp: t.NumberC;
     increment: t.NumberC;
+}>;
+export declare const EnemyData: t.TypeC<{
+    name: t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>;
+    description: t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>;
+    prefabKey: t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>;
+    attributes: t.TypeC<{
+        maxHp: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        atk: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        def: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        magicResistance: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        cost: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        blockCnt: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        moveSpeed: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        attackSpeed: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        baseAttackTime: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        respawnTime: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        hpRecoveryPerSec: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        spRecoveryPerSec: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        maxDeployCount: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        massLevel: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        baseForceLevel: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>;
+        tauntLevel: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>, t.UndefinedC]>;
+        epDamageResistance: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>, t.UndefinedC]>;
+        epResistance: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+        }>, t.UndefinedC]>;
+        stunImmune: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.BooleanC;
+        }>;
+        silenceImmune: t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.BooleanC;
+        }>;
+        sleepImmune: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.BooleanC;
+        }>, t.UndefinedC]>;
+        frozenImmune: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.BooleanC;
+        }>, t.UndefinedC]>;
+        levitateImmune: t.UnionC<[t.TypeC<{
+            m_defined: t.BooleanC;
+            m_value: t.BooleanC;
+        }>, t.UndefinedC]>;
+    }>;
+    applyWay: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    motion: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    enemyTags: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+    }>, t.UndefinedC]>;
+    lifePointReduce: t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>;
+    levelType: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.StringC, t.NullC]>;
+    }>, t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    rangeRadius: t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>;
+    numOfExtraDrops: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    viewRadius: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+    }>, t.UndefinedC]>;
+    notCountInTotal: t.UnionC<[t.TypeC<{
+        m_defined: t.BooleanC;
+        m_value: t.BooleanC;
+    }>, t.UndefinedC]>;
+    talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
+        key: t.StringC;
+        value: t.UnionC<[t.NumberC, t.NullC]>;
+        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+    }>>, t.NullC]>;
+    skills: t.UnionC<[t.ArrayC<t.TypeC<{
+        prefabKey: t.StringC;
+        priority: t.NumberC;
+        cooldown: t.NumberC;
+        initCooldown: t.NumberC;
+        spCost: t.NumberC;
+        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
+            key: t.StringC;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+    }>>, t.NullC]>;
+    spData: t.UnionC<[t.TypeC<{
+        spType: t.StringC;
+        maxSp: t.NumberC;
+        initSp: t.NumberC;
+        increment: t.NumberC;
+    }>, t.NullC]>;
 }>;
 export declare const GridRangeIO: t.TypeC<{
     id: t.StringC;
@@ -203,20 +381,20 @@ export declare const WorkshopFormulaIO: t.TypeC<{
     }>>;
 }>;
 export declare const OperatorUnlockCondIO: t.TypeC<{
-    phase: t.StringC;
+    phase: t.UnionC<[t.StringC, t.NumberC]>;
     level: t.NumberC;
 }>;
 export declare const LevelUpCostCondIO: t.TypeC<{
     unlockCond: t.TypeC<{
-        phase: t.StringC;
+        phase: t.UnionC<[t.StringC, t.NumberC]>;
         level: t.NumberC;
     }>;
     lvlUpTime: t.NumberC;
-    levelUpCost: t.ArrayC<t.TypeC<{
+    levelUpCost: t.UnionC<[t.ArrayC<t.TypeC<{
         id: t.StringC;
         count: t.NumberC;
         type: t.StringC;
-    }>>;
+    }>>, t.NullC]>;
 }>;
 export declare const StageDefinesIO: t.TypeC<{
     characterInsts: t.ArrayC<t.AnyC>;
@@ -225,29 +403,29 @@ export declare const StageDefinesIO: t.TypeC<{
             row: t.NumberC;
             col: t.NumberC;
         }>;
-        direction: t.NumberC;
+        direction: t.UnionC<[t.StringC, t.NumberC]>;
         hidden: t.BooleanC;
-        alias: t.StringC;
-        uniEquipIds: t.ArrayC<t.TypeC<{
+        alias: t.UnionC<[t.StringC, t.NullC]>;
+        uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
             key: t.StringC;
             level: t.NumberC;
-        }>>;
+        }>>, t.NullC, t.UndefinedC]>;
         inst: t.TypeC<{
             characterKey: t.StringC;
             level: t.NumberC;
-            phase: t.NumberC;
+            phase: t.UnionC<[t.StringC, t.NumberC]>;
             favorPoint: t.NumberC;
             potentialRank: t.NumberC;
         }>;
         skillIndex: t.NumberC;
         mainSkillLvl: t.NumberC;
-        skinId: t.StringC;
-        tmplId: t.StringC;
-        overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+        skinId: t.UnionC<[t.StringC, t.NullC]>;
+        tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
             key: t.StringC;
-            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-        }>>;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        }>>, t.NullC, t.UndefinedC]>;
     }>>;
     characterCards: t.ArrayC<t.AnyC>;
     tokenCards: t.ArrayC<t.AnyC>;
@@ -259,7 +437,31 @@ export declare const StageEffectIO: t.TypeC<{
         y: t.NumberC;
         z: t.NumberC;
     }>;
-    direction: t.NumberC;
+    direction: t.UnionC<[t.StringC, t.NumberC]>;
+}>;
+export declare const StageActionIO: t.TypeC<{
+    preDelay: t.NumberC;
+    actions: t.ArrayC<t.TypeC<{
+        actionType: t.UnionC<[t.StringC, t.NumberC]>;
+        managedByScheduler: t.BooleanC;
+        key: t.StringC;
+        count: t.NumberC;
+        preDelay: t.NumberC;
+        interval: t.NumberC;
+        routeIndex: t.NumberC;
+        blockFragment: t.BooleanC;
+        autoPreviewRoute: t.BooleanC;
+        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
+    }>>;
 }>;
 export declare const StageDataIO: t.TypeC<{
     options: t.TypeC<{
@@ -271,76 +473,81 @@ export declare const StageDataIO: t.TypeC<{
         moveMultiplier: t.NumberC;
         steeringEnabled: t.BooleanC;
         isTrainingLevel: t.BooleanC;
-        isHardTrainingLevel: t.BooleanC;
-        functionDisableMask: t.NumberC;
+        isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+        functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+        configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+            key: t.StringC;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        }>>, t.NullC, t.UndefinedC]>;
     }>;
-    levelId: t.StringC;
-    mapId: t.StringC;
-    bgmEvent: t.StringC;
-    environmentSe: t.StringC;
+    levelId: t.UnionC<[t.StringC, t.NullC]>;
+    mapId: t.UnionC<[t.StringC, t.NullC]>;
+    bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+    environmentSe: t.UnionC<[t.StringC, t.NullC]>;
     mapData: t.TypeC<{
         map: t.ArrayC<t.ArrayC<t.NumberC>>;
         tiles: t.ArrayC<t.TypeC<{
             tileKey: t.StringC;
-            heightType: t.NumberC;
-            buildableType: t.NumberC;
-            passableMask: t.NumberC;
-            playerSideMask: t.NumberC;
-            blackboard: t.TypeC<{
+            heightType: t.UnionC<[t.StringC, t.NumberC]>;
+            buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+            passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>;
-            effects: t.ArrayC<t.TypeC<{
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
         }>>;
-        blockEdges: t.NullC;
-        tags: t.ArrayC<t.StringC>;
-        effects: t.ArrayC<t.TypeC<{
+        blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+        tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+        effects: t.UnionC<[t.ArrayC<t.TypeC<{
             key: t.StringC;
             offset: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
                 z: t.NumberC;
             }>;
-            direction: t.NumberC;
-        }>>;
-        layerRects: t.ArrayC<t.StringC>;
-        width: t.NumberC;
-        height: t.NumberC;
+            direction: t.UnionC<[t.StringC, t.NumberC]>;
+        }>>, t.NullC]>;
+        layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
     tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-    runes: t.ArrayC<t.TypeC<{
-        difficultyMask: t.NumberC;
+    runes: t.UnionC<[t.ArrayC<t.TypeC<{
+        difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
         key: t.StringC;
-        professionMask: t.NumberC;
-        buildableMask: t.NumberC;
+        professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
         blackboard: t.ArrayC<t.TypeC<{
             key: t.StringC;
-            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-    }>>;
-    globalBuffs: t.ArrayC<t.TypeC<{
+    }>>, t.NullC]>;
+    globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
         prefabKey: t.StringC;
-        blackboard: t.ArrayC<t.TypeC<{
+        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
             key: t.StringC;
-            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-        }>>;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        }>>, t.NullC]>;
         overrideCameraEffect: t.NullC;
-        passProfessionMaskFlag: t.BooleanC;
-        professionMask: t.NumberC;
-    }>>;
-    routes: t.ArrayC<t.TypeC<{
-        motionMode: t.NumberC;
+        passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+    }>>, t.NullC]>;
+    routes: t.ArrayC<t.UnionC<[t.TypeC<{
+        motionMode: t.UnionC<[t.StringC, t.NumberC]>;
         startPosition: t.TypeC<{
             row: t.NumberC;
             col: t.NumberC;
@@ -357,8 +564,8 @@ export declare const StageDataIO: t.TypeC<{
             x: t.NumberC;
             y: t.NumberC;
         }>;
-        checkpoints: t.ArrayC<t.TypeC<{
-            type: t.NumberC;
+        checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+            type: t.UnionC<[t.StringC, t.NumberC]>;
             time: t.NumberC;
             position: t.TypeC<{
                 row: t.NumberC;
@@ -370,96 +577,104 @@ export declare const StageDataIO: t.TypeC<{
             }>;
             randomizeReachOffset: t.BooleanC;
             reachDistance: t.NumberC;
-        }>>;
+        }>>, t.NullC]>;
         allowDiagonalMove: t.BooleanC;
         visitEveryTileCenter: t.BooleanC;
         visitEveryNodeCenter: t.BooleanC;
-        visitEveryCheckPoint: t.BooleanC;
-    }>>;
-    extraRoutes: t.ArrayC<t.AnyC>;
+        visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+    }>, t.NullC]>>;
+    extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
     enemies: t.ArrayC<t.AnyC>;
     enemyDbRefs: t.ArrayC<t.TypeC<{
         useDb: t.BooleanC;
         id: t.StringC;
         level: t.NumberC;
-        overwrittenData: t.TypeC<{
+        overwrittenData: t.UnionC<[t.TypeC<{
             name: t.TypeC<{
                 m_defined: t.BooleanC;
-                m_value: t.NumberC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
             }>;
             description: t.TypeC<{
                 m_defined: t.BooleanC;
-                m_value: t.NumberC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
             }>;
             prefabKey: t.TypeC<{
                 m_defined: t.BooleanC;
-                m_value: t.NumberC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
             }>;
             attributes: t.TypeC<{
                 maxHp: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 atk: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 def: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 magicResistance: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 cost: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 blockCnt: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 moveSpeed: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 attackSpeed: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 baseAttackTime: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 respawnTime: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 hpRecoveryPerSec: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 spRecoveryPerSec: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 maxDeployCount: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 massLevel: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
                 baseForceLevel: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                tauntLevel: t.TypeC<{
+                tauntLevel: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
-                }>;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                epDamageResistance: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                epResistance: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 stunImmune: t.TypeC<{
                     m_defined: t.BooleanC;
                     m_value: t.BooleanC;
@@ -468,51 +683,82 @@ export declare const StageDataIO: t.TypeC<{
                     m_defined: t.BooleanC;
                     m_value: t.BooleanC;
                 }>;
-                sleepImmune: t.TypeC<{
+                sleepImmune: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
                     m_value: t.BooleanC;
-                }>;
-                frozenImmune: t.TypeC<{
+                }>, t.UndefinedC]>;
+                frozenImmune: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
                     m_value: t.BooleanC;
-                }>;
-                levitateImmune: t.TypeC<{
+                }>, t.UndefinedC]>;
+                levitateImmune: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
                     m_value: t.BooleanC;
-                }>;
+                }>, t.UndefinedC]>;
             }>;
+            applyWay: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
+            }>, t.UndefinedC]>;
+            motion: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
+            }>, t.UndefinedC]>;
+            enemyTags: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            }>, t.UndefinedC]>;
             lifePointReduce: t.TypeC<{
                 m_defined: t.BooleanC;
-                m_value: t.NumberC;
+                m_value: t.UnionC<[t.NumberC, t.NullC]>;
             }>;
+            levelType: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.StringC, t.NullC]>;
+            }>, t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.NumberC, t.NullC]>;
+            }>, t.UndefinedC]>;
             rangeRadius: t.TypeC<{
                 m_defined: t.BooleanC;
-                m_value: t.NumberC;
+                m_value: t.UnionC<[t.NumberC, t.NullC]>;
             }>;
-            talentBlackboard: t.ArrayC<t.TypeC<{
+            numOfExtraDrops: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.NumberC, t.NullC]>;
+            }>, t.UndefinedC]>;
+            viewRadius: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.UnionC<[t.NumberC, t.NullC]>;
+            }>, t.UndefinedC]>;
+            notCountInTotal: t.UnionC<[t.TypeC<{
+                m_defined: t.BooleanC;
+                m_value: t.BooleanC;
+            }>, t.UndefinedC]>;
+            talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
-            skills: t.ArrayC<t.TypeC<{
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            skills: t.UnionC<[t.ArrayC<t.TypeC<{
                 prefabKey: t.StringC;
                 priority: t.NumberC;
                 cooldown: t.NumberC;
                 initCooldown: t.NumberC;
                 spCost: t.NumberC;
-                blackboard: t.ArrayC<t.TypeC<{
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-            }>>;
-            spData: t.TypeC<{
-                spType: t.NumberC;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+            }>>, t.NullC]>;
+            spData: t.UnionC<[t.TypeC<{
+                spType: t.StringC;
                 maxSp: t.NumberC;
                 initSp: t.NumberC;
                 increment: t.NumberC;
-            }>;
-        }>;
+            }>, t.NullC]>;
+        }>, t.NullC]>;
     }>>;
     waves: t.ArrayC<t.TypeC<{
         preDelay: t.NumberC;
@@ -521,7 +767,7 @@ export declare const StageDataIO: t.TypeC<{
         fragments: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
             actions: t.ArrayC<t.TypeC<{
-                actionType: t.NumberC;
+                actionType: t.UnionC<[t.StringC, t.NumberC]>;
                 managedByScheduler: t.BooleanC;
                 key: t.StringC;
                 count: t.NumberC;
@@ -530,114 +776,123 @@ export declare const StageDataIO: t.TypeC<{
                 routeIndex: t.NumberC;
                 blockFragment: t.BooleanC;
                 autoPreviewRoute: t.BooleanC;
+                autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                 isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                hiddenGroup: t.StringC;
-                randomSpawnGroupKey: t.StringC;
-                weight: t.NumberC;
-                dontBlockWave: t.BooleanC;
+                hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>>;
-            name: t.StringC;
         }>>;
+        advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
     }>>;
-    branches: t.TypeC<{
-        frosts: t.TypeC<{
-            phases: t.ArrayC<t.TypeC<{
+    branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+        phases: t.ArrayC<t.TypeC<{
+            preDelay: t.NumberC;
+            actions: t.ArrayC<t.TypeC<{
+                actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                managedByScheduler: t.BooleanC;
+                key: t.StringC;
+                count: t.NumberC;
                 preDelay: t.NumberC;
-                actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
-                    managedByScheduler: t.BooleanC;
-                    key: t.StringC;
-                    count: t.NumberC;
-                    preDelay: t.NumberC;
-                    interval: t.NumberC;
-                    routeIndex: t.NumberC;
-                    blockFragment: t.BooleanC;
-                    autoPreviewRoute: t.BooleanC;
-                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    weightValue: t.NumberC;
-                }>>;
+                interval: t.NumberC;
+                routeIndex: t.NumberC;
+                blockFragment: t.BooleanC;
+                autoPreviewRoute: t.BooleanC;
+                autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>>;
-        }>;
-    }>;
-    predefines: t.TypeC<{
+        }>>;
+    }>>, t.NullC]>;
+    predefines: t.UnionC<[t.TypeC<{
         characterInsts: t.ArrayC<t.AnyC>;
         tokenInsts: t.ArrayC<t.TypeC<{
             position: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
             }>;
-            direction: t.NumberC;
+            direction: t.UnionC<[t.StringC, t.NumberC]>;
             hidden: t.BooleanC;
-            alias: t.StringC;
-            uniEquipIds: t.ArrayC<t.TypeC<{
+            alias: t.UnionC<[t.StringC, t.NullC]>;
+            uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 level: t.NumberC;
-            }>>;
+            }>>, t.NullC, t.UndefinedC]>;
             inst: t.TypeC<{
                 characterKey: t.StringC;
                 level: t.NumberC;
-                phase: t.NumberC;
+                phase: t.UnionC<[t.StringC, t.NumberC]>;
                 favorPoint: t.NumberC;
                 potentialRank: t.NumberC;
             }>;
             skillIndex: t.NumberC;
             mainSkillLvl: t.NumberC;
-            skinId: t.StringC;
-            tmplId: t.StringC;
-            overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+            skinId: t.UnionC<[t.StringC, t.NullC]>;
+            tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>>;
         characterCards: t.ArrayC<t.AnyC>;
         tokenCards: t.ArrayC<t.AnyC>;
-    }>;
-    hardPredefines: t.TypeC<{
+    }>, t.NullC]>;
+    hardPredefines: t.UnionC<[t.TypeC<{
         characterInsts: t.ArrayC<t.AnyC>;
         tokenInsts: t.ArrayC<t.TypeC<{
             position: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
             }>;
-            direction: t.NumberC;
+            direction: t.UnionC<[t.StringC, t.NumberC]>;
             hidden: t.BooleanC;
-            alias: t.StringC;
-            uniEquipIds: t.ArrayC<t.TypeC<{
+            alias: t.UnionC<[t.StringC, t.NullC]>;
+            uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 level: t.NumberC;
-            }>>;
+            }>>, t.NullC, t.UndefinedC]>;
             inst: t.TypeC<{
                 characterKey: t.StringC;
                 level: t.NumberC;
-                phase: t.NumberC;
+                phase: t.UnionC<[t.StringC, t.NumberC]>;
                 favorPoint: t.NumberC;
                 potentialRank: t.NumberC;
             }>;
             skillIndex: t.NumberC;
             mainSkillLvl: t.NumberC;
-            skinId: t.StringC;
-            tmplId: t.StringC;
-            overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+            skinId: t.UnionC<[t.StringC, t.NullC]>;
+            tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>>;
         characterCards: t.ArrayC<t.AnyC>;
         tokenCards: t.ArrayC<t.AnyC>;
-    }>;
+    }>, t.NullC, t.UndefinedC]>;
     excludeCharIdList: t.NullC;
     randomSeed: t.NumberC;
-    operaConfig: t.StringC;
+    operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+    runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
 }>;
 export declare const RogueRelicIO: t.TypeC<{
     id: t.StringC;
     name: t.StringC;
-    description: t.StringC;
+    description: t.UnionC<[t.StringC, t.NullC]>;
     usage: t.StringC;
     obtainApproach: t.StringC;
     iconId: t.StringC;
@@ -647,7 +902,7 @@ export declare const RogueRelicIO: t.TypeC<{
     value: t.NumberC;
     sortId: t.NumberC;
     canSacrifice: t.BooleanC;
-    unlockCondDesc: t.StringC;
+    unlockCondDesc: t.UnionC<[t.StringC, t.NullC]>;
 }>;
 export declare const RogueStageIO: t.TypeC<{
     excel: t.TypeC<{
@@ -658,11 +913,11 @@ export declare const RogueStageIO: t.TypeC<{
         name: t.StringC;
         loadingPicId: t.StringC;
         description: t.StringC;
-        eliteDesc: t.StringC;
+        eliteDesc: t.UnionC<[t.StringC, t.NullC]>;
         isBoss: t.NumberC;
         isElite: t.NumberC;
         difficulty: t.StringC;
-        capsulePool: t.StringC;
+        capsulePool: t.UnionC<[t.StringC, t.NullC]>;
         capsuleProb: t.NumberC;
         vutresProb: t.ArrayC<t.NumberC>;
         boxProb: t.ArrayC<t.NumberC>;
@@ -677,76 +932,81 @@ export declare const RogueStageIO: t.TypeC<{
             moveMultiplier: t.NumberC;
             steeringEnabled: t.BooleanC;
             isTrainingLevel: t.BooleanC;
-            isHardTrainingLevel: t.BooleanC;
-            functionDisableMask: t.NumberC;
+            isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+            functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                key: t.StringC;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>;
-        levelId: t.StringC;
-        mapId: t.StringC;
-        bgmEvent: t.StringC;
-        environmentSe: t.StringC;
+        levelId: t.UnionC<[t.StringC, t.NullC]>;
+        mapId: t.UnionC<[t.StringC, t.NullC]>;
+        bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+        environmentSe: t.UnionC<[t.StringC, t.NullC]>;
         mapData: t.TypeC<{
             map: t.ArrayC<t.ArrayC<t.NumberC>>;
             tiles: t.ArrayC<t.TypeC<{
                 tileKey: t.StringC;
-                heightType: t.NumberC;
-                buildableType: t.NumberC;
-                passableMask: t.NumberC;
-                playerSideMask: t.NumberC;
-                blackboard: t.TypeC<{
+                heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>;
-                effects: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
             }>>;
-            blockEdges: t.NullC;
-            tags: t.ArrayC<t.StringC>;
-            effects: t.ArrayC<t.TypeC<{
+            blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+            tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
-            layerRects: t.ArrayC<t.StringC>;
-            width: t.NumberC;
-            height: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
+            layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
         tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-        runes: t.ArrayC<t.TypeC<{
-            difficultyMask: t.NumberC;
+        runes: t.UnionC<[t.ArrayC<t.TypeC<{
+            difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
             key: t.StringC;
-            professionMask: t.NumberC;
-            buildableMask: t.NumberC;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-        }>>;
-        globalBuffs: t.ArrayC<t.TypeC<{
+        }>>, t.NullC]>;
+        globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
             prefabKey: t.StringC;
-            blackboard: t.ArrayC<t.TypeC<{
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
             overrideCameraEffect: t.NullC;
-            passProfessionMaskFlag: t.BooleanC;
-            professionMask: t.NumberC;
-        }>>;
-        routes: t.ArrayC<t.TypeC<{
-            motionMode: t.NumberC;
+            passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+        routes: t.ArrayC<t.UnionC<[t.TypeC<{
+            motionMode: t.UnionC<[t.StringC, t.NumberC]>;
             startPosition: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
@@ -763,8 +1023,8 @@ export declare const RogueStageIO: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
             }>;
-            checkpoints: t.ArrayC<t.TypeC<{
-                type: t.NumberC;
+            checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                type: t.UnionC<[t.StringC, t.NumberC]>;
                 time: t.NumberC;
                 position: t.TypeC<{
                     row: t.NumberC;
@@ -776,96 +1036,104 @@ export declare const RogueStageIO: t.TypeC<{
                 }>;
                 randomizeReachOffset: t.BooleanC;
                 reachDistance: t.NumberC;
-            }>>;
+            }>>, t.NullC]>;
             allowDiagonalMove: t.BooleanC;
             visitEveryTileCenter: t.BooleanC;
             visitEveryNodeCenter: t.BooleanC;
-            visitEveryCheckPoint: t.BooleanC;
-        }>>;
-        extraRoutes: t.ArrayC<t.AnyC>;
+            visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        }>, t.NullC]>>;
+        extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
         enemies: t.ArrayC<t.AnyC>;
         enemyDbRefs: t.ArrayC<t.TypeC<{
             useDb: t.BooleanC;
             id: t.StringC;
             level: t.NumberC;
-            overwrittenData: t.TypeC<{
+            overwrittenData: t.UnionC<[t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -874,51 +1142,82 @@ export declare const RogueStageIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
+                levelType: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
-            }>;
+                }>, t.NullC]>;
+            }>, t.NullC]>;
         }>>;
         waves: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
@@ -927,7 +1226,7 @@ export declare const RogueStageIO: t.TypeC<{
             fragments: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
                 actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
                     managedByScheduler: t.BooleanC;
                     key: t.StringC;
                     count: t.NumberC;
@@ -936,109 +1235,118 @@ export declare const RogueStageIO: t.TypeC<{
                     routeIndex: t.NumberC;
                     blockFragment: t.BooleanC;
                     autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                     isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    dontBlockWave: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-                name: t.StringC;
             }>>;
+            advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-        branches: t.TypeC<{
-            frosts: t.TypeC<{
-                phases: t.ArrayC<t.TypeC<{
+        branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+            phases: t.ArrayC<t.TypeC<{
+                preDelay: t.NumberC;
+                actions: t.ArrayC<t.TypeC<{
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                    managedByScheduler: t.BooleanC;
+                    key: t.StringC;
+                    count: t.NumberC;
                     preDelay: t.NumberC;
-                    actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
-                        managedByScheduler: t.BooleanC;
-                        key: t.StringC;
-                        count: t.NumberC;
-                        preDelay: t.NumberC;
-                        interval: t.NumberC;
-                        routeIndex: t.NumberC;
-                        blockFragment: t.BooleanC;
-                        autoPreviewRoute: t.BooleanC;
-                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        weightValue: t.NumberC;
-                    }>>;
+                    interval: t.NumberC;
+                    routeIndex: t.NumberC;
+                    blockFragment: t.BooleanC;
+                    autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-            }>;
-        }>;
-        predefines: t.TypeC<{
+            }>>;
+        }>>, t.NullC]>;
+        predefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
-        hardPredefines: t.TypeC<{
+        }>, t.NullC]>;
+        hardPredefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
+        }>, t.NullC, t.UndefinedC]>;
         excludeCharIdList: t.NullC;
         randomSeed: t.NumberC;
-        operaConfig: t.StringC;
+        operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
 }>;
 export declare const RogueVariationIO: t.TypeC<{
@@ -1048,8 +1356,8 @@ export declare const RogueVariationIO: t.TypeC<{
     innerName: t.StringC;
     functionDesc: t.StringC;
     desc: t.StringC;
-    iconId: t.StringC;
-    sound: t.StringC;
+    iconId: t.UnionC<[t.StringC, t.NullC]>;
+    sound: t.UnionC<[t.StringC, t.NullC]>;
 }>;
 export declare const SandboxStageIO: t.TypeC<{
     excel: t.TypeC<{
@@ -1072,76 +1380,81 @@ export declare const SandboxStageIO: t.TypeC<{
             moveMultiplier: t.NumberC;
             steeringEnabled: t.BooleanC;
             isTrainingLevel: t.BooleanC;
-            isHardTrainingLevel: t.BooleanC;
-            functionDisableMask: t.NumberC;
+            isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+            functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                key: t.StringC;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>;
-        levelId: t.StringC;
-        mapId: t.StringC;
-        bgmEvent: t.StringC;
-        environmentSe: t.StringC;
+        levelId: t.UnionC<[t.StringC, t.NullC]>;
+        mapId: t.UnionC<[t.StringC, t.NullC]>;
+        bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+        environmentSe: t.UnionC<[t.StringC, t.NullC]>;
         mapData: t.TypeC<{
             map: t.ArrayC<t.ArrayC<t.NumberC>>;
             tiles: t.ArrayC<t.TypeC<{
                 tileKey: t.StringC;
-                heightType: t.NumberC;
-                buildableType: t.NumberC;
-                passableMask: t.NumberC;
-                playerSideMask: t.NumberC;
-                blackboard: t.TypeC<{
+                heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>;
-                effects: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
             }>>;
-            blockEdges: t.NullC;
-            tags: t.ArrayC<t.StringC>;
-            effects: t.ArrayC<t.TypeC<{
+            blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+            tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
-            layerRects: t.ArrayC<t.StringC>;
-            width: t.NumberC;
-            height: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
+            layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
         tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-        runes: t.ArrayC<t.TypeC<{
-            difficultyMask: t.NumberC;
+        runes: t.UnionC<[t.ArrayC<t.TypeC<{
+            difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
             key: t.StringC;
-            professionMask: t.NumberC;
-            buildableMask: t.NumberC;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-        }>>;
-        globalBuffs: t.ArrayC<t.TypeC<{
+        }>>, t.NullC]>;
+        globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
             prefabKey: t.StringC;
-            blackboard: t.ArrayC<t.TypeC<{
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
             overrideCameraEffect: t.NullC;
-            passProfessionMaskFlag: t.BooleanC;
-            professionMask: t.NumberC;
-        }>>;
-        routes: t.ArrayC<t.TypeC<{
-            motionMode: t.NumberC;
+            passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+        routes: t.ArrayC<t.UnionC<[t.TypeC<{
+            motionMode: t.UnionC<[t.StringC, t.NumberC]>;
             startPosition: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
@@ -1158,8 +1471,8 @@ export declare const SandboxStageIO: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
             }>;
-            checkpoints: t.ArrayC<t.TypeC<{
-                type: t.NumberC;
+            checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                type: t.UnionC<[t.StringC, t.NumberC]>;
                 time: t.NumberC;
                 position: t.TypeC<{
                     row: t.NumberC;
@@ -1171,96 +1484,104 @@ export declare const SandboxStageIO: t.TypeC<{
                 }>;
                 randomizeReachOffset: t.BooleanC;
                 reachDistance: t.NumberC;
-            }>>;
+            }>>, t.NullC]>;
             allowDiagonalMove: t.BooleanC;
             visitEveryTileCenter: t.BooleanC;
             visitEveryNodeCenter: t.BooleanC;
-            visitEveryCheckPoint: t.BooleanC;
-        }>>;
-        extraRoutes: t.ArrayC<t.AnyC>;
+            visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        }>, t.NullC]>>;
+        extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
         enemies: t.ArrayC<t.AnyC>;
         enemyDbRefs: t.ArrayC<t.TypeC<{
             useDb: t.BooleanC;
             id: t.StringC;
             level: t.NumberC;
-            overwrittenData: t.TypeC<{
+            overwrittenData: t.UnionC<[t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -1269,51 +1590,82 @@ export declare const SandboxStageIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
+                levelType: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
-            }>;
+                }>, t.NullC]>;
+            }>, t.NullC]>;
         }>>;
         waves: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
@@ -1322,7 +1674,7 @@ export declare const SandboxStageIO: t.TypeC<{
             fragments: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
                 actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
                     managedByScheduler: t.BooleanC;
                     key: t.StringC;
                     count: t.NumberC;
@@ -1331,109 +1683,118 @@ export declare const SandboxStageIO: t.TypeC<{
                     routeIndex: t.NumberC;
                     blockFragment: t.BooleanC;
                     autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                     isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    dontBlockWave: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-                name: t.StringC;
             }>>;
+            advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-        branches: t.TypeC<{
-            frosts: t.TypeC<{
-                phases: t.ArrayC<t.TypeC<{
+        branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+            phases: t.ArrayC<t.TypeC<{
+                preDelay: t.NumberC;
+                actions: t.ArrayC<t.TypeC<{
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                    managedByScheduler: t.BooleanC;
+                    key: t.StringC;
+                    count: t.NumberC;
                     preDelay: t.NumberC;
-                    actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
-                        managedByScheduler: t.BooleanC;
-                        key: t.StringC;
-                        count: t.NumberC;
-                        preDelay: t.NumberC;
-                        interval: t.NumberC;
-                        routeIndex: t.NumberC;
-                        blockFragment: t.BooleanC;
-                        autoPreviewRoute: t.BooleanC;
-                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        weightValue: t.NumberC;
-                    }>>;
+                    interval: t.NumberC;
+                    routeIndex: t.NumberC;
+                    blockFragment: t.BooleanC;
+                    autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-            }>;
-        }>;
-        predefines: t.TypeC<{
+            }>>;
+        }>>, t.NullC]>;
+        predefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
-        hardPredefines: t.TypeC<{
+        }>, t.NullC]>;
+        hardPredefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
+        }>, t.NullC, t.UndefinedC]>;
         excludeCharIdList: t.NullC;
         randomSeed: t.NumberC;
-        operaConfig: t.StringC;
+        operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
 }>;
 export declare const BaseIO: t.TypeC<{
@@ -1465,76 +1826,81 @@ export declare const CCStageIO: t.TypeC<{
             moveMultiplier: t.NumberC;
             steeringEnabled: t.BooleanC;
             isTrainingLevel: t.BooleanC;
-            isHardTrainingLevel: t.BooleanC;
-            functionDisableMask: t.NumberC;
+            isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+            functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                key: t.StringC;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>;
-        levelId: t.StringC;
-        mapId: t.StringC;
-        bgmEvent: t.StringC;
-        environmentSe: t.StringC;
+        levelId: t.UnionC<[t.StringC, t.NullC]>;
+        mapId: t.UnionC<[t.StringC, t.NullC]>;
+        bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+        environmentSe: t.UnionC<[t.StringC, t.NullC]>;
         mapData: t.TypeC<{
             map: t.ArrayC<t.ArrayC<t.NumberC>>;
             tiles: t.ArrayC<t.TypeC<{
                 tileKey: t.StringC;
-                heightType: t.NumberC;
-                buildableType: t.NumberC;
-                passableMask: t.NumberC;
-                playerSideMask: t.NumberC;
-                blackboard: t.TypeC<{
+                heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>;
-                effects: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
             }>>;
-            blockEdges: t.NullC;
-            tags: t.ArrayC<t.StringC>;
-            effects: t.ArrayC<t.TypeC<{
+            blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+            tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
-            layerRects: t.ArrayC<t.StringC>;
-            width: t.NumberC;
-            height: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
+            layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
         tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-        runes: t.ArrayC<t.TypeC<{
-            difficultyMask: t.NumberC;
+        runes: t.UnionC<[t.ArrayC<t.TypeC<{
+            difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
             key: t.StringC;
-            professionMask: t.NumberC;
-            buildableMask: t.NumberC;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-        }>>;
-        globalBuffs: t.ArrayC<t.TypeC<{
+        }>>, t.NullC]>;
+        globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
             prefabKey: t.StringC;
-            blackboard: t.ArrayC<t.TypeC<{
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
             overrideCameraEffect: t.NullC;
-            passProfessionMaskFlag: t.BooleanC;
-            professionMask: t.NumberC;
-        }>>;
-        routes: t.ArrayC<t.TypeC<{
-            motionMode: t.NumberC;
+            passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+        routes: t.ArrayC<t.UnionC<[t.TypeC<{
+            motionMode: t.UnionC<[t.StringC, t.NumberC]>;
             startPosition: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
@@ -1551,8 +1917,8 @@ export declare const CCStageIO: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
             }>;
-            checkpoints: t.ArrayC<t.TypeC<{
-                type: t.NumberC;
+            checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                type: t.UnionC<[t.StringC, t.NumberC]>;
                 time: t.NumberC;
                 position: t.TypeC<{
                     row: t.NumberC;
@@ -1564,96 +1930,104 @@ export declare const CCStageIO: t.TypeC<{
                 }>;
                 randomizeReachOffset: t.BooleanC;
                 reachDistance: t.NumberC;
-            }>>;
+            }>>, t.NullC]>;
             allowDiagonalMove: t.BooleanC;
             visitEveryTileCenter: t.BooleanC;
             visitEveryNodeCenter: t.BooleanC;
-            visitEveryCheckPoint: t.BooleanC;
-        }>>;
-        extraRoutes: t.ArrayC<t.AnyC>;
+            visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        }>, t.NullC]>>;
+        extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
         enemies: t.ArrayC<t.AnyC>;
         enemyDbRefs: t.ArrayC<t.TypeC<{
             useDb: t.BooleanC;
             id: t.StringC;
             level: t.NumberC;
-            overwrittenData: t.TypeC<{
+            overwrittenData: t.UnionC<[t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -1662,51 +2036,82 @@ export declare const CCStageIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
+                levelType: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
-            }>;
+                }>, t.NullC]>;
+            }>, t.NullC]>;
         }>>;
         waves: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
@@ -1715,7 +2120,7 @@ export declare const CCStageIO: t.TypeC<{
             fragments: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
                 actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
                     managedByScheduler: t.BooleanC;
                     key: t.StringC;
                     count: t.NumberC;
@@ -1724,109 +2129,118 @@ export declare const CCStageIO: t.TypeC<{
                     routeIndex: t.NumberC;
                     blockFragment: t.BooleanC;
                     autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                     isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    dontBlockWave: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-                name: t.StringC;
             }>>;
+            advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-        branches: t.TypeC<{
-            frosts: t.TypeC<{
-                phases: t.ArrayC<t.TypeC<{
+        branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+            phases: t.ArrayC<t.TypeC<{
+                preDelay: t.NumberC;
+                actions: t.ArrayC<t.TypeC<{
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                    managedByScheduler: t.BooleanC;
+                    key: t.StringC;
+                    count: t.NumberC;
                     preDelay: t.NumberC;
-                    actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
-                        managedByScheduler: t.BooleanC;
-                        key: t.StringC;
-                        count: t.NumberC;
-                        preDelay: t.NumberC;
-                        interval: t.NumberC;
-                        routeIndex: t.NumberC;
-                        blockFragment: t.BooleanC;
-                        autoPreviewRoute: t.BooleanC;
-                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        weightValue: t.NumberC;
-                    }>>;
+                    interval: t.NumberC;
+                    routeIndex: t.NumberC;
+                    blockFragment: t.BooleanC;
+                    autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-            }>;
-        }>;
-        predefines: t.TypeC<{
+            }>>;
+        }>>, t.NullC]>;
+        predefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
-        hardPredefines: t.TypeC<{
+        }>, t.NullC]>;
+        hardPredefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
+        }>, t.NullC, t.UndefinedC]>;
         excludeCharIdList: t.NullC;
         randomSeed: t.NumberC;
-        operaConfig: t.StringC;
+        operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
 }>;
 export declare const DefinitionIO: t.TypeC<{
@@ -1838,18 +2252,13 @@ export declare const EnemyIO: t.TypeC<{
     excel: t.TypeC<{
         enemyId: t.StringC;
         enemyIndex: t.StringC;
-        enemyTags: t.ArrayC<t.StringC>;
+        enemyTags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
         sortId: t.NumberC;
         name: t.StringC;
-        enemyRace: t.StringC;
         enemyLevel: t.StringC;
         description: t.StringC;
-        attackType: t.StringC;
-        endure: t.StringC;
-        attack: t.StringC;
-        defence: t.StringC;
-        resistance: t.StringC;
-        ability: t.StringC;
+        attackType: t.NullC;
+        ability: t.NullC;
         isInvalidKilled: t.BooleanC;
         overrideKillCntInfos: t.RecordC<t.StringC, t.AnyC>;
         hideInHandbook: t.BooleanC;
@@ -1861,81 +2270,89 @@ export declare const EnemyIO: t.TypeC<{
             enemyData: t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.StringC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.StringC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.StringC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -1944,58 +2361,81 @@ export declare const EnemyIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                levelType: t.TypeC<{
+                levelType: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
-                }>;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                numOfExtraDrops: t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
-                }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
+                }>, t.NullC]>;
             }>;
         }>>;
     }>;
@@ -2010,22 +2450,22 @@ export declare const GameEventIO: t.TypeC<{
     rewardEndTime: t.NumberC;
     displayOnHome: t.BooleanC;
     hasStage: t.BooleanC;
-    templateShopId: t.StringC;
-    medalGroupId: t.StringC;
+    templateShopId: t.UnionC<[t.StringC, t.NullC]>;
+    medalGroupId: t.UnionC<[t.StringC, t.NullC]>;
     isReplicate: t.BooleanC;
 }>;
 export declare const ItemIO: t.TypeC<{
     data: t.TypeC<{
         itemId: t.StringC;
         name: t.StringC;
-        description: t.StringC;
-        rarity: t.NumberC;
+        description: t.UnionC<[t.StringC, t.NullC]>;
+        rarity: t.StringC;
         iconId: t.StringC;
         overrideBkg: t.NullC;
-        stackIconId: t.StringC;
+        stackIconId: t.UnionC<[t.StringC, t.NullC]>;
         sortId: t.NumberC;
-        usage: t.StringC;
-        obtainApproach: t.StringC;
+        usage: t.UnionC<[t.StringC, t.NullC]>;
+        obtainApproach: t.UnionC<[t.StringC, t.NullC]>;
         classifyType: t.StringC;
         itemType: t.StringC;
         stageDropList: t.ArrayC<t.TypeC<{
@@ -2089,7 +2529,7 @@ export declare const ItemIO: t.TypeC<{
             stageId: t.StringC;
             rank: t.NumberC;
         }>>;
-    }>]>;
+    }>, t.NullC]>;
 }>;
 export declare const ModuleIO: t.TypeC<{
     info: t.TypeC<{
@@ -2099,84 +2539,84 @@ export declare const ModuleIO: t.TypeC<{
         uniEquipDesc: t.StringC;
         typeIcon: t.StringC;
         typeName1: t.StringC;
-        typeName2: t.StringC;
+        typeName2: t.UnionC<[t.StringC, t.NullC]>;
         equipShiningColor: t.StringC;
-        showEvolvePhase: t.NumberC;
-        unlockEvolvePhase: t.NumberC;
+        showEvolvePhase: t.StringC;
+        unlockEvolvePhase: t.StringC;
         charId: t.StringC;
-        tmplId: t.StringC;
+        tmplId: t.UnionC<[t.StringC, t.NullC]>;
         showLevel: t.NumberC;
         unlockLevel: t.NumberC;
         unlockFavorPoint: t.NumberC;
         missionList: t.ArrayC<t.StringC>;
-        itemCost: t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
+        itemCost: t.UnionC<[t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
             id: t.StringC;
             count: t.NumberC;
             type: t.StringC;
-        }>>>;
+        }>>>, t.NullC]>;
         type: t.StringC;
         uniEquipGetTime: t.NumberC;
         charEquipOrder: t.NumberC;
     }>;
-    data: t.TypeC<{
+    data: t.UnionC<[t.TypeC<{
         phases: t.ArrayC<t.TypeC<{
             equipLevel: t.NumberC;
             parts: t.ArrayC<t.TypeC<{
-                resKey: t.StringC;
+                resKey: t.UnionC<[t.StringC, t.NullC]>;
                 target: t.StringC;
                 isToken: t.BooleanC;
                 addOrOverrideTalentDataBundle: t.TypeC<{
-                    candidates: t.ArrayC<t.TypeC<{
+                    candidates: t.UnionC<[t.ArrayC<t.TypeC<{
                         displayRangeId: t.BooleanC;
                         upgradeDescription: t.StringC;
                         talentIndex: t.NumberC;
                         unlockCondition: t.TypeC<{
-                            phase: t.StringC;
+                            phase: t.UnionC<[t.StringC, t.NumberC]>;
                             level: t.NumberC;
                         }>;
                         requiredPotentialRank: t.NumberC;
                         prefabKey: t.StringC;
-                        name: t.StringC;
-                        description: t.StringC;
-                        rangeId: t.StringC;
+                        name: t.UnionC<[t.StringC, t.NullC]>;
+                        description: t.UnionC<[t.StringC, t.NullC]>;
+                        rangeId: t.UnionC<[t.StringC, t.NullC]>;
                         blackboard: t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                         }>>;
-                    }>>;
+                    }>>, t.NullC]>;
                 }>;
                 overrideTraitDataBundle: t.TypeC<{
-                    candidates: t.ArrayC<t.TypeC<{
-                        additionalDescription: t.StringC;
+                    candidates: t.UnionC<[t.ArrayC<t.TypeC<{
+                        additionalDescription: t.UnionC<[t.StringC, t.NullC]>;
                         unlockCondition: t.TypeC<{
-                            phase: t.StringC;
+                            phase: t.UnionC<[t.StringC, t.NumberC]>;
                             level: t.NumberC;
                         }>;
                         requiredPotentialRank: t.NumberC;
                         blackboard: t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                         }>>;
-                        overrideDescripton: t.StringC;
-                        prefabKey: t.StringC;
-                        rangeId: t.StringC;
-                    }>>;
+                        overrideDescripton: t.UnionC<[t.StringC, t.NullC]>;
+                        prefabKey: t.UnionC<[t.StringC, t.NullC]>;
+                        rangeId: t.UnionC<[t.StringC, t.NullC]>;
+                    }>>, t.NullC]>;
                 }>;
             }>>;
             attributeBlackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
             tokenAttributeBlackboard: t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>>;
         }>>;
-    }>;
+    }>, t.NullC]>;
 }>;
 export declare const ParadoxIO: t.TypeC<{
     excel: t.TypeC<{
@@ -2189,7 +2629,7 @@ export declare const ParadoxIO: t.TypeC<{
         loadingPicId: t.StringC;
         description: t.StringC;
         unlockParam: t.ArrayC<t.TypeC<{
-            unlockType: t.NumberC;
+            unlockType: t.StringC;
             unlockParam1: t.StringC;
             unlockParam2: t.StringC;
             unlockParam3: t.NullC;
@@ -2214,76 +2654,81 @@ export declare const ParadoxIO: t.TypeC<{
             moveMultiplier: t.NumberC;
             steeringEnabled: t.BooleanC;
             isTrainingLevel: t.BooleanC;
-            isHardTrainingLevel: t.BooleanC;
-            functionDisableMask: t.NumberC;
+            isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+            functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                key: t.StringC;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>;
-        levelId: t.StringC;
-        mapId: t.StringC;
-        bgmEvent: t.StringC;
-        environmentSe: t.StringC;
+        levelId: t.UnionC<[t.StringC, t.NullC]>;
+        mapId: t.UnionC<[t.StringC, t.NullC]>;
+        bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+        environmentSe: t.UnionC<[t.StringC, t.NullC]>;
         mapData: t.TypeC<{
             map: t.ArrayC<t.ArrayC<t.NumberC>>;
             tiles: t.ArrayC<t.TypeC<{
                 tileKey: t.StringC;
-                heightType: t.NumberC;
-                buildableType: t.NumberC;
-                passableMask: t.NumberC;
-                playerSideMask: t.NumberC;
-                blackboard: t.TypeC<{
+                heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>;
-                effects: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
             }>>;
-            blockEdges: t.NullC;
-            tags: t.ArrayC<t.StringC>;
-            effects: t.ArrayC<t.TypeC<{
+            blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+            tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
-            layerRects: t.ArrayC<t.StringC>;
-            width: t.NumberC;
-            height: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
+            layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
         tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-        runes: t.ArrayC<t.TypeC<{
-            difficultyMask: t.NumberC;
+        runes: t.UnionC<[t.ArrayC<t.TypeC<{
+            difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
             key: t.StringC;
-            professionMask: t.NumberC;
-            buildableMask: t.NumberC;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-        }>>;
-        globalBuffs: t.ArrayC<t.TypeC<{
+        }>>, t.NullC]>;
+        globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
             prefabKey: t.StringC;
-            blackboard: t.ArrayC<t.TypeC<{
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
             overrideCameraEffect: t.NullC;
-            passProfessionMaskFlag: t.BooleanC;
-            professionMask: t.NumberC;
-        }>>;
-        routes: t.ArrayC<t.TypeC<{
-            motionMode: t.NumberC;
+            passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+        routes: t.ArrayC<t.UnionC<[t.TypeC<{
+            motionMode: t.UnionC<[t.StringC, t.NumberC]>;
             startPosition: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
@@ -2300,8 +2745,8 @@ export declare const ParadoxIO: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
             }>;
-            checkpoints: t.ArrayC<t.TypeC<{
-                type: t.NumberC;
+            checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                type: t.UnionC<[t.StringC, t.NumberC]>;
                 time: t.NumberC;
                 position: t.TypeC<{
                     row: t.NumberC;
@@ -2313,96 +2758,104 @@ export declare const ParadoxIO: t.TypeC<{
                 }>;
                 randomizeReachOffset: t.BooleanC;
                 reachDistance: t.NumberC;
-            }>>;
+            }>>, t.NullC]>;
             allowDiagonalMove: t.BooleanC;
             visitEveryTileCenter: t.BooleanC;
             visitEveryNodeCenter: t.BooleanC;
-            visitEveryCheckPoint: t.BooleanC;
-        }>>;
-        extraRoutes: t.ArrayC<t.AnyC>;
+            visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        }>, t.NullC]>>;
+        extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
         enemies: t.ArrayC<t.AnyC>;
         enemyDbRefs: t.ArrayC<t.TypeC<{
             useDb: t.BooleanC;
             id: t.StringC;
             level: t.NumberC;
-            overwrittenData: t.TypeC<{
+            overwrittenData: t.UnionC<[t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -2411,51 +2864,82 @@ export declare const ParadoxIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
+                levelType: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
-            }>;
+                }>, t.NullC]>;
+            }>, t.NullC]>;
         }>>;
         waves: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
@@ -2464,7 +2948,7 @@ export declare const ParadoxIO: t.TypeC<{
             fragments: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
                 actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
                     managedByScheduler: t.BooleanC;
                     key: t.StringC;
                     count: t.NumberC;
@@ -2473,109 +2957,118 @@ export declare const ParadoxIO: t.TypeC<{
                     routeIndex: t.NumberC;
                     blockFragment: t.BooleanC;
                     autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                     isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    dontBlockWave: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-                name: t.StringC;
             }>>;
+            advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-        branches: t.TypeC<{
-            frosts: t.TypeC<{
-                phases: t.ArrayC<t.TypeC<{
+        branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+            phases: t.ArrayC<t.TypeC<{
+                preDelay: t.NumberC;
+                actions: t.ArrayC<t.TypeC<{
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                    managedByScheduler: t.BooleanC;
+                    key: t.StringC;
+                    count: t.NumberC;
                     preDelay: t.NumberC;
-                    actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
-                        managedByScheduler: t.BooleanC;
-                        key: t.StringC;
-                        count: t.NumberC;
-                        preDelay: t.NumberC;
-                        interval: t.NumberC;
-                        routeIndex: t.NumberC;
-                        blockFragment: t.BooleanC;
-                        autoPreviewRoute: t.BooleanC;
-                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        weightValue: t.NumberC;
-                    }>>;
+                    interval: t.NumberC;
+                    routeIndex: t.NumberC;
+                    blockFragment: t.BooleanC;
+                    autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-            }>;
-        }>;
-        predefines: t.TypeC<{
+            }>>;
+        }>>, t.NullC]>;
+        predefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
-        hardPredefines: t.TypeC<{
+        }>, t.NullC]>;
+        hardPredefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
+        }>, t.NullC, t.UndefinedC]>;
         excludeCharIdList: t.NullC;
         randomSeed: t.NumberC;
-        operaConfig: t.StringC;
+        operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
 }>;
 export declare const RogueThemeIO: t.TypeC<{
@@ -2589,11 +3082,11 @@ export declare const RogueThemeIO: t.TypeC<{
             name: t.StringC;
             loadingPicId: t.StringC;
             description: t.StringC;
-            eliteDesc: t.StringC;
+            eliteDesc: t.UnionC<[t.StringC, t.NullC]>;
             isBoss: t.NumberC;
             isElite: t.NumberC;
             difficulty: t.StringC;
-            capsulePool: t.StringC;
+            capsulePool: t.UnionC<[t.StringC, t.NullC]>;
             capsuleProb: t.NumberC;
             vutresProb: t.ArrayC<t.NumberC>;
             boxProb: t.ArrayC<t.NumberC>;
@@ -2608,76 +3101,81 @@ export declare const RogueThemeIO: t.TypeC<{
                 moveMultiplier: t.NumberC;
                 steeringEnabled: t.BooleanC;
                 isTrainingLevel: t.BooleanC;
-                isHardTrainingLevel: t.BooleanC;
-                functionDisableMask: t.NumberC;
+                isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                    key: t.StringC;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>;
-            levelId: t.StringC;
-            mapId: t.StringC;
-            bgmEvent: t.StringC;
-            environmentSe: t.StringC;
+            levelId: t.UnionC<[t.StringC, t.NullC]>;
+            mapId: t.UnionC<[t.StringC, t.NullC]>;
+            bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+            environmentSe: t.UnionC<[t.StringC, t.NullC]>;
             mapData: t.TypeC<{
                 map: t.ArrayC<t.ArrayC<t.NumberC>>;
                 tiles: t.ArrayC<t.TypeC<{
                     tileKey: t.StringC;
-                    heightType: t.NumberC;
-                    buildableType: t.NumberC;
-                    passableMask: t.NumberC;
-                    playerSideMask: t.NumberC;
-                    blackboard: t.TypeC<{
+                    heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                    buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                    passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                    playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>;
-                    effects: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    effects: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         offset: t.TypeC<{
                             x: t.NumberC;
                             y: t.NumberC;
                             z: t.NumberC;
                         }>;
-                        direction: t.NumberC;
-                    }>>;
+                        direction: t.UnionC<[t.StringC, t.NumberC]>;
+                    }>>, t.NullC]>;
                 }>>;
-                blockEdges: t.NullC;
-                tags: t.ArrayC<t.StringC>;
-                effects: t.ArrayC<t.TypeC<{
+                blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+                tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
-                layerRects: t.ArrayC<t.StringC>;
-                width: t.NumberC;
-                height: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
+                layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>;
             tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-            runes: t.ArrayC<t.TypeC<{
-                difficultyMask: t.NumberC;
+            runes: t.UnionC<[t.ArrayC<t.TypeC<{
+                difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
                 key: t.StringC;
-                professionMask: t.NumberC;
-                buildableMask: t.NumberC;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
-            }>>;
-            globalBuffs: t.ArrayC<t.TypeC<{
+            }>>, t.NullC]>;
+            globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
                 prefabKey: t.StringC;
-                blackboard: t.ArrayC<t.TypeC<{
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
                 overrideCameraEffect: t.NullC;
-                passProfessionMaskFlag: t.BooleanC;
-                professionMask: t.NumberC;
-            }>>;
-            routes: t.ArrayC<t.TypeC<{
-                motionMode: t.NumberC;
+                passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            routes: t.ArrayC<t.UnionC<[t.TypeC<{
+                motionMode: t.UnionC<[t.StringC, t.NumberC]>;
                 startPosition: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
@@ -2694,8 +3192,8 @@ export declare const RogueThemeIO: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                 }>;
-                checkpoints: t.ArrayC<t.TypeC<{
-                    type: t.NumberC;
+                checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                    type: t.UnionC<[t.StringC, t.NumberC]>;
                     time: t.NumberC;
                     position: t.TypeC<{
                         row: t.NumberC;
@@ -2707,96 +3205,104 @@ export declare const RogueThemeIO: t.TypeC<{
                     }>;
                     randomizeReachOffset: t.BooleanC;
                     reachDistance: t.NumberC;
-                }>>;
+                }>>, t.NullC]>;
                 allowDiagonalMove: t.BooleanC;
                 visitEveryTileCenter: t.BooleanC;
                 visitEveryNodeCenter: t.BooleanC;
-                visitEveryCheckPoint: t.BooleanC;
-            }>>;
-            extraRoutes: t.ArrayC<t.AnyC>;
+                visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            }>, t.NullC]>>;
+            extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
             enemies: t.ArrayC<t.AnyC>;
             enemyDbRefs: t.ArrayC<t.TypeC<{
                 useDb: t.BooleanC;
                 id: t.StringC;
                 level: t.NumberC;
-                overwrittenData: t.TypeC<{
+                overwrittenData: t.UnionC<[t.TypeC<{
                     name: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     description: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     prefabKey: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     attributes: t.TypeC<{
                         maxHp: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         atk: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         def: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         magicResistance: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         cost: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         blockCnt: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         moveSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         attackSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseAttackTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         respawnTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         hpRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         spRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         maxDeployCount: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         massLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseForceLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
-                        tauntLevel: t.TypeC<{
+                        tauntLevel: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
-                        }>;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epDamageResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
                         stunImmune: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
@@ -2805,51 +3311,82 @@ export declare const RogueThemeIO: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
                         }>;
-                        sleepImmune: t.TypeC<{
+                        sleepImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        frozenImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        frozenImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        levitateImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        levitateImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
+                        }>, t.UndefinedC]>;
                     }>;
+                    applyWay: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    motion: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    enemyTags: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     lifePointReduce: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
+                    levelType: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     rangeRadius: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    talentBlackboard: t.ArrayC<t.TypeC<{
+                    numOfExtraDrops: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    viewRadius: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    notCountInTotal: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.BooleanC;
+                    }>, t.UndefinedC]>;
+                    talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                    skills: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    skills: t.UnionC<[t.ArrayC<t.TypeC<{
                         prefabKey: t.StringC;
                         priority: t.NumberC;
                         cooldown: t.NumberC;
                         initCooldown: t.NumberC;
                         spCost: t.NumberC;
-                        blackboard: t.ArrayC<t.TypeC<{
+                        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                        }>>;
-                    }>>;
-                    spData: t.TypeC<{
-                        spType: t.NumberC;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        }>>, t.NullC]>;
+                    }>>, t.NullC]>;
+                    spData: t.UnionC<[t.TypeC<{
+                        spType: t.StringC;
                         maxSp: t.NumberC;
                         initSp: t.NumberC;
                         increment: t.NumberC;
-                    }>;
-                }>;
+                    }>, t.NullC]>;
+                }>, t.NullC]>;
             }>>;
             waves: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
@@ -2858,7 +3395,7 @@ export declare const RogueThemeIO: t.TypeC<{
                 fragments: t.ArrayC<t.TypeC<{
                     preDelay: t.NumberC;
                     actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
                         managedByScheduler: t.BooleanC;
                         key: t.StringC;
                         count: t.NumberC;
@@ -2867,109 +3404,118 @@ export declare const RogueThemeIO: t.TypeC<{
                         routeIndex: t.NumberC;
                         blockFragment: t.BooleanC;
                         autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                         isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        dontBlockWave: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                    name: t.StringC;
                 }>>;
+                advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-            branches: t.TypeC<{
-                frosts: t.TypeC<{
-                    phases: t.ArrayC<t.TypeC<{
+            branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+                phases: t.ArrayC<t.TypeC<{
+                    preDelay: t.NumberC;
+                    actions: t.ArrayC<t.TypeC<{
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                        managedByScheduler: t.BooleanC;
+                        key: t.StringC;
+                        count: t.NumberC;
                         preDelay: t.NumberC;
-                        actions: t.ArrayC<t.TypeC<{
-                            actionType: t.NumberC;
-                            managedByScheduler: t.BooleanC;
-                            key: t.StringC;
-                            count: t.NumberC;
-                            preDelay: t.NumberC;
-                            interval: t.NumberC;
-                            routeIndex: t.NumberC;
-                            blockFragment: t.BooleanC;
-                            autoPreviewRoute: t.BooleanC;
-                            isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                            hiddenGroup: t.StringC;
-                            randomSpawnGroupKey: t.StringC;
-                            weight: t.NumberC;
-                            weightValue: t.NumberC;
-                        }>>;
+                        interval: t.NumberC;
+                        routeIndex: t.NumberC;
+                        blockFragment: t.BooleanC;
+                        autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                }>;
-            }>;
-            predefines: t.TypeC<{
+                }>>;
+            }>>, t.NullC]>;
+            predefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
-            hardPredefines: t.TypeC<{
+            }>, t.NullC]>;
+            hardPredefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
+            }>, t.NullC, t.UndefinedC]>;
             excludeCharIdList: t.NullC;
             randomSeed: t.NumberC;
-            operaConfig: t.StringC;
+            operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
     }>>;
     toughStageDict: t.RecordC<t.StringC, t.TypeC<{
@@ -2981,11 +3527,11 @@ export declare const RogueThemeIO: t.TypeC<{
             name: t.StringC;
             loadingPicId: t.StringC;
             description: t.StringC;
-            eliteDesc: t.StringC;
+            eliteDesc: t.UnionC<[t.StringC, t.NullC]>;
             isBoss: t.NumberC;
             isElite: t.NumberC;
             difficulty: t.StringC;
-            capsulePool: t.StringC;
+            capsulePool: t.UnionC<[t.StringC, t.NullC]>;
             capsuleProb: t.NumberC;
             vutresProb: t.ArrayC<t.NumberC>;
             boxProb: t.ArrayC<t.NumberC>;
@@ -3000,76 +3546,81 @@ export declare const RogueThemeIO: t.TypeC<{
                 moveMultiplier: t.NumberC;
                 steeringEnabled: t.BooleanC;
                 isTrainingLevel: t.BooleanC;
-                isHardTrainingLevel: t.BooleanC;
-                functionDisableMask: t.NumberC;
+                isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                    key: t.StringC;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>;
-            levelId: t.StringC;
-            mapId: t.StringC;
-            bgmEvent: t.StringC;
-            environmentSe: t.StringC;
+            levelId: t.UnionC<[t.StringC, t.NullC]>;
+            mapId: t.UnionC<[t.StringC, t.NullC]>;
+            bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+            environmentSe: t.UnionC<[t.StringC, t.NullC]>;
             mapData: t.TypeC<{
                 map: t.ArrayC<t.ArrayC<t.NumberC>>;
                 tiles: t.ArrayC<t.TypeC<{
                     tileKey: t.StringC;
-                    heightType: t.NumberC;
-                    buildableType: t.NumberC;
-                    passableMask: t.NumberC;
-                    playerSideMask: t.NumberC;
-                    blackboard: t.TypeC<{
+                    heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                    buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                    passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                    playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>;
-                    effects: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    effects: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         offset: t.TypeC<{
                             x: t.NumberC;
                             y: t.NumberC;
                             z: t.NumberC;
                         }>;
-                        direction: t.NumberC;
-                    }>>;
+                        direction: t.UnionC<[t.StringC, t.NumberC]>;
+                    }>>, t.NullC]>;
                 }>>;
-                blockEdges: t.NullC;
-                tags: t.ArrayC<t.StringC>;
-                effects: t.ArrayC<t.TypeC<{
+                blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+                tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
-                layerRects: t.ArrayC<t.StringC>;
-                width: t.NumberC;
-                height: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
+                layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>;
             tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-            runes: t.ArrayC<t.TypeC<{
-                difficultyMask: t.NumberC;
+            runes: t.UnionC<[t.ArrayC<t.TypeC<{
+                difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
                 key: t.StringC;
-                professionMask: t.NumberC;
-                buildableMask: t.NumberC;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
-            }>>;
-            globalBuffs: t.ArrayC<t.TypeC<{
+            }>>, t.NullC]>;
+            globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
                 prefabKey: t.StringC;
-                blackboard: t.ArrayC<t.TypeC<{
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
                 overrideCameraEffect: t.NullC;
-                passProfessionMaskFlag: t.BooleanC;
-                professionMask: t.NumberC;
-            }>>;
-            routes: t.ArrayC<t.TypeC<{
-                motionMode: t.NumberC;
+                passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            routes: t.ArrayC<t.UnionC<[t.TypeC<{
+                motionMode: t.UnionC<[t.StringC, t.NumberC]>;
                 startPosition: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
@@ -3086,8 +3637,8 @@ export declare const RogueThemeIO: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                 }>;
-                checkpoints: t.ArrayC<t.TypeC<{
-                    type: t.NumberC;
+                checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                    type: t.UnionC<[t.StringC, t.NumberC]>;
                     time: t.NumberC;
                     position: t.TypeC<{
                         row: t.NumberC;
@@ -3099,96 +3650,104 @@ export declare const RogueThemeIO: t.TypeC<{
                     }>;
                     randomizeReachOffset: t.BooleanC;
                     reachDistance: t.NumberC;
-                }>>;
+                }>>, t.NullC]>;
                 allowDiagonalMove: t.BooleanC;
                 visitEveryTileCenter: t.BooleanC;
                 visitEveryNodeCenter: t.BooleanC;
-                visitEveryCheckPoint: t.BooleanC;
-            }>>;
-            extraRoutes: t.ArrayC<t.AnyC>;
+                visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            }>, t.NullC]>>;
+            extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
             enemies: t.ArrayC<t.AnyC>;
             enemyDbRefs: t.ArrayC<t.TypeC<{
                 useDb: t.BooleanC;
                 id: t.StringC;
                 level: t.NumberC;
-                overwrittenData: t.TypeC<{
+                overwrittenData: t.UnionC<[t.TypeC<{
                     name: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     description: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     prefabKey: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     attributes: t.TypeC<{
                         maxHp: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         atk: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         def: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         magicResistance: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         cost: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         blockCnt: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         moveSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         attackSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseAttackTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         respawnTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         hpRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         spRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         maxDeployCount: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         massLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseForceLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
-                        tauntLevel: t.TypeC<{
+                        tauntLevel: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
-                        }>;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epDamageResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
                         stunImmune: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
@@ -3197,51 +3756,82 @@ export declare const RogueThemeIO: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
                         }>;
-                        sleepImmune: t.TypeC<{
+                        sleepImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        frozenImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        frozenImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        levitateImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        levitateImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
+                        }>, t.UndefinedC]>;
                     }>;
+                    applyWay: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    motion: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    enemyTags: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     lifePointReduce: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
+                    levelType: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     rangeRadius: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    talentBlackboard: t.ArrayC<t.TypeC<{
+                    numOfExtraDrops: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    viewRadius: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    notCountInTotal: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.BooleanC;
+                    }>, t.UndefinedC]>;
+                    talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                    skills: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    skills: t.UnionC<[t.ArrayC<t.TypeC<{
                         prefabKey: t.StringC;
                         priority: t.NumberC;
                         cooldown: t.NumberC;
                         initCooldown: t.NumberC;
                         spCost: t.NumberC;
-                        blackboard: t.ArrayC<t.TypeC<{
+                        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                        }>>;
-                    }>>;
-                    spData: t.TypeC<{
-                        spType: t.NumberC;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        }>>, t.NullC]>;
+                    }>>, t.NullC]>;
+                    spData: t.UnionC<[t.TypeC<{
+                        spType: t.StringC;
                         maxSp: t.NumberC;
                         initSp: t.NumberC;
                         increment: t.NumberC;
-                    }>;
-                }>;
+                    }>, t.NullC]>;
+                }>, t.NullC]>;
             }>>;
             waves: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
@@ -3250,7 +3840,7 @@ export declare const RogueThemeIO: t.TypeC<{
                 fragments: t.ArrayC<t.TypeC<{
                     preDelay: t.NumberC;
                     actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
                         managedByScheduler: t.BooleanC;
                         key: t.StringC;
                         count: t.NumberC;
@@ -3259,115 +3849,124 @@ export declare const RogueThemeIO: t.TypeC<{
                         routeIndex: t.NumberC;
                         blockFragment: t.BooleanC;
                         autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                         isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        dontBlockWave: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                    name: t.StringC;
                 }>>;
+                advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-            branches: t.TypeC<{
-                frosts: t.TypeC<{
-                    phases: t.ArrayC<t.TypeC<{
+            branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+                phases: t.ArrayC<t.TypeC<{
+                    preDelay: t.NumberC;
+                    actions: t.ArrayC<t.TypeC<{
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                        managedByScheduler: t.BooleanC;
+                        key: t.StringC;
+                        count: t.NumberC;
                         preDelay: t.NumberC;
-                        actions: t.ArrayC<t.TypeC<{
-                            actionType: t.NumberC;
-                            managedByScheduler: t.BooleanC;
-                            key: t.StringC;
-                            count: t.NumberC;
-                            preDelay: t.NumberC;
-                            interval: t.NumberC;
-                            routeIndex: t.NumberC;
-                            blockFragment: t.BooleanC;
-                            autoPreviewRoute: t.BooleanC;
-                            isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                            hiddenGroup: t.StringC;
-                            randomSpawnGroupKey: t.StringC;
-                            weight: t.NumberC;
-                            weightValue: t.NumberC;
-                        }>>;
+                        interval: t.NumberC;
+                        routeIndex: t.NumberC;
+                        blockFragment: t.BooleanC;
+                        autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                }>;
-            }>;
-            predefines: t.TypeC<{
+                }>>;
+            }>>, t.NullC]>;
+            predefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
-            hardPredefines: t.TypeC<{
+            }>, t.NullC]>;
+            hardPredefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
+            }>, t.NullC, t.UndefinedC]>;
             excludeCharIdList: t.NullC;
             randomSeed: t.NumberC;
-            operaConfig: t.StringC;
+            operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
     }>>;
     relicDict: t.RecordC<t.StringC, t.TypeC<{
         id: t.StringC;
         name: t.StringC;
-        description: t.StringC;
+        description: t.UnionC<[t.StringC, t.NullC]>;
         usage: t.StringC;
         obtainApproach: t.StringC;
         iconId: t.StringC;
@@ -3377,7 +3976,7 @@ export declare const RogueThemeIO: t.TypeC<{
         value: t.NumberC;
         sortId: t.NumberC;
         canSacrifice: t.BooleanC;
-        unlockCondDesc: t.StringC;
+        unlockCondDesc: t.UnionC<[t.StringC, t.NullC]>;
     }>>;
     variationDict: t.RecordC<t.StringC, t.TypeC<{
         id: t.StringC;
@@ -3386,8 +3985,8 @@ export declare const RogueThemeIO: t.TypeC<{
         innerName: t.StringC;
         functionDesc: t.StringC;
         desc: t.StringC;
-        iconId: t.StringC;
-        sound: t.StringC;
+        iconId: t.UnionC<[t.StringC, t.NullC]>;
+        sound: t.UnionC<[t.StringC, t.NullC]>;
     }>>;
 }>;
 export declare const SandboxActIO: t.TypeC<{
@@ -3412,76 +4011,81 @@ export declare const SandboxActIO: t.TypeC<{
                 moveMultiplier: t.NumberC;
                 steeringEnabled: t.BooleanC;
                 isTrainingLevel: t.BooleanC;
-                isHardTrainingLevel: t.BooleanC;
-                functionDisableMask: t.NumberC;
+                isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                    key: t.StringC;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>;
-            levelId: t.StringC;
-            mapId: t.StringC;
-            bgmEvent: t.StringC;
-            environmentSe: t.StringC;
+            levelId: t.UnionC<[t.StringC, t.NullC]>;
+            mapId: t.UnionC<[t.StringC, t.NullC]>;
+            bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+            environmentSe: t.UnionC<[t.StringC, t.NullC]>;
             mapData: t.TypeC<{
                 map: t.ArrayC<t.ArrayC<t.NumberC>>;
                 tiles: t.ArrayC<t.TypeC<{
                     tileKey: t.StringC;
-                    heightType: t.NumberC;
-                    buildableType: t.NumberC;
-                    passableMask: t.NumberC;
-                    playerSideMask: t.NumberC;
-                    blackboard: t.TypeC<{
+                    heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                    buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                    passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                    playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>;
-                    effects: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    effects: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         offset: t.TypeC<{
                             x: t.NumberC;
                             y: t.NumberC;
                             z: t.NumberC;
                         }>;
-                        direction: t.NumberC;
-                    }>>;
+                        direction: t.UnionC<[t.StringC, t.NumberC]>;
+                    }>>, t.NullC]>;
                 }>>;
-                blockEdges: t.NullC;
-                tags: t.ArrayC<t.StringC>;
-                effects: t.ArrayC<t.TypeC<{
+                blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+                tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
-                layerRects: t.ArrayC<t.StringC>;
-                width: t.NumberC;
-                height: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
+                layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>;
             tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-            runes: t.ArrayC<t.TypeC<{
-                difficultyMask: t.NumberC;
+            runes: t.UnionC<[t.ArrayC<t.TypeC<{
+                difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
                 key: t.StringC;
-                professionMask: t.NumberC;
-                buildableMask: t.NumberC;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
-            }>>;
-            globalBuffs: t.ArrayC<t.TypeC<{
+            }>>, t.NullC]>;
+            globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
                 prefabKey: t.StringC;
-                blackboard: t.ArrayC<t.TypeC<{
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
                 overrideCameraEffect: t.NullC;
-                passProfessionMaskFlag: t.BooleanC;
-                professionMask: t.NumberC;
-            }>>;
-            routes: t.ArrayC<t.TypeC<{
-                motionMode: t.NumberC;
+                passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            routes: t.ArrayC<t.UnionC<[t.TypeC<{
+                motionMode: t.UnionC<[t.StringC, t.NumberC]>;
                 startPosition: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
@@ -3498,8 +4102,8 @@ export declare const SandboxActIO: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                 }>;
-                checkpoints: t.ArrayC<t.TypeC<{
-                    type: t.NumberC;
+                checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                    type: t.UnionC<[t.StringC, t.NumberC]>;
                     time: t.NumberC;
                     position: t.TypeC<{
                         row: t.NumberC;
@@ -3511,96 +4115,104 @@ export declare const SandboxActIO: t.TypeC<{
                     }>;
                     randomizeReachOffset: t.BooleanC;
                     reachDistance: t.NumberC;
-                }>>;
+                }>>, t.NullC]>;
                 allowDiagonalMove: t.BooleanC;
                 visitEveryTileCenter: t.BooleanC;
                 visitEveryNodeCenter: t.BooleanC;
-                visitEveryCheckPoint: t.BooleanC;
-            }>>;
-            extraRoutes: t.ArrayC<t.AnyC>;
+                visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            }>, t.NullC]>>;
+            extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
             enemies: t.ArrayC<t.AnyC>;
             enemyDbRefs: t.ArrayC<t.TypeC<{
                 useDb: t.BooleanC;
                 id: t.StringC;
                 level: t.NumberC;
-                overwrittenData: t.TypeC<{
+                overwrittenData: t.UnionC<[t.TypeC<{
                     name: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     description: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     prefabKey: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     attributes: t.TypeC<{
                         maxHp: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         atk: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         def: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         magicResistance: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         cost: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         blockCnt: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         moveSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         attackSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseAttackTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         respawnTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         hpRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         spRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         maxDeployCount: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         massLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseForceLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
-                        tauntLevel: t.TypeC<{
+                        tauntLevel: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
-                        }>;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epDamageResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
                         stunImmune: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
@@ -3609,51 +4221,82 @@ export declare const SandboxActIO: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
                         }>;
-                        sleepImmune: t.TypeC<{
+                        sleepImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        frozenImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        frozenImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        levitateImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        levitateImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
+                        }>, t.UndefinedC]>;
                     }>;
+                    applyWay: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    motion: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    enemyTags: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     lifePointReduce: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
+                    levelType: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     rangeRadius: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    talentBlackboard: t.ArrayC<t.TypeC<{
+                    numOfExtraDrops: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    viewRadius: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    notCountInTotal: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.BooleanC;
+                    }>, t.UndefinedC]>;
+                    talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                    skills: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    skills: t.UnionC<[t.ArrayC<t.TypeC<{
                         prefabKey: t.StringC;
                         priority: t.NumberC;
                         cooldown: t.NumberC;
                         initCooldown: t.NumberC;
                         spCost: t.NumberC;
-                        blackboard: t.ArrayC<t.TypeC<{
+                        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                        }>>;
-                    }>>;
-                    spData: t.TypeC<{
-                        spType: t.NumberC;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        }>>, t.NullC]>;
+                    }>>, t.NullC]>;
+                    spData: t.UnionC<[t.TypeC<{
+                        spType: t.StringC;
                         maxSp: t.NumberC;
                         initSp: t.NumberC;
                         increment: t.NumberC;
-                    }>;
-                }>;
+                    }>, t.NullC]>;
+                }>, t.NullC]>;
             }>>;
             waves: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
@@ -3662,7 +4305,7 @@ export declare const SandboxActIO: t.TypeC<{
                 fragments: t.ArrayC<t.TypeC<{
                     preDelay: t.NumberC;
                     actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
                         managedByScheduler: t.BooleanC;
                         key: t.StringC;
                         count: t.NumberC;
@@ -3671,177 +4314,185 @@ export declare const SandboxActIO: t.TypeC<{
                         routeIndex: t.NumberC;
                         blockFragment: t.BooleanC;
                         autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                         isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        dontBlockWave: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                    name: t.StringC;
                 }>>;
+                advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-            branches: t.TypeC<{
-                frosts: t.TypeC<{
-                    phases: t.ArrayC<t.TypeC<{
+            branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+                phases: t.ArrayC<t.TypeC<{
+                    preDelay: t.NumberC;
+                    actions: t.ArrayC<t.TypeC<{
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                        managedByScheduler: t.BooleanC;
+                        key: t.StringC;
+                        count: t.NumberC;
                         preDelay: t.NumberC;
-                        actions: t.ArrayC<t.TypeC<{
-                            actionType: t.NumberC;
-                            managedByScheduler: t.BooleanC;
-                            key: t.StringC;
-                            count: t.NumberC;
-                            preDelay: t.NumberC;
-                            interval: t.NumberC;
-                            routeIndex: t.NumberC;
-                            blockFragment: t.BooleanC;
-                            autoPreviewRoute: t.BooleanC;
-                            isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                            hiddenGroup: t.StringC;
-                            randomSpawnGroupKey: t.StringC;
-                            weight: t.NumberC;
-                            weightValue: t.NumberC;
-                        }>>;
+                        interval: t.NumberC;
+                        routeIndex: t.NumberC;
+                        blockFragment: t.BooleanC;
+                        autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                }>;
-            }>;
-            predefines: t.TypeC<{
+                }>>;
+            }>>, t.NullC]>;
+            predefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
-            hardPredefines: t.TypeC<{
+            }>, t.NullC]>;
+            hardPredefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
+            }>, t.NullC, t.UndefinedC]>;
             excludeCharIdList: t.NullC;
             randomSeed: t.NumberC;
-            operaConfig: t.StringC;
+            operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
     }>>;
 }>;
 export declare const SkillIO: t.TypeC<{
     skillId: t.StringC;
-    iconId: t.StringC;
+    iconId: t.UnionC<[t.StringC, t.NullC]>;
     hidden: t.BooleanC;
     levels: t.ArrayC<t.TypeC<{
         name: t.StringC;
-        rangeId: t.StringC;
-        description: t.StringC;
+        rangeId: t.UnionC<[t.StringC, t.NullC]>;
+        description: t.UnionC<[t.StringC, t.NullC]>;
         skillType: t.StringC;
-        durationType: t.NumberC;
+        durationType: t.StringC;
         spData: t.TypeC<{
-            spType: t.StringC;
+            spType: t.UnionC<[t.StringC, t.NumberC]>;
             levelUpCost: t.NullC;
             maxChargeTime: t.NumberC;
             spCost: t.NumberC;
             initSp: t.NumberC;
             increment: t.NumberC;
         }>;
-        prefabId: t.StringC;
+        prefabId: t.UnionC<[t.StringC, t.NullC]>;
         duration: t.NumberC;
         blackboard: t.ArrayC<t.TypeC<{
             key: t.StringC;
-            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+            value: t.UnionC<[t.NumberC, t.NullC]>;
+            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
     }>>;
 }>;
 export declare const SkinIO: t.TypeC<{
     skinId: t.StringC;
     charId: t.StringC;
-    tokenSkinMap: t.ArrayC<t.TypeC<{
+    tokenSkinMap: t.UnionC<[t.ArrayC<t.TypeC<{
         tokenId: t.StringC;
         tokenSkinId: t.StringC;
-    }>>;
-    illustId: t.StringC;
-    dynIllustId: t.StringC;
+    }>>, t.NullC]>;
+    illustId: t.UnionC<[t.StringC, t.NullC]>;
+    dynIllustId: t.UnionC<[t.StringC, t.NullC]>;
     avatarId: t.StringC;
-    portraitId: t.StringC;
-    dynPortraitId: t.StringC;
-    dynEntranceId: t.StringC;
-    buildingId: t.StringC;
+    portraitId: t.UnionC<[t.StringC, t.NullC]>;
+    dynPortraitId: t.UnionC<[t.StringC, t.NullC]>;
+    dynEntranceId: t.UnionC<[t.StringC, t.NullC]>;
+    buildingId: t.UnionC<[t.StringC, t.NullC]>;
     battleSkin: t.TypeC<{
         overwritePrefab: t.BooleanC;
-        skinOrPrefabId: t.StringC;
+        skinOrPrefabId: t.UnionC<[t.StringC, t.NullC]>;
     }>;
     isBuySkin: t.BooleanC;
-    tmplId: t.StringC;
-    voiceId: t.StringC;
+    tmplId: t.UnionC<[t.StringC, t.NullC]>;
+    voiceId: t.UnionC<[t.StringC, t.NullC]>;
     voiceType: t.StringC;
     displaySkin: t.TypeC<{
-        skinName: t.StringC;
-        colorList: t.TupleC<[t.StringC, t.StringC, t.StringC, t.StringC, t.StringC]>;
-        titleList: t.TupleC<[t.StringC, t.StringC]>;
-        modelName: t.StringC;
-        drawerList: t.ArrayC<t.StringC>;
-        skinGroupId: t.StringC;
-        skinGroupName: t.StringC;
+        skinName: t.UnionC<[t.StringC, t.NullC]>;
+        colorList: t.UnionC<[t.TupleC<[t.StringC, t.StringC, t.StringC, t.StringC, t.StringC]>, t.NullC]>;
+        modelName: t.UnionC<[t.StringC, t.NullC]>;
+        drawerList: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+        skinGroupId: t.UnionC<[t.StringC, t.NullC]>;
+        skinGroupName: t.UnionC<[t.StringC, t.NullC]>;
         skinGroupSortIndex: t.NumberC;
-        content: t.StringC;
-        dialog: t.StringC;
-        usage: t.StringC;
-        description: t.StringC;
-        obtainApproach: t.StringC;
+        content: t.UnionC<[t.StringC, t.NullC]>;
+        dialog: t.UnionC<[t.StringC, t.NullC]>;
+        usage: t.UnionC<[t.StringC, t.NullC]>;
+        description: t.UnionC<[t.StringC, t.NullC]>;
+        obtainApproach: t.UnionC<[t.StringC, t.NullC]>;
         sortId: t.NumberC;
-        displayTagId: t.StringC;
+        displayTagId: t.UnionC<[t.StringC, t.NullC]>;
         getTime: t.NumberC;
         onYear: t.NumberC;
         onPeriod: t.NumberC;
@@ -3853,28 +4504,28 @@ export declare const StageIO: t.TypeC<{
         difficulty: t.StringC;
         performanceStageFlag: t.StringC;
         diffGroup: t.StringC;
-        unlockCondition: t.ArrayC<t.TypeC<{
+        unlockCondition: t.ArrayC<t.UnionC<[t.TypeC<{
             stageId: t.StringC;
-            completeState: t.NumberC;
-        }>>;
+            completeState: t.StringC;
+        }>, t.NullC]>>;
         stageId: t.StringC;
         levelId: t.StringC;
         zoneId: t.StringC;
         code: t.StringC;
         name: t.StringC;
         description: t.StringC;
-        hardStagedId: t.StringC;
-        dangerLevel: t.StringC;
+        hardStagedId: t.UnionC<[t.StringC, t.NullC]>;
+        dangerLevel: t.UnionC<[t.StringC, t.NullC]>;
         dangerPoint: t.NumberC;
         loadingPicId: t.StringC;
         canPractice: t.BooleanC;
         canBattleReplay: t.BooleanC;
         apCost: t.NumberC;
         apFailReturn: t.NumberC;
-        etItemId: t.StringC;
+        etItemId: t.UnionC<[t.StringC, t.NullC]>;
         etCost: t.NumberC;
         etFailReturn: t.NumberC;
-        etButtonStyle: t.StringC;
+        etButtonStyle: t.UnionC<[t.StringC, t.NullC]>;
         apProtectTimes: t.NumberC;
         diamondOnceDrop: t.NumberC;
         practiceTicketCost: t.NumberC;
@@ -3886,14 +4537,14 @@ export declare const StageIO: t.TypeC<{
         passFavor: t.NumberC;
         completeFavor: t.NumberC;
         slProgress: t.NumberC;
-        displayMainItem: t.StringC;
+        displayMainItem: t.UnionC<[t.StringC, t.NullC]>;
         hilightMark: t.BooleanC;
         bossMark: t.BooleanC;
         isPredefined: t.BooleanC;
         isHardPredefined: t.BooleanC;
         isSkillSelectablePredefined: t.BooleanC;
         isStoryOnly: t.BooleanC;
-        appearanceStyle: t.NumberC;
+        appearanceStyle: t.StringC;
         stageDropInfo: t.TypeC<{
             firstPassRewards: t.NullC;
             firstCompleteRewards: t.NullC;
@@ -3905,15 +4556,36 @@ export declare const StageIO: t.TypeC<{
                 dropType: t.StringC;
             }>>;
             displayDetailRewards: t.ArrayC<t.TypeC<{
-                occPercent: t.NumberC;
+                occPercent: t.StringC;
                 type: t.StringC;
                 id: t.StringC;
                 dropType: t.StringC;
             }>>;
         }>;
-        startButtonOverrideId: t.StringC;
+        canUseCharm: t.BooleanC;
+        canUseTech: t.BooleanC;
+        canUseTrapTool: t.BooleanC;
+        canUseBattlePerformance: t.BooleanC;
+        startButtonOverrideId: t.UnionC<[t.StringC, t.NullC]>;
         isStagePatch: t.BooleanC;
-        mainStageId: t.StringC;
+        mainStageId: t.UnionC<[t.StringC, t.NullC]>;
+        extraCondition: t.UnionC<[t.ArrayC<t.TypeC<{
+            index: t.NumberC;
+            template: t.StringC;
+            unlockParam: t.ArrayC<t.StringC>;
+        }>>, t.NullC]>;
+        extraInfo: t.UnionC<[t.ArrayC<t.TypeC<{
+            stageId: t.StringC;
+            rewards: t.ArrayC<t.TypeC<{
+                id: t.StringC;
+                count: t.NumberC;
+                type: t.StringC;
+            }>>;
+            progressInfo: t.TypeC<{
+                progressType: t.StringC;
+                descList: t.RecordC<t.StringC, t.StringC>;
+            }>;
+        }>>, t.NullC]>;
     }>;
     levels: t.TypeC<{
         options: t.TypeC<{
@@ -3925,76 +4597,81 @@ export declare const StageIO: t.TypeC<{
             moveMultiplier: t.NumberC;
             steeringEnabled: t.BooleanC;
             isTrainingLevel: t.BooleanC;
-            isHardTrainingLevel: t.BooleanC;
-            functionDisableMask: t.NumberC;
+            isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+            functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+            configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                key: t.StringC;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC, t.UndefinedC]>;
         }>;
-        levelId: t.StringC;
-        mapId: t.StringC;
-        bgmEvent: t.StringC;
-        environmentSe: t.StringC;
+        levelId: t.UnionC<[t.StringC, t.NullC]>;
+        mapId: t.UnionC<[t.StringC, t.NullC]>;
+        bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+        environmentSe: t.UnionC<[t.StringC, t.NullC]>;
         mapData: t.TypeC<{
             map: t.ArrayC<t.ArrayC<t.NumberC>>;
             tiles: t.ArrayC<t.TypeC<{
                 tileKey: t.StringC;
-                heightType: t.NumberC;
-                buildableType: t.NumberC;
-                passableMask: t.NumberC;
-                playerSideMask: t.NumberC;
-                blackboard: t.TypeC<{
+                heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>;
-                effects: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
             }>>;
-            blockEdges: t.NullC;
-            tags: t.ArrayC<t.StringC>;
-            effects: t.ArrayC<t.TypeC<{
+            blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+            tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            effects: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
                 offset: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                     z: t.NumberC;
                 }>;
-                direction: t.NumberC;
-            }>>;
-            layerRects: t.ArrayC<t.StringC>;
-            width: t.NumberC;
-            height: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
+            }>>, t.NullC]>;
+            layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
         tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-        runes: t.ArrayC<t.TypeC<{
-            difficultyMask: t.NumberC;
+        runes: t.UnionC<[t.ArrayC<t.TypeC<{
+            difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
             key: t.StringC;
-            professionMask: t.NumberC;
-            buildableMask: t.NumberC;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-        }>>;
-        globalBuffs: t.ArrayC<t.TypeC<{
+        }>>, t.NullC]>;
+        globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
             prefabKey: t.StringC;
-            blackboard: t.ArrayC<t.TypeC<{
+            blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-            }>>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            }>>, t.NullC]>;
             overrideCameraEffect: t.NullC;
-            passProfessionMaskFlag: t.BooleanC;
-            professionMask: t.NumberC;
-        }>>;
-        routes: t.ArrayC<t.TypeC<{
-            motionMode: t.NumberC;
+            passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+        }>>, t.NullC]>;
+        routes: t.ArrayC<t.UnionC<[t.TypeC<{
+            motionMode: t.UnionC<[t.StringC, t.NumberC]>;
             startPosition: t.TypeC<{
                 row: t.NumberC;
                 col: t.NumberC;
@@ -4011,8 +4688,8 @@ export declare const StageIO: t.TypeC<{
                 x: t.NumberC;
                 y: t.NumberC;
             }>;
-            checkpoints: t.ArrayC<t.TypeC<{
-                type: t.NumberC;
+            checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                type: t.UnionC<[t.StringC, t.NumberC]>;
                 time: t.NumberC;
                 position: t.TypeC<{
                     row: t.NumberC;
@@ -4024,96 +4701,104 @@ export declare const StageIO: t.TypeC<{
                 }>;
                 randomizeReachOffset: t.BooleanC;
                 reachDistance: t.NumberC;
-            }>>;
+            }>>, t.NullC]>;
             allowDiagonalMove: t.BooleanC;
             visitEveryTileCenter: t.BooleanC;
             visitEveryNodeCenter: t.BooleanC;
-            visitEveryCheckPoint: t.BooleanC;
-        }>>;
-        extraRoutes: t.ArrayC<t.AnyC>;
+            visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+        }>, t.NullC]>>;
+        extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
         enemies: t.ArrayC<t.AnyC>;
         enemyDbRefs: t.ArrayC<t.TypeC<{
             useDb: t.BooleanC;
             id: t.StringC;
             level: t.NumberC;
-            overwrittenData: t.TypeC<{
+            overwrittenData: t.UnionC<[t.TypeC<{
                 name: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 description: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 prefabKey: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
                 }>;
                 attributes: t.TypeC<{
                     maxHp: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     atk: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     def: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     magicResistance: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     cost: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     blockCnt: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     moveSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     attackSpeed: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseAttackTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     respawnTime: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     hpRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     spRecoveryPerSec: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     maxDeployCount: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     massLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
                     baseForceLevel: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    tauntLevel: t.TypeC<{
+                    tauntLevel: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
-                    }>;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epDamageResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    epResistance: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     stunImmune: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
@@ -4122,51 +4807,82 @@ export declare const StageIO: t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
                     }>;
-                    sleepImmune: t.TypeC<{
+                    sleepImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    frozenImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    frozenImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
-                    levitateImmune: t.TypeC<{
+                    }>, t.UndefinedC]>;
+                    levitateImmune: t.UnionC<[t.TypeC<{
                         m_defined: t.BooleanC;
                         m_value: t.BooleanC;
-                    }>;
+                    }>, t.UndefinedC]>;
                 }>;
+                applyWay: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                motion: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                enemyTags: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                }>, t.UndefinedC]>;
                 lifePointReduce: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
+                levelType: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.StringC, t.NullC]>;
+                }>, t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
                 rangeRadius: t.TypeC<{
                     m_defined: t.BooleanC;
-                    m_value: t.NumberC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
                 }>;
-                talentBlackboard: t.ArrayC<t.TypeC<{
+                numOfExtraDrops: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                viewRadius: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                }>, t.UndefinedC]>;
+                notCountInTotal: t.UnionC<[t.TypeC<{
+                    m_defined: t.BooleanC;
+                    m_value: t.BooleanC;
+                }>, t.UndefinedC]>;
+                talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
-                skills: t.ArrayC<t.TypeC<{
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
+                skills: t.UnionC<[t.ArrayC<t.TypeC<{
                     prefabKey: t.StringC;
                     priority: t.NumberC;
                     cooldown: t.NumberC;
                     initCooldown: t.NumberC;
                     spCost: t.NumberC;
-                    blackboard: t.ArrayC<t.TypeC<{
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                }>>;
-                spData: t.TypeC<{
-                    spType: t.NumberC;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                }>>, t.NullC]>;
+                spData: t.UnionC<[t.TypeC<{
+                    spType: t.StringC;
                     maxSp: t.NumberC;
                     initSp: t.NumberC;
                     increment: t.NumberC;
-                }>;
-            }>;
+                }>, t.NullC]>;
+            }>, t.NullC]>;
         }>>;
         waves: t.ArrayC<t.TypeC<{
             preDelay: t.NumberC;
@@ -4175,7 +4891,7 @@ export declare const StageIO: t.TypeC<{
             fragments: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
                 actions: t.ArrayC<t.TypeC<{
-                    actionType: t.NumberC;
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
                     managedByScheduler: t.BooleanC;
                     key: t.StringC;
                     count: t.NumberC;
@@ -4184,109 +4900,118 @@ export declare const StageIO: t.TypeC<{
                     routeIndex: t.NumberC;
                     blockFragment: t.BooleanC;
                     autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                     isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                    hiddenGroup: t.StringC;
-                    randomSpawnGroupKey: t.StringC;
-                    weight: t.NumberC;
-                    dontBlockWave: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-                name: t.StringC;
             }>>;
+            advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
         }>>;
-        branches: t.TypeC<{
-            frosts: t.TypeC<{
-                phases: t.ArrayC<t.TypeC<{
+        branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+            phases: t.ArrayC<t.TypeC<{
+                preDelay: t.NumberC;
+                actions: t.ArrayC<t.TypeC<{
+                    actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                    managedByScheduler: t.BooleanC;
+                    key: t.StringC;
+                    count: t.NumberC;
                     preDelay: t.NumberC;
-                    actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
-                        managedByScheduler: t.BooleanC;
-                        key: t.StringC;
-                        count: t.NumberC;
-                        preDelay: t.NumberC;
-                        interval: t.NumberC;
-                        routeIndex: t.NumberC;
-                        blockFragment: t.BooleanC;
-                        autoPreviewRoute: t.BooleanC;
-                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        weightValue: t.NumberC;
-                    }>>;
+                    interval: t.NumberC;
+                    routeIndex: t.NumberC;
+                    blockFragment: t.BooleanC;
+                    autoPreviewRoute: t.BooleanC;
+                    autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                    hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                    randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                    dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                    extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                 }>>;
-            }>;
-        }>;
-        predefines: t.TypeC<{
+            }>>;
+        }>>, t.NullC]>;
+        predefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
-        hardPredefines: t.TypeC<{
+        }>, t.NullC]>;
+        hardPredefines: t.UnionC<[t.TypeC<{
             characterInsts: t.ArrayC<t.AnyC>;
             tokenInsts: t.ArrayC<t.TypeC<{
                 position: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
                 }>;
-                direction: t.NumberC;
+                direction: t.UnionC<[t.StringC, t.NumberC]>;
                 hidden: t.BooleanC;
-                alias: t.StringC;
-                uniEquipIds: t.ArrayC<t.TypeC<{
+                alias: t.UnionC<[t.StringC, t.NullC]>;
+                uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     level: t.NumberC;
-                }>>;
+                }>>, t.NullC, t.UndefinedC]>;
                 inst: t.TypeC<{
                     characterKey: t.StringC;
                     level: t.NumberC;
-                    phase: t.NumberC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     favorPoint: t.NumberC;
                     potentialRank: t.NumberC;
                 }>;
                 skillIndex: t.NumberC;
                 mainSkillLvl: t.NumberC;
-                skinId: t.StringC;
-                tmplId: t.StringC;
-                overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                skinId: t.UnionC<[t.StringC, t.NullC]>;
+                tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>>;
             characterCards: t.ArrayC<t.AnyC>;
             tokenCards: t.ArrayC<t.AnyC>;
-        }>;
+        }>, t.NullC, t.UndefinedC]>;
         excludeCharIdList: t.NullC;
         randomSeed: t.NumberC;
-        operaConfig: t.StringC;
+        operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+        runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
     }>;
 }>;
 export declare const OperatorIO: t.TypeC<{
@@ -4303,28 +5028,28 @@ export declare const OperatorIO: t.TypeC<{
     }>;
     skills: t.ArrayC<t.TypeC<{
         skillId: t.StringC;
-        iconId: t.StringC;
+        iconId: t.UnionC<[t.StringC, t.NullC]>;
         hidden: t.BooleanC;
         levels: t.ArrayC<t.TypeC<{
             name: t.StringC;
-            rangeId: t.StringC;
-            description: t.StringC;
+            rangeId: t.UnionC<[t.StringC, t.NullC]>;
+            description: t.UnionC<[t.StringC, t.NullC]>;
             skillType: t.StringC;
-            durationType: t.NumberC;
+            durationType: t.StringC;
             spData: t.TypeC<{
-                spType: t.StringC;
+                spType: t.UnionC<[t.StringC, t.NumberC]>;
                 levelUpCost: t.NullC;
                 maxChargeTime: t.NumberC;
                 spCost: t.NumberC;
                 initSp: t.NumberC;
                 increment: t.NumberC;
             }>;
-            prefabId: t.StringC;
+            prefabId: t.UnionC<[t.StringC, t.NullC]>;
             duration: t.NumberC;
             blackboard: t.ArrayC<t.TypeC<{
                 key: t.StringC;
-                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                value: t.UnionC<[t.NumberC, t.NullC]>;
+                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
         }>>;
     }>>;
@@ -4336,123 +5061,122 @@ export declare const OperatorIO: t.TypeC<{
             uniEquipDesc: t.StringC;
             typeIcon: t.StringC;
             typeName1: t.StringC;
-            typeName2: t.StringC;
+            typeName2: t.UnionC<[t.StringC, t.NullC]>;
             equipShiningColor: t.StringC;
-            showEvolvePhase: t.NumberC;
-            unlockEvolvePhase: t.NumberC;
+            showEvolvePhase: t.StringC;
+            unlockEvolvePhase: t.StringC;
             charId: t.StringC;
-            tmplId: t.StringC;
+            tmplId: t.UnionC<[t.StringC, t.NullC]>;
             showLevel: t.NumberC;
             unlockLevel: t.NumberC;
             unlockFavorPoint: t.NumberC;
             missionList: t.ArrayC<t.StringC>;
-            itemCost: t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
+            itemCost: t.UnionC<[t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
                 id: t.StringC;
                 count: t.NumberC;
                 type: t.StringC;
-            }>>>;
+            }>>>, t.NullC]>;
             type: t.StringC;
             uniEquipGetTime: t.NumberC;
             charEquipOrder: t.NumberC;
         }>;
-        data: t.TypeC<{
+        data: t.UnionC<[t.TypeC<{
             phases: t.ArrayC<t.TypeC<{
                 equipLevel: t.NumberC;
                 parts: t.ArrayC<t.TypeC<{
-                    resKey: t.StringC;
+                    resKey: t.UnionC<[t.StringC, t.NullC]>;
                     target: t.StringC;
                     isToken: t.BooleanC;
                     addOrOverrideTalentDataBundle: t.TypeC<{
-                        candidates: t.ArrayC<t.TypeC<{
+                        candidates: t.UnionC<[t.ArrayC<t.TypeC<{
                             displayRangeId: t.BooleanC;
                             upgradeDescription: t.StringC;
                             talentIndex: t.NumberC;
                             unlockCondition: t.TypeC<{
-                                phase: t.StringC;
+                                phase: t.UnionC<[t.StringC, t.NumberC]>;
                                 level: t.NumberC;
                             }>;
                             requiredPotentialRank: t.NumberC;
                             prefabKey: t.StringC;
-                            name: t.StringC;
-                            description: t.StringC;
-                            rangeId: t.StringC;
+                            name: t.UnionC<[t.StringC, t.NullC]>;
+                            description: t.UnionC<[t.StringC, t.NullC]>;
+                            rangeId: t.UnionC<[t.StringC, t.NullC]>;
                             blackboard: t.ArrayC<t.TypeC<{
                                 key: t.StringC;
-                                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                                value: t.UnionC<[t.NumberC, t.NullC]>;
+                                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                             }>>;
-                        }>>;
+                        }>>, t.NullC]>;
                     }>;
                     overrideTraitDataBundle: t.TypeC<{
-                        candidates: t.ArrayC<t.TypeC<{
-                            additionalDescription: t.StringC;
+                        candidates: t.UnionC<[t.ArrayC<t.TypeC<{
+                            additionalDescription: t.UnionC<[t.StringC, t.NullC]>;
                             unlockCondition: t.TypeC<{
-                                phase: t.StringC;
+                                phase: t.UnionC<[t.StringC, t.NumberC]>;
                                 level: t.NumberC;
                             }>;
                             requiredPotentialRank: t.NumberC;
                             blackboard: t.ArrayC<t.TypeC<{
                                 key: t.StringC;
-                                value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                                valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                                value: t.UnionC<[t.NumberC, t.NullC]>;
+                                valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                             }>>;
-                            overrideDescripton: t.StringC;
-                            prefabKey: t.StringC;
-                            rangeId: t.StringC;
-                        }>>;
+                            overrideDescripton: t.UnionC<[t.StringC, t.NullC]>;
+                            prefabKey: t.UnionC<[t.StringC, t.NullC]>;
+                            rangeId: t.UnionC<[t.StringC, t.NullC]>;
+                        }>>, t.NullC]>;
                     }>;
                 }>>;
                 attributeBlackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
                 tokenAttributeBlackboard: t.RecordC<t.StringC, t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>>;
             }>>;
-        }>;
+        }>, t.NullC]>;
     }>>;
     skins: t.ArrayC<t.TypeC<{
         skinId: t.StringC;
         charId: t.StringC;
-        tokenSkinMap: t.ArrayC<t.TypeC<{
+        tokenSkinMap: t.UnionC<[t.ArrayC<t.TypeC<{
             tokenId: t.StringC;
             tokenSkinId: t.StringC;
-        }>>;
-        illustId: t.StringC;
-        dynIllustId: t.StringC;
+        }>>, t.NullC]>;
+        illustId: t.UnionC<[t.StringC, t.NullC]>;
+        dynIllustId: t.UnionC<[t.StringC, t.NullC]>;
         avatarId: t.StringC;
-        portraitId: t.StringC;
-        dynPortraitId: t.StringC;
-        dynEntranceId: t.StringC;
-        buildingId: t.StringC;
+        portraitId: t.UnionC<[t.StringC, t.NullC]>;
+        dynPortraitId: t.UnionC<[t.StringC, t.NullC]>;
+        dynEntranceId: t.UnionC<[t.StringC, t.NullC]>;
+        buildingId: t.UnionC<[t.StringC, t.NullC]>;
         battleSkin: t.TypeC<{
             overwritePrefab: t.BooleanC;
-            skinOrPrefabId: t.StringC;
+            skinOrPrefabId: t.UnionC<[t.StringC, t.NullC]>;
         }>;
         isBuySkin: t.BooleanC;
-        tmplId: t.StringC;
-        voiceId: t.StringC;
+        tmplId: t.UnionC<[t.StringC, t.NullC]>;
+        voiceId: t.UnionC<[t.StringC, t.NullC]>;
         voiceType: t.StringC;
         displaySkin: t.TypeC<{
-            skinName: t.StringC;
-            colorList: t.TupleC<[t.StringC, t.StringC, t.StringC, t.StringC, t.StringC]>;
-            titleList: t.TupleC<[t.StringC, t.StringC]>;
-            modelName: t.StringC;
-            drawerList: t.ArrayC<t.StringC>;
-            skinGroupId: t.StringC;
-            skinGroupName: t.StringC;
+            skinName: t.UnionC<[t.StringC, t.NullC]>;
+            colorList: t.UnionC<[t.TupleC<[t.StringC, t.StringC, t.StringC, t.StringC, t.StringC]>, t.NullC]>;
+            modelName: t.UnionC<[t.StringC, t.NullC]>;
+            drawerList: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+            skinGroupId: t.UnionC<[t.StringC, t.NullC]>;
+            skinGroupName: t.UnionC<[t.StringC, t.NullC]>;
             skinGroupSortIndex: t.NumberC;
-            content: t.StringC;
-            dialog: t.StringC;
-            usage: t.StringC;
-            description: t.StringC;
-            obtainApproach: t.StringC;
+            content: t.UnionC<[t.StringC, t.NullC]>;
+            dialog: t.UnionC<[t.StringC, t.NullC]>;
+            usage: t.UnionC<[t.StringC, t.NullC]>;
+            description: t.UnionC<[t.StringC, t.NullC]>;
+            obtainApproach: t.UnionC<[t.StringC, t.NullC]>;
             sortId: t.NumberC;
-            displayTagId: t.StringC;
+            displayTagId: t.UnionC<[t.StringC, t.NullC]>;
             getTime: t.NumberC;
             onYear: t.NumberC;
             onPeriod: t.NumberC;
@@ -4462,7 +5186,7 @@ export declare const OperatorIO: t.TypeC<{
         condition: t.TypeC<{
             buffId: t.StringC;
             cond: t.TypeC<{
-                phase: t.StringC;
+                phase: t.UnionC<[t.StringC, t.NumberC]>;
                 level: t.NumberC;
             }>;
         }>;
@@ -4479,7 +5203,7 @@ export declare const OperatorIO: t.TypeC<{
             description: t.StringC;
         }>;
     }>>;
-    paradox: t.TypeC<{
+    paradox: t.UnionC<[t.TypeC<{
         excel: t.TypeC<{
             charId: t.StringC;
             stageId: t.StringC;
@@ -4490,7 +5214,7 @@ export declare const OperatorIO: t.TypeC<{
             loadingPicId: t.StringC;
             description: t.StringC;
             unlockParam: t.ArrayC<t.TypeC<{
-                unlockType: t.NumberC;
+                unlockType: t.StringC;
                 unlockParam1: t.StringC;
                 unlockParam2: t.StringC;
                 unlockParam3: t.NullC;
@@ -4515,76 +5239,81 @@ export declare const OperatorIO: t.TypeC<{
                 moveMultiplier: t.NumberC;
                 steeringEnabled: t.BooleanC;
                 isTrainingLevel: t.BooleanC;
-                isHardTrainingLevel: t.BooleanC;
-                functionDisableMask: t.NumberC;
+                isHardTrainingLevel: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                isPredefinedCardsSelectable: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                maxPlayTime: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                functionDisableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                configBlackBoard: t.UnionC<[t.ArrayC<t.TypeC<{
+                    key: t.StringC;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC, t.UndefinedC]>;
             }>;
-            levelId: t.StringC;
-            mapId: t.StringC;
-            bgmEvent: t.StringC;
-            environmentSe: t.StringC;
+            levelId: t.UnionC<[t.StringC, t.NullC]>;
+            mapId: t.UnionC<[t.StringC, t.NullC]>;
+            bgmEvent: t.UnionC<[t.StringC, t.NullC]>;
+            environmentSe: t.UnionC<[t.StringC, t.NullC]>;
             mapData: t.TypeC<{
                 map: t.ArrayC<t.ArrayC<t.NumberC>>;
                 tiles: t.ArrayC<t.TypeC<{
                     tileKey: t.StringC;
-                    heightType: t.NumberC;
-                    buildableType: t.NumberC;
-                    passableMask: t.NumberC;
-                    playerSideMask: t.NumberC;
-                    blackboard: t.TypeC<{
+                    heightType: t.UnionC<[t.StringC, t.NumberC]>;
+                    buildableType: t.UnionC<[t.StringC, t.NumberC]>;
+                    passableMask: t.UnionC<[t.StringC, t.NumberC]>;
+                    playerSideMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                    blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>;
-                    effects: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    effects: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         offset: t.TypeC<{
                             x: t.NumberC;
                             y: t.NumberC;
                             z: t.NumberC;
                         }>;
-                        direction: t.NumberC;
-                    }>>;
+                        direction: t.UnionC<[t.StringC, t.NumberC]>;
+                    }>>, t.NullC]>;
                 }>>;
-                blockEdges: t.NullC;
-                tags: t.ArrayC<t.StringC>;
-                effects: t.ArrayC<t.TypeC<{
+                blockEdges: t.UnionC<[t.ArrayC<t.AnyC>, t.NullC]>;
+                tags: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                effects: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
                     offset: t.TypeC<{
                         x: t.NumberC;
                         y: t.NumberC;
                         z: t.NumberC;
                     }>;
-                    direction: t.NumberC;
-                }>>;
-                layerRects: t.ArrayC<t.StringC>;
-                width: t.NumberC;
-                height: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
+                }>>, t.NullC]>;
+                layerRects: t.UnionC<[t.NullC, t.UndefinedC]>;
             }>;
             tilesDisallowToLocate: t.ArrayC<t.AnyC>;
-            runes: t.ArrayC<t.TypeC<{
-                difficultyMask: t.NumberC;
+            runes: t.UnionC<[t.ArrayC<t.TypeC<{
+                difficultyMask: t.UnionC<[t.StringC, t.NumberC]>;
                 key: t.StringC;
-                professionMask: t.NumberC;
-                buildableMask: t.NumberC;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                buildableMask: t.UnionC<[t.StringC, t.NumberC]>;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
-            }>>;
-            globalBuffs: t.ArrayC<t.TypeC<{
+            }>>, t.NullC]>;
+            globalBuffs: t.UnionC<[t.ArrayC<t.TypeC<{
                 prefabKey: t.StringC;
-                blackboard: t.ArrayC<t.TypeC<{
+                blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                }>>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                }>>, t.NullC]>;
                 overrideCameraEffect: t.NullC;
-                passProfessionMaskFlag: t.BooleanC;
-                professionMask: t.NumberC;
-            }>>;
-            routes: t.ArrayC<t.TypeC<{
-                motionMode: t.NumberC;
+                passProfessionMaskFlag: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                professionMask: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+            }>>, t.NullC]>;
+            routes: t.ArrayC<t.UnionC<[t.TypeC<{
+                motionMode: t.UnionC<[t.StringC, t.NumberC]>;
                 startPosition: t.TypeC<{
                     row: t.NumberC;
                     col: t.NumberC;
@@ -4601,8 +5330,8 @@ export declare const OperatorIO: t.TypeC<{
                     x: t.NumberC;
                     y: t.NumberC;
                 }>;
-                checkpoints: t.ArrayC<t.TypeC<{
-                    type: t.NumberC;
+                checkpoints: t.UnionC<[t.ArrayC<t.TypeC<{
+                    type: t.UnionC<[t.StringC, t.NumberC]>;
                     time: t.NumberC;
                     position: t.TypeC<{
                         row: t.NumberC;
@@ -4614,96 +5343,104 @@ export declare const OperatorIO: t.TypeC<{
                     }>;
                     randomizeReachOffset: t.BooleanC;
                     reachDistance: t.NumberC;
-                }>>;
+                }>>, t.NullC]>;
                 allowDiagonalMove: t.BooleanC;
                 visitEveryTileCenter: t.BooleanC;
                 visitEveryNodeCenter: t.BooleanC;
-                visitEveryCheckPoint: t.BooleanC;
-            }>>;
-            extraRoutes: t.ArrayC<t.AnyC>;
+                visitEveryCheckPoint: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+            }>, t.NullC]>>;
+            extraRoutes: t.UnionC<[t.ArrayC<t.AnyC>, t.UndefinedC]>;
             enemies: t.ArrayC<t.AnyC>;
             enemyDbRefs: t.ArrayC<t.TypeC<{
                 useDb: t.BooleanC;
                 id: t.StringC;
                 level: t.NumberC;
-                overwrittenData: t.TypeC<{
+                overwrittenData: t.UnionC<[t.TypeC<{
                     name: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     description: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     prefabKey: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
                     }>;
                     attributes: t.TypeC<{
                         maxHp: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         atk: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         def: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         magicResistance: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         cost: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         blockCnt: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         moveSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         attackSpeed: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseAttackTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         respawnTime: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         hpRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         spRecoveryPerSec: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         maxDeployCount: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         massLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
                         baseForceLevel: t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
                         }>;
-                        tauntLevel: t.TypeC<{
+                        tauntLevel: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
-                            m_value: t.NumberC;
-                        }>;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epDamageResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
+                        epResistance: t.UnionC<[t.TypeC<{
+                            m_defined: t.BooleanC;
+                            m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                        }>, t.UndefinedC]>;
                         stunImmune: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
@@ -4712,51 +5449,82 @@ export declare const OperatorIO: t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
                         }>;
-                        sleepImmune: t.TypeC<{
+                        sleepImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        frozenImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        frozenImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
-                        levitateImmune: t.TypeC<{
+                        }>, t.UndefinedC]>;
+                        levitateImmune: t.UnionC<[t.TypeC<{
                             m_defined: t.BooleanC;
                             m_value: t.BooleanC;
-                        }>;
+                        }>, t.UndefinedC]>;
                     }>;
+                    applyWay: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    motion: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    enemyTags: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.ArrayC<t.StringC>, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     lifePointReduce: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
+                    levelType: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.StringC, t.NullC]>;
+                    }>, t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
                     rangeRadius: t.TypeC<{
                         m_defined: t.BooleanC;
-                        m_value: t.NumberC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
                     }>;
-                    talentBlackboard: t.ArrayC<t.TypeC<{
+                    numOfExtraDrops: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    viewRadius: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.UnionC<[t.NumberC, t.NullC]>;
+                    }>, t.UndefinedC]>;
+                    notCountInTotal: t.UnionC<[t.TypeC<{
+                        m_defined: t.BooleanC;
+                        m_value: t.BooleanC;
+                    }>, t.UndefinedC]>;
+                    talentBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
-                    skills: t.ArrayC<t.TypeC<{
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC]>;
+                    skills: t.UnionC<[t.ArrayC<t.TypeC<{
                         prefabKey: t.StringC;
                         priority: t.NumberC;
                         cooldown: t.NumberC;
                         initCooldown: t.NumberC;
                         spCost: t.NumberC;
-                        blackboard: t.ArrayC<t.TypeC<{
+                        blackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                             key: t.StringC;
-                            value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                            valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                        }>>;
-                    }>>;
-                    spData: t.TypeC<{
-                        spType: t.NumberC;
+                            value: t.UnionC<[t.NumberC, t.NullC]>;
+                            valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        }>>, t.NullC]>;
+                    }>>, t.NullC]>;
+                    spData: t.UnionC<[t.TypeC<{
+                        spType: t.StringC;
                         maxSp: t.NumberC;
                         initSp: t.NumberC;
                         increment: t.NumberC;
-                    }>;
-                }>;
+                    }>, t.NullC]>;
+                }>, t.NullC]>;
             }>>;
             waves: t.ArrayC<t.TypeC<{
                 preDelay: t.NumberC;
@@ -4765,7 +5533,7 @@ export declare const OperatorIO: t.TypeC<{
                 fragments: t.ArrayC<t.TypeC<{
                     preDelay: t.NumberC;
                     actions: t.ArrayC<t.TypeC<{
-                        actionType: t.NumberC;
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
                         managedByScheduler: t.BooleanC;
                         key: t.StringC;
                         count: t.NumberC;
@@ -4774,150 +5542,158 @@ export declare const OperatorIO: t.TypeC<{
                         routeIndex: t.NumberC;
                         blockFragment: t.BooleanC;
                         autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
                         isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                        hiddenGroup: t.StringC;
-                        randomSpawnGroupKey: t.StringC;
-                        weight: t.NumberC;
-                        dontBlockWave: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                    name: t.StringC;
                 }>>;
+                advancedWaveTag: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
             }>>;
-            branches: t.TypeC<{
-                frosts: t.TypeC<{
-                    phases: t.ArrayC<t.TypeC<{
+            branches: t.UnionC<[t.RecordC<t.StringC, t.TypeC<{
+                phases: t.ArrayC<t.TypeC<{
+                    preDelay: t.NumberC;
+                    actions: t.ArrayC<t.TypeC<{
+                        actionType: t.UnionC<[t.StringC, t.NumberC]>;
+                        managedByScheduler: t.BooleanC;
+                        key: t.StringC;
+                        count: t.NumberC;
                         preDelay: t.NumberC;
-                        actions: t.ArrayC<t.TypeC<{
-                            actionType: t.NumberC;
-                            managedByScheduler: t.BooleanC;
-                            key: t.StringC;
-                            count: t.NumberC;
-                            preDelay: t.NumberC;
-                            interval: t.NumberC;
-                            routeIndex: t.NumberC;
-                            blockFragment: t.BooleanC;
-                            autoPreviewRoute: t.BooleanC;
-                            isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
-                            hiddenGroup: t.StringC;
-                            randomSpawnGroupKey: t.StringC;
-                            weight: t.NumberC;
-                            weightValue: t.NumberC;
-                        }>>;
+                        interval: t.NumberC;
+                        routeIndex: t.NumberC;
+                        blockFragment: t.BooleanC;
+                        autoPreviewRoute: t.BooleanC;
+                        autoDisplayEnemyInfo: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isUnharmfulAndAlwaysCountAsKilled: t.BooleanC;
+                        hiddenGroup: t.UnionC<[t.StringC, t.NullC]>;
+                        randomSpawnGroupKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomSpawnGroupPackKey: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                        randomType: t.UnionC<[t.StringC, t.NumberC, t.UndefinedC]>;
+                        weight: t.UnionC<[t.NumberC, t.UndefinedC]>;
+                        dontBlockWave: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        isValid: t.UnionC<[t.BooleanC, t.UndefinedC]>;
+                        extraMeta: t.UnionC<[t.NullC, t.UndefinedC]>;
                     }>>;
-                }>;
-            }>;
-            predefines: t.TypeC<{
+                }>>;
+            }>>, t.NullC]>;
+            predefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
-            hardPredefines: t.TypeC<{
+            }>, t.NullC]>;
+            hardPredefines: t.UnionC<[t.TypeC<{
                 characterInsts: t.ArrayC<t.AnyC>;
                 tokenInsts: t.ArrayC<t.TypeC<{
                     position: t.TypeC<{
                         row: t.NumberC;
                         col: t.NumberC;
                     }>;
-                    direction: t.NumberC;
+                    direction: t.UnionC<[t.StringC, t.NumberC]>;
                     hidden: t.BooleanC;
-                    alias: t.StringC;
-                    uniEquipIds: t.ArrayC<t.TypeC<{
+                    alias: t.UnionC<[t.StringC, t.NullC]>;
+                    uniEquipIds: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
                         level: t.NumberC;
-                    }>>;
+                    }>>, t.NullC, t.UndefinedC]>;
                     inst: t.TypeC<{
                         characterKey: t.StringC;
                         level: t.NumberC;
-                        phase: t.NumberC;
+                        phase: t.UnionC<[t.StringC, t.NumberC]>;
                         favorPoint: t.NumberC;
                         potentialRank: t.NumberC;
                     }>;
                     skillIndex: t.NumberC;
                     mainSkillLvl: t.NumberC;
-                    skinId: t.StringC;
-                    tmplId: t.StringC;
-                    overrideSkillBlackboard: t.ArrayC<t.TypeC<{
+                    skinId: t.UnionC<[t.StringC, t.NullC]>;
+                    tmplId: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    overrideSkillBlackboard: t.UnionC<[t.ArrayC<t.TypeC<{
                         key: t.StringC;
-                        value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                        valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
-                    }>>;
+                        value: t.UnionC<[t.NumberC, t.NullC]>;
+                        valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+                    }>>, t.NullC, t.UndefinedC]>;
                 }>>;
                 characterCards: t.ArrayC<t.AnyC>;
                 tokenCards: t.ArrayC<t.AnyC>;
-            }>;
+            }>, t.NullC, t.UndefinedC]>;
             excludeCharIdList: t.NullC;
             randomSeed: t.NumberC;
-            operaConfig: t.StringC;
+            operaConfig: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
+            runtimeData: t.UnionC<[t.NullC, t.UndefinedC]>;
         }>;
-    }>;
+    }>, t.NullC]>;
     data: t.TypeC<{
         name: t.StringC;
         description: t.StringC;
         canUseGeneralPotentialItem: t.BooleanC;
-        potentialItemId: t.StringC;
-        nationId: t.StringC;
-        groupId: t.StringC;
-        teamId: t.StringC;
-        displayNumber: t.StringC;
-        tokenKey: t.StringC;
+        potentialItemId: t.UnionC<[t.StringC, t.NullC]>;
+        nationId: t.UnionC<[t.StringC, t.NullC]>;
+        groupId: t.UnionC<[t.StringC, t.NullC]>;
+        teamId: t.UnionC<[t.StringC, t.NullC]>;
+        displayNumber: t.UnionC<[t.StringC, t.NullC]>;
         appellation: t.StringC;
         position: t.StringC;
         tagList: t.ArrayC<t.StringC>;
-        itemUsage: t.StringC;
-        itemDesc: t.StringC;
-        itemObtainApproach: t.StringC;
+        itemUsage: t.UnionC<[t.StringC, t.NullC]>;
+        itemDesc: t.UnionC<[t.StringC, t.NullC]>;
+        itemObtainApproach: t.UnionC<[t.StringC, t.NullC]>;
         isNotObtainable: t.BooleanC;
         isSpChar: t.BooleanC;
         maxPotentialLevel: t.NumberC;
         rarity: t.StringC;
         profession: t.StringC;
         subProfessionId: t.StringC;
-        trait: t.TypeC<{
+        trait: t.UnionC<[t.TypeC<{
             candidates: t.ArrayC<t.TypeC<{
                 unlockCondition: t.TypeC<{
-                    phase: t.StringC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     level: t.NumberC;
                 }>;
                 requiredPotentialRank: t.NumberC;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
-                overrideDescripton: t.StringC;
-                prefabKey: t.StringC;
-                rangeId: t.StringC;
+                overrideDescripton: t.UnionC<[t.StringC, t.NullC]>;
+                prefabKey: t.UnionC<[t.StringC, t.NullC]>;
+                rangeId: t.UnionC<[t.StringC, t.NullC]>;
             }>>;
-        }>;
+        }>, t.NullC]>;
         phases: t.ArrayC<t.TypeC<{
             characterPrefabKey: t.StringC;
             rangeId: t.StringC;
@@ -4949,55 +5725,55 @@ export declare const OperatorIO: t.TypeC<{
                     levitateImmune: t.BooleanC;
                 }>;
             }>>;
-            evolveCost: t.ArrayC<t.TypeC<{
+            evolveCost: t.UnionC<[t.ArrayC<t.TypeC<{
                 id: t.StringC;
                 count: t.NumberC;
                 type: t.StringC;
-            }>>;
+            }>>, t.NullC]>;
         }>>;
         skills: t.ArrayC<t.TypeC<{
             skillId: t.StringC;
-            overridePrefabKey: t.StringC;
-            overrideTokenKey: t.StringC;
+            overridePrefabKey: t.UnionC<[t.StringC, t.NullC]>;
+            overrideTokenKey: t.UnionC<[t.StringC, t.NullC]>;
             levelUpCostCond: t.ArrayC<t.TypeC<{
                 unlockCond: t.TypeC<{
-                    phase: t.StringC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     level: t.NumberC;
                 }>;
                 lvlUpTime: t.NumberC;
-                levelUpCost: t.ArrayC<t.TypeC<{
+                levelUpCost: t.UnionC<[t.ArrayC<t.TypeC<{
                     id: t.StringC;
                     count: t.NumberC;
                     type: t.StringC;
-                }>>;
+                }>>, t.NullC]>;
             }>>;
             unlockCond: t.TypeC<{
-                phase: t.StringC;
+                phase: t.UnionC<[t.StringC, t.NumberC]>;
                 level: t.NumberC;
             }>;
         }>>;
-        talents: t.ArrayC<t.TypeC<{
+        talents: t.UnionC<[t.ArrayC<t.TypeC<{
             candidates: t.ArrayC<t.TypeC<{
                 unlockCondition: t.TypeC<{
-                    phase: t.StringC;
+                    phase: t.UnionC<[t.StringC, t.NumberC]>;
                     level: t.NumberC;
                 }>;
                 requiredPotentialRank: t.NumberC;
                 prefabKey: t.StringC;
                 name: t.StringC;
                 description: t.StringC;
-                rangeId: t.StringC;
+                rangeId: t.UnionC<[t.StringC, t.NullC]>;
                 blackboard: t.ArrayC<t.TypeC<{
                     key: t.StringC;
-                    value: t.UnionC<[t.NumberC, t.UndefinedC]>;
-                    valueStr: t.UnionC<[t.StringC, t.UndefinedC]>;
+                    value: t.UnionC<[t.NumberC, t.NullC]>;
+                    valueStr: t.UnionC<[t.StringC, t.NullC, t.UndefinedC]>;
                 }>>;
             }>>;
-        }>>;
+        }>>, t.NullC]>;
         potentialRanks: t.ArrayC<t.TypeC<{
-            type: t.NumberC;
+            type: t.StringC;
             description: t.StringC;
-            buff: t.TypeC<{
+            buff: t.UnionC<[t.TypeC<{
                 attributes: t.TypeC<{
                     abnormalFlags: t.NullC;
                     abnormalImmunes: t.NullC;
@@ -5005,14 +5781,14 @@ export declare const OperatorIO: t.TypeC<{
                     abnormalCombos: t.NullC;
                     abnormalComboImmunes: t.NullC;
                     attributeModifiers: t.ArrayC<t.TypeC<{
-                        attributeType: t.NumberC;
-                        formulaItem: t.NumberC;
+                        attributeType: t.StringC;
+                        formulaItem: t.StringC;
                         value: t.NumberC;
                         loadFromBlackboard: t.BooleanC;
                         fetchBaseValueFromSourceEntity: t.BooleanC;
                     }>>;
                 }>;
-            }>;
+            }>, t.NullC]>;
             equivalentCost: t.NullC;
         }>>;
         favorKeyFrames: t.ArrayC<t.TypeC<{
@@ -5044,14 +5820,14 @@ export declare const OperatorIO: t.TypeC<{
         }>>;
         allSkillLvlup: t.ArrayC<t.TypeC<{
             unlockCond: t.TypeC<{
-                phase: t.StringC;
+                phase: t.UnionC<[t.StringC, t.NumberC]>;
                 level: t.NumberC;
             }>;
-            lvlUpCost: t.ArrayC<t.TypeC<{
+            lvlUpCost: t.UnionC<[t.ArrayC<t.TypeC<{
                 id: t.StringC;
                 count: t.NumberC;
                 type: t.StringC;
-            }>>;
+            }>>, t.NullC]>;
         }>>;
     }>;
 }>;

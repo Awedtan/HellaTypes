@@ -1,5 +1,22 @@
 import * as t from 'io-ts';
 
+const stringIO = t.type({
+    m_defined: t.boolean,
+    m_value: t.union([t.string, t.null]),
+});
+const stringArrayIO = t.type({
+    m_defined: t.boolean,
+    m_value: t.union([t.array(t.string), t.null]),
+});
+const numberIO = t.type({
+    m_defined: t.boolean,
+    m_value: t.union([t.number, t.null]),
+});
+const booleanIO = t.type({
+    m_defined: t.boolean,
+    m_value: t.boolean,
+});
+
 export const AttributesKeyFrameIO = t.type({
     level: t.number,
     data: t.type({
@@ -29,94 +46,33 @@ export const AttributesKeyFrameIO = t.type({
 });
 export const BlackboardIO = t.type({
     key: t.string,
-    value: t.union([t.number, t.undefined]),
-    valueStr: t.union([t.string, t.undefined]),
+    value: t.union([t.number, t.null]),
+    valueStr: t.union([t.string, t.null, t.undefined]),
 });
 export const EnemyAttributesIO = t.type({
-    maxHp: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    atk: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    def: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    magicResistance: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    cost: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    blockCnt: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    moveSpeed: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    attackSpeed: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    baseAttackTime: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    respawnTime: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    hpRecoveryPerSec: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    spRecoveryPerSec: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    maxDeployCount: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    massLevel: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    baseForceLevel: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    tauntLevel: t.type({
-        m_defined: t.boolean,
-        m_value: t.number,
-    }),
-    stunImmune: t.type({
-        m_defined: t.boolean,
-        m_value: t.boolean,
-    }),
-    silenceImmune: t.type({
-        m_defined: t.boolean,
-        m_value: t.boolean,
-    }),
-    sleepImmune: t.type({
-        m_defined: t.boolean,
-        m_value: t.boolean,
-    }),
-    frozenImmune: t.type({
-        m_defined: t.boolean,
-        m_value: t.boolean,
-    }),
-    levitateImmune: t.type({
-        m_defined: t.boolean,
-        m_value: t.boolean,
-    }),
+    maxHp: numberIO,
+    atk: numberIO,
+    def: numberIO,
+    magicResistance: numberIO,
+    cost: numberIO,
+    blockCnt: numberIO,
+    moveSpeed: numberIO,
+    attackSpeed: numberIO,
+    baseAttackTime: numberIO,
+    respawnTime: numberIO,
+    hpRecoveryPerSec: numberIO,
+    spRecoveryPerSec: numberIO,
+    maxDeployCount: numberIO,
+    massLevel: numberIO,
+    baseForceLevel: numberIO,
+    tauntLevel: t.union([numberIO, t.undefined]), // legacy
+    epDamageResistance: t.union([numberIO, t.undefined]),   // legacy
+    epResistance: t.union([numberIO, t.undefined]),         // ~
+    stunImmune: booleanIO,
+    silenceImmune: booleanIO,
+    sleepImmune: t.union([booleanIO, t.undefined]),
+    frozenImmune: t.union([booleanIO, t.undefined]), // legacy
+    levitateImmune: t.union([booleanIO, t.undefined]), // legacy
 });
 export const EnemySkillsIO = t.type({
     prefabKey: t.string,
@@ -124,13 +80,31 @@ export const EnemySkillsIO = t.type({
     cooldown: t.number,
     initCooldown: t.number,
     spCost: t.number,
-    blackboard: t.array(BlackboardIO),
+    blackboard: t.union([t.array(BlackboardIO), t.null]),
 });
 export const EnemySpDataIO = t.type({
-    spType: t.number,
+    spType: t.string,
     maxSp: t.number,
     initSp: t.number,
     increment: t.number,
+});
+export const EnemyData = t.type({
+    name: stringIO,
+    description: stringIO,
+    prefabKey: stringIO,
+    attributes: EnemyAttributesIO,
+    applyWay: t.union([stringIO, t.undefined]),         // legacy
+    motion: t.union([stringIO, t.undefined]),           // legacy
+    enemyTags: t.union([stringArrayIO, t.undefined]),   // legacy
+    lifePointReduce: numberIO,
+    levelType: t.union([stringIO, numberIO, t.undefined]),  // legacy
+    rangeRadius: numberIO,
+    numOfExtraDrops: t.union([numberIO, t.undefined]),  // legacy
+    viewRadius: t.union([numberIO, t.undefined]),       // legacy
+    notCountInTotal: t.union([booleanIO, t.undefined]), // legacy
+    talentBlackboard: t.union([t.array(BlackboardIO), t.null]),
+    skills: t.union([t.array(EnemySkillsIO), t.null]),
+    spData: t.union([EnemySpDataIO, t.null]),
 });
 export const GridRangeIO = t.type({
     id: t.string,
@@ -204,13 +178,13 @@ export const WorkshopFormulaIO = t.type({
     ),
 });
 export const OperatorUnlockCondIO = t.type({
-    phase: t.string,
+    phase: t.union([t.string, t.number]),
     level: t.number,
 });
 export const LevelUpCostCondIO = t.type({
     unlockCond: OperatorUnlockCondIO,
     lvlUpTime: t.number,
-    levelUpCost: t.array(LevelUpCostIO),
+    levelUpCost: t.union([t.array(LevelUpCostIO), t.null]),
 });
 export const StageDefinesIO = t.type({
     characterInsts: t.array(t.any),
@@ -220,27 +194,30 @@ export const StageDefinesIO = t.type({
                 row: t.number,
                 col: t.number,
             }),
-            direction: t.number,
+            direction: t.union([t.string, t.number]), // legacy
             hidden: t.boolean,
-            alias: t.string,
-            uniEquipIds: t.array(
-                t.type({
-                    key: t.string,
-                    level: t.number,
-                })
+            alias: t.union([t.string, t.null]),
+            uniEquipIds: t.union([
+                t.array(
+                    t.type({
+                        key: t.string,
+                        level: t.number,
+                    })
+                ),
+                t.null, t.undefined] // legacy
             ),
             inst: t.type({
                 characterKey: t.string,
                 level: t.number,
-                phase: t.number,
+                phase: t.union([t.string, t.number]), // legacy
                 favorPoint: t.number,
                 potentialRank: t.number,
             }),
             skillIndex: t.number,
             mainSkillLvl: t.number,
-            skinId: t.string,
-            tmplId: t.string,
-            overrideSkillBlackboard: t.array(BlackboardIO),
+            skinId: t.union([t.string, t.null]),
+            tmplId: t.union([t.string, t.null, t.undefined]),
+            overrideSkillBlackboard: t.union([t.array(BlackboardIO), t.null, t.undefined]),
         })
     ),
     characterCards: t.array(t.any),
@@ -253,8 +230,34 @@ export const StageEffectIO = t.type({
         y: t.number,
         z: t.number,
     }),
-    direction: t.number,
+    direction: t.union([t.string, t.number]), // legacy
 });
+export const StageActionIO = t.type({
+    preDelay: t.number,
+    actions: t.array(
+        t.type({
+            actionType: t.union([t.string, t.number]), // legacy
+            managedByScheduler: t.boolean,
+            key: t.string,
+            count: t.number,
+            preDelay: t.number,
+            interval: t.number,
+            routeIndex: t.number,
+            blockFragment: t.boolean,
+            autoPreviewRoute: t.boolean,
+            autoDisplayEnemyInfo: t.union([t.boolean, t.undefined]),            // legacy
+            isUnharmfulAndAlwaysCountAsKilled: t.boolean,
+            hiddenGroup: t.union([t.string, t.null]),
+            randomSpawnGroupKey: t.union([t.string, t.null, t.undefined]),      // legacy
+            randomSpawnGroupPackKey: t.union([t.string, t.null, t.undefined]),  // legacy
+            randomType: t.union([t.string, t.number, t.undefined]),             // legacy
+            weight: t.union([t.number, t.undefined]),                           // legacy
+            dontBlockWave: t.union([t.boolean, t.undefined]),                   // legacy
+            isValid: t.union([t.boolean, t.undefined]),                         // legacy
+            extraMeta: t.union([t.null, t.undefined]),                          // legacy
+        })
+    ),
+})
 export const StageDataIO = t.type({
     options: t.type({
         characterLimit: t.number,
@@ -265,126 +268,114 @@ export const StageDataIO = t.type({
         moveMultiplier: t.number,
         steeringEnabled: t.boolean,
         isTrainingLevel: t.boolean,
-        isHardTrainingLevel: t.boolean,
-        functionDisableMask: t.number,
+        isHardTrainingLevel: t.union([t.boolean, t.undefined]), // legacy
+        isPredefinedCardsSelectable: t.union([t.boolean, t.undefined]), // legacy
+        maxPlayTime: t.union([t.number, t.undefined]), // legacy
+        functionDisableMask: t.union([t.string, t.number]),
+        configBlackBoard: t.union([t.array(BlackboardIO), t.null, t.undefined]), // legacy
     }),
-    levelId: t.string,
-    mapId: t.string,
-    bgmEvent: t.string,
-    environmentSe: t.string,
+    levelId: t.union([t.string, t.null]),
+    mapId: t.union([t.string, t.null]),
+    bgmEvent: t.union([t.string, t.null]),
+    environmentSe: t.union([t.string, t.null]),
     mapData: t.type({
         map: t.array(t.array(t.number)),
         tiles: t.array(
             t.type({
                 tileKey: t.string,
-                heightType: t.number,
-                buildableType: t.number,
-                passableMask: t.number,
-                playerSideMask: t.number,
-                blackboard: BlackboardIO,
-                effects: t.array(StageEffectIO),
+                heightType: t.union([t.string, t.number]),      // keep number for legacy stages (monster hunter, vignettes, etc.)
+                buildableType: t.union([t.string, t.number]),   // ~
+                passableMask: t.union([t.string, t.number]),    // ~
+                playerSideMask: t.union([t.string, t.number, t.undefined]),  // ~
+                blackboard: t.union([t.array(BlackboardIO), t.null]),
+                effects: t.union([t.array(StageEffectIO), t.null]),
             })
         ),
-        blockEdges: t.null,
-        tags: t.array(t.string),
-        effects: t.array(StageEffectIO),
-        layerRects: t.array(t.string),
-        width: t.number,
-        height: t.number,
+        blockEdges: t.union([t.array(t.any), t.null]),
+        tags: t.union([t.array(t.string), t.null]),
+        effects: t.union([t.array(StageEffectIO), t.null]),
+        layerRects: t.union([t.null, t.undefined]),
     }),
     tilesDisallowToLocate: t.array(t.any),
-    runes: t.array(
-        t.type({
-            difficultyMask: t.number,
-            key: t.string,
-            professionMask: t.number,
-            buildableMask: t.number,
-            blackboard: t.array(BlackboardIO),
-        })
-    ),
-    globalBuffs: t.array(
-        t.type({
-            prefabKey: t.string,
-            blackboard: t.array(BlackboardIO),
-            overrideCameraEffect: t.null,
-            passProfessionMaskFlag: t.boolean,
-            professionMask: t.number,
-        })
-    ),
+    runes: t.union([
+        t.array(
+            t.type({
+                difficultyMask: t.union([t.string, t.number]), // legacy
+                key: t.string,
+                professionMask: t.union([t.string, t.number, t.undefined]), // legacy
+                buildableMask: t.union([t.string, t.number]), // legacy
+                blackboard: t.array(BlackboardIO),
+            })
+        ),
+        t.null
+    ]),
+    globalBuffs: t.union([
+        t.array(
+            t.type({
+                prefabKey: t.string,
+                blackboard: t.union([t.array(BlackboardIO), t.null]),
+                overrideCameraEffect: t.null,
+                passProfessionMaskFlag: t.union([t.boolean, t.undefined]),
+                professionMask: t.union([t.string, t.number, t.undefined]),
+            })
+        ),
+        t.null
+    ]),
     routes: t.array(
-        t.type({
-            motionMode: t.number,
-            startPosition: t.type({
-                row: t.number,
-                col: t.number,
+        t.union([
+            t.type({
+                motionMode: t.union([t.string, t.number]), // keep number for legacy
+                startPosition: t.type({
+                    row: t.number,
+                    col: t.number,
+                }),
+                endPosition: t.type({
+                    row: t.number,
+                    col: t.number,
+                }),
+                spawnRandomRange: t.type({
+                    x: t.number,
+                    y: t.number,
+                }),
+                spawnOffset: t.type({
+                    x: t.number,
+                    y: t.number,
+                }),
+                checkpoints: t.union([
+                    t.array(
+                        t.type({
+                            type: t.union([t.string, t.number]), // keep number for legacy
+                            time: t.number,
+                            position: t.type({
+                                row: t.number,
+                                col: t.number,
+                            }),
+                            reachOffset: t.type({
+                                x: t.number,
+                                y: t.number,
+                            }),
+                            randomizeReachOffset: t.boolean,
+                            reachDistance: t.number,
+                        })
+                    ),
+                    t.null
+                ]),
+                allowDiagonalMove: t.boolean,
+                visitEveryTileCenter: t.boolean,
+                visitEveryNodeCenter: t.boolean,
+                visitEveryCheckPoint: t.union([t.boolean, t.undefined]), // legacy
             }),
-            endPosition: t.type({
-                row: t.number,
-                col: t.number,
-            }),
-            spawnRandomRange: t.type({
-                x: t.number,
-                y: t.number,
-            }),
-            spawnOffset: t.type({
-                x: t.number,
-                y: t.number,
-            }),
-            checkpoints: t.array(
-                t.type({
-                    type: t.number,
-                    time: t.number,
-                    position: t.type({
-                        row: t.number,
-                        col: t.number,
-                    }),
-                    reachOffset: t.type({
-                        x: t.number,
-                        y: t.number,
-                    }),
-                    randomizeReachOffset: t.boolean,
-                    reachDistance: t.number,
-                })
-            ),
-            allowDiagonalMove: t.boolean,
-            visitEveryTileCenter: t.boolean,
-            visitEveryNodeCenter: t.boolean,
-            visitEveryCheckPoint: t.boolean,
-        })
+            t.null // legacy
+        ])
     ),
-    extraRoutes: t.array(t.any),
+    extraRoutes: t.union([t.array(t.any), t.undefined]),
     enemies: t.array(t.any),
     enemyDbRefs: t.array(
         t.type({
             useDb: t.boolean,
             id: t.string,
             level: t.number,
-            overwrittenData: t.type({
-                name: t.type({
-                    m_defined: t.boolean,
-                    m_value: t.number,
-                }),
-                description: t.type({
-                    m_defined: t.boolean,
-                    m_value: t.number,
-                }),
-                prefabKey: t.type({
-                    m_defined: t.boolean,
-                    m_value: t.number,
-                }),
-                attributes: EnemyAttributesIO,
-                lifePointReduce: t.type({
-                    m_defined: t.boolean,
-                    m_value: t.number,
-                }),
-                rangeRadius: t.type({
-                    m_defined: t.boolean,
-                    m_value: t.number,
-                }),
-                talentBlackboard: t.array(BlackboardIO),
-                skills: t.array(EnemySkillsIO),
-                spData: EnemySpDataIO,
-            }),
+            overwrittenData: t.union([EnemyData, t.null]),
         })
     ),
     waves: t.array(
@@ -392,69 +383,30 @@ export const StageDataIO = t.type({
             preDelay: t.number,
             postDelay: t.number,
             maxTimeWaitingForNextWave: t.number,
-            fragments: t.array(
-                t.type({
-                    preDelay: t.number,
-                    actions: t.array(
-                        t.type({
-                            actionType: t.number,
-                            managedByScheduler: t.boolean,
-                            key: t.string,
-                            count: t.number,
-                            preDelay: t.number,
-                            interval: t.number,
-                            routeIndex: t.number,
-                            blockFragment: t.boolean,
-                            autoPreviewRoute: t.boolean,
-                            isUnharmfulAndAlwaysCountAsKilled: t.boolean,
-                            hiddenGroup: t.string,
-                            randomSpawnGroupKey: t.string,
-                            weight: t.number,
-                            dontBlockWave: t.boolean,
-                        })
-                    ),
-                    name: t.string,
-                })
-            ),
+            fragments: t.array(StageActionIO),
+            advancedWaveTag: t.union([t.string, t.null, t.undefined]), // legacy
         })
     ),
-    branches: t.type({
-        frosts: t.type({
-            phases: t.array(
-                t.type({
-                    preDelay: t.number,
-                    actions: t.array(
-                        t.type({
-                            actionType: t.number,
-                            managedByScheduler: t.boolean,
-                            key: t.string,
-                            count: t.number,
-                            preDelay: t.number,
-                            interval: t.number,
-                            routeIndex: t.number,
-                            blockFragment: t.boolean,
-                            autoPreviewRoute: t.boolean,
-                            isUnharmfulAndAlwaysCountAsKilled: t.boolean,
-                            hiddenGroup: t.string,
-                            randomSpawnGroupKey: t.string,
-                            weight: t.number,
-                            weightValue: t.number,
-                        })
-                    ),
-                })
-            ),
-        }),
-    }),
-    predefines: StageDefinesIO,
-    hardPredefines: StageDefinesIO,
+    branches: t.union([
+        t.record(
+            t.string,
+            t.type({
+                phases: t.array(StageActionIO),
+            }),
+        ),
+        t.null
+    ]),
+    predefines: t.union([StageDefinesIO, t.null]),
+    hardPredefines: t.union([StageDefinesIO, t.null, t.undefined]),
     excludeCharIdList: t.null,
     randomSeed: t.number,
-    operaConfig: t.string,
+    operaConfig: t.union([t.string, t.null, t.undefined]),
+    runtimeData: t.union([t.null, t.undefined]), // legacy
 });
 export const RogueRelicIO = t.type({
     id: t.string,
     name: t.string,
-    description: t.string,
+    description: t.union([t.string, t.null]),
     usage: t.string,
     obtainApproach: t.string,
     iconId: t.string,
@@ -464,7 +416,7 @@ export const RogueRelicIO = t.type({
     value: t.number,
     sortId: t.number,
     canSacrifice: t.boolean,
-    unlockCondDesc: t.string,
+    unlockCondDesc: t.union([t.string, t.null]),
 });
 export const RogueStageIO = t.type({
     excel: t.type({
@@ -475,11 +427,11 @@ export const RogueStageIO = t.type({
         name: t.string,
         loadingPicId: t.string,
         description: t.string,
-        eliteDesc: t.string,
+        eliteDesc: t.union([t.string, t.null]),
         isBoss: t.number,
         isElite: t.number,
         difficulty: t.string,
-        capsulePool: t.string,
+        capsulePool: t.union([t.string, t.null]),
         capsuleProb: t.number,
         vutresProb: t.array(t.number),
         boxProb: t.array(t.number),
@@ -493,8 +445,8 @@ export const RogueVariationIO = t.type({
     innerName: t.string,
     functionDesc: t.string,
     desc: t.string,
-    iconId: t.string,
-    sound: t.string,
+    iconId: t.union([t.string, t.null]),
+    sound: t.union([t.string, t.null]),
 });
 export const SandboxStageIO = t.type({
     excel: t.type({
@@ -539,18 +491,13 @@ export const EnemyIO = t.type({
     excel: t.type({
         enemyId: t.string,
         enemyIndex: t.string,
-        enemyTags: t.array(t.string),
+        enemyTags: t.union([t.array(t.string), t.null]),
         sortId: t.number,
         name: t.string,
-        enemyRace: t.string,
         enemyLevel: t.string,
         description: t.string,
-        attackType: t.string,
-        endure: t.string,
-        attack: t.string,
-        defence: t.string,
-        resistance: t.string,
-        ability: t.string,
+        attackType: t.null,
+        ability: t.null,
         isInvalidKilled: t.boolean,
         overrideKillCntInfos: t.record(t.string, t.any),
         hideInHandbook: t.boolean,
@@ -560,40 +507,7 @@ export const EnemyIO = t.type({
         Value: t.array(
             t.type({
                 level: t.number,
-                enemyData: t.type({
-                    name: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.string,
-                    }),
-                    description: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.string,
-                    }),
-                    prefabKey: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.string,
-                    }),
-                    attributes: EnemyAttributesIO,
-                    lifePointReduce: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.number,
-                    }),
-                    levelType: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.number,
-                    }),
-                    rangeRadius: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.number,
-                    }),
-                    numOfExtraDrops: t.type({
-                        m_defined: t.boolean,
-                        m_value: t.number,
-                    }),
-                    talentBlackboard: t.array(BlackboardIO),
-                    skills: t.array(EnemySkillsIO),
-                    spData: EnemySpDataIO,
-                }),
+                enemyData: EnemyData,
             })
         ),
     }),
@@ -608,22 +522,22 @@ export const GameEventIO = t.type({
     rewardEndTime: t.number,
     displayOnHome: t.boolean,
     hasStage: t.boolean,
-    templateShopId: t.string,
-    medalGroupId: t.string,
+    templateShopId: t.union([t.string, t.null]),
+    medalGroupId: t.union([t.string, t.null]),
     isReplicate: t.boolean,
 });
 export const ItemIO = t.type({
     data: t.type({
         itemId: t.string,
         name: t.string,
-        description: t.string,
-        rarity: t.number,
+        description: t.union([t.string, t.null]),
+        rarity: t.string,
         iconId: t.string,
         overrideBkg: t.null,
-        stackIconId: t.string,
+        stackIconId: t.union([t.string, t.null]),
         sortId: t.number,
-        usage: t.string,
-        obtainApproach: t.string,
+        usage: t.union([t.string, t.null]),
+        obtainApproach: t.union([t.string, t.null]),
         classifyType: t.string,
         itemType: t.string,
         stageDropList: t.array(
@@ -639,7 +553,7 @@ export const ItemIO = t.type({
             })
         ),
     }),
-    formula: t.union([ManufactFormulaIO, WorkshopFormulaIO]),
+    formula: t.union([ManufactFormulaIO, WorkshopFormulaIO, t.null]),
 });
 export const ModuleIO = t.type({
     info: t.type({
@@ -649,66 +563,75 @@ export const ModuleIO = t.type({
         uniEquipDesc: t.string,
         typeIcon: t.string,
         typeName1: t.string,
-        typeName2: t.string,
+        typeName2: t.union([t.string, t.null]),
         equipShiningColor: t.string,
-        showEvolvePhase: t.number,
-        unlockEvolvePhase: t.number,
+        showEvolvePhase: t.string,
+        unlockEvolvePhase: t.string,
         charId: t.string,
-        tmplId: t.string,
+        tmplId: t.union([t.string, t.null]),
         showLevel: t.number,
         unlockLevel: t.number,
         unlockFavorPoint: t.number,
         missionList: t.array(t.string),
-        itemCost: t.record(t.string, t.array(LevelUpCostIO)),
+        itemCost: t.union([t.record(t.string, t.array(LevelUpCostIO)), t.null]),
         type: t.string,
         uniEquipGetTime: t.number,
         charEquipOrder: t.number,
     }),
-    data: t.type({
-        phases: t.array(
-            t.type({
-                equipLevel: t.number,
-                parts: t.array(
-                    t.type({
-                        resKey: t.string,
-                        target: t.string,
-                        isToken: t.boolean,
-                        addOrOverrideTalentDataBundle: t.type({
-                            candidates: t.array(
-                                t.type({
-                                    displayRangeId: t.boolean,
-                                    upgradeDescription: t.string,
-                                    talentIndex: t.number,
-                                    unlockCondition: OperatorUnlockCondIO,
-                                    requiredPotentialRank: t.number,
-                                    prefabKey: t.string,
-                                    name: t.string,
-                                    description: t.string,
-                                    rangeId: t.string,
-                                    blackboard: t.array(BlackboardIO),
-                                })
-                            ),
-                        }),
-                        overrideTraitDataBundle: t.type({
-                            candidates: t.array(
-                                t.type({
-                                    additionalDescription: t.string,
-                                    unlockCondition: OperatorUnlockCondIO,
-                                    requiredPotentialRank: t.number,
-                                    blackboard: t.array(BlackboardIO),
-                                    overrideDescripton: t.string,
-                                    prefabKey: t.string,
-                                    rangeId: t.string,
-                                })
-                            ),
-                        }),
-                    })
-                ),
-                attributeBlackboard: t.array(BlackboardIO),
-                tokenAttributeBlackboard: t.record(t.string, t.array(BlackboardIO)),
-            })
-        ),
-    }),
+    data: t.union([
+        t.type({
+            phases: t.array(
+                t.type({
+                    equipLevel: t.number,
+                    parts: t.array(
+                        t.type({
+                            resKey: t.union([t.string, t.null]),
+                            target: t.string,
+                            isToken: t.boolean,
+                            addOrOverrideTalentDataBundle: t.type({
+                                candidates: t.union([
+                                    t.array(
+                                        t.type({
+                                            displayRangeId: t.boolean,
+                                            upgradeDescription: t.string,
+                                            talentIndex: t.number,
+                                            unlockCondition: OperatorUnlockCondIO,
+                                            requiredPotentialRank: t.number,
+                                            prefabKey: t.string,
+                                            name: t.union([t.string, t.null]),
+                                            description: t.union([t.string, t.null]),
+                                            rangeId: t.union([t.string, t.null]),
+                                            blackboard: t.array(BlackboardIO),
+                                        })
+                                    ),
+                                    t.null
+                                ]),
+                            }),
+                            overrideTraitDataBundle: t.type({
+                                candidates: t.union([
+                                    t.array(
+                                        t.type({
+                                            additionalDescription: t.union([t.string, t.null]),
+                                            unlockCondition: OperatorUnlockCondIO,
+                                            requiredPotentialRank: t.number,
+                                            blackboard: t.array(BlackboardIO),
+                                            overrideDescripton: t.union([t.string, t.null]),
+                                            prefabKey: t.union([t.string, t.null]),
+                                            rangeId: t.union([t.string, t.null]),
+                                        })
+                                    ),
+                                    t.null
+                                ]),
+                            }),
+                        })
+                    ),
+                    attributeBlackboard: t.array(BlackboardIO),
+                    tokenAttributeBlackboard: t.record(t.string, t.array(BlackboardIO)),
+                })
+            ),
+        }),
+        t.null
+    ]),
 });
 export const ParadoxIO = t.type({
     excel: t.type({
@@ -722,7 +645,7 @@ export const ParadoxIO = t.type({
         description: t.string,
         unlockParam: t.array(
             t.type({
-                unlockType: t.number,
+                unlockType: t.string,
                 unlockParam1: t.string,
                 unlockParam2: t.string,
                 unlockParam3: t.null,
@@ -754,24 +677,24 @@ export const SandboxActIO = t.type({
 });
 export const SkillIO = t.type({
     skillId: t.string,
-    iconId: t.string,
+    iconId: t.union([t.string, t.null]),
     hidden: t.boolean,
     levels: t.array(
         t.type({
             name: t.string,
-            rangeId: t.string,
-            description: t.string,
+            rangeId: t.union([t.string, t.null]),
+            description: t.union([t.string, t.null]),
             skillType: t.string,
-            durationType: t.number,
+            durationType: t.string,
             spData: t.type({
-                spType: t.string,
+                spType: t.union([t.string, t.number]),
                 levelUpCost: t.null,
                 maxChargeTime: t.number,
                 spCost: t.number,
                 initSp: t.number,
                 increment: t.number,
             }),
-            prefabId: t.string,
+            prefabId: t.union([t.string, t.null]),
             duration: t.number,
             blackboard: t.array(BlackboardIO),
         })
@@ -780,43 +703,45 @@ export const SkillIO = t.type({
 export const SkinIO = t.type({
     skinId: t.string,
     charId: t.string,
-    tokenSkinMap: t.array(
-        t.type({
-            tokenId: t.string,
-            tokenSkinId: t.string,
-        })
-    ),
-    illustId: t.string,
-    dynIllustId: t.string,
+    tokenSkinMap: t.union([
+        t.array(
+            t.type({
+                tokenId: t.string,
+                tokenSkinId: t.string,
+            })
+        ),
+        t.null
+    ]),
+    illustId: t.union([t.string, t.null]),
+    dynIllustId: t.union([t.string, t.null]),
     avatarId: t.string,
-    portraitId: t.string,
-    dynPortraitId: t.string,
-    dynEntranceId: t.string,
-    buildingId: t.string,
+    portraitId: t.union([t.string, t.null]),
+    dynPortraitId: t.union([t.string, t.null]),
+    dynEntranceId: t.union([t.string, t.null]),
+    buildingId: t.union([t.string, t.null]),
     battleSkin: t.type({
         overwritePrefab: t.boolean,
-        skinOrPrefabId: t.string,
+        skinOrPrefabId: t.union([t.string, t.null]),
     }),
     isBuySkin: t.boolean,
-    tmplId: t.string,
-    voiceId: t.string,
+    tmplId: t.union([t.string, t.null]),
+    voiceId: t.union([t.string, t.null]),
     voiceType: t.string,
     displaySkin: t.type({
-        skinName: t.string,
-        colorList: t.tuple([t.string, t.string, t.string, t.string, t.string]),
-        titleList: t.tuple([t.string, t.string]),
-        modelName: t.string,
-        drawerList: t.array(t.string),
-        skinGroupId: t.string,
-        skinGroupName: t.string,
+        skinName: t.union([t.string, t.null]),
+        colorList: t.union([t.tuple([t.string, t.string, t.string, t.string, t.string]), t.null]),
+        modelName: t.union([t.string, t.null]),
+        drawerList: t.union([t.array(t.string), t.null]),
+        skinGroupId: t.union([t.string, t.null]),
+        skinGroupName: t.union([t.string, t.null]),
         skinGroupSortIndex: t.number,
-        content: t.string,
-        dialog: t.string,
-        usage: t.string,
-        description: t.string,
-        obtainApproach: t.string,
+        content: t.union([t.string, t.null]),
+        dialog: t.union([t.string, t.null]),
+        usage: t.union([t.string, t.null]),
+        description: t.union([t.string, t.null]),
+        obtainApproach: t.union([t.string, t.null]),
         sortId: t.number,
-        displayTagId: t.string,
+        displayTagId: t.union([t.string, t.null]),
         getTime: t.number,
         onYear: t.number,
         onPeriod: t.number,
@@ -829,10 +754,13 @@ export const StageIO = t.type({
         performanceStageFlag: t.string,
         diffGroup: t.string,
         unlockCondition: t.array(
-            t.type({
-                stageId: t.string,
-                completeState: t.number,
-            })
+            t.union([
+                t.type({
+                    stageId: t.string,
+                    completeState: t.string,
+                }),
+                t.null
+            ])
         ),
         stageId: t.string,
         levelId: t.string,
@@ -840,18 +768,18 @@ export const StageIO = t.type({
         code: t.string,
         name: t.string,
         description: t.string,
-        hardStagedId: t.string,
-        dangerLevel: t.string,
+        hardStagedId: t.union([t.string, t.null]),
+        dangerLevel: t.union([t.string, t.null]),
         dangerPoint: t.number,
         loadingPicId: t.string,
         canPractice: t.boolean,
         canBattleReplay: t.boolean,
         apCost: t.number,
         apFailReturn: t.number,
-        etItemId: t.string,
+        etItemId: t.union([t.string, t.null]),
         etCost: t.number,
         etFailReturn: t.number,
-        etButtonStyle: t.string,
+        etButtonStyle: t.union([t.string, t.null]),
         apProtectTimes: t.number,
         diamondOnceDrop: t.number,
         practiceTicketCost: t.number,
@@ -863,14 +791,14 @@ export const StageIO = t.type({
         passFavor: t.number,
         completeFavor: t.number,
         slProgress: t.number,
-        displayMainItem: t.string,
+        displayMainItem: t.union([t.string, t.null]),
         hilightMark: t.boolean,
         bossMark: t.boolean,
         isPredefined: t.boolean,
         isHardPredefined: t.boolean,
         isSkillSelectablePredefined: t.boolean,
         isStoryOnly: t.boolean,
-        appearanceStyle: t.number,
+        appearanceStyle: t.string,
         stageDropInfo: t.type({
             firstPassRewards: t.null,
             firstCompleteRewards: t.null,
@@ -885,16 +813,49 @@ export const StageIO = t.type({
             ),
             displayDetailRewards: t.array(
                 t.type({
-                    occPercent: t.number,
+                    occPercent: t.string,
                     type: t.string,
                     id: t.string,
                     dropType: t.string,
                 })
             ),
         }),
-        startButtonOverrideId: t.string,
+        canUseCharm: t.boolean,
+        canUseTech: t.boolean,
+        canUseTrapTool: t.boolean,
+        canUseBattlePerformance: t.boolean,
+        startButtonOverrideId: t.union([t.string, t.null]),
         isStagePatch: t.boolean,
-        mainStageId: t.string,
+        mainStageId: t.union([t.string, t.null]),
+        extraCondition: t.union([
+            t.array(
+                t.type({
+                    index: t.number,
+                    template: t.string,
+                    unlockParam: t.array(t.string),
+                })
+            ),
+            t.null
+        ]),
+        extraInfo: t.union([
+            t.array(
+                t.type({
+                    stageId: t.string,
+                    rewards: t.array(
+                        t.type({
+                            id: t.string,
+                            count: t.number,
+                            type: t.string,
+                        })
+                    ),
+                    progressInfo: t.type({
+                        progressType: t.string,
+                        descList: t.record(t.string, t.string),
+                    })
+                })
+            ),
+            t.null
+        ])
     }),
     levels: StageDataIO,
 });
@@ -915,96 +876,105 @@ export const OperatorIO = t.type({
             skill: BaseIO,
         })
     ),
-    paradox: ParadoxIO,
+    paradox: t.union([ParadoxIO, t.null]),
     data: t.type({
         name: t.string,
         description: t.string,
         canUseGeneralPotentialItem: t.boolean,
-        potentialItemId: t.string,
-        nationId: t.string,
-        groupId: t.string,
-        teamId: t.string,
-        displayNumber: t.string,
-        tokenKey: t.string,
+        potentialItemId: t.union([t.string, t.null]),
+        nationId: t.union([t.string, t.null]),
+        groupId: t.union([t.string, t.null]),
+        teamId: t.union([t.string, t.null]),
+        displayNumber: t.union([t.string, t.null]),
+        // tokenKey: t.string,
         appellation: t.string,
         position: t.string,
         tagList: t.array(t.string),
-        itemUsage: t.string,
-        itemDesc: t.string,
-        itemObtainApproach: t.string,
+        itemUsage: t.union([t.string, t.null]),
+        itemDesc: t.union([t.string, t.null]),
+        itemObtainApproach: t.union([t.string, t.null]),
         isNotObtainable: t.boolean,
         isSpChar: t.boolean,
         maxPotentialLevel: t.number,
         rarity: t.string,
         profession: t.string,
         subProfessionId: t.string,
-        trait: t.type({
-            candidates: t.array(
-                t.type({
-                    unlockCondition: OperatorUnlockCondIO,
-                    requiredPotentialRank: t.number,
-                    blackboard: t.array(BlackboardIO),
-                    overrideDescripton: t.string,
-                    prefabKey: t.string,
-                    rangeId: t.string,
-                })
-            ),
-        }),
+        trait: t.union([
+            t.type({
+                candidates: t.array(
+                    t.type({
+                        unlockCondition: OperatorUnlockCondIO,
+                        requiredPotentialRank: t.number,
+                        blackboard: t.array(BlackboardIO),
+                        overrideDescripton: t.union([t.string, t.null]),
+                        prefabKey: t.union([t.string, t.null]),
+                        rangeId: t.union([t.string, t.null]),
+                    })
+                ),
+            }),
+            t.null
+        ]),
         phases: t.array(
             t.type({
                 characterPrefabKey: t.string,
                 rangeId: t.string,
                 maxLevel: t.number,
                 attributesKeyFrames: t.array(AttributesKeyFrameIO),
-                evolveCost: t.array(LevelUpCostIO),
+                evolveCost: t.union([t.array(LevelUpCostIO), t.null]),
             })
         ),
         skills: t.array(
             t.type({
                 skillId: t.string,
-                overridePrefabKey: t.string,
-                overrideTokenKey: t.string,
+                overridePrefabKey: t.union([t.string, t.null]),
+                overrideTokenKey: t.union([t.string, t.null]),
                 levelUpCostCond: t.array(LevelUpCostCondIO),
                 unlockCond: OperatorUnlockCondIO,
             })
         ),
-        talents: t.array(
-            t.type({
-                candidates: t.array(
-                    t.type({
-                        unlockCondition: OperatorUnlockCondIO,
-                        requiredPotentialRank: t.number,
-                        prefabKey: t.string,
-                        name: t.string,
-                        description: t.string,
-                        rangeId: t.string,
-                        blackboard: t.array(BlackboardIO),
-                    })
-                ),
-            })
-        ),
+        talents: t.union([
+            t.array(
+                t.type({
+                    candidates: t.array(
+                        t.type({
+                            unlockCondition: OperatorUnlockCondIO,
+                            requiredPotentialRank: t.number,
+                            prefabKey: t.string,
+                            name: t.string,
+                            description: t.string,
+                            rangeId: t.union([t.string, t.null]),
+                            blackboard: t.array(BlackboardIO),
+                        })
+                    ),
+                })
+            ),
+            t.null
+        ]),
         potentialRanks: t.array(
             t.type({
-                type: t.number,
+                type: t.string,
                 description: t.string,
-                buff: t.type({
-                    attributes: t.type({
-                        abnormalFlags: t.null,
-                        abnormalImmunes: t.null,
-                        abnormalAntis: t.null,
-                        abnormalCombos: t.null,
-                        abnormalComboImmunes: t.null,
-                        attributeModifiers: t.array(
-                            t.type({
-                                attributeType: t.number,
-                                formulaItem: t.number,
-                                value: t.number,
-                                loadFromBlackboard: t.boolean,
-                                fetchBaseValueFromSourceEntity: t.boolean,
-                            })
-                        ),
+                buff: t.union([
+                    t.type({
+                        attributes: t.type({
+                            abnormalFlags: t.null,
+                            abnormalImmunes: t.null,
+                            abnormalAntis: t.null,
+                            abnormalCombos: t.null,
+                            abnormalComboImmunes: t.null,
+                            attributeModifiers: t.array(
+                                t.type({
+                                    attributeType: t.string,
+                                    formulaItem: t.string,
+                                    value: t.number,
+                                    loadFromBlackboard: t.boolean,
+                                    fetchBaseValueFromSourceEntity: t.boolean,
+                                })
+                            ),
+                        }),
                     }),
-                }),
+                    t.null
+                ]),
                 equivalentCost: t.null,
             })
         ),
@@ -1012,7 +982,7 @@ export const OperatorIO = t.type({
         allSkillLvlup: t.array(
             t.type({
                 unlockCond: OperatorUnlockCondIO,
-                lvlUpCost: t.array(LevelUpCostIO),
+                lvlUpCost: t.union([t.array(LevelUpCostIO), t.null]),
             })
         ),
     }),
