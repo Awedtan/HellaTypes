@@ -1,0 +1,12 @@
+{
+  "name": "hella-types",
+  "version": "0.0.6",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "io-ts": "^2.2.21"
+  }
+}
