@@ -1,6 +1,6 @@
 {
   "name": "hella-types",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "",
@@ -11,5 +11,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Awedtan/HellaTypes.git"
   }
 }
