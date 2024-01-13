@@ -1,904 +1,933 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OperatorIO = exports.StageIO = exports.SkinIO = exports.SkillIO = exports.SandboxActIO = exports.RogueThemeIO = exports.ParadoxIO = exports.ModuleIO = exports.ItemIO = exports.GameEventIO = exports.EnemyIO = exports.DefinitionIO = exports.CCStageIO = exports.BaseIO = exports.SandboxStageIO = exports.RogueVariationIO = exports.RogueStageIO = exports.RogueRelicIO = exports.StageDataIO = exports.StageActionIO = exports.StageEffectIO = exports.StageDefinesIO = exports.LevelUpCostCondIO = exports.OperatorUnlockCondIO = exports.WorkshopFormulaIO = exports.ManufactFormulaIO = exports.LevelUpCostIO = exports.GridRangeIO = exports.EnemyData = exports.EnemySpDataIO = exports.EnemySkillsIO = exports.EnemyAttributesIO = exports.BlackboardIO = exports.AttributesKeyFrameIO = void 0;
-var t = require("io-ts");
-var stringIO = t.type({
-    m_defined: t.boolean,
-    m_value: t.union([t.string, t.null]),
+exports.OperatorZod = exports.StageZod = exports.SkinZod = exports.SkillZod = exports.SandboxActZod = exports.RogueThemeZod = exports.ParadoxZod = exports.ModuleZod = exports.ItemZod = exports.GridRangeZod = exports.GameEventZod = exports.EnemyZod = exports.DefinitionZod = exports.CCStageZod = exports.BaseZod = void 0;
+var z = require("zod");
+var DefinedStringZod = z.strictObject({
+    m_defined: z.boolean(),
+    m_value: z.union([z.string(), z.null()]),
 });
-var stringArrayIO = t.type({
-    m_defined: t.boolean,
-    m_value: t.union([t.array(t.string), t.null]),
+var DefinedStringArrayZod = z.strictObject({
+    m_defined: z.boolean(),
+    m_value: z.union([z.array(z.string()), z.null()]),
 });
-var numberIO = t.type({
-    m_defined: t.boolean,
-    m_value: t.union([t.number, t.null]),
+var DefinedNumberZod = z.strictObject({
+    m_defined: z.boolean(),
+    m_value: z.union([z.number(), z.null()]),
 });
-var booleanIO = t.type({
-    m_defined: t.boolean,
-    m_value: t.boolean,
+var DefinedBooleanZod = z.strictObject({
+    m_defined: z.boolean(),
+    m_value: z.boolean(),
 });
-exports.AttributesKeyFrameIO = t.type({
-    level: t.number,
-    data: t.type({
-        maxHp: t.number,
-        atk: t.number,
-        def: t.number,
-        magicResistance: t.number,
-        cost: t.number,
-        blockCnt: t.number,
-        moveSpeed: t.number,
-        attackSpeed: t.number,
-        baseAttackTime: t.number,
-        respawnTime: t.number,
-        hpRecoveryPerSec: t.number,
-        spRecoveryPerSec: t.number,
-        maxDeployCount: t.number,
-        maxDeckStackCnt: t.number,
-        tauntLevel: t.number,
-        massLevel: t.number,
-        baseForceLevel: t.number,
-        stunImmune: t.boolean,
-        silenceImmune: t.boolean,
-        sleepImmune: t.boolean,
-        frozenImmune: t.boolean,
-        levitateImmune: t.boolean,
+var AttributesKeyFrameZod = z.strictObject({
+    level: z.number(),
+    data: z.strictObject({
+        maxHp: z.number(),
+        atk: z.number(),
+        def: z.number(),
+        magicResistance: z.number(),
+        cost: z.number(),
+        blockCnt: z.number(),
+        moveSpeed: z.number(),
+        attackSpeed: z.number(),
+        baseAttackTime: z.number(),
+        respawnTime: z.number(),
+        hpRecoveryPerSec: z.number(),
+        spRecoveryPerSec: z.number(),
+        maxDeployCount: z.number(),
+        maxDeckStackCnt: z.number(),
+        tauntLevel: z.number(),
+        massLevel: z.number(),
+        baseForceLevel: z.number(),
+        stunImmune: z.boolean(),
+        silenceImmune: z.boolean(),
+        sleepImmune: z.boolean(),
+        frozenImmune: z.boolean(),
+        levitateImmune: z.boolean(),
     }),
 });
-exports.BlackboardIO = t.type({
-    key: t.string,
-    value: t.union([t.number, t.null]),
-    valueStr: t.union([t.string, t.null, t.undefined]),
+var BlackboardZod = z.strictObject({
+    key: z.string(),
+    value: z.union([z.number(), z.null()]),
+    valueStr: z.union([z.string(), z.null(), z.undefined()]),
 });
-exports.EnemyAttributesIO = t.type({
-    maxHp: numberIO,
-    atk: numberIO,
-    def: numberIO,
-    magicResistance: numberIO,
-    cost: numberIO,
-    blockCnt: numberIO,
-    moveSpeed: numberIO,
-    attackSpeed: numberIO,
-    baseAttackTime: numberIO,
-    respawnTime: numberIO,
-    hpRecoveryPerSec: numberIO,
-    spRecoveryPerSec: numberIO,
-    maxDeployCount: numberIO,
-    massLevel: numberIO,
-    baseForceLevel: numberIO,
-    tauntLevel: t.union([numberIO, t.undefined]), // legacy
-    epDamageResistance: t.union([numberIO, t.undefined]), // legacy
-    epResistance: t.union([numberIO, t.undefined]), // ~
-    stunImmune: booleanIO,
-    silenceImmune: booleanIO,
-    sleepImmune: t.union([booleanIO, t.undefined]),
-    frozenImmune: t.union([booleanIO, t.undefined]), // legacy
-    levitateImmune: t.union([booleanIO, t.undefined]), // legacy
+var EnemyAttributesZod = z.strictObject({
+    maxHp: DefinedNumberZod,
+    atk: DefinedNumberZod,
+    def: DefinedNumberZod,
+    magicResistance: DefinedNumberZod,
+    cost: DefinedNumberZod,
+    blockCnt: DefinedNumberZod,
+    moveSpeed: DefinedNumberZod,
+    attackSpeed: DefinedNumberZod,
+    baseAttackTime: DefinedNumberZod,
+    respawnTime: DefinedNumberZod,
+    hpRecoveryPerSec: DefinedNumberZod,
+    spRecoveryPerSec: DefinedNumberZod,
+    maxDeployCount: DefinedNumberZod,
+    massLevel: DefinedNumberZod,
+    baseForceLevel: DefinedNumberZod,
+    tauntLevel: z.union([DefinedNumberZod, z.undefined()]), // legacy
+    epDamageResistance: z.union([DefinedNumberZod, z.undefined()]), // legacy
+    epResistance: z.union([DefinedNumberZod, z.undefined()]), // ~
+    stunImmune: DefinedBooleanZod,
+    silenceImmune: DefinedBooleanZod,
+    sleepImmune: z.union([DefinedBooleanZod, z.undefined()]),
+    frozenImmune: z.union([DefinedBooleanZod, z.undefined()]), // legacy
+    levitateImmune: z.union([DefinedBooleanZod, z.undefined()]), // legacy
 });
-exports.EnemySkillsIO = t.type({
-    prefabKey: t.string,
-    priority: t.number,
-    cooldown: t.number,
-    initCooldown: t.number,
-    spCost: t.number,
-    blackboard: t.union([t.array(exports.BlackboardIO), t.null]),
+var EnemySkillsZod = z.strictObject({
+    prefabKey: z.string(),
+    priority: z.number(),
+    cooldown: z.number(),
+    initCooldown: z.number(),
+    spCost: z.number(),
+    blackboard: z.union([z.array(BlackboardZod), z.null()]),
 });
-exports.EnemySpDataIO = t.type({
-    spType: t.string,
-    maxSp: t.number,
-    initSp: t.number,
-    increment: t.number,
+var EnemySpDataZod = z.strictObject({
+    spType: z.string(),
+    maxSp: z.number(),
+    initSp: z.number(),
+    increment: z.number(),
 });
-exports.EnemyData = t.type({
-    name: stringIO,
-    description: stringIO,
-    prefabKey: stringIO,
-    attributes: exports.EnemyAttributesIO,
-    applyWay: t.union([stringIO, t.undefined]), // legacy
-    motion: t.union([stringIO, t.undefined]), // legacy
-    enemyTags: t.union([stringArrayIO, t.undefined]), // legacy
-    lifePointReduce: numberIO,
-    levelType: t.union([stringIO, numberIO, t.undefined]), // legacy
-    rangeRadius: numberIO,
-    numOfExtraDrops: t.union([numberIO, t.undefined]), // legacy
-    viewRadius: t.union([numberIO, t.undefined]), // legacy
-    notCountInTotal: t.union([booleanIO, t.undefined]), // legacy
-    talentBlackboard: t.union([t.array(exports.BlackboardIO), t.null]),
-    skills: t.union([t.array(exports.EnemySkillsIO), t.null]),
-    spData: t.union([exports.EnemySpDataIO, t.null]),
+var EnemyDataZod = z.strictObject({
+    name: DefinedStringZod,
+    description: DefinedStringZod,
+    prefabKey: DefinedStringZod,
+    attributes: EnemyAttributesZod,
+    applyWay: z.union([DefinedStringZod, z.undefined()]), // legacy
+    motion: z.union([DefinedStringZod, z.undefined()]), // legacy
+    enemyTags: z.union([DefinedStringArrayZod, z.undefined()]), // legacy
+    lifePointReduce: DefinedNumberZod,
+    levelType: z.union([DefinedStringZod, DefinedNumberZod, z.undefined()]), // legacy
+    rangeRadius: DefinedNumberZod,
+    numOfExtraDrops: z.union([DefinedNumberZod, z.undefined()]), // legacy
+    viewRadius: z.union([DefinedNumberZod, z.undefined()]), // legacy
+    notCountInTotal: z.union([DefinedBooleanZod, z.undefined()]), // legacy
+    talentBlackboard: z.union([z.array(BlackboardZod), z.null()]),
+    skills: z.union([z.array(EnemySkillsZod), z.null()]),
+    spData: z.union([EnemySpDataZod, z.null()]),
 });
-exports.GridRangeIO = t.type({
-    id: t.string,
-    direction: t.number,
-    grids: t.array(t.type({
-        row: t.number,
-        col: t.number,
+var LevelUpCostZod = z.strictObject({
+    id: z.string(),
+    count: z.number(),
+    type: z.string(),
+});
+var ManufactFormulaZod = z.strictObject({
+    formulaId: z.string(),
+    itemId: z.string(),
+    count: z.number(),
+    weight: z.number(),
+    costPoint: z.number(),
+    formulaType: z.string(),
+    buffType: z.string(),
+    costs: z.array(LevelUpCostZod),
+    requireRooms: z.array(z.strictObject({
+        roomId: z.string(),
+        roomLevel: z.number(),
+        roomCount: z.number(),
+    })),
+    requireStages: z.array(z.strictObject({
+        stageId: z.string(),
+        rank: z.number(),
     })),
 });
-exports.LevelUpCostIO = t.type({
-    id: t.string,
-    count: t.number,
-    type: t.string,
-});
-exports.ManufactFormulaIO = t.type({
-    formulaId: t.string,
-    itemId: t.string,
-    count: t.number,
-    weight: t.number,
-    costPoint: t.number,
-    formulaType: t.string,
-    buffType: t.string,
-    costs: t.array(exports.LevelUpCostIO),
-    requireRooms: t.array(t.type({
-        roomId: t.string,
-        roomLevel: t.number,
-        roomCount: t.number,
+var WorkshopFormulaZod = z.strictObject({
+    sortId: z.number(),
+    formulaId: z.string(),
+    rarity: z.number(),
+    itemId: z.string(),
+    count: z.number(),
+    goldCost: z.number(),
+    apCost: z.number(),
+    formulaType: z.string(),
+    buffType: z.string(),
+    extraOutcomeRate: z.number(),
+    extraOutcomeGroup: z.array(z.strictObject({
+        weight: z.number(),
+        itemId: z.string(),
+        itemCount: z.number(),
     })),
-    requireStages: t.array(t.type({
-        stageId: t.string,
-        rank: t.number,
+    costs: z.array(LevelUpCostZod),
+    requireRooms: z.array(z.strictObject({
+        roomId: z.string(),
+        roomLevel: z.number(),
+        roomCount: z.number(),
     })),
-});
-exports.WorkshopFormulaIO = t.type({
-    sortId: t.number,
-    formulaId: t.string,
-    rarity: t.number,
-    itemId: t.string,
-    count: t.number,
-    goldCost: t.number,
-    apCost: t.number,
-    formulaType: t.string,
-    buffType: t.string,
-    extraOutcomeRate: t.number,
-    extraOutcomeGroup: t.array(t.type({
-        weight: t.number,
-        itemId: t.string,
-        itemCount: t.number,
-    })),
-    costs: t.array(exports.LevelUpCostIO),
-    requireRooms: t.array(t.type({
-        roomId: t.string,
-        roomLevel: t.number,
-        roomCount: t.number,
-    })),
-    requireStages: t.array(t.type({
-        stageId: t.string,
-        rank: t.number,
+    requireStages: z.array(z.strictObject({
+        stageId: z.string(),
+        rank: z.number(),
     })),
 });
-exports.OperatorUnlockCondIO = t.type({
-    phase: t.union([t.string, t.number]),
-    level: t.number,
+var OperatorUnlockCondZod = z.strictObject({
+    phase: z.union([z.string(), z.number()]),
+    level: z.number(),
 });
-exports.LevelUpCostCondIO = t.type({
-    unlockCond: exports.OperatorUnlockCondIO,
-    lvlUpTime: t.number,
-    levelUpCost: t.union([t.array(exports.LevelUpCostIO), t.null]),
+var LevelUpCostCondZod = z.strictObject({
+    unlockCond: OperatorUnlockCondZod,
+    lvlUpTime: z.number(),
+    levelUpCost: z.union([z.array(LevelUpCostZod), z.null()]),
 });
-exports.StageDefinesIO = t.type({
-    characterInsts: t.array(t.any),
-    tokenInsts: t.array(t.type({
-        position: t.type({
-            row: t.number,
-            col: t.number,
+var StageDefinesZod = z.strictObject({
+    characterInsts: z.array(z.any()),
+    tokenInsts: z.array(z.strictObject({
+        position: z.strictObject({
+            row: z.number(),
+            col: z.number(),
         }),
-        direction: t.union([t.string, t.number]), // legacy
-        hidden: t.boolean,
-        alias: t.union([t.string, t.null]),
-        uniEquipIds: t.union([
-            t.array(t.type({
-                key: t.string,
-                level: t.number,
+        direction: z.union([z.string(), z.number()]), // legacy
+        hidden: z.boolean(),
+        alias: z.union([z.string(), z.null()]),
+        uniEquipIds: z.union([
+            z.array(z.strictObject({
+                key: z.string(),
+                level: z.number(),
             })),
-            t.null, t.undefined
+            z.null(), z.undefined()
         ] // legacy
         ),
-        inst: t.type({
-            characterKey: t.string,
-            level: t.number,
-            phase: t.union([t.string, t.number]), // legacy
-            favorPoint: t.number,
-            potentialRank: t.number,
+        inst: z.strictObject({
+            characterKey: z.string(),
+            level: z.number(),
+            phase: z.union([z.string(), z.number()]), // legacy
+            favorPoint: z.number(),
+            potentialRank: z.number(),
         }),
-        skillIndex: t.number,
-        mainSkillLvl: t.number,
-        skinId: t.union([t.string, t.null]),
-        tmplId: t.union([t.string, t.null, t.undefined]),
-        overrideSkillBlackboard: t.union([t.array(exports.BlackboardIO), t.null, t.undefined]),
+        skillIndex: z.number(),
+        mainSkillLvl: z.number(),
+        skinId: z.union([z.string(), z.null()]),
+        tmplId: z.union([z.string(), z.null(), z.undefined()]),
+        overrideSkillBlackboard: z.union([z.array(BlackboardZod), z.null(), z.undefined()]),
     })),
-    characterCards: t.array(t.any),
-    tokenCards: t.array(t.any),
+    characterCards: z.array(z.any()),
+    tokenCards: z.array(z.any()),
 });
-exports.StageEffectIO = t.type({
-    key: t.string,
-    offset: t.type({
-        x: t.number,
-        y: t.number,
-        z: t.number,
+var StageEffectZod = z.strictObject({
+    key: z.string(),
+    offset: z.strictObject({
+        x: z.number(),
+        y: z.number(),
+        z: z.number(),
     }),
-    direction: t.union([t.string, t.number]), // legacy
+    direction: z.union([z.string(), z.number()]), // legacy
 });
-exports.StageActionIO = t.type({
-    preDelay: t.number,
-    actions: t.array(t.type({
-        actionType: t.union([t.string, t.number]), // legacy
-        managedByScheduler: t.boolean,
-        key: t.string,
-        count: t.number,
-        preDelay: t.number,
-        interval: t.number,
-        routeIndex: t.number,
-        blockFragment: t.boolean,
-        autoPreviewRoute: t.boolean,
-        autoDisplayEnemyInfo: t.union([t.boolean, t.undefined]), // legacy
-        isUnharmfulAndAlwaysCountAsKilled: t.boolean,
-        hiddenGroup: t.union([t.string, t.null]),
-        randomSpawnGroupKey: t.union([t.string, t.null, t.undefined]), // legacy
-        randomSpawnGroupPackKey: t.union([t.string, t.null, t.undefined]), // legacy
-        randomType: t.union([t.string, t.number, t.undefined]), // legacy
-        weight: t.union([t.number, t.undefined]), // legacy
-        dontBlockWave: t.union([t.boolean, t.undefined]), // legacy
-        isValid: t.union([t.boolean, t.undefined]), // legacy
-        extraMeta: t.union([t.null, t.undefined]), // legacy
-    })),
+var StageActionZod = z.strictObject({
+    actionType: z.union([z.string(), z.number()]), // legacy
+    managedByScheduler: z.boolean(),
+    key: z.string(),
+    count: z.number(),
+    preDelay: z.number(),
+    interval: z.number(),
+    routeIndex: z.number(),
+    blockFragment: z.boolean(),
+    autoPreviewRoute: z.boolean(),
+    autoDisplayEnemyInfo: z.union([z.boolean(), z.undefined()]), // legacy
+    isUnharmfulAndAlwaysCountAsKilled: z.boolean(),
+    hiddenGroup: z.union([z.string(), z.null()]),
+    randomSpawnGroupKey: z.union([z.string(), z.null(), z.undefined()]), // legacy
+    randomSpawnGroupPackKey: z.union([z.string(), z.null(), z.undefined()]), // ~
+    randomType: z.union([z.string(), z.number(), z.undefined()]), // ~
+    weight: z.union([z.number(), z.undefined()]), // ~
+    dontBlockWave: z.union([z.boolean(), z.undefined()]), // ~
+    isValid: z.union([z.boolean(), z.undefined()]), // ~
+    extraMeta: z.union([z.null(), z.undefined()]), // ~
 });
-exports.StageDataIO = t.type({
-    options: t.type({
-        characterLimit: t.number,
-        maxLifePoint: t.number,
-        initialCost: t.number,
-        maxCost: t.number,
-        costIncreaseTime: t.number,
-        moveMultiplier: t.number,
-        steeringEnabled: t.boolean,
-        isTrainingLevel: t.boolean,
-        isHardTrainingLevel: t.union([t.boolean, t.undefined]), // legacy
-        isPredefinedCardsSelectable: t.union([t.boolean, t.undefined]), // legacy
-        maxPlayTime: t.union([t.number, t.undefined]), // legacy
-        functionDisableMask: t.union([t.string, t.number]),
-        configBlackBoard: t.union([t.array(exports.BlackboardIO), t.null, t.undefined]), // legacy
+var StageDataZod = z.strictObject({
+    options: z.strictObject({
+        characterLimit: z.number(),
+        maxLifePoint: z.number(),
+        initialCost: z.number(),
+        maxCost: z.number(),
+        costIncreaseTime: z.number(),
+        moveMultiplier: z.number(),
+        steeringEnabled: z.boolean(),
+        isTrainingLevel: z.boolean(),
+        isHardTrainingLevel: z.union([z.boolean(), z.undefined()]), // legacy
+        isPredefinedCardsSelectable: z.union([z.boolean(), z.undefined()]), // legacy
+        maxPlayTime: z.union([z.number(), z.undefined()]), // legacy
+        functionDisableMask: z.union([z.string(), z.number()]),
+        configBlackBoard: z.union([z.array(BlackboardZod), z.null(), z.undefined()]), // legacy
     }),
-    levelId: t.union([t.string, t.null]),
-    mapId: t.union([t.string, t.null]),
-    bgmEvent: t.union([t.string, t.null]),
-    environmentSe: t.union([t.string, t.null]),
-    mapData: t.type({
-        map: t.array(t.array(t.number)),
-        tiles: t.array(t.type({
-            tileKey: t.string,
-            heightType: t.union([t.string, t.number]), // keep number for legacy stages (monster hunter, vignettes, etc.)
-            buildableType: t.union([t.string, t.number]), // ~
-            passableMask: t.union([t.string, t.number]), // ~
-            playerSideMask: t.union([t.string, t.number, t.undefined]), // ~
-            blackboard: t.union([t.array(exports.BlackboardIO), t.null]),
-            effects: t.union([t.array(exports.StageEffectIO), t.null]),
+    levelId: z.union([z.string(), z.null()]),
+    mapId: z.union([z.string(), z.null()]),
+    bgmEvent: z.union([z.string(), z.null()]),
+    environmentSe: z.union([z.string(), z.null()]),
+    mapData: z.strictObject({
+        map: z.array(z.array(z.number())),
+        tiles: z.array(z.strictObject({
+            tileKey: z.string(),
+            heightType: z.union([z.string(), z.number()]), // keep number for legacy stages (monster hunter, vignettes, etc.)
+            buildableType: z.union([z.string(), z.number()]), // ~
+            passableMask: z.union([z.string(), z.number()]), // ~
+            playerSideMask: z.union([z.string(), z.number(), z.undefined()]), // ~
+            blackboard: z.union([z.array(BlackboardZod), z.null()]),
+            effects: z.union([z.array(StageEffectZod), z.null()]),
         })),
-        blockEdges: t.union([t.array(t.any), t.null]),
-        tags: t.union([t.array(t.string), t.null]),
-        effects: t.union([t.array(exports.StageEffectIO), t.null]),
-        layerRects: t.union([t.null, t.undefined]),
+        blockEdges: z.union([z.array(z.any()), z.null()]),
+        tags: z.union([z.array(z.string()), z.null()]),
+        effects: z.union([z.array(StageEffectZod), z.null()]),
+        layerRects: z.union([z.null(), z.undefined()]),
+        width: z.number().optional(),
+        height: z.number().optional(),
     }),
-    tilesDisallowToLocate: t.array(t.any),
-    runes: t.union([
-        t.array(t.type({
-            difficultyMask: t.union([t.string, t.number]), // legacy
-            key: t.string,
-            professionMask: t.union([t.string, t.number, t.undefined]), // legacy
-            buildableMask: t.union([t.string, t.number]), // legacy
-            blackboard: t.array(exports.BlackboardIO),
+    tilesDisallowToLocate: z.array(z.any()),
+    runes: z.union([
+        z.array(z.strictObject({
+            difficultyMask: z.union([z.string(), z.number()]), // legacy
+            key: z.string(),
+            professionMask: z.union([z.string(), z.number(), z.undefined()]), // legacy
+            buildableMask: z.union([z.string(), z.number()]), // legacy
+            blackboard: z.array(BlackboardZod),
         })),
-        t.null
+        z.null()
     ]),
-    globalBuffs: t.union([
-        t.array(t.type({
-            prefabKey: t.string,
-            blackboard: t.union([t.array(exports.BlackboardIO), t.null]),
-            overrideCameraEffect: t.null,
-            passProfessionMaskFlag: t.union([t.boolean, t.undefined]),
-            professionMask: t.union([t.string, t.number, t.undefined]),
+    globalBuffs: z.union([
+        z.array(z.strictObject({
+            prefabKey: z.string(),
+            blackboard: z.union([z.array(BlackboardZod), z.null()]),
+            overrideCameraEffect: z.null(),
+            passProfessionMaskFlag: z.union([z.boolean(), z.undefined()]),
+            professionMask: z.union([z.string(), z.number(), z.undefined()]),
+            useExtraData: z.boolean().optional(),
         })),
-        t.null
+        z.null()
     ]),
-    routes: t.array(t.union([
-        t.type({
-            motionMode: t.union([t.string, t.number]), // keep number for legacy
-            startPosition: t.type({
-                row: t.number,
-                col: t.number,
+    routes: z.array(z.union([
+        z.strictObject({
+            motionMode: z.union([z.string(), z.number()]), // keep number for legacy
+            startPosition: z.strictObject({
+                row: z.number(),
+                col: z.number(),
             }),
-            endPosition: t.type({
-                row: t.number,
-                col: t.number,
+            endPosition: z.strictObject({
+                row: z.number(),
+                col: z.number(),
             }),
-            spawnRandomRange: t.type({
-                x: t.number,
-                y: t.number,
+            spawnRandomRange: z.strictObject({
+                x: z.number(),
+                y: z.number(),
             }),
-            spawnOffset: t.type({
-                x: t.number,
-                y: t.number,
+            spawnOffset: z.strictObject({
+                x: z.number(),
+                y: z.number(),
             }),
-            checkpoints: t.union([
-                t.array(t.type({
-                    type: t.union([t.string, t.number]), // keep number for legacy
-                    time: t.number,
-                    position: t.type({
-                        row: t.number,
-                        col: t.number,
+            checkpoints: z.union([
+                z.array(z.strictObject({
+                    type: z.union([z.string(), z.number()]), // keep number for legacy
+                    time: z.number(),
+                    position: z.strictObject({
+                        row: z.number(),
+                        col: z.number(),
                     }),
-                    reachOffset: t.type({
-                        x: t.number,
-                        y: t.number,
+                    reachOffset: z.strictObject({
+                        x: z.number(),
+                        y: z.number(),
                     }),
-                    randomizeReachOffset: t.boolean,
-                    reachDistance: t.number,
+                    randomizeReachOffset: z.boolean(),
+                    reachDistance: z.number(),
                 })),
-                t.null
+                z.null()
             ]),
-            allowDiagonalMove: t.boolean,
-            visitEveryTileCenter: t.boolean,
-            visitEveryNodeCenter: t.boolean,
-            visitEveryCheckPoint: t.union([t.boolean, t.undefined]), // legacy
+            allowDiagonalMove: z.boolean(),
+            visitEveryTileCenter: z.boolean(),
+            visitEveryNodeCenter: z.boolean(),
+            visitEveryCheckPoint: z.union([z.boolean(), z.undefined()]), // legacy
         }),
-        t.null // legacy
+        z.null() // legacy
     ])),
-    extraRoutes: t.union([t.array(t.any), t.undefined]),
-    enemies: t.array(t.any),
-    enemyDbRefs: t.array(t.type({
-        useDb: t.boolean,
-        id: t.string,
-        level: t.number,
-        overwrittenData: t.union([exports.EnemyData, t.null]),
+    extraRoutes: z.union([z.array(z.any()), z.undefined()]),
+    enemies: z.array(z.any()),
+    enemyDbRefs: z.array(z.strictObject({
+        useDb: z.boolean(),
+        id: z.string(),
+        level: z.number(),
+        overwrittenData: z.union([EnemyDataZod, z.null()]),
     })),
-    waves: t.array(t.type({
-        preDelay: t.number,
-        postDelay: t.number,
-        maxTimeWaitingForNextWave: t.number,
-        fragments: t.array(exports.StageActionIO),
-        advancedWaveTag: t.union([t.string, t.null, t.undefined]), // legacy
-    })),
-    branches: t.union([
-        t.record(t.string, t.type({
-            phases: t.array(exports.StageActionIO),
+    waves: z.array(z.strictObject({
+        preDelay: z.number(),
+        postDelay: z.number(),
+        maxTimeWaitingForNextWave: z.number(),
+        fragments: z.array(z.strictObject({
+            preDelay: z.number(),
+            actions: z.array(StageActionZod),
+            name: z.string().nullable().optional(),
         })),
-        t.null
+        advancedWaveTag: z.union([z.string(), z.null(), z.undefined()]), // legacy
+        name: z.string().nullable().optional(),
+    })),
+    branches: z.union([
+        z.record(z.string(), z.strictObject({
+            phases: z.array(z.strictObject({
+                preDelay: z.number(),
+                actions: z.array(StageActionZod),
+                m_randomActionGroups: z.null().optional(),
+                m_actionWithRandomSpawn: z.null().optional(),
+                m_validActionPackKeys: z.null().optional(),
+            })),
+        })),
+        z.null()
     ]),
-    predefines: t.union([exports.StageDefinesIO, t.null]),
-    hardPredefines: t.union([exports.StageDefinesIO, t.null, t.undefined]),
-    excludeCharIdList: t.null,
-    randomSeed: t.number,
-    operaConfig: t.union([t.string, t.null, t.undefined]),
-    runtimeData: t.union([t.null, t.undefined]), // legacy
+    predefines: z.union([StageDefinesZod, z.null()]),
+    hardPredefines: z.union([StageDefinesZod, z.null(), z.undefined()]),
+    excludeCharIdList: z.null(),
+    randomSeed: z.number(),
+    operaConfig: z.union([z.string(), z.null(), z.undefined()]),
+    runtimeData: z.union([z.null(), z.undefined()]), // legacy
 });
-exports.RogueRelicIO = t.type({
-    id: t.string,
-    name: t.string,
-    description: t.union([t.string, t.null]),
-    usage: t.string,
-    obtainApproach: t.string,
-    iconId: t.string,
-    type: t.string,
-    subType: t.string,
-    rarity: t.string,
-    value: t.number,
-    sortId: t.number,
-    canSacrifice: t.boolean,
-    unlockCondDesc: t.union([t.string, t.null]),
+var RogueRelicZod = z.strictObject({
+    id: z.string(),
+    name: z.string(),
+    description: z.union([z.string(), z.null()]),
+    usage: z.string(),
+    obtainApproach: z.string(),
+    iconId: z.string(),
+    type: z.string(),
+    subType: z.string(),
+    rarity: z.string(),
+    value: z.number(),
+    sortId: z.number(),
+    canSacrifice: z.boolean(),
+    unlockCondDesc: z.union([z.string(), z.null()]),
 });
-exports.RogueStageIO = t.type({
-    excel: t.type({
-        id: t.string,
-        linkedStageId: t.string,
-        levelId: t.string,
-        code: t.string,
-        name: t.string,
-        loadingPicId: t.string,
-        description: t.string,
-        eliteDesc: t.union([t.string, t.null]),
-        isBoss: t.number,
-        isElite: t.number,
-        difficulty: t.string,
-        capsulePool: t.union([t.string, t.null]),
-        capsuleProb: t.number,
-        vutresProb: t.array(t.number),
-        boxProb: t.array(t.number),
+var RogueStageZod = z.strictObject({
+    excel: z.strictObject({
+        id: z.string(),
+        linkedStageId: z.string(),
+        levelId: z.string(),
+        code: z.string(),
+        name: z.string(),
+        loadingPicId: z.string(),
+        description: z.string(),
+        eliteDesc: z.union([z.string(), z.null()]),
+        isBoss: z.number(),
+        isElite: z.number(),
+        difficulty: z.string(),
+        capsulePool: z.union([z.string(), z.null()]),
+        capsuleProb: z.number(),
+        vutresProb: z.array(z.number()),
+        boxProb: z.array(z.number()),
+        specialNodeId: z.string().nullable(),
     }),
-    levels: exports.StageDataIO,
+    levels: StageDataZod,
 });
-exports.RogueVariationIO = t.type({
-    id: t.string,
-    type: t.string,
-    outerName: t.string,
-    innerName: t.string,
-    functionDesc: t.string,
-    desc: t.string,
-    iconId: t.union([t.string, t.null]),
-    sound: t.union([t.string, t.null]),
+var RogueVariationZod = z.strictObject({
+    id: z.string(),
+    type: z.string(),
+    outerName: z.string(),
+    innerName: z.string(),
+    functionDesc: z.string(),
+    desc: z.string(),
+    iconId: z.union([z.string(), z.null()]),
+    sound: z.union([z.string(), z.null()]),
 });
-exports.SandboxStageIO = t.type({
-    excel: t.type({
-        stageId: t.string,
-        levelId: t.string,
-        code: t.string,
-        name: t.string,
-        loadingPicId: t.string,
-        description: t.string,
-        actionCost: t.number,
-        powerCost: t.number,
+var SandboxStageZod = z.strictObject({
+    excel: z.strictObject({
+        stageId: z.string(),
+        levelId: z.string(),
+        code: z.string(),
+        name: z.string(),
+        loadingPicId: z.string(),
+        description: z.string(),
+        actionCost: z.number(),
+        powerCost: z.number(),
     }),
-    levels: exports.StageDataIO,
+    levels: StageDataZod,
 });
-exports.BaseIO = t.type({
-    buffId: t.string,
-    buffName: t.string,
-    buffIcon: t.string,
-    skillIcon: t.string,
-    sortId: t.number,
-    buffColor: t.string,
-    textColor: t.string,
-    buffCategory: t.string,
-    roomType: t.string,
-    description: t.string,
+exports.BaseZod = z.strictObject({
+    buffId: z.string(),
+    buffName: z.string(),
+    buffIcon: z.string(),
+    skillIcon: z.string(),
+    sortId: z.number(),
+    buffColor: z.string(),
+    textColor: z.string(),
+    buffCategory: z.string(),
+    roomType: z.string(),
+    description: z.string(),
 });
-exports.CCStageIO = t.type({
-    const: t.type({
-        levelId: t.string,
-        location: t.string,
-        name: t.string,
-        description: t.string,
+exports.CCStageZod = z.strictObject({
+    const: z.strictObject({
+        levelId: z.string(),
+        location: z.string(),
+        name: z.string(),
+        description: z.string(),
     }),
-    levels: exports.StageDataIO,
+    levels: StageDataZod,
 });
-exports.DefinitionIO = t.type({
-    termId: t.string,
-    termName: t.string,
-    description: t.string,
+exports.DefinitionZod = z.strictObject({
+    termId: z.string(),
+    termName: z.string(),
+    description: z.string(),
 });
-exports.EnemyIO = t.type({
-    excel: t.type({
-        enemyId: t.string,
-        enemyIndex: t.string,
-        enemyTags: t.union([t.array(t.string), t.null]),
-        sortId: t.number,
-        name: t.string,
-        enemyLevel: t.string,
-        description: t.string,
-        attackType: t.null,
-        ability: t.null,
-        isInvalidKilled: t.boolean,
-        overrideKillCntInfos: t.record(t.string, t.any),
-        hideInHandbook: t.boolean,
+exports.EnemyZod = z.strictObject({
+    excel: z.strictObject({
+        enemyId: z.string(),
+        enemyIndex: z.string(),
+        enemyTags: z.union([z.array(z.string()), z.null()]),
+        sortId: z.number(),
+        name: z.string(),
+        enemyLevel: z.enum(['NORMAL', 'ELITE', 'BOSS']),
+        description: z.string(),
+        attackType: z.null(),
+        ability: z.null(),
+        isInvalidKilled: z.boolean(),
+        overrideKillCntInfos: z.record(z.string(), z.any()),
+        hideInHandbook: z.boolean(),
+        abilityList: z.array(z.strictObject({
+            text: z.string(),
+            textFormat: z.enum(['NORMAL', 'SILENCE', 'TITLE'])
+        })),
+        linkEnemies: z.array(z.string()),
+        damageType: z.array(z.enum(['PHYSIC', 'MAGIC', 'NO_DAMAGE', 'HEAL'])),
+        invisibleDetail: z.boolean(),
     }),
-    levels: t.type({
-        Key: t.string,
-        Value: t.array(t.type({
-            level: t.number,
-            enemyData: exports.EnemyData,
+    levels: z.strictObject({
+        Key: z.string(),
+        Value: z.array(z.strictObject({
+            level: z.number(),
+            enemyData: EnemyDataZod,
         })),
     }),
 });
-exports.GameEventIO = t.type({
-    id: t.string,
-    type: t.string,
-    displayType: t.string,
-    name: t.string,
-    startTime: t.number,
-    endTime: t.number,
-    rewardEndTime: t.number,
-    displayOnHome: t.boolean,
-    hasStage: t.boolean,
-    templateShopId: t.union([t.string, t.null]),
-    medalGroupId: t.union([t.string, t.null]),
-    isReplicate: t.boolean,
+exports.GameEventZod = z.strictObject({
+    id: z.string(),
+    type: z.string(),
+    displayType: z.string(),
+    name: z.string(),
+    startTime: z.number(),
+    endTime: z.number(),
+    rewardEndTime: z.number(),
+    displayOnHome: z.boolean(),
+    hasStage: z.boolean(),
+    templateShopId: z.union([z.string(), z.null()]),
+    medalGroupId: z.union([z.string(), z.null()]),
+    ungroupedMedalIds: z.array(z.string()).nullable(),
+    isReplicate: z.boolean(),
+    needFixedSync: z.boolean(),
 });
-exports.ItemIO = t.type({
-    data: t.type({
-        itemId: t.string,
-        name: t.string,
-        description: t.union([t.string, t.null]),
-        rarity: t.string,
-        iconId: t.string,
-        overrideBkg: t.null,
-        stackIconId: t.union([t.string, t.null]),
-        sortId: t.number,
-        usage: t.union([t.string, t.null]),
-        obtainApproach: t.union([t.string, t.null]),
-        classifyType: t.string,
-        itemType: t.string,
-        stageDropList: t.array(t.type({
-            stageId: t.string,
-            occPer: t.string,
+exports.GridRangeZod = z.strictObject({
+    id: z.string(),
+    direction: z.number(),
+    grids: z.array(z.strictObject({
+        row: z.number(),
+        col: z.number(),
+    })),
+});
+exports.ItemZod = z.strictObject({
+    data: z.strictObject({
+        itemId: z.string(),
+        name: z.string(),
+        description: z.union([z.string(), z.null()]),
+        rarity: z.string(),
+        iconId: z.string(),
+        overrideBkg: z.null(),
+        stackIconId: z.union([z.string(), z.null()]),
+        sortId: z.number(),
+        usage: z.union([z.string(), z.null()]),
+        obtainApproach: z.union([z.string(), z.null()]),
+        hideInItemGet: z.boolean(),
+        classifyType: z.string(),
+        itemType: z.string(),
+        stageDropList: z.array(z.strictObject({
+            stageId: z.string(),
+            occPer: z.string(),
         })),
-        buildingProductList: t.array(t.type({
-            roomType: t.string,
-            formulaId: t.string,
+        buildingProductList: z.array(z.strictObject({
+            roomType: z.string(),
+            formulaId: z.string(),
         })),
     }),
-    formula: t.union([exports.ManufactFormulaIO, exports.WorkshopFormulaIO, t.null]),
+    formula: z.union([ManufactFormulaZod, WorkshopFormulaZod, z.null()]),
 });
-exports.ModuleIO = t.type({
-    info: t.type({
-        uniEquipId: t.string,
-        uniEquipName: t.string,
-        uniEquipIcon: t.string,
-        uniEquipDesc: t.string,
-        typeIcon: t.string,
-        typeName1: t.string,
-        typeName2: t.union([t.string, t.null]),
-        equipShiningColor: t.string,
-        showEvolvePhase: t.string,
-        unlockEvolvePhase: t.string,
-        charId: t.string,
-        tmplId: t.union([t.string, t.null]),
-        showLevel: t.number,
-        unlockLevel: t.number,
-        unlockFavorPoint: t.number,
-        missionList: t.array(t.string),
-        itemCost: t.union([t.record(t.string, t.array(exports.LevelUpCostIO)), t.null]),
-        type: t.string,
-        uniEquipGetTime: t.number,
-        charEquipOrder: t.number,
+exports.ModuleZod = z.strictObject({
+    info: z.strictObject({
+        uniEquipId: z.string(),
+        uniEquipName: z.string(),
+        uniEquipIcon: z.string(),
+        uniEquipDesc: z.string(),
+        typeIcon: z.string(),
+        typeName1: z.string(),
+        typeName2: z.union([z.string(), z.null()]),
+        equipShiningColor: z.string(),
+        showEvolvePhase: z.string(),
+        unlockEvolvePhase: z.string(),
+        charId: z.string(),
+        tmplId: z.union([z.string(), z.null()]),
+        showLevel: z.number(),
+        unlockLevel: z.number(),
+        unlockFavorPoint: z.number(),
+        missionList: z.array(z.string()),
+        itemCost: z.union([z.record(z.string(), z.array(LevelUpCostZod)), z.null()]),
+        type: z.string(),
+        uniEquipGetTime: z.number(),
+        charEquipOrder: z.number(),
     }),
-    data: t.union([
-        t.type({
-            phases: t.array(t.type({
-                equipLevel: t.number,
-                parts: t.array(t.type({
-                    resKey: t.union([t.string, t.null]),
-                    target: t.string,
-                    isToken: t.boolean,
-                    addOrOverrideTalentDataBundle: t.type({
-                        candidates: t.union([
-                            t.array(t.type({
-                                displayRangeId: t.boolean,
-                                upgradeDescription: t.string,
-                                talentIndex: t.number,
-                                unlockCondition: exports.OperatorUnlockCondIO,
-                                requiredPotentialRank: t.number,
-                                prefabKey: t.string,
-                                name: t.union([t.string, t.null]),
-                                description: t.union([t.string, t.null]),
-                                rangeId: t.union([t.string, t.null]),
-                                blackboard: t.array(exports.BlackboardIO),
+    data: z.union([
+        z.strictObject({
+            phases: z.array(z.strictObject({
+                equipLevel: z.number(),
+                parts: z.array(z.strictObject({
+                    resKey: z.union([z.string(), z.null()]),
+                    target: z.string(),
+                    isToken: z.boolean(),
+                    addOrOverrideTalentDataBundle: z.strictObject({
+                        candidates: z.union([
+                            z.array(z.strictObject({
+                                displayRangeId: z.boolean(),
+                                upgradeDescription: z.string(),
+                                talentIndex: z.number(),
+                                unlockCondition: OperatorUnlockCondZod,
+                                requiredPotentialRank: z.number(),
+                                prefabKey: z.string(),
+                                name: z.union([z.string(), z.null()]),
+                                description: z.union([z.string(), z.null()]),
+                                rangeId: z.union([z.string(), z.null()]),
+                                blackboard: z.array(BlackboardZod),
+                                tokenKey: z.string().optional(),
                             })),
-                            t.null
+                            z.null()
                         ]),
                     }),
-                    overrideTraitDataBundle: t.type({
-                        candidates: t.union([
-                            t.array(t.type({
-                                additionalDescription: t.union([t.string, t.null]),
-                                unlockCondition: exports.OperatorUnlockCondIO,
-                                requiredPotentialRank: t.number,
-                                blackboard: t.array(exports.BlackboardIO),
-                                overrideDescripton: t.union([t.string, t.null]),
-                                prefabKey: t.union([t.string, t.null]),
-                                rangeId: t.union([t.string, t.null]),
+                    overrideTraitDataBundle: z.strictObject({
+                        candidates: z.union([
+                            z.array(z.strictObject({
+                                additionalDescription: z.union([z.string(), z.null()]),
+                                unlockCondition: OperatorUnlockCondZod,
+                                requiredPotentialRank: z.number(),
+                                blackboard: z.array(BlackboardZod),
+                                overrideDescripton: z.union([z.string(), z.null()]),
+                                prefabKey: z.union([z.string(), z.null()]),
+                                rangeId: z.union([z.string(), z.null()]),
                             })),
-                            t.null
+                            z.null()
                         ]),
                     }),
                 })),
-                attributeBlackboard: t.array(exports.BlackboardIO),
-                tokenAttributeBlackboard: t.record(t.string, t.array(exports.BlackboardIO)),
+                attributeBlackboard: z.array(BlackboardZod),
+                tokenAttributeBlackboard: z.record(z.string(), z.array(BlackboardZod)),
             })),
         }),
-        t.null
+        z.null()
     ]),
 });
-exports.ParadoxIO = t.type({
-    excel: t.type({
-        charId: t.string,
-        stageId: t.string,
-        levelId: t.string,
-        zoneId: t.string,
-        code: t.string,
-        name: t.string,
-        loadingPicId: t.string,
-        description: t.string,
-        unlockParam: t.array(t.type({
-            unlockType: t.string,
-            unlockParam1: t.string,
-            unlockParam2: t.string,
-            unlockParam3: t.null,
+exports.ParadoxZod = z.strictObject({
+    excel: z.strictObject({
+        charId: z.string(),
+        stageId: z.string(),
+        levelId: z.string(),
+        zoneId: z.string(),
+        code: z.string(),
+        name: z.string(),
+        loadingPicId: z.string(),
+        description: z.string(),
+        unlockParam: z.array(z.strictObject({
+            unlockType: z.string(),
+            unlockParam1: z.string(),
+            unlockParam2: z.string(),
+            unlockParam3: z.null(),
         })),
-        rewardItem: t.array(t.type({
-            id: t.string,
-            count: t.number,
-            type: t.string,
+        rewardItem: z.array(z.strictObject({
+            id: z.string(),
+            count: z.number(),
+            type: z.string(),
         })),
-        stageNameForShow: t.string,
-        zoneNameForShow: t.string,
-        picId: t.string,
-        stageGetTime: t.number,
+        stageNameForShow: z.string(),
+        zoneNameForShow: z.string(),
+        picId: z.string(),
+        stageGetTime: z.number(),
     }),
-    levels: exports.StageDataIO,
+    levels: StageDataZod,
 });
-exports.RogueThemeIO = t.type({
-    name: t.string,
-    stageDict: t.record(t.string, exports.RogueStageIO),
-    toughStageDict: t.record(t.string, exports.RogueStageIO),
-    relicDict: t.record(t.string, exports.RogueRelicIO),
-    variationDict: t.record(t.string, exports.RogueVariationIO),
+exports.RogueThemeZod = z.strictObject({
+    name: z.string(),
+    stageDict: z.record(z.string(), RogueStageZod),
+    toughStageDict: z.record(z.string(), RogueStageZod),
+    relicDict: z.record(z.string(), RogueRelicZod),
+    variationDict: z.record(z.string(), RogueVariationZod),
 });
-exports.SandboxActIO = t.type({
-    stageDict: t.record(t.string, exports.SandboxStageIO),
+exports.SandboxActZod = z.strictObject({
+    stageDict: z.record(z.string(), SandboxStageZod),
 });
-exports.SkillIO = t.type({
-    skillId: t.string,
-    iconId: t.union([t.string, t.null]),
-    hidden: t.boolean,
-    levels: t.array(t.type({
-        name: t.string,
-        rangeId: t.union([t.string, t.null]),
-        description: t.union([t.string, t.null]),
-        skillType: t.string,
-        durationType: t.string,
-        spData: t.type({
-            spType: t.union([t.string, t.number]),
-            levelUpCost: t.null,
-            maxChargeTime: t.number,
-            spCost: t.number,
-            initSp: t.number,
-            increment: t.number,
+exports.SkillZod = z.strictObject({
+    skillId: z.string(),
+    iconId: z.union([z.string(), z.null()]),
+    hidden: z.boolean(),
+    levels: z.array(z.strictObject({
+        name: z.string(),
+        rangeId: z.union([z.string(), z.null()]),
+        description: z.union([z.string(), z.null()]),
+        skillType: z.string(),
+        durationType: z.string(),
+        spData: z.strictObject({
+            spType: z.union([z.string(), z.number()]),
+            levelUpCost: z.null(),
+            maxChargeTime: z.number(),
+            spCost: z.number(),
+            initSp: z.number(),
+            increment: z.number(),
         }),
-        prefabId: t.union([t.string, t.null]),
-        duration: t.number,
-        blackboard: t.array(exports.BlackboardIO),
+        prefabId: z.union([z.string(), z.null()]),
+        duration: z.number(),
+        blackboard: z.array(BlackboardZod),
     })),
 });
-exports.SkinIO = t.type({
-    skinId: t.string,
-    charId: t.string,
-    tokenSkinMap: t.union([
-        t.array(t.type({
-            tokenId: t.string,
-            tokenSkinId: t.string,
+exports.SkinZod = z.strictObject({
+    skinId: z.string(),
+    charId: z.string(),
+    tokenSkinMap: z.union([
+        z.array(z.strictObject({
+            tokenId: z.string(),
+            tokenSkinId: z.string(),
         })),
-        t.null
+        z.null()
     ]),
-    illustId: t.union([t.string, t.null]),
-    dynIllustId: t.union([t.string, t.null]),
-    avatarId: t.string,
-    portraitId: t.union([t.string, t.null]),
-    dynPortraitId: t.union([t.string, t.null]),
-    dynEntranceId: t.union([t.string, t.null]),
-    buildingId: t.union([t.string, t.null]),
-    battleSkin: t.type({
-        overwritePrefab: t.boolean,
-        skinOrPrefabId: t.union([t.string, t.null]),
+    illustId: z.union([z.string(), z.null()]),
+    dynIllustId: z.union([z.string(), z.null()]),
+    avatarId: z.string(),
+    portraitId: z.union([z.string(), z.null()]),
+    dynPortraitId: z.union([z.string(), z.null()]),
+    dynEntranceId: z.union([z.string(), z.null()]),
+    buildingId: z.union([z.string(), z.null()]),
+    battleSkin: z.strictObject({
+        overwritePrefab: z.boolean(),
+        skinOrPrefabId: z.union([z.string(), z.null()]),
     }),
-    isBuySkin: t.boolean,
-    tmplId: t.union([t.string, t.null]),
-    voiceId: t.union([t.string, t.null]),
-    voiceType: t.string,
-    displaySkin: t.type({
-        skinName: t.union([t.string, t.null]),
-        colorList: t.union([t.tuple([t.string, t.string, t.string, t.string, t.string]), t.null]),
-        modelName: t.union([t.string, t.null]),
-        drawerList: t.union([t.array(t.string), t.null]),
-        skinGroupId: t.union([t.string, t.null]),
-        skinGroupName: t.union([t.string, t.null]),
-        skinGroupSortIndex: t.number,
-        content: t.union([t.string, t.null]),
-        dialog: t.union([t.string, t.null]),
-        usage: t.union([t.string, t.null]),
-        description: t.union([t.string, t.null]),
-        obtainApproach: t.union([t.string, t.null]),
-        sortId: t.number,
-        displayTagId: t.union([t.string, t.null]),
-        getTime: t.number,
-        onYear: t.number,
-        onPeriod: t.number,
+    isBuySkin: z.boolean(),
+    tmplId: z.union([z.string(), z.null()]),
+    voiceId: z.union([z.string(), z.null()]),
+    voiceType: z.string(),
+    displaySkin: z.strictObject({
+        skinName: z.union([z.string(), z.null()]),
+        colorList: z.union([z.array(z.string()), z.null()]),
+        titleList: z.array(z.string()).nullable(),
+        modelName: z.union([z.string(), z.null()]),
+        drawerList: z.union([z.array(z.string()), z.null()]),
+        designerList: z.array(z.string()).nullable(),
+        skinGroupId: z.union([z.string(), z.null()]),
+        skinGroupName: z.union([z.string(), z.null()]),
+        skinGroupSortIndex: z.number(),
+        content: z.union([z.string(), z.null()]),
+        dialog: z.union([z.string(), z.null()]),
+        usage: z.union([z.string(), z.null()]),
+        description: z.union([z.string(), z.null()]),
+        obtainApproach: z.union([z.string(), z.null()]),
+        sortId: z.number(),
+        displayTagId: z.union([z.string(), z.null()]),
+        getTime: z.number(),
+        onYear: z.number(),
+        onPeriod: z.number(),
     }),
 });
-exports.StageIO = t.type({
-    excel: t.type({
-        stageType: t.string,
-        difficulty: t.string,
-        performanceStageFlag: t.string,
-        diffGroup: t.string,
-        unlockCondition: t.array(t.union([
-            t.type({
-                stageId: t.string,
-                completeState: t.string,
+exports.StageZod = z.strictObject({
+    excel: z.strictObject({
+        stageType: z.string(),
+        difficulty: z.string(),
+        performanceStageFlag: z.string(),
+        diffGroup: z.string(),
+        unlockCondition: z.array(z.union([
+            z.strictObject({
+                stageId: z.string(),
+                completeState: z.string(),
             }),
-            t.null
+            z.null()
         ])),
-        stageId: t.string,
-        levelId: t.string,
-        zoneId: t.string,
-        code: t.string,
-        name: t.string,
-        description: t.string,
-        hardStagedId: t.union([t.string, t.null]),
-        dangerLevel: t.union([t.string, t.null]),
-        dangerPoint: t.number,
-        loadingPicId: t.string,
-        canPractice: t.boolean,
-        canBattleReplay: t.boolean,
-        apCost: t.number,
-        apFailReturn: t.number,
-        etItemId: t.union([t.string, t.null]),
-        etCost: t.number,
-        etFailReturn: t.number,
-        etButtonStyle: t.union([t.string, t.null]),
-        apProtectTimes: t.number,
-        diamondOnceDrop: t.number,
-        practiceTicketCost: t.number,
-        dailyStageDifficulty: t.number,
-        expGain: t.number,
-        goldGain: t.number,
-        loseExpGain: t.number,
-        loseGoldGain: t.number,
-        passFavor: t.number,
-        completeFavor: t.number,
-        slProgress: t.number,
-        displayMainItem: t.union([t.string, t.null]),
-        hilightMark: t.boolean,
-        bossMark: t.boolean,
-        isPredefined: t.boolean,
-        isHardPredefined: t.boolean,
-        isSkillSelectablePredefined: t.boolean,
-        isStoryOnly: t.boolean,
-        appearanceStyle: t.string,
-        stageDropInfo: t.type({
-            firstPassRewards: t.null,
-            firstCompleteRewards: t.null,
-            passRewards: t.null,
-            completeRewards: t.null,
-            displayRewards: t.array(t.type({
-                type: t.string,
-                id: t.string,
-                dropType: t.string,
+        stageId: z.string(),
+        levelId: z.string(),
+        zoneId: z.string(),
+        code: z.string(),
+        name: z.string(),
+        description: z.string(),
+        hardStagedId: z.union([z.string(), z.null()]),
+        dangerLevel: z.union([z.string(), z.null()]),
+        dangerPoint: z.number(),
+        loadingPicId: z.string(),
+        canPractice: z.boolean(),
+        canBattleReplay: z.boolean(),
+        apCost: z.number(),
+        apFailReturn: z.number(),
+        etItemId: z.union([z.string(), z.null()]),
+        etCost: z.number(),
+        etFailReturn: z.number(),
+        etButtonStyle: z.union([z.string(), z.null()]),
+        apProtectTimes: z.number(),
+        diamondOnceDrop: z.number(),
+        practiceTicketCost: z.number(),
+        dailyStageDifficulty: z.number(),
+        expGain: z.number(),
+        goldGain: z.number(),
+        loseExpGain: z.number(),
+        loseGoldGain: z.number(),
+        passFavor: z.number(),
+        completeFavor: z.number(),
+        slProgress: z.number(),
+        displayMainItem: z.union([z.string(), z.null()]),
+        hilightMark: z.boolean(),
+        bossMark: z.boolean(),
+        isPredefined: z.boolean(),
+        isHardPredefined: z.boolean(),
+        isSkillSelectablePredefined: z.boolean(),
+        isStoryOnly: z.boolean(),
+        appearanceStyle: z.string(),
+        stageDropInfo: z.strictObject({
+            firstPassRewards: z.null(),
+            firstCompleteRewards: z.null(),
+            passRewards: z.null(),
+            completeRewards: z.null(),
+            displayRewards: z.array(z.strictObject({
+                type: z.string(),
+                id: z.string(),
+                dropType: z.string(),
             })),
-            displayDetailRewards: t.array(t.type({
-                occPercent: t.string,
-                type: t.string,
-                id: t.string,
-                dropType: t.string,
+            displayDetailRewards: z.array(z.strictObject({
+                occPercent: z.string(),
+                type: z.string(),
+                id: z.string(),
+                dropType: z.string(),
             })),
         }),
-        canUseCharm: t.boolean,
-        canUseTech: t.boolean,
-        canUseTrapTool: t.boolean,
-        canUseBattlePerformance: t.boolean,
-        startButtonOverrideId: t.union([t.string, t.null]),
-        isStagePatch: t.boolean,
-        mainStageId: t.union([t.string, t.null]),
-        extraCondition: t.union([
-            t.array(t.type({
-                index: t.number,
-                template: t.string,
-                unlockParam: t.array(t.string),
+        canUseCharm: z.boolean(),
+        canUseTech: z.boolean(),
+        canUseTrapTool: z.boolean(),
+        canUseBattlePerformance: z.boolean(),
+        startButtonOverrideId: z.union([z.string(), z.null()]),
+        isStagePatch: z.boolean(),
+        mainStageId: z.union([z.string(), z.null()]),
+        extraCondition: z.union([
+            z.array(z.strictObject({
+                index: z.number(),
+                template: z.string(),
+                unlockParam: z.array(z.string()),
             })),
-            t.null
+            z.null()
         ]),
-        extraInfo: t.union([
-            t.array(t.type({
-                stageId: t.string,
-                rewards: t.array(t.type({
-                    id: t.string,
-                    count: t.number,
-                    type: t.string,
+        extraInfo: z.union([
+            z.array(z.strictObject({
+                stageId: z.string(),
+                rewards: z.array(z.strictObject({
+                    id: z.string(),
+                    count: z.number(),
+                    type: z.string(),
                 })),
-                progressInfo: t.type({
-                    progressType: t.string,
-                    descList: t.record(t.string, t.string),
+                progressInfo: z.strictObject({
+                    progressType: z.string(),
+                    descList: z.record(z.string(), z.string()),
                 })
             })),
-            t.null
+            z.null()
         ])
     }),
-    levels: exports.StageDataIO,
+    levels: StageDataZod,
 });
-exports.OperatorIO = t.type({
-    id: t.string,
-    recruit: t.number,
-    archetype: t.string,
-    range: exports.GridRangeIO,
-    skills: t.array(exports.SkillIO),
-    modules: t.array(exports.ModuleIO),
-    skins: t.array(exports.SkinIO),
-    bases: t.array(t.type({
-        condition: t.type({
-            buffId: t.string,
-            cond: exports.OperatorUnlockCondIO,
+exports.OperatorZod = z.strictObject({
+    id: z.string(),
+    recruit: z.number(),
+    archetype: z.string(),
+    range: exports.GridRangeZod,
+    skills: z.array(exports.SkillZod),
+    modules: z.array(exports.ModuleZod),
+    skins: z.array(exports.SkinZod),
+    bases: z.array(z.strictObject({
+        condition: z.strictObject({
+            buffId: z.string(),
+            cond: OperatorUnlockCondZod,
         }),
-        skill: exports.BaseIO,
+        skill: exports.BaseZod,
     })),
-    paradox: t.union([exports.ParadoxIO, t.null]),
-    data: t.type({
-        name: t.string,
-        description: t.string,
-        canUseGeneralPotentialItem: t.boolean,
-        potentialItemId: t.union([t.string, t.null]),
-        nationId: t.union([t.string, t.null]),
-        groupId: t.union([t.string, t.null]),
-        teamId: t.union([t.string, t.null]),
-        displayNumber: t.union([t.string, t.null]),
-        // tokenKey: t.string,
-        appellation: t.string,
-        position: t.string,
-        tagList: t.array(t.string),
-        itemUsage: t.union([t.string, t.null]),
-        itemDesc: t.union([t.string, t.null]),
-        itemObtainApproach: t.union([t.string, t.null]),
-        isNotObtainable: t.boolean,
-        isSpChar: t.boolean,
-        maxPotentialLevel: t.number,
-        rarity: t.string,
-        profession: t.string,
-        subProfessionId: t.string,
-        trait: t.union([
-            t.type({
-                candidates: t.array(t.type({
-                    unlockCondition: exports.OperatorUnlockCondIO,
-                    requiredPotentialRank: t.number,
-                    blackboard: t.array(exports.BlackboardIO),
-                    overrideDescripton: t.union([t.string, t.null]),
-                    prefabKey: t.union([t.string, t.null]),
-                    rangeId: t.union([t.string, t.null]),
+    paradox: z.union([exports.ParadoxZod, z.null()]),
+    data: z.strictObject({
+        name: z.string(),
+        description: z.string(),
+        canUseGeneralPotentialItem: z.boolean(),
+        canUseActivityPotentialItem: z.boolean(),
+        potentialItemId: z.union([z.string(), z.null()]),
+        activityPotentialItemId: z.string().nullable(),
+        classicPotentialItemId: z.string().nullable(),
+        nationId: z.union([z.string(), z.null()]),
+        groupId: z.union([z.string(), z.null()]),
+        teamId: z.union([z.string(), z.null()]),
+        displayNumber: z.union([z.string(), z.null()]),
+        appellation: z.string(),
+        position: z.string(),
+        tagList: z.array(z.string()),
+        itemUsage: z.union([z.string(), z.null()]),
+        itemDesc: z.union([z.string(), z.null()]),
+        itemObtainApproach: z.union([z.string(), z.null()]),
+        isNotObtainable: z.boolean(),
+        isSpChar: z.boolean(),
+        maxPotentialLevel: z.number(),
+        rarity: z.string(),
+        profession: z.string(),
+        subProfessionId: z.string(),
+        trait: z.union([
+            z.strictObject({
+                candidates: z.array(z.strictObject({
+                    unlockCondition: OperatorUnlockCondZod,
+                    requiredPotentialRank: z.number(),
+                    blackboard: z.array(BlackboardZod),
+                    overrideDescripton: z.union([z.string(), z.null()]),
+                    prefabKey: z.union([z.string(), z.null()]),
+                    rangeId: z.union([z.string(), z.null()]),
                 })),
             }),
-            t.null
+            z.null()
         ]),
-        phases: t.array(t.type({
-            characterPrefabKey: t.string,
-            rangeId: t.string,
-            maxLevel: t.number,
-            attributesKeyFrames: t.array(exports.AttributesKeyFrameIO),
-            evolveCost: t.union([t.array(exports.LevelUpCostIO), t.null]),
+        phases: z.array(z.strictObject({
+            characterPrefabKey: z.string(),
+            rangeId: z.string(),
+            maxLevel: z.number(),
+            attributesKeyFrames: z.array(AttributesKeyFrameZod),
+            evolveCost: z.union([z.array(LevelUpCostZod), z.null()]),
         })),
-        skills: t.array(t.type({
-            skillId: t.string,
-            overridePrefabKey: t.union([t.string, t.null]),
-            overrideTokenKey: t.union([t.string, t.null]),
-            levelUpCostCond: t.array(exports.LevelUpCostCondIO),
-            unlockCond: exports.OperatorUnlockCondIO,
+        skills: z.array(z.strictObject({
+            skillId: z.string(),
+            overridePrefabKey: z.union([z.string(), z.null()]),
+            overrideTokenKey: z.union([z.string(), z.null()]),
+            levelUpCostCond: z.array(LevelUpCostCondZod),
+            unlockCond: OperatorUnlockCondZod,
         })),
-        talents: t.union([
-            t.array(t.type({
-                candidates: t.array(t.type({
-                    unlockCondition: exports.OperatorUnlockCondIO,
-                    requiredPotentialRank: t.number,
-                    prefabKey: t.string,
-                    name: t.string,
-                    description: t.string,
-                    rangeId: t.union([t.string, t.null]),
-                    blackboard: t.array(exports.BlackboardIO),
+        displayTokenDict: z.record(z.boolean()).nullable(),
+        talents: z.union([
+            z.array(z.strictObject({
+                candidates: z.array(z.strictObject({
+                    unlockCondition: OperatorUnlockCondZod,
+                    requiredPotentialRank: z.number(),
+                    prefabKey: z.string(),
+                    name: z.string(),
+                    description: z.string(),
+                    rangeId: z.union([z.string(), z.null()]),
+                    blackboard: z.array(BlackboardZod),
+                    tokenKey: z.string().nullable(),
                 })),
             })),
-            t.null
+            z.null()
         ]),
-        potentialRanks: t.array(t.type({
-            type: t.string,
-            description: t.string,
-            buff: t.union([
-                t.type({
-                    attributes: t.type({
-                        abnormalFlags: t.null,
-                        abnormalImmunes: t.null,
-                        abnormalAntis: t.null,
-                        abnormalCombos: t.null,
-                        abnormalComboImmunes: t.null,
-                        attributeModifiers: t.array(t.type({
-                            attributeType: t.string,
-                            formulaItem: t.string,
-                            value: t.number,
-                            loadFromBlackboard: t.boolean,
-                            fetchBaseValueFromSourceEntity: t.boolean,
+        potentialRanks: z.array(z.strictObject({
+            type: z.string(),
+            description: z.string(),
+            buff: z.union([
+                z.strictObject({
+                    attributes: z.strictObject({
+                        abnormalFlags: z.null(),
+                        abnormalImmunes: z.null(),
+                        abnormalAntis: z.null(),
+                        abnormalCombos: z.null(),
+                        abnormalComboImmunes: z.null(),
+                        attributeModifiers: z.array(z.strictObject({
+                            attributeType: z.string(),
+                            formulaItem: z.string(),
+                            value: z.number(),
+                            loadFromBlackboard: z.boolean(),
+                            fetchBaseValueFromSourceEntity: z.boolean(),
                         })),
                     }),
                 }),
-                t.null
+                z.null()
             ]),
-            equivalentCost: t.null,
+            equivalentCost: z.null(),
         })),
-        favorKeyFrames: t.array(exports.AttributesKeyFrameIO),
-        allSkillLvlup: t.array(t.type({
-            unlockCond: exports.OperatorUnlockCondIO,
-            lvlUpCost: t.union([t.array(exports.LevelUpCostIO), t.null]),
+        favorKeyFrames: z.array(AttributesKeyFrameZod),
+        allSkillLvlup: z.array(z.strictObject({
+            unlockCond: OperatorUnlockCondZod,
+            lvlUpCost: z.union([z.array(LevelUpCostZod), z.null()]),
         })),
     }),
 });
