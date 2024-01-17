@@ -1,20 +1,25 @@
 import * as z from 'zod';
 
+const BlackboardZod = z.strictObject({
+    key: z.string(),
+    value: z.number().nullable(),
+    valueStr: z.string().nullable().optional(),
+});
 const DefinedStringZod = z.strictObject({
     m_defined: z.boolean(),
-    m_value: z.union([z.string(), z.null()]),
+    m_value: z.string().nullable(),
 });
 const DefinedStringArrayZod = z.strictObject({
     m_defined: z.boolean(),
-    m_value: z.union([z.array(z.string()), z.null()]),
+    m_value: z.array(z.string()).nullable(),
 });
 const DefinedNumberZod = z.strictObject({
     m_defined: z.boolean(),
-    m_value: z.union([z.number(), z.null()]),
+    m_value: z.number().nullable(),
 });
 const DefinedBooleanZod = z.strictObject({
     m_defined: z.boolean(),
-    m_value: z.boolean(),
+    m_value: z.boolean().nullable(),
 });
 
 const AttributesKeyFrameZod = z.strictObject({
@@ -44,11 +49,6 @@ const AttributesKeyFrameZod = z.strictObject({
         levitateImmune: z.boolean(),
     }),
 });
-const BlackboardZod = z.strictObject({
-    key: z.string(),
-    value: z.union([z.number(), z.null()]),
-    valueStr: z.union([z.string(), z.null(), z.undefined()]),
-});
 const EnemyAttributesZod = z.strictObject({
     maxHp: DefinedNumberZod,
     atk: DefinedNumberZod,
@@ -65,14 +65,14 @@ const EnemyAttributesZod = z.strictObject({
     maxDeployCount: DefinedNumberZod,
     massLevel: DefinedNumberZod,
     baseForceLevel: DefinedNumberZod,
-    tauntLevel: z.union([DefinedNumberZod, z.undefined()]), // legacy
-    epDamageResistance: z.union([DefinedNumberZod, z.undefined()]),   // legacy
-    epResistance: z.union([DefinedNumberZod, z.undefined()]),         // ~
+    tauntLevel: DefinedNumberZod.optional(),
+    epDamageResistance: DefinedNumberZod.optional(),
+    epResistance: DefinedNumberZod.optional(),
     stunImmune: DefinedBooleanZod,
     silenceImmune: DefinedBooleanZod,
-    sleepImmune: z.union([DefinedBooleanZod, z.undefined()]),
-    frozenImmune: z.union([DefinedBooleanZod, z.undefined()]), // legacy
-    levitateImmune: z.union([DefinedBooleanZod, z.undefined()]), // legacy
+    sleepImmune: DefinedBooleanZod.optional(),
+    frozenImmune: DefinedBooleanZod.optional(),
+    levitateImmune: DefinedBooleanZod.optional(),
 });
 const EnemySkillsZod = z.strictObject({
     prefabKey: z.string(),
@@ -80,7 +80,7 @@ const EnemySkillsZod = z.strictObject({
     cooldown: z.number(),
     initCooldown: z.number(),
     spCost: z.number(),
-    blackboard: z.union([z.array(BlackboardZod), z.null()]),
+    blackboard: z.array(BlackboardZod).nullable(),
 });
 const EnemySpDataZod = z.strictObject({
     spType: z.string(),
@@ -93,18 +93,18 @@ const EnemyDataZod = z.strictObject({
     description: DefinedStringZod,
     prefabKey: DefinedStringZod,
     attributes: EnemyAttributesZod,
-    applyWay: z.union([DefinedStringZod, z.undefined()]),         // legacy
-    motion: z.union([DefinedStringZod, z.undefined()]),           // legacy
-    enemyTags: z.union([DefinedStringArrayZod, z.undefined()]),   // legacy
+    applyWay: DefinedStringZod.optional(),
+    motion: DefinedStringZod.optional(),
+    enemyTags: DefinedStringArrayZod.optional(),
     lifePointReduce: DefinedNumberZod,
-    levelType: z.union([DefinedStringZod, DefinedNumberZod, z.undefined()]),  // legacy
+    levelType: z.union([DefinedStringZod, DefinedNumberZod]).optional(),
     rangeRadius: DefinedNumberZod,
-    numOfExtraDrops: z.union([DefinedNumberZod, z.undefined()]),  // legacy
-    viewRadius: z.union([DefinedNumberZod, z.undefined()]),       // legacy
-    notCountInTotal: z.union([DefinedBooleanZod, z.undefined()]), // legacy
-    talentBlackboard: z.union([z.array(BlackboardZod), z.null()]),
-    skills: z.union([z.array(EnemySkillsZod), z.null()]),
-    spData: z.union([EnemySpDataZod, z.null()]),
+    numOfExtraDrops: DefinedNumberZod.optional(),
+    viewRadius: DefinedNumberZod.optional(),
+    notCountInTotal: DefinedBooleanZod.optional(),
+    talentBlackboard: z.array(BlackboardZod).nullable(),
+    skills: z.array(EnemySkillsZod).nullable(),
+    spData: EnemySpDataZod.nullable(),
 });
 const LevelUpCostZod = z.strictObject({
     id: z.string(),
@@ -174,44 +174,43 @@ const OperatorUnlockCondZod = z.strictObject({
 const LevelUpCostCondZod = z.strictObject({
     unlockCond: OperatorUnlockCondZod,
     lvlUpTime: z.number(),
-    levelUpCost: z.union([z.array(LevelUpCostZod), z.null()]),
+    levelUpCost: z.array(LevelUpCostZod).nullable(),
+});
+const StageCardZod = z.strictObject({
+    initialCnt: z.number().optional(),
+    hidden: z.boolean(),
+    alias: z.string().nullable(),
+    uniEquipIds: z.array(
+        z.strictObject({
+            key: z.string(),
+            level: z.number(),
+        })
+    ).nullable().optional(),
+    inst: z.strictObject({
+        characterKey: z.string(),
+        level: z.number(),
+        phase: z.union([z.string(), z.number()]).optional(),
+        favorPoint: z.number(),
+        potentialRank: z.number(),
+    }),
+    skillIndex: z.number(),
+    mainSkillLvl: z.number(),
+    skinId: z.string().nullable(),
+    tmplId: z.string().nullable().optional(),
+    overrideSkillBlackboard: z.array(BlackboardZod).nullable().optional(),
+});
+const StageInstZod = StageCardZod.extend({
+    position: z.strictObject({
+        row: z.number(),
+        col: z.number(),
+    }),
+    direction: z.union([z.string(), z.number()]).optional(),
 });
 const StageDefinesZod = z.strictObject({
-    characterInsts: z.array(z.any()),
-    tokenInsts: z.array(
-        z.strictObject({
-            position: z.strictObject({
-                row: z.number(),
-                col: z.number(),
-            }),
-            direction: z.union([z.string(), z.number()]), // legacy
-            hidden: z.boolean(),
-            alias: z.union([z.string(), z.null()]),
-            uniEquipIds: z.union([
-                z.array(
-                    z.strictObject({
-                        key: z.string(),
-                        level: z.number(),
-                    })
-                ),
-                z.null(), z.undefined()] // legacy
-            ),
-            inst: z.strictObject({
-                characterKey: z.string(),
-                level: z.number(),
-                phase: z.union([z.string(), z.number()]), // legacy
-                favorPoint: z.number(),
-                potentialRank: z.number(),
-            }),
-            skillIndex: z.number(),
-            mainSkillLvl: z.number(),
-            skinId: z.union([z.string(), z.null()]),
-            tmplId: z.union([z.string(), z.null(), z.undefined()]),
-            overrideSkillBlackboard: z.union([z.array(BlackboardZod), z.null(), z.undefined()]),
-        })
-    ),
-    characterCards: z.array(z.any()),
-    tokenCards: z.array(z.any()),
+    characterInsts: z.array(StageInstZod),
+    tokenInsts: z.array(StageInstZod),
+    characterCards: z.array(StageCardZod),
+    tokenCards: z.array(StageCardZod),
 });
 const StageEffectZod = z.strictObject({
     key: z.string(),
@@ -220,10 +219,10 @@ const StageEffectZod = z.strictObject({
         y: z.number(),
         z: z.number(),
     }),
-    direction: z.union([z.string(), z.number()]), // legacy
+    direction: z.union([z.string(), z.number()]),
 });
 const StageActionZod = z.strictObject({
-    actionType: z.union([z.string(), z.number()]), // legacy
+    actionType: z.union([z.string(), z.number()]),
     managedByScheduler: z.boolean(),
     key: z.string(),
     count: z.number(),
@@ -232,16 +231,55 @@ const StageActionZod = z.strictObject({
     routeIndex: z.number(),
     blockFragment: z.boolean(),
     autoPreviewRoute: z.boolean(),
-    autoDisplayEnemyInfo: z.union([z.boolean(), z.undefined()]),             // legacy
+    autoDisplayEnemyInfo: z.boolean().optional(),
     isUnharmfulAndAlwaysCountAsKilled: z.boolean(),
-    hiddenGroup: z.union([z.string(), z.null()]),
-    randomSpawnGroupKey: z.union([z.string(), z.null(), z.undefined()]),     // legacy
-    randomSpawnGroupPackKey: z.union([z.string(), z.null(), z.undefined()]), // ~
-    randomType: z.union([z.string(), z.number(), z.undefined()]),            // ~
-    weight: z.union([z.number(), z.undefined()]),                            // ~
-    dontBlockWave: z.union([z.boolean(), z.undefined()]),                    // ~
-    isValid: z.union([z.boolean(), z.undefined()]),                          // ~
-    extraMeta: z.union([z.null(), z.undefined()]),                           // ~
+    hiddenGroup: z.string().nullable(),
+    randomSpawnGroupKey: z.string().nullable().optional(),
+    randomSpawnGroupPackKey: z.string().nullable().optional(),
+    randomType: z.union([z.string(), z.number()]).optional(),
+    weight: z.number().optional(),
+    dontBlockWave: z.boolean().optional(),
+    isValid: z.boolean().optional(),
+    extraMeta: z.null().optional(),
+});
+const StageRouteZod = z.strictObject({
+    motionMode: z.union([z.string(), z.number()]),
+    startPosition: z.strictObject({
+        row: z.number(),
+        col: z.number(),
+    }),
+    endPosition: z.strictObject({
+        row: z.number(),
+        col: z.number(),
+    }),
+    spawnRandomRange: z.strictObject({
+        x: z.number(),
+        y: z.number(),
+    }),
+    spawnOffset: z.strictObject({
+        x: z.number(),
+        y: z.number(),
+    }),
+    checkpoints: z.array(
+        z.strictObject({
+            type: z.union([z.string(), z.number()]),
+            time: z.number(),
+            position: z.strictObject({
+                row: z.number(),
+                col: z.number(),
+            }),
+            reachOffset: z.strictObject({
+                x: z.number(),
+                y: z.number(),
+            }),
+            randomizeReachOffset: z.boolean(),
+            reachDistance: z.number(),
+        }),
+    ).nullable(),
+    allowDiagonalMove: z.boolean(),
+    visitEveryTileCenter: z.boolean(),
+    visitEveryNodeCenter: z.boolean(),
+    visitEveryCheckPoint: z.boolean().optional(),
 });
 const StageDataZod = z.strictObject({
     options: z.strictObject({
@@ -253,117 +291,111 @@ const StageDataZod = z.strictObject({
         moveMultiplier: z.number(),
         steeringEnabled: z.boolean(),
         isTrainingLevel: z.boolean(),
-        isHardTrainingLevel: z.union([z.boolean(), z.undefined()]), // legacy
-        isPredefinedCardsSelectable: z.union([z.boolean(), z.undefined()]), // legacy
-        maxPlayTime: z.union([z.number(), z.undefined()]), // legacy
+        isHardTrainingLevel: z.boolean().optional(),
+        isPredefinedCardsSelectable: z.boolean().optional(),
+        maxPlayTime: z.number().optional(),
         functionDisableMask: z.union([z.string(), z.number()]),
-        configBlackBoard: z.union([z.array(BlackboardZod), z.null(), z.undefined()]), // legacy
+        configBlackBoard: z.array(BlackboardZod).nullable().optional(),
     }),
-    levelId: z.union([z.string(), z.null()]),
-    mapId: z.union([z.string(), z.null()]),
-    bgmEvent: z.union([z.string(), z.null()]),
-    environmentSe: z.union([z.string(), z.null()]),
+    levelId: z.string().nullable(),
+    mapId: z.string().nullable(),
+    bgmEvent: z.string().nullable(),
+    environmentSe: z.string().nullable(),
     mapData: z.strictObject({
         map: z.array(z.array(z.number())),
         tiles: z.array(
             z.strictObject({
                 tileKey: z.string(),
-                heightType: z.union([z.string(), z.number()]),      // keep number for legacy stages (monster hunter, vignettes, etc.)
-                buildableType: z.union([z.string(), z.number()]),   // ~
-                passableMask: z.union([z.string(), z.number()]),    // ~
-                playerSideMask: z.union([z.string(), z.number(), z.undefined()]),  // ~
-                blackboard: z.union([z.array(BlackboardZod), z.null()]),
-                effects: z.union([z.array(StageEffectZod), z.null()]),
+                heightType: z.union([z.string(), z.number()]),
+                buildableType: z.union([z.string(), z.number()]),
+                passableMask: z.union([z.string(), z.number()]),
+                playerSideMask: z.union([z.string(), z.number()]).optional(),
+                blackboard: z.array(BlackboardZod).nullable(),
+                effects: z.array(StageEffectZod).nullable(),
             })
         ),
-        blockEdges: z.union([z.array(z.any()), z.null()]),
-        tags: z.union([z.array(z.string()), z.null()]),
-        effects: z.union([z.array(StageEffectZod), z.null()]),
-        layerRects: z.union([z.null(), z.undefined()]),
+        blockEdges: z.array(z.strictObject({
+            pos: z.strictObject({
+                row: z.number(),
+                col: z.number(),
+            }),
+            direction: z.union([z.string(), z.number()]),
+            blockMask: z.union([z.string(), z.number()]),
+        })).nullable(),
+        tags: z.array(z.string()).nullable(),
+        effects: z.array(StageEffectZod).nullable(),
+        layerRects: z.null().optional(),
         width: z.number().optional(),
         height: z.number().optional(),
     }),
-    tilesDisallowToLocate: z.array(z.any()),
-    runes: z.union([
-        z.array(
-            z.strictObject({
-                difficultyMask: z.union([z.string(), z.number()]), // legacy
-                key: z.string(),
-                professionMask: z.union([z.string(), z.number(), z.undefined()]), // legacy
-                buildableMask: z.union([z.string(), z.number()]), // legacy
-                blackboard: z.array(BlackboardZod),
-            })
-        ),
-        z.null()
-    ]),
-    globalBuffs: z.union([
-        z.array(
-            z.strictObject({
-                prefabKey: z.string(),
-                blackboard: z.union([z.array(BlackboardZod), z.null()]),
-                overrideCameraEffect: z.null(),
-                passProfessionMaskFlag: z.union([z.boolean(), z.undefined()]),
-                professionMask: z.union([z.string(), z.number(), z.undefined()]),
-                useExtraData: z.boolean().optional(),
-            })
-        ),
-        z.null()
-    ]),
-    routes: z.array(
-        z.union([
-            z.strictObject({
-                motionMode: z.union([z.string(), z.number()]), // keep number for legacy
-                startPosition: z.strictObject({
-                    row: z.number(),
-                    col: z.number(),
-                }),
-                endPosition: z.strictObject({
-                    row: z.number(),
-                    col: z.number(),
-                }),
-                spawnRandomRange: z.strictObject({
-                    x: z.number(),
-                    y: z.number(),
-                }),
-                spawnOffset: z.strictObject({
-                    x: z.number(),
-                    y: z.number(),
-                }),
-                checkpoints: z.union([
-                    z.array(
-                        z.strictObject({
-                            type: z.union([z.string(), z.number()]), // keep number for legacy
-                            time: z.number(),
-                            position: z.strictObject({
-                                row: z.number(),
-                                col: z.number(),
-                            }),
-                            reachOffset: z.strictObject({
-                                x: z.number(),
-                                y: z.number(),
-                            }),
-                            randomizeReachOffset: z.boolean(),
-                            reachDistance: z.number(),
-                        })
-                    ),
-                    z.null()
-                ]),
-                allowDiagonalMove: z.boolean(),
-                visitEveryTileCenter: z.boolean(),
-                visitEveryNodeCenter: z.boolean(),
-                visitEveryCheckPoint: z.union([z.boolean(), z.undefined()]), // legacy
+    tilesDisallowToLocate: z.tuple([]),
+    runes: z.array(
+        z.strictObject({
+            difficultyMask: z.union([z.string(), z.number()]),
+            key: z.string(),
+            professionMask: z.union([z.string(), z.number()]).optional(),
+            buildableMask: z.union([z.string(), z.number()]),
+            blackboard: z.array(BlackboardZod),
+        })
+    ).nullable(),
+    globalBuffs: z.array(
+        z.strictObject({
+            prefabKey: z.string(),
+            blackboard: z.array(BlackboardZod).nullable(),
+            overrideCameraEffect: z.null(),
+            passProfessionMaskFlag: z.boolean().optional(),
+            professionMask: z.union([z.string(), z.number()]).optional(),
+            useExtraData: z.boolean().optional(),
+        })
+    ).nullable(),
+    routes: z.array(StageRouteZod.nullable()),
+    extraRoutes: z.array(StageRouteZod.nullable()).optional(),
+    enemies: z.array(
+        z.strictObject({
+            name: z.null(),
+            description: z.null(),
+            key: z.string(),
+            attributes: z.strictObject({
+                maxHp: z.number(),
+                atk: z.number(),
+                def: z.number(),
+                magicResistance: z.number(),
+                cost: z.number(),
+                blockCnt: z.number(),
+                moveSpeed: z.number(),
+                attackSpeed: z.number(),
+                baseAttackTime: z.number(),
+                respawnTime: z.number(),
+                hpRecoveryPerSec: z.number(),
+                spRecoveryPerSec: z.number(),
+                maxDeployCount: z.number(),
+                maxDeckStackCnt: z.number(),
+                tauntLevel: z.number(),
+                massLevel: z.number(),
+                baseForceLevel: z.number(),
+                stunImmune: z.boolean(),
+                silenceImmune: z.boolean(),
+                sleepImmune: z.boolean(),
+                frozenImmune: z.boolean(),
+                levitateImmune: z.boolean(),
             }),
-            z.null() // legacy
-        ])
+            alias: z.null(),
+            lifePointReduce: z.number(),
+            rangeRadius: z.number(),
+            numOfExtraDrops: z.number(),
+            viewRadius: z.number(),
+            levelType: z.number(),
+            talentBlackboard: z.array(BlackboardZod).nullable(),
+            skills: z.array(EnemySkillsZod).nullable(),
+            spData: EnemySpDataZod.nullable(),
+        })
     ),
-    extraRoutes: z.union([z.array(z.any()), z.undefined()]),
-    enemies: z.array(z.any()),
     enemyDbRefs: z.array(
         z.strictObject({
             useDb: z.boolean(),
             id: z.string(),
             level: z.number(),
-            overwrittenData: z.union([EnemyDataZod, z.null()]),
+            overwrittenData: EnemyDataZod.nullable(),
         })
     ),
     waves: z.array(
@@ -376,36 +408,33 @@ const StageDataZod = z.strictObject({
                 actions: z.array(StageActionZod),
                 name: z.string().nullable().optional(),
             })),
-            advancedWaveTag: z.union([z.string(), z.null(), z.undefined()]), // legacy
+            advancedWaveTag: z.string().nullable().optional(),
             name: z.string().nullable().optional(),
         })
     ),
-    branches: z.union([
-        z.record(
-            z.string(),
-            z.strictObject({
-                phases: z.array(z.strictObject({
-                    preDelay: z.number(),
-                    actions: z.array(StageActionZod),
-                    m_randomActionGroups: z.null().optional(),
-                    m_actionWithRandomSpawn: z.null().optional(),
-                    m_validActionPackKeys: z.null().optional(),
-                })),
-            }),
-        ),
-        z.null()
-    ]),
-    predefines: z.union([StageDefinesZod, z.null()]),
-    hardPredefines: z.union([StageDefinesZod, z.null(), z.undefined()]),
+    branches: z.record(
+        z.string(),
+        z.strictObject({
+            phases: z.array(z.strictObject({
+                preDelay: z.number(),
+                actions: z.array(StageActionZod),
+                m_randomActionGroups: z.null().optional(),
+                m_actionWithRandomSpawn: z.null().optional(),
+                m_validActionPackKeys: z.null().optional(),
+            })),
+        }),
+    ).nullable(),
+    predefines: StageDefinesZod.nullable(),
+    hardPredefines: StageDefinesZod.nullable().optional(),
     excludeCharIdList: z.null(),
     randomSeed: z.number(),
-    operaConfig: z.union([z.string(), z.null(), z.undefined()]),
-    runtimeData: z.union([z.null(), z.undefined()]), // legacy
+    operaConfig: z.string().nullable().optional(),
+    runtimeData: z.null().optional(),
 });
 const RogueRelicZod = z.strictObject({
     id: z.string(),
     name: z.string(),
-    description: z.union([z.string(), z.null()]),
+    description: z.string().nullable(),
     usage: z.string(),
     obtainApproach: z.string(),
     iconId: z.string(),
@@ -415,7 +444,7 @@ const RogueRelicZod = z.strictObject({
     value: z.number(),
     sortId: z.number(),
     canSacrifice: z.boolean(),
-    unlockCondDesc: z.union([z.string(), z.null()]),
+    unlockCondDesc: z.string().nullable(),
 });
 const RogueStageZod = z.strictObject({
     excel: z.strictObject({
@@ -426,11 +455,11 @@ const RogueStageZod = z.strictObject({
         name: z.string(),
         loadingPicId: z.string(),
         description: z.string(),
-        eliteDesc: z.union([z.string(), z.null()]),
+        eliteDesc: z.string().nullable(),
         isBoss: z.number(),
         isElite: z.number(),
         difficulty: z.string(),
-        capsulePool: z.union([z.string(), z.null()]),
+        capsulePool: z.string().nullable(),
         capsuleProb: z.number(),
         vutresProb: z.array(z.number()),
         boxProb: z.array(z.number()),
@@ -445,8 +474,8 @@ const RogueVariationZod = z.strictObject({
     innerName: z.string(),
     functionDesc: z.string(),
     desc: z.string(),
-    iconId: z.union([z.string(), z.null()]),
-    sound: z.union([z.string(), z.null()]),
+    iconId: z.string().nullable(),
+    sound: z.string().nullable(),
 });
 const SandboxStageZod = z.strictObject({
     excel: z.strictObject({
@@ -492,7 +521,7 @@ export const EnemyZod = z.strictObject({
     excel: z.strictObject({
         enemyId: z.string(),
         enemyIndex: z.string(),
-        enemyTags: z.union([z.array(z.string()), z.null()]),
+        enemyTags: z.array(z.string()).nullable(),
         sortId: z.number(),
         name: z.string(),
         enemyLevel: z.enum(['NORMAL', 'ELITE', 'BOSS']),
@@ -500,12 +529,14 @@ export const EnemyZod = z.strictObject({
         attackType: z.null(),
         ability: z.null(),
         isInvalidKilled: z.boolean(),
-        overrideKillCntInfos: z.record(z.string(), z.any()),
+        overrideKillCntInfos: z.record(z.string(), z.number()),
         hideInHandbook: z.boolean(),
-        abilityList: z.array(z.strictObject({
-            text: z.string(),
-            textFormat: z.enum(['NORMAL', 'SILENCE', 'TITLE'])
-        })),
+        abilityList: z.array(
+            z.strictObject({
+                text: z.string(),
+                textFormat: z.enum(['NORMAL', 'SILENCE', 'TITLE'])
+            })
+        ),
         linkEnemies: z.array(z.string()),
         damageType: z.array(z.enum(['PHYSIC', 'MAGIC', 'NO_DAMAGE', 'HEAL'])),
         invisibleDetail: z.boolean(),
@@ -530,8 +561,8 @@ export const GameEventZod = z.strictObject({
     rewardEndTime: z.number(),
     displayOnHome: z.boolean(),
     hasStage: z.boolean(),
-    templateShopId: z.union([z.string(), z.null()]),
-    medalGroupId: z.union([z.string(), z.null()]),
+    templateShopId: z.string().nullable(),
+    medalGroupId: z.string().nullable(),
     ungroupedMedalIds: z.array(z.string()).nullable(),
     isReplicate: z.boolean(),
     needFixedSync: z.boolean(),
@@ -550,14 +581,14 @@ export const ItemZod = z.strictObject({
     data: z.strictObject({
         itemId: z.string(),
         name: z.string(),
-        description: z.union([z.string(), z.null()]),
+        description: z.string().nullable(),
         rarity: z.string(),
         iconId: z.string(),
         overrideBkg: z.null(),
-        stackIconId: z.union([z.string(), z.null()]),
+        stackIconId: z.string().nullable(),
         sortId: z.number(),
-        usage: z.union([z.string(), z.null()]),
-        obtainApproach: z.union([z.string(), z.null()]),
+        usage: z.string().nullable(),
+        obtainApproach: z.string().nullable(),
         hideInItemGet: z.boolean(),
         classifyType: z.string(),
         itemType: z.string(),
@@ -574,7 +605,7 @@ export const ItemZod = z.strictObject({
             })
         ),
     }),
-    formula: z.union([ManufactFormulaZod, WorkshopFormulaZod, z.null()]),
+    formula: z.union([ManufactFormulaZod, WorkshopFormulaZod]).nullable(),
 });
 export const ModuleZod = z.strictObject({
     info: z.strictObject({
@@ -584,76 +615,67 @@ export const ModuleZod = z.strictObject({
         uniEquipDesc: z.string(),
         typeIcon: z.string(),
         typeName1: z.string(),
-        typeName2: z.union([z.string(), z.null()]),
+        typeName2: z.string().nullable(),
         equipShiningColor: z.string(),
         showEvolvePhase: z.string(),
         unlockEvolvePhase: z.string(),
         charId: z.string(),
-        tmplId: z.union([z.string(), z.null()]),
+        tmplId: z.string().nullable(),
         showLevel: z.number(),
         unlockLevel: z.number(),
         unlockFavorPoint: z.number(),
         missionList: z.array(z.string()),
-        itemCost: z.union([z.record(z.string(), z.array(LevelUpCostZod)), z.null()]),
+        itemCost: z.record(z.string(), z.array(LevelUpCostZod)).nullable(),
         type: z.string(),
         uniEquipGetTime: z.number(),
         charEquipOrder: z.number(),
     }),
-    data: z.union([
-        z.strictObject({
-            phases: z.array(
-                z.strictObject({
-                    equipLevel: z.number(),
-                    parts: z.array(
-                        z.strictObject({
-                            resKey: z.union([z.string(), z.null()]),
-                            target: z.string(),
-                            isToken: z.boolean(),
-                            addOrOverrideTalentDataBundle: z.strictObject({
-                                candidates: z.union([
-                                    z.array(
-                                        z.strictObject({
-                                            displayRangeId: z.boolean(),
-                                            upgradeDescription: z.string(),
-                                            talentIndex: z.number(),
-                                            unlockCondition: OperatorUnlockCondZod,
-                                            requiredPotentialRank: z.number(),
-                                            prefabKey: z.string(),
-                                            name: z.union([z.string(), z.null()]),
-                                            description: z.union([z.string(), z.null()]),
-                                            rangeId: z.union([z.string(), z.null()]),
-                                            blackboard: z.array(BlackboardZod),
-                                            tokenKey: z.string().optional(),
-                                        })
-                                    ),
-                                    z.null()
-                                ]),
-                            }),
-                            overrideTraitDataBundle: z.strictObject({
-                                candidates: z.union([
-                                    z.array(
-                                        z.strictObject({
-                                            additionalDescription: z.union([z.string(), z.null()]),
-                                            unlockCondition: OperatorUnlockCondZod,
-                                            requiredPotentialRank: z.number(),
-                                            blackboard: z.array(BlackboardZod),
-                                            overrideDescripton: z.union([z.string(), z.null()]),
-                                            prefabKey: z.union([z.string(), z.null()]),
-                                            rangeId: z.union([z.string(), z.null()]),
-                                        })
-                                    ),
-                                    z.null()
-                                ]),
-                            }),
-                        })
-                    ),
-                    attributeBlackboard: z.array(BlackboardZod),
-                    tokenAttributeBlackboard: z.record(z.string(), z.array(BlackboardZod)),
-                })
-            ),
-        }),
-        z.null()
-    ]),
+    data: z.strictObject({
+        phases: z.array(
+            z.strictObject({
+                equipLevel: z.number(),
+                parts: z.array(
+                    z.strictObject({
+                        resKey: z.string().nullable(),
+                        target: z.string(),
+                        isToken: z.boolean(),
+                        addOrOverrideTalentDataBundle: z.strictObject({
+                            candidates: z.array(
+                                z.strictObject({
+                                    displayRangeId: z.boolean(),
+                                    upgradeDescription: z.string(),
+                                    talentIndex: z.number(),
+                                    unlockCondition: OperatorUnlockCondZod,
+                                    requiredPotentialRank: z.number(),
+                                    prefabKey: z.string(),
+                                    name: z.string().nullable(),
+                                    description: z.string().nullable(),
+                                    rangeId: z.string().nullable(),
+                                    blackboard: z.array(BlackboardZod),
+                                    tokenKey: z.string().optional(),
+                                }),
+                            ).nullable(),
+                        }),
+                        overrideTraitDataBundle: z.strictObject({
+                            candidates: z.array(
+                                z.strictObject({
+                                    additionalDescription: z.string().nullable(),
+                                    unlockCondition: OperatorUnlockCondZod,
+                                    requiredPotentialRank: z.number(),
+                                    blackboard: z.array(BlackboardZod),
+                                    overrideDescripton: z.string().nullable(),
+                                    prefabKey: z.string().nullable(),
+                                    rangeId: z.string().nullable(),
+                                })
+                            ).nullable(),
+                        }),
+                    })
+                ),
+                attributeBlackboard: z.array(BlackboardZod),
+                tokenAttributeBlackboard: z.record(z.string(), z.array(BlackboardZod)),
+            })
+        ),
+    }).nullable(),
 });
 export const ParadoxZod = z.strictObject({
     excel: z.strictObject({
@@ -699,13 +721,13 @@ export const SandboxActZod = z.strictObject({
 });
 export const SkillZod = z.strictObject({
     skillId: z.string(),
-    iconId: z.union([z.string(), z.null()]),
+    iconId: z.string().nullable(),
     hidden: z.boolean(),
     levels: z.array(
         z.strictObject({
             name: z.string(),
-            rangeId: z.union([z.string(), z.null()]),
-            description: z.union([z.string(), z.null()]),
+            rangeId: z.string().nullable(),
+            description: z.string().nullable(),
             skillType: z.string(),
             durationType: z.string(),
             spData: z.strictObject({
@@ -716,7 +738,7 @@ export const SkillZod = z.strictObject({
                 initSp: z.number(),
                 increment: z.number(),
             }),
-            prefabId: z.union([z.string(), z.null()]),
+            prefabId: z.string().nullable(),
             duration: z.number(),
             blackboard: z.array(BlackboardZod),
         })
@@ -725,47 +747,44 @@ export const SkillZod = z.strictObject({
 export const SkinZod = z.strictObject({
     skinId: z.string(),
     charId: z.string(),
-    tokenSkinMap: z.union([
-        z.array(
-            z.strictObject({
-                tokenId: z.string(),
-                tokenSkinId: z.string(),
-            })
-        ),
-        z.null()
-    ]),
-    illustId: z.union([z.string(), z.null()]),
-    dynIllustId: z.union([z.string(), z.null()]),
+    tokenSkinMap: z.array(
+        z.strictObject({
+            tokenId: z.string(),
+            tokenSkinId: z.string(),
+        })
+    ).nullable(),
+    illustId: z.string().nullable(),
+    dynIllustId: z.string().nullable(),
     avatarId: z.string(),
-    portraitId: z.union([z.string(), z.null()]),
-    dynPortraitId: z.union([z.string(), z.null()]),
-    dynEntranceId: z.union([z.string(), z.null()]),
-    buildingId: z.union([z.string(), z.null()]),
+    portraitId: z.string().nullable(),
+    dynPortraitId: z.string().nullable(),
+    dynEntranceId: z.string().nullable(),
+    buildingId: z.string().nullable(),
     battleSkin: z.strictObject({
         overwritePrefab: z.boolean(),
-        skinOrPrefabId: z.union([z.string(), z.null()]),
+        skinOrPrefabId: z.string().nullable(),
     }),
     isBuySkin: z.boolean(),
-    tmplId: z.union([z.string(), z.null()]),
-    voiceId: z.union([z.string(), z.null()]),
+    tmplId: z.string().nullable(),
+    voiceId: z.string().nullable(),
     voiceType: z.string(),
     displaySkin: z.strictObject({
-        skinName: z.union([z.string(), z.null()]),
-        colorList: z.union([z.array(z.string()), z.null()]),
+        skinName: z.string().nullable(),
+        colorList: z.array(z.string()).nullable(),
         titleList: z.array(z.string()).nullable(),
-        modelName: z.union([z.string(), z.null()]),
-        drawerList: z.union([z.array(z.string()), z.null()]),
+        modelName: z.string().nullable(),
+        drawerList: z.array(z.string()).nullable(),
         designerList: z.array(z.string()).nullable(),
-        skinGroupId: z.union([z.string(), z.null()]),
-        skinGroupName: z.union([z.string(), z.null()]),
+        skinGroupId: z.string().nullable(),
+        skinGroupName: z.string().nullable(),
         skinGroupSortIndex: z.number(),
-        content: z.union([z.string(), z.null()]),
-        dialog: z.union([z.string(), z.null()]),
-        usage: z.union([z.string(), z.null()]),
-        description: z.union([z.string(), z.null()]),
-        obtainApproach: z.union([z.string(), z.null()]),
+        content: z.string().nullable(),
+        dialog: z.string().nullable(),
+        usage: z.string().nullable(),
+        description: z.string().nullable(),
+        obtainApproach: z.string().nullable(),
         sortId: z.number(),
-        displayTagId: z.union([z.string(), z.null()]),
+        displayTagId: z.string().nullable(),
         getTime: z.number(),
         onYear: z.number(),
         onPeriod: z.number(),
@@ -777,33 +796,28 @@ export const StageZod = z.strictObject({
         difficulty: z.string(),
         performanceStageFlag: z.string(),
         diffGroup: z.string(),
-        unlockCondition: z.array(
-            z.union([
-                z.strictObject({
-                    stageId: z.string(),
-                    completeState: z.string(),
-                }),
-                z.null()
-            ])
-        ),
+        unlockCondition: z.strictObject({
+            stageId: z.string(),
+            completeState: z.string(),
+        }).nullable(),
         stageId: z.string(),
         levelId: z.string(),
         zoneId: z.string(),
         code: z.string(),
         name: z.string(),
         description: z.string(),
-        hardStagedId: z.union([z.string(), z.null()]),
-        dangerLevel: z.union([z.string(), z.null()]),
+        hardStagedId: z.string().nullable(),
+        dangerLevel: z.string().nullable(),
         dangerPoint: z.number(),
         loadingPicId: z.string(),
         canPractice: z.boolean(),
         canBattleReplay: z.boolean(),
         apCost: z.number(),
         apFailReturn: z.number(),
-        etItemId: z.union([z.string(), z.null()]),
+        etItemId: z.string().nullable(),
         etCost: z.number(),
         etFailReturn: z.number(),
-        etButtonStyle: z.union([z.string(), z.null()]),
+        etButtonStyle: z.string().nullable(),
         apProtectTimes: z.number(),
         diamondOnceDrop: z.number(),
         practiceTicketCost: z.number(),
@@ -815,7 +829,7 @@ export const StageZod = z.strictObject({
         passFavor: z.number(),
         completeFavor: z.number(),
         slProgress: z.number(),
-        displayMainItem: z.union([z.string(), z.null()]),
+        displayMainItem: z.string().nullable(),
         hilightMark: z.boolean(),
         bossMark: z.boolean(),
         isPredefined: z.boolean(),
@@ -848,38 +862,30 @@ export const StageZod = z.strictObject({
         canUseTech: z.boolean(),
         canUseTrapTool: z.boolean(),
         canUseBattlePerformance: z.boolean(),
-        startButtonOverrideId: z.union([z.string(), z.null()]),
+        startButtonOverrideId: z.string().nullable(),
         isStagePatch: z.boolean(),
-        mainStageId: z.union([z.string(), z.null()]),
-        extraCondition: z.union([
-            z.array(
-                z.strictObject({
-                    index: z.number(),
-                    template: z.string(),
-                    unlockParam: z.array(z.string()),
-                })
-            ),
-            z.null()
-        ]),
-        extraInfo: z.union([
-            z.array(
-                z.strictObject({
-                    stageId: z.string(),
-                    rewards: z.array(
-                        z.strictObject({
-                            id: z.string(),
-                            count: z.number(),
-                            type: z.string(),
-                        })
-                    ),
-                    progressInfo: z.strictObject({
-                        progressType: z.string(),
-                        descList: z.record(z.string(), z.string()),
+        mainStageId: z.string().nullable(),
+        extraCondition: z.strictObject({
+            index: z.number(),
+            template: z.string(),
+            unlockParam: z.array(z.string()),
+        }).nullable(),
+        extraInfo: z.array(
+            z.strictObject({
+                stageId: z.string(),
+                rewards: z.array(
+                    z.strictObject({
+                        id: z.string(),
+                        count: z.number(),
+                        type: z.string(),
                     })
+                ),
+                progressInfo: z.strictObject({
+                    progressType: z.string(),
+                    descList: z.record(z.string(), z.string()),
                 })
-            ),
-            z.null()
-        ])
+            })
+        ).nullable(),
     }),
     levels: StageDataZod,
 });
@@ -900,46 +906,43 @@ export const OperatorZod = z.strictObject({
             skill: BaseZod,
         })
     ),
-    paradox: z.union([ParadoxZod, z.null()]),
+    paradox: ParadoxZod.nullable(),
     data: z.strictObject({
         name: z.string(),
         description: z.string(),
         canUseGeneralPotentialItem: z.boolean(),
         canUseActivityPotentialItem: z.boolean(),
-        potentialItemId: z.union([z.string(), z.null()]),
+        potentialItemId: z.string().nullable(),
         activityPotentialItemId: z.string().nullable(),
         classicPotentialItemId: z.string().nullable(),
-        nationId: z.union([z.string(), z.null()]),
-        groupId: z.union([z.string(), z.null()]),
-        teamId: z.union([z.string(), z.null()]),
-        displayNumber: z.union([z.string(), z.null()]),
+        nationId: z.string().nullable(),
+        groupId: z.string().nullable(),
+        teamId: z.string().nullable(),
+        displayNumber: z.string().nullable(),
         appellation: z.string(),
         position: z.string(),
         tagList: z.array(z.string()),
-        itemUsage: z.union([z.string(), z.null()]),
-        itemDesc: z.union([z.string(), z.null()]),
-        itemObtainApproach: z.union([z.string(), z.null()]),
+        itemUsage: z.string().nullable(),
+        itemDesc: z.string().nullable(),
+        itemObtainApproach: z.string().nullable(),
         isNotObtainable: z.boolean(),
         isSpChar: z.boolean(),
         maxPotentialLevel: z.number(),
         rarity: z.string(),
         profession: z.string(),
         subProfessionId: z.string(),
-        trait: z.union([
-            z.strictObject({
-                candidates: z.array(
-                    z.strictObject({
-                        unlockCondition: OperatorUnlockCondZod,
-                        requiredPotentialRank: z.number(),
-                        blackboard: z.array(BlackboardZod),
-                        overrideDescripton: z.union([z.string(), z.null()]),
-                        prefabKey: z.union([z.string(), z.null()]),
-                        rangeId: z.union([z.string(), z.null()]),
-                    })
-                ),
-            }),
-            z.null()
-        ]),
+        trait: z.strictObject({
+            candidates: z.array(
+                z.strictObject({
+                    unlockCondition: OperatorUnlockCondZod,
+                    requiredPotentialRank: z.number(),
+                    blackboard: z.array(BlackboardZod),
+                    overrideDescripton: z.string().nullable(),
+                    prefabKey: z.string().nullable(),
+                    rangeId: z.string().nullable(),
+                })
+            ),
+        }).nullable(),
         phases: z.array(
             z.strictObject({
                 characterPrefabKey: z.string(),
@@ -952,57 +955,51 @@ export const OperatorZod = z.strictObject({
         skills: z.array(
             z.strictObject({
                 skillId: z.string(),
-                overridePrefabKey: z.union([z.string(), z.null()]),
-                overrideTokenKey: z.union([z.string(), z.null()]),
+                overridePrefabKey: z.string().nullable(),
+                overrideTokenKey: z.string().nullable(),
                 levelUpCostCond: z.array(LevelUpCostCondZod),
                 unlockCond: OperatorUnlockCondZod,
             })
         ),
         displayTokenDict: z.record(z.boolean()).nullable(),
-        talents: z.union([
-            z.array(
-                z.strictObject({
-                    candidates: z.array(
-                        z.strictObject({
-                            unlockCondition: OperatorUnlockCondZod,
-                            requiredPotentialRank: z.number(),
-                            prefabKey: z.string(),
-                            name: z.string(),
-                            description: z.string(),
-                            rangeId: z.union([z.string(), z.null()]),
-                            blackboard: z.array(BlackboardZod),
-                            tokenKey: z.string().nullable(),
-                        })
-                    ),
-                })
-            ),
-            z.null()
-        ]),
+        talents: z.array(
+            z.strictObject({
+                candidates: z.array(
+                    z.strictObject({
+                        unlockCondition: OperatorUnlockCondZod,
+                        requiredPotentialRank: z.number(),
+                        prefabKey: z.string(),
+                        name: z.string(),
+                        description: z.string(),
+                        rangeId: z.string().nullable(),
+                        blackboard: z.array(BlackboardZod),
+                        tokenKey: z.string().nullable(),
+                    })
+                ),
+            })
+        ).nullable(),
         potentialRanks: z.array(
             z.strictObject({
                 type: z.string(),
                 description: z.string(),
-                buff: z.union([
-                    z.strictObject({
-                        attributes: z.strictObject({
-                            abnormalFlags: z.null(),
-                            abnormalImmunes: z.null(),
-                            abnormalAntis: z.null(),
-                            abnormalCombos: z.null(),
-                            abnormalComboImmunes: z.null(),
-                            attributeModifiers: z.array(
-                                z.strictObject({
-                                    attributeType: z.string(),
-                                    formulaItem: z.string(),
-                                    value: z.number(),
-                                    loadFromBlackboard: z.boolean(),
-                                    fetchBaseValueFromSourceEntity: z.boolean(),
-                                })
-                            ),
-                        }),
+                buff: z.strictObject({
+                    attributes: z.strictObject({
+                        abnormalFlags: z.null(),
+                        abnormalImmunes: z.null(),
+                        abnormalAntis: z.null(),
+                        abnormalCombos: z.null(),
+                        abnormalComboImmunes: z.null(),
+                        attributeModifiers: z.array(
+                            z.strictObject({
+                                attributeType: z.string(),
+                                formulaItem: z.string(),
+                                value: z.number(),
+                                loadFromBlackboard: z.boolean(),
+                                fetchBaseValueFromSourceEntity: z.boolean(),
+                            })
+                        ),
                     }),
-                    z.null()
-                ]),
+                }).nullable(),
                 equivalentCost: z.null(),
             })
         ),
@@ -1010,31 +1007,22 @@ export const OperatorZod = z.strictObject({
         allSkillLvlup: z.array(
             z.strictObject({
                 unlockCond: OperatorUnlockCondZod,
-                lvlUpCost: z.union([z.array(LevelUpCostZod), z.null()]),
+                lvlUpCost: z.array(LevelUpCostZod).nullable(),
             })
         ),
     }),
 });
-export type AttributesKeyFrame = z.infer<typeof AttributesKeyFrameZod>;
 export type Blackboard = z.infer<typeof BlackboardZod>;
 export type Base = z.infer<typeof BaseZod>;
 export type CCStage = z.infer<typeof CCStageZod>;
 export type Definition = z.infer<typeof DefinitionZod>;
 export type Enemy = z.infer<typeof EnemyZod>;
-export type EnemyAttributes = z.infer<typeof EnemyAttributesZod>;
-export type EnemyData = z.infer<typeof EnemyDataZod>;
-export type EnemySkills = z.infer<typeof EnemySkillsZod>;
-export type EnemySpData = z.infer<typeof EnemySpDataZod>;
 export type GameEvent = z.infer<typeof GameEventZod>;
 export type GridRange = z.infer<typeof GridRangeZod>;
-export type ManufactFormula = z.infer<typeof ManufactFormulaZod>;
-export type WorkshopFormula = z.infer<typeof WorkshopFormulaZod>;
 export type Item = z.infer<typeof ItemZod>;
 export type LevelUpCost = z.infer<typeof LevelUpCostZod>;
-export type LevelUpCostCond = z.infer<typeof LevelUpCostCondZod>;
 export type Module = z.infer<typeof ModuleZod>;
 export type Operator = z.infer<typeof OperatorZod>;
-export type OperatorUnlockCond = z.infer<typeof OperatorUnlockCondZod>;
 export type Paradox = z.infer<typeof ParadoxZod>;
 export type RogueTheme = z.infer<typeof RogueThemeZod>;
 export type RogueRelic = z.infer<typeof RogueRelicZod>;
@@ -1046,5 +1034,3 @@ export type Skill = z.infer<typeof SkillZod>;
 export type Skin = z.infer<typeof SkinZod>;
 export type Stage = z.infer<typeof StageZod>;
 export type StageData = z.infer<typeof StageDataZod>;
-export type StageEffect = z.infer<typeof StageEffectZod>;
-export type StageDefines = z.infer<typeof StageDefinesZod>;
