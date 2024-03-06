@@ -26009,6 +26009,7 @@ export declare const EnemyZod: z.ZodObject<{
         isInvalidKilled: z.ZodBoolean;
         overrideKillCntInfos: z.ZodRecord<z.ZodString, z.ZodNumber>;
         hideInHandbook: z.ZodBoolean;
+        hideInStage: z.ZodBoolean;
         abilityList: z.ZodArray<z.ZodObject<{
             text: z.ZodString;
             textFormat: z.ZodEnum<["NORMAL", "SILENCE", "TITLE"]>;
@@ -26035,6 +26036,7 @@ export declare const EnemyZod: z.ZodObject<{
         isInvalidKilled: boolean;
         overrideKillCntInfos: Record<string, number>;
         hideInHandbook: boolean;
+        hideInStage: boolean;
         abilityList: {
             text: string;
             textFormat: "NORMAL" | "SILENCE" | "TITLE";
@@ -26055,6 +26057,7 @@ export declare const EnemyZod: z.ZodObject<{
         isInvalidKilled: boolean;
         overrideKillCntInfos: Record<string, number>;
         hideInHandbook: boolean;
+        hideInStage: boolean;
         abilityList: {
             text: string;
             textFormat: "NORMAL" | "SILENCE" | "TITLE";
@@ -27735,6 +27738,7 @@ export declare const EnemyZod: z.ZodObject<{
         isInvalidKilled: boolean;
         overrideKillCntInfos: Record<string, number>;
         hideInHandbook: boolean;
+        hideInStage: boolean;
         abilityList: {
             text: string;
             textFormat: "NORMAL" | "SILENCE" | "TITLE";
@@ -27933,6 +27937,7 @@ export declare const EnemyZod: z.ZodObject<{
         isInvalidKilled: boolean;
         overrideKillCntInfos: Record<string, number>;
         hideInHandbook: boolean;
+        hideInStage: boolean;
         abilityList: {
             text: string;
             textFormat: "NORMAL" | "SILENCE" | "TITLE";
@@ -28227,6 +28232,16 @@ export declare const ItemZod: z.ZodObject<{
             formulaId: string;
             roomType: string;
         }>, "many">;
+        voucherRelateList: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            voucherId: z.ZodString;
+            voucherItemType: z.ZodString;
+        }, "strict", z.ZodTypeAny, {
+            voucherId: string;
+            voucherItemType: string;
+        }, {
+            voucherId: string;
+            voucherItemType: string;
+        }>, "many">>;
     }, "strict", z.ZodTypeAny, {
         name: string;
         description: string | null;
@@ -28249,6 +28264,10 @@ export declare const ItemZod: z.ZodObject<{
             formulaId: string;
             roomType: string;
         }[];
+        voucherRelateList: {
+            voucherId: string;
+            voucherItemType: string;
+        }[] | null;
     }, {
         name: string;
         description: string | null;
@@ -28271,6 +28290,10 @@ export declare const ItemZod: z.ZodObject<{
             formulaId: string;
             roomType: string;
         }[];
+        voucherRelateList: {
+            voucherId: string;
+            voucherItemType: string;
+        }[] | null;
     }>;
     formula: z.ZodNullable<z.ZodUnion<[z.ZodObject<{
         formulaId: z.ZodString;
@@ -28504,6 +28527,10 @@ export declare const ItemZod: z.ZodObject<{
             formulaId: string;
             roomType: string;
         }[];
+        voucherRelateList: {
+            voucherId: string;
+            voucherItemType: string;
+        }[] | null;
     };
     formula: (({
         count: number;
@@ -28633,6 +28660,10 @@ export declare const ItemZod: z.ZodObject<{
             formulaId: string;
             roomType: string;
         }[];
+        voucherRelateList: {
+            voucherId: string;
+            voucherItemType: string;
+        }[] | null;
     };
     formula: (({
         count: number;

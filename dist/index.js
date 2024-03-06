@@ -502,6 +502,7 @@ exports.EnemyZod = z.strictObject({
         isInvalidKilled: z.boolean(),
         overrideKillCntInfos: z.record(z.string(), z.number()),
         hideInHandbook: z.boolean(),
+        hideInStage: z.boolean(),
         abilityList: z.array(z.strictObject({
             text: z.string(),
             textFormat: z.enum(['NORMAL', 'SILENCE', 'TITLE'])
@@ -565,6 +566,10 @@ exports.ItemZod = z.strictObject({
             roomType: z.string(),
             formulaId: z.string(),
         })),
+        voucherRelateList: z.array(z.strictObject({
+            voucherId: z.string(),
+            voucherItemType: z.string(),
+        })).nullable(),
     }),
     formula: z.union([ManufactFormulaZod, WorkshopFormulaZod]).nullable(),
 });
