@@ -1,11 +1,14 @@
 {
   "name": "hella-types",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "",
   "license": "MIT",
   "description": "",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "zod": "^3.22.4"
   },

@@ -803,10 +803,12 @@ export const StageZod = z.strictObject({
         difficulty: z.string(),
         performanceStageFlag: z.string(),
         diffGroup: z.string(),
-        unlockCondition: z.strictObject({
-            stageId: z.string(),
-            completeState: z.string(),
-        }).nullable(),
+        unlockCondition: z.array(
+            z.strictObject({
+                stageId: z.string(),
+                completeState: z.string(),
+            })
+        ),
         stageId: z.string(),
         levelId: z.string(),
         zoneId: z.string(),

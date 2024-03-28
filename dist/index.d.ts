@@ -61743,7 +61743,7 @@ export declare const StageZod: z.ZodObject<{
         difficulty: z.ZodString;
         performanceStageFlag: z.ZodString;
         diffGroup: z.ZodString;
-        unlockCondition: z.ZodNullable<z.ZodObject<{
+        unlockCondition: z.ZodArray<z.ZodObject<{
             stageId: z.ZodString;
             completeState: z.ZodString;
         }, "strict", z.ZodTypeAny, {
@@ -61752,7 +61752,7 @@ export declare const StageZod: z.ZodObject<{
         }, {
             stageId: string;
             completeState: string;
-        }>>;
+        }>, "many">;
         stageId: z.ZodString;
         levelId: z.ZodString;
         zoneId: z.ZodString;
@@ -61937,7 +61937,7 @@ export declare const StageZod: z.ZodObject<{
         unlockCondition: {
             stageId: string;
             completeState: string;
-        } | null;
+        }[];
         zoneId: string;
         stageType: string;
         performanceStageFlag: string;
@@ -62024,7 +62024,7 @@ export declare const StageZod: z.ZodObject<{
         unlockCondition: {
             stageId: string;
             completeState: string;
-        } | null;
+        }[];
         zoneId: string;
         stageType: string;
         performanceStageFlag: string;
@@ -67497,7 +67497,7 @@ export declare const StageZod: z.ZodObject<{
         unlockCondition: {
             stageId: string;
             completeState: string;
-        } | null;
+        }[];
         zoneId: string;
         stageType: string;
         performanceStageFlag: string;
@@ -68276,7 +68276,7 @@ export declare const StageZod: z.ZodObject<{
         unlockCondition: {
             stageId: string;
             completeState: string;
-        } | null;
+        }[];
         zoneId: string;
         stageType: string;
         performanceStageFlag: string;
