@@ -47,6 +47,7 @@ const AttributesKeyFrameZod = z.strictObject({
         sleepImmune: z.boolean(),
         frozenImmune: z.boolean(),
         levitateImmune: z.boolean(),
+        disarmedCombatImmune: z.boolean(),
     }),
 });
 const EnemyAttributesZod = z.strictObject({
@@ -68,11 +69,14 @@ const EnemyAttributesZod = z.strictObject({
     tauntLevel: DefinedNumberZod.optional(),
     epDamageResistance: DefinedNumberZod.optional(),
     epResistance: DefinedNumberZod.optional(),
+    damageHitratePhysical: DefinedNumberZod.optional(),
+    damageHitrateMagical: DefinedNumberZod.optional(),
     stunImmune: DefinedBooleanZod,
     silenceImmune: DefinedBooleanZod,
     sleepImmune: DefinedBooleanZod.optional(),
     frozenImmune: DefinedBooleanZod.optional(),
     levitateImmune: DefinedBooleanZod.optional(),
+    disarmedCombatImmune: DefinedBooleanZod.optional(),
 });
 const EnemySkillsZod = z.strictObject({
     prefabKey: z.string(),
@@ -237,10 +241,12 @@ const StageActionZod = z.strictObject({
     randomSpawnGroupKey: z.string().nullable().optional(),
     randomSpawnGroupPackKey: z.string().nullable().optional(),
     randomType: z.union([z.string(), z.number()]).optional(),
+    refreshType: z.string().optional(),
     weight: z.number().optional(),
     dontBlockWave: z.boolean().optional(),
     isValid: z.boolean().optional(),
     extraMeta: z.null().optional(),
+    actionId: z.null().optional(),
 });
 const StageRouteZod = z.strictObject({
     motionMode: z.union([z.string(), z.number()]),
@@ -378,6 +384,7 @@ const StageDataZod = z.strictObject({
                 sleepImmune: z.boolean(),
                 frozenImmune: z.boolean(),
                 levitateImmune: z.boolean(),
+                disarmedCombatImmune: z.boolean(),
             }),
             alias: z.null(),
             lifePointReduce: z.number(),
@@ -477,18 +484,79 @@ const RogueVariationZod = z.strictObject({
     iconId: z.string().nullable(),
     sound: z.string().nullable(),
 });
+const SandboxItemZod = z.strictObject({
+    craft: z.strictObject({
+        itemId: z.string(),
+        type: z.string(),
+        buildingUnlockDesc: z.string(),
+        materialItems: z.record(z.string(), z.number()),
+        upgradeItems: z.record(z.string(), z.number()).nullable(),
+        withdrawRatio: z.number(),
+        repairCost: z.number(),
+        isHidden: z.boolean(),
+        craftGroupId: z.string(),
+        recipeLevel: z.number(),
+    }).nullable(),
+    drink: z.strictObject({
+        id: z.string(),
+        type: z.string(),
+        count: z.number(),
+    }).nullable(),
+    foodMat: z.strictObject({
+        id: z.string(),
+        type: z.string(),
+        attribute: z.string(),
+        buffDesc: z.string().nullable(),
+        sortId: z.number(),
+    }).nullable(),
+    food: z.strictObject({
+        id: z.string(),
+        attributes: z.array(z.string()),
+        recipes: z.array(z.strictObject({
+            foodId: z.string(),
+            mats: z.array(z.string()),
+        })).nullable(),
+        duration: z.number(),
+        itemName: z.string(),
+        generalName: z.string().nullable(),
+        enhancedName: z.string().nullable(),
+        itemUsage: z.string(),
+        enhancedUsage: z.string().nullable(),
+        sortId: z.number(),
+    }).nullable(),
+    data: z.strictObject({
+        itemId: z.string(),
+        itemType: z.string(),
+        itemName: z.string(),
+        itemUsage: z.string(),
+        itemDesc: z.string(),
+        itemRarity: z.number(),
+        sortId: z.number(),
+        obtainApproach: z.string(),
+    })
+});
 const SandboxStageZod = z.strictObject({
     excel: z.strictObject({
         stageId: z.string(),
         levelId: z.string(),
         code: z.string(),
         name: z.string(),
-        loadingPicId: z.string(),
         description: z.string(),
         actionCost: z.number(),
-        powerCost: z.number(),
+        actionCostEnemyRush: z.number(),
     }),
     levels: StageDataZod,
+});
+const SandboxWeatherZod = z.strictObject({
+    weatherId: z.string(),
+    name: z.string(),
+    weatherLevel: z.number(),
+    weatherType: z.string(),
+    weatherTypeName: z.string(),
+    weatherIconId: z.string(),
+    functionDesc: z.string(),
+    description: z.string(),
+    buffId: z.string().nullable(),
 });
 
 export const BaseZod = z.strictObject({
@@ -724,6 +792,9 @@ export const RogueThemeZod = z.strictObject({
     variationDict: z.record(z.string(), RogueVariationZod),
 });
 export const SandboxActZod = z.strictObject({
+    name: z.string(),
+    itemDict: z.record(z.string(), SandboxItemZod),
+    weatherDict: z.record(z.string(), SandboxWeatherZod),
     stageDict: z.record(z.string(), SandboxStageZod),
 });
 export const SkillZod = z.strictObject({

@@ -793,6 +793,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: z.ZodBoolean;
             frozenImmune: z.ZodBoolean;
             levitateImmune: z.ZodBoolean;
+            disarmedCombatImmune: z.ZodBoolean;
         }, "strict", z.ZodTypeAny, {
             maxHp: number;
             atk: number;
@@ -816,6 +817,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         }, {
             maxHp: number;
             atk: number;
@@ -839,6 +841,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         }>;
         alias: z.ZodNull;
         lifePointReduce: z.ZodNumber;
@@ -943,6 +946,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         };
         description: null;
         lifePointReduce: number;
@@ -1000,6 +1004,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         };
         description: null;
         lifePointReduce: number;
@@ -1248,6 +1253,26 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 }>>;
+                damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>>;
+                damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>>;
                 stunImmune: z.ZodObject<{
                     m_defined: z.ZodBoolean;
                     m_value: z.ZodNullable<z.ZodBoolean>;
@@ -1289,6 +1314,16 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 }>>;
                 levitateImmune: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodBoolean>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                }>>;
+                disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                     m_defined: z.ZodBoolean;
                     m_value: z.ZodNullable<z.ZodBoolean>;
                 }, "strict", z.ZodTypeAny, {
@@ -1379,6 +1414,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -1388,6 +1431,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -1472,6 +1519,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -1481,6 +1536,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -1741,6 +1800,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -1750,6 +1817,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -1910,6 +1981,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -1919,6 +1998,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -2084,6 +2167,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -2093,6 +2184,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -2258,6 +2353,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -2267,6 +2370,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -2365,10 +2472,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                refreshType: z.ZodOptional<z.ZodString>;
                 weight: z.ZodOptional<z.ZodNumber>;
                 dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                 isValid: z.ZodOptional<z.ZodBoolean>;
                 extraMeta: z.ZodOptional<z.ZodNull>;
+                actionId: z.ZodOptional<z.ZodNull>;
             }, "strict", z.ZodTypeAny, {
                 interval: number;
                 key: string;
@@ -2385,10 +2494,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }, {
                 interval: number;
                 key: string;
@@ -2405,10 +2516,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }>, "many">;
             name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
         }, "strict", z.ZodTypeAny, {
@@ -2429,10 +2542,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }, {
@@ -2453,10 +2568,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }>, "many">;
@@ -2484,10 +2601,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }[];
@@ -2515,10 +2634,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }[];
@@ -2544,10 +2665,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                refreshType: z.ZodOptional<z.ZodString>;
                 weight: z.ZodOptional<z.ZodNumber>;
                 dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                 isValid: z.ZodOptional<z.ZodBoolean>;
                 extraMeta: z.ZodOptional<z.ZodNull>;
+                actionId: z.ZodOptional<z.ZodNull>;
             }, "strict", z.ZodTypeAny, {
                 interval: number;
                 key: string;
@@ -2564,10 +2687,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }, {
                 interval: number;
                 key: string;
@@ -2584,10 +2709,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }>, "many">;
             m_randomActionGroups: z.ZodOptional<z.ZodNull>;
             m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -2610,10 +2737,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -2636,10 +2765,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -2664,10 +2795,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -2692,10 +2825,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -4186,6 +4321,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         };
         description: null;
         lifePointReduce: number;
@@ -4308,6 +4444,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -4317,6 +4461,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -4415,10 +4563,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }[];
@@ -4444,10 +4594,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -4875,6 +5027,7 @@ declare const StageDataZod: z.ZodObject<{
             sleepImmune: boolean;
             frozenImmune: boolean;
             levitateImmune: boolean;
+            disarmedCombatImmune: boolean;
         };
         description: null;
         lifePointReduce: number;
@@ -4997,6 +5150,14 @@ declare const StageDataZod: z.ZodObject<{
                     m_defined: boolean;
                     m_value: number | null;
                 } | undefined;
+                damageHitratePhysical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                damageHitrateMagical?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
                 sleepImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
@@ -5006,6 +5167,10 @@ declare const StageDataZod: z.ZodObject<{
                     m_value: boolean | null;
                 } | undefined;
                 levitateImmune?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+                disarmedCombatImmune?: {
                     m_defined: boolean;
                     m_value: boolean | null;
                 } | undefined;
@@ -5104,10 +5269,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             name?: string | null | undefined;
         }[];
@@ -5133,10 +5300,12 @@ declare const StageDataZod: z.ZodObject<{
                 randomSpawnGroupKey?: string | null | undefined;
                 randomSpawnGroupPackKey?: string | null | undefined;
                 randomType?: string | number | undefined;
+                refreshType?: string | undefined;
                 weight?: number | undefined;
                 dontBlockWave?: boolean | undefined;
                 isValid?: boolean | undefined;
                 extraMeta?: null | undefined;
+                actionId?: null | undefined;
             }[];
             m_randomActionGroups?: null | undefined;
             m_actionWithRandomSpawn?: null | undefined;
@@ -6273,6 +6442,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -6296,6 +6466,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -6319,6 +6490,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
             alias: z.ZodNull;
             lifePointReduce: z.ZodNumber;
@@ -6423,6 +6595,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -6480,6 +6653,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -6728,6 +6902,26 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -6769,6 +6963,16 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -6859,6 +7063,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -6868,6 +7080,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -6952,6 +7168,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -6961,6 +7185,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -7221,6 +7449,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -7230,6 +7466,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -7390,6 +7630,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -7399,6 +7647,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -7564,6 +7816,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -7573,6 +7833,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -7738,6 +8002,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -7747,6 +8019,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -7845,10 +8121,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -7865,10 +8143,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -7885,10 +8165,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
             }, "strict", z.ZodTypeAny, {
@@ -7909,10 +8191,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }, {
@@ -7933,10 +8217,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }>, "many">;
@@ -7964,10 +8250,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -7995,10 +8283,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -8024,10 +8314,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -8044,10 +8336,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -8064,10 +8358,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                 m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -8090,10 +8386,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -8116,10 +8414,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -8144,10 +8444,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -8172,10 +8474,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -9666,6 +9970,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -9788,6 +10093,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -9797,6 +10110,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -9895,10 +10212,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -9924,10 +10243,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -10355,6 +10676,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -10477,6 +10799,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -10486,6 +10816,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -10584,10 +10918,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -10613,10 +10949,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -11064,6 +11402,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -11186,6 +11525,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -11195,6 +11542,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -11293,10 +11644,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -11322,10 +11675,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -11773,6 +12128,7 @@ declare const RogueStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -11895,6 +12251,14 @@ declare const RogueStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -11904,6 +12268,10 @@ declare const RogueStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -12002,10 +12370,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -12031,10 +12401,12 @@ declare const RogueStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -12342,28 +12714,25 @@ declare const SandboxStageZod: z.ZodObject<{
         levelId: z.ZodString;
         code: z.ZodString;
         name: z.ZodString;
-        loadingPicId: z.ZodString;
         description: z.ZodString;
         actionCost: z.ZodNumber;
-        powerCost: z.ZodNumber;
+        actionCostEnemyRush: z.ZodNumber;
     }, "strict", z.ZodTypeAny, {
         code: string;
         name: string;
         description: string;
         stageId: string;
         levelId: string;
-        loadingPicId: string;
         actionCost: number;
-        powerCost: number;
+        actionCostEnemyRush: number;
     }, {
         code: string;
         name: string;
         description: string;
         stageId: string;
         levelId: string;
-        loadingPicId: string;
         actionCost: number;
-        powerCost: number;
+        actionCostEnemyRush: number;
     }>;
     levels: z.ZodObject<{
         options: z.ZodObject<{
@@ -13133,6 +13502,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -13156,6 +13526,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -13179,6 +13550,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
             alias: z.ZodNull;
             lifePointReduce: z.ZodNumber;
@@ -13283,6 +13655,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -13340,6 +13713,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -13588,6 +13962,26 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -13629,6 +14023,16 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -13719,6 +14123,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -13728,6 +14140,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -13812,6 +14228,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -13821,6 +14245,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -14081,6 +14509,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -14090,6 +14526,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -14250,6 +14690,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -14259,6 +14707,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -14424,6 +14876,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -14433,6 +14893,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -14598,6 +15062,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -14607,6 +15079,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -14705,10 +15181,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -14725,10 +15203,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -14745,10 +15225,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
             }, "strict", z.ZodTypeAny, {
@@ -14769,10 +15251,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }, {
@@ -14793,10 +15277,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }>, "many">;
@@ -14824,10 +15310,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -14855,10 +15343,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -14884,10 +15374,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -14904,10 +15396,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -14924,10 +15418,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                 m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -14950,10 +15446,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -14976,10 +15474,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -15004,10 +15504,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -15032,10 +15534,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -16526,6 +17030,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -16648,6 +17153,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -16657,6 +17170,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -16755,10 +17272,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -16784,10 +17303,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -17215,6 +17736,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -17337,6 +17859,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -17346,6 +17876,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -17444,10 +17978,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -17473,10 +18009,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -17756,9 +18294,8 @@ declare const SandboxStageZod: z.ZodObject<{
         description: string;
         stageId: string;
         levelId: string;
-        loadingPicId: string;
         actionCost: number;
-        powerCost: number;
+        actionCostEnemyRush: number;
     };
     levels: {
         options: {
@@ -17916,6 +18453,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -18038,6 +18576,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -18047,6 +18593,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -18145,10 +18695,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -18174,10 +18726,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -18457,9 +19011,8 @@ declare const SandboxStageZod: z.ZodObject<{
         description: string;
         stageId: string;
         levelId: string;
-        loadingPicId: string;
         actionCost: number;
-        powerCost: number;
+        actionCostEnemyRush: number;
     };
     levels: {
         options: {
@@ -18617,6 +19170,7 @@ declare const SandboxStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -18739,6 +19293,14 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -18748,6 +19310,10 @@ declare const SandboxStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -18846,10 +19412,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -18875,10 +19443,12 @@ declare const SandboxStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -19971,6 +20541,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -19994,6 +20565,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -20017,6 +20589,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
             alias: z.ZodNull;
             lifePointReduce: z.ZodNumber;
@@ -20121,6 +20694,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -20178,6 +20752,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -20426,6 +21001,26 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -20467,6 +21062,16 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -20557,6 +21162,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -20566,6 +21179,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -20650,6 +21267,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -20659,6 +21284,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -20919,6 +21548,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -20928,6 +21565,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -21088,6 +21729,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -21097,6 +21746,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -21262,6 +21915,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -21271,6 +21932,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -21436,6 +22101,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -21445,6 +22118,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -21543,10 +22220,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -21563,10 +22242,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -21583,10 +22264,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
             }, "strict", z.ZodTypeAny, {
@@ -21607,10 +22290,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }, {
@@ -21631,10 +22316,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }>, "many">;
@@ -21662,10 +22349,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -21693,10 +22382,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -21722,10 +22413,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -21742,10 +22435,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -21762,10 +22457,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                 m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -21788,10 +22485,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -21814,10 +22513,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -21842,10 +22543,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -21870,10 +22573,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -23364,6 +24069,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -23486,6 +24192,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -23495,6 +24209,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -23593,10 +24311,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -23622,10 +24342,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -24053,6 +24775,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -24175,6 +24898,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -24184,6 +24915,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -24282,10 +25017,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -24311,10 +25048,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -24744,6 +25483,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -24866,6 +25606,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -24875,6 +25623,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -24973,10 +25725,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -25002,10 +25756,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -25441,6 +26197,7 @@ export declare const CCStageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -25563,6 +26320,14 @@ export declare const CCStageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -25572,6 +26337,10 @@ export declare const CCStageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -25670,10 +26439,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -25699,10 +26470,12 @@ export declare const CCStageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -26282,6 +27055,26 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -26323,6 +27116,16 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -26413,6 +27216,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -26422,6 +27233,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -26506,6 +27321,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -26515,6 +27338,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -26775,6 +27602,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -26784,6 +27619,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -26944,6 +27783,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -26953,6 +27800,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -27116,6 +27967,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -27125,6 +27984,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -27288,6 +28151,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -27297,6 +28168,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -27463,6 +28338,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -27472,6 +28355,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -27638,6 +28525,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -27647,6 +28542,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -27837,6 +28736,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -27846,6 +28753,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -28036,6 +28947,14 @@ export declare const EnemyZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -28045,6 +28964,10 @@ export declare const EnemyZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -28251,11 +29174,11 @@ export declare const ItemZod: z.ZodObject<{
         usage: string | null;
         obtainApproach: string | null;
         iconId: string;
+        itemType: string;
         overrideBkg: null;
         stackIconId: string | null;
         hideInItemGet: boolean;
         classifyType: string;
-        itemType: string;
         stageDropList: {
             stageId: string;
             occPer: string;
@@ -28277,11 +29200,11 @@ export declare const ItemZod: z.ZodObject<{
         usage: string | null;
         obtainApproach: string | null;
         iconId: string;
+        itemType: string;
         overrideBkg: null;
         stackIconId: string | null;
         hideInItemGet: boolean;
         classifyType: string;
-        itemType: string;
         stageDropList: {
             stageId: string;
             occPer: string;
@@ -28514,11 +29437,11 @@ export declare const ItemZod: z.ZodObject<{
         usage: string | null;
         obtainApproach: string | null;
         iconId: string;
+        itemType: string;
         overrideBkg: null;
         stackIconId: string | null;
         hideInItemGet: boolean;
         classifyType: string;
-        itemType: string;
         stageDropList: {
             stageId: string;
             occPer: string;
@@ -28647,11 +29570,11 @@ export declare const ItemZod: z.ZodObject<{
         usage: string | null;
         obtainApproach: string | null;
         iconId: string;
+        itemType: string;
         overrideBkg: null;
         stackIconId: string | null;
         hideInItemGet: boolean;
         classifyType: string;
-        itemType: string;
         stageDropList: {
             stageId: string;
             occPer: string;
@@ -30459,6 +31382,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -30482,6 +31406,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -30505,6 +31430,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
             alias: z.ZodNull;
             lifePointReduce: z.ZodNumber;
@@ -30609,6 +31535,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -30666,6 +31593,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -30914,6 +31842,26 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -30955,6 +31903,16 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -31045,6 +32003,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31054,6 +32020,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -31138,6 +32108,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31147,6 +32125,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -31407,6 +32389,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31416,6 +32406,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -31576,6 +32570,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31585,6 +32587,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -31750,6 +32756,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31759,6 +32773,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -31924,6 +32942,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -31933,6 +32959,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -32031,10 +33061,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -32051,10 +33083,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -32071,10 +33105,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
             }, "strict", z.ZodTypeAny, {
@@ -32095,10 +33131,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }, {
@@ -32119,10 +33157,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }>, "many">;
@@ -32150,10 +33190,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -32181,10 +33223,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -32210,10 +33254,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -32230,10 +33276,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -32250,10 +33298,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                 m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -32276,10 +33326,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -32302,10 +33354,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -32330,10 +33384,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -32358,10 +33414,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -33852,6 +34910,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -33974,6 +35033,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -33983,6 +35050,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -34081,10 +35152,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -34110,10 +35183,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -34541,6 +35616,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -34663,6 +35739,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -34672,6 +35756,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -34770,10 +35858,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -34799,10 +35889,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -35257,6 +36349,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -35379,6 +36472,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -35388,6 +36489,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -35486,10 +36591,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -35515,10 +36622,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -35973,6 +37082,7 @@ export declare const ParadoxZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -36095,6 +37205,14 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -36104,6 +37222,10 @@ export declare const ParadoxZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -36202,10 +37324,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -36231,10 +37355,12 @@ export declare const ParadoxZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -37331,6 +38457,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: z.ZodBoolean;
                     frozenImmune: z.ZodBoolean;
                     levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
                 }, "strict", z.ZodTypeAny, {
                     maxHp: number;
                     atk: number;
@@ -37354,6 +38481,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }, {
                     maxHp: number;
                     atk: number;
@@ -37377,6 +38505,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }>;
                 alias: z.ZodNull;
                 lifePointReduce: z.ZodNumber;
@@ -37481,6 +38610,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -37538,6 +38668,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -37786,6 +38917,26 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         }>>;
+                        damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
                         stunImmune: z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
@@ -37827,6 +38978,16 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         }>>;
                         levitateImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
                         }, "strict", z.ZodTypeAny, {
@@ -37917,6 +39078,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -37926,6 +39095,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38010,6 +39183,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -38019,6 +39200,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38279,6 +39464,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -38288,6 +39481,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38448,6 +39645,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -38457,6 +39662,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38622,6 +39831,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -38631,6 +39848,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38796,6 +40017,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -38805,6 +40034,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -38903,10 +40136,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -38923,10 +40158,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -38943,10 +40180,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 }, "strict", z.ZodTypeAny, {
@@ -38967,10 +40206,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }, {
@@ -38991,10 +40232,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }>, "many">;
@@ -39022,10 +40265,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -39053,10 +40298,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -39082,10 +40329,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -39102,10 +40351,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -39122,10 +40373,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                     m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -39148,10 +40401,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -39174,10 +40429,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -39202,10 +40459,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -39230,10 +40489,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -40724,6 +41985,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -40846,6 +42108,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -40855,6 +42125,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -40953,10 +42227,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -40982,10 +42258,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -41413,6 +42691,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -41535,6 +42814,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -41544,6 +42831,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -41642,10 +42933,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -41671,10 +42964,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -42122,6 +43417,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -42244,6 +43540,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -42253,6 +43557,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -42351,10 +43659,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -42380,10 +43690,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -42831,6 +44143,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -42953,6 +44266,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -42962,6 +44283,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -43060,10 +44385,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -43089,10 +44416,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -44187,6 +45516,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: z.ZodBoolean;
                     frozenImmune: z.ZodBoolean;
                     levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
                 }, "strict", z.ZodTypeAny, {
                     maxHp: number;
                     atk: number;
@@ -44210,6 +45540,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }, {
                     maxHp: number;
                     atk: number;
@@ -44233,6 +45564,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }>;
                 alias: z.ZodNull;
                 lifePointReduce: z.ZodNumber;
@@ -44337,6 +45669,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -44394,6 +45727,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -44642,6 +45976,26 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         }>>;
+                        damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
                         stunImmune: z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
@@ -44683,6 +46037,16 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         }>>;
                         levitateImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
                         }, "strict", z.ZodTypeAny, {
@@ -44773,6 +46137,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -44782,6 +46154,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -44866,6 +46242,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -44875,6 +46259,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -45135,6 +46523,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -45144,6 +46540,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -45304,6 +46704,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -45313,6 +46721,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -45478,6 +46890,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -45487,6 +46907,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -45652,6 +47076,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -45661,6 +47093,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -45759,10 +47195,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -45779,10 +47217,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -45799,10 +47239,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 }, "strict", z.ZodTypeAny, {
@@ -45823,10 +47265,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }, {
@@ -45847,10 +47291,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }>, "many">;
@@ -45878,10 +47324,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -45909,10 +47357,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -45938,10 +47388,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -45958,10 +47410,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -45978,10 +47432,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                     m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -46004,10 +47460,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -46030,10 +47488,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -46058,10 +47518,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -46086,10 +47548,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -47580,6 +49044,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -47702,6 +49167,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -47711,6 +49184,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -47809,10 +49286,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -47838,10 +49317,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -48269,6 +49750,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -48391,6 +49873,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -48400,6 +49890,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -48498,10 +49992,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -48527,10 +50023,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -48978,6 +50476,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -49100,6 +50599,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -49109,6 +50616,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -49207,10 +50718,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -49236,10 +50749,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -49687,6 +51202,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -49809,6 +51325,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -49818,6 +51342,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -49916,10 +51444,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -49945,10 +51475,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -50470,6 +52002,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -50592,6 +52125,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -50601,6 +52142,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -50699,10 +52244,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -50728,10 +52275,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -51180,6 +52729,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -51302,6 +52852,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -51311,6 +52869,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -51409,10 +52971,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -51438,10 +53002,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -51917,6 +53483,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -52039,6 +53606,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -52048,6 +53623,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -52146,10 +53725,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -52175,10 +53756,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -52627,6 +54210,7 @@ export declare const RogueThemeZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -52749,6 +54333,14 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -52758,6 +54350,10 @@ export declare const RogueThemeZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -52856,10 +54452,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -52885,10 +54483,12 @@ export declare const RogueThemeZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -53189,34 +54789,308 @@ export declare const RogueThemeZod: z.ZodObject<{
     }>;
 }>;
 export declare const SandboxActZod: z.ZodObject<{
+    name: z.ZodString;
+    itemDict: z.ZodRecord<z.ZodString, z.ZodObject<{
+        craft: z.ZodNullable<z.ZodObject<{
+            itemId: z.ZodString;
+            type: z.ZodString;
+            buildingUnlockDesc: z.ZodString;
+            materialItems: z.ZodRecord<z.ZodString, z.ZodNumber>;
+            upgradeItems: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodNumber>>;
+            withdrawRatio: z.ZodNumber;
+            repairCost: z.ZodNumber;
+            isHidden: z.ZodBoolean;
+            craftGroupId: z.ZodString;
+            recipeLevel: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        }, {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        }>>;
+        drink: z.ZodNullable<z.ZodObject<{
+            id: z.ZodString;
+            type: z.ZodString;
+            count: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            type: string;
+            id: string;
+            count: number;
+        }, {
+            type: string;
+            id: string;
+            count: number;
+        }>>;
+        foodMat: z.ZodNullable<z.ZodObject<{
+            id: z.ZodString;
+            type: z.ZodString;
+            attribute: z.ZodString;
+            buffDesc: z.ZodNullable<z.ZodString>;
+            sortId: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        }, {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        }>>;
+        food: z.ZodNullable<z.ZodObject<{
+            id: z.ZodString;
+            attributes: z.ZodArray<z.ZodString, "many">;
+            recipes: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                foodId: z.ZodString;
+                mats: z.ZodArray<z.ZodString, "many">;
+            }, "strict", z.ZodTypeAny, {
+                foodId: string;
+                mats: string[];
+            }, {
+                foodId: string;
+                mats: string[];
+            }>, "many">>;
+            duration: z.ZodNumber;
+            itemName: z.ZodString;
+            generalName: z.ZodNullable<z.ZodString>;
+            enhancedName: z.ZodNullable<z.ZodString>;
+            itemUsage: z.ZodString;
+            enhancedUsage: z.ZodNullable<z.ZodString>;
+            sortId: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        }, {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        }>>;
+        data: z.ZodObject<{
+            itemId: z.ZodString;
+            itemType: z.ZodString;
+            itemName: z.ZodString;
+            itemUsage: z.ZodString;
+            itemDesc: z.ZodString;
+            itemRarity: z.ZodNumber;
+            sortId: z.ZodNumber;
+            obtainApproach: z.ZodString;
+        }, "strict", z.ZodTypeAny, {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        }, {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        }>;
+    }, "strict", z.ZodTypeAny, {
+        data: {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        };
+        craft: {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        } | null;
+        drink: {
+            type: string;
+            id: string;
+            count: number;
+        } | null;
+        foodMat: {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        } | null;
+        food: {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        } | null;
+    }, {
+        data: {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        };
+        craft: {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        } | null;
+        drink: {
+            type: string;
+            id: string;
+            count: number;
+        } | null;
+        foodMat: {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        } | null;
+        food: {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        } | null;
+    }>>;
+    weatherDict: z.ZodRecord<z.ZodString, z.ZodObject<{
+        weatherId: z.ZodString;
+        name: z.ZodString;
+        weatherLevel: z.ZodNumber;
+        weatherType: z.ZodString;
+        weatherTypeName: z.ZodString;
+        weatherIconId: z.ZodString;
+        functionDesc: z.ZodString;
+        description: z.ZodString;
+        buffId: z.ZodNullable<z.ZodString>;
+    }, "strict", z.ZodTypeAny, {
+        name: string;
+        description: string;
+        functionDesc: string;
+        weatherId: string;
+        weatherLevel: number;
+        weatherType: string;
+        weatherTypeName: string;
+        weatherIconId: string;
+        buffId: string | null;
+    }, {
+        name: string;
+        description: string;
+        functionDesc: string;
+        weatherId: string;
+        weatherLevel: number;
+        weatherType: string;
+        weatherTypeName: string;
+        weatherIconId: string;
+        buffId: string | null;
+    }>>;
     stageDict: z.ZodRecord<z.ZodString, z.ZodObject<{
         excel: z.ZodObject<{
             stageId: z.ZodString;
             levelId: z.ZodString;
             code: z.ZodString;
             name: z.ZodString;
-            loadingPicId: z.ZodString;
             description: z.ZodString;
             actionCost: z.ZodNumber;
-            powerCost: z.ZodNumber;
+            actionCostEnemyRush: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
             code: string;
             name: string;
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         }, {
             code: string;
             name: string;
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         }>;
         levels: z.ZodObject<{
             options: z.ZodObject<{
@@ -53986,6 +55860,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: z.ZodBoolean;
                     frozenImmune: z.ZodBoolean;
                     levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
                 }, "strict", z.ZodTypeAny, {
                     maxHp: number;
                     atk: number;
@@ -54009,6 +55884,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }, {
                     maxHp: number;
                     atk: number;
@@ -54032,6 +55908,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }>;
                 alias: z.ZodNull;
                 lifePointReduce: z.ZodNumber;
@@ -54136,6 +56013,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -54193,6 +56071,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -54441,6 +56320,26 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         }>>;
+                        damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
                         stunImmune: z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
@@ -54482,6 +56381,16 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         }>>;
                         levitateImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
                         }, "strict", z.ZodTypeAny, {
@@ -54572,6 +56481,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -54581,6 +56498,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -54665,6 +56586,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -54674,6 +56603,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -54934,6 +56867,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -54943,6 +56884,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -55103,6 +57048,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -55112,6 +57065,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -55277,6 +57234,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -55286,6 +57251,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -55451,6 +57420,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -55460,6 +57437,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -55558,10 +57539,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -55578,10 +57561,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -55598,10 +57583,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 }, "strict", z.ZodTypeAny, {
@@ -55622,10 +57609,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }, {
@@ -55646,10 +57635,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }>, "many">;
@@ -55677,10 +57668,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -55708,10 +57701,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -55737,10 +57732,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -55757,10 +57754,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -55777,10 +57776,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                     m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -55803,10 +57804,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -55829,10 +57832,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -55857,10 +57862,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -55885,10 +57892,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -57379,6 +59388,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -57501,6 +59511,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -57510,6 +59528,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -57608,10 +59630,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -57637,10 +59661,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -58068,6 +60094,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -58190,6 +60217,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -58199,6 +60234,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -58297,10 +60336,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -58326,10 +60367,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -58609,9 +60652,8 @@ export declare const SandboxActZod: z.ZodObject<{
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         };
         levels: {
             options: {
@@ -58769,6 +60811,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -58891,6 +60934,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -58900,6 +60951,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -58998,10 +61053,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -59027,10 +61084,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -59310,9 +61369,8 @@ export declare const SandboxActZod: z.ZodObject<{
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         };
         levels: {
             options: {
@@ -59470,6 +61528,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -59592,6 +61651,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -59601,6 +61668,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -59699,10 +61770,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -59728,10 +61801,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -60006,6 +62081,7 @@ export declare const SandboxActZod: z.ZodObject<{
         };
     }>>;
 }, "strict", z.ZodTypeAny, {
+    name: string;
     stageDict: Record<string, {
         excel: {
             code: string;
@@ -60013,9 +62089,8 @@ export declare const SandboxActZod: z.ZodObject<{
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         };
         levels: {
             options: {
@@ -60173,6 +62248,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -60295,6 +62371,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -60304,6 +62388,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -60402,10 +62490,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -60431,10 +62521,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -60708,7 +62800,70 @@ export declare const SandboxActZod: z.ZodObject<{
             runtimeData?: null | undefined;
         };
     }>;
+    itemDict: Record<string, {
+        data: {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        };
+        craft: {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        } | null;
+        drink: {
+            type: string;
+            id: string;
+            count: number;
+        } | null;
+        foodMat: {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        } | null;
+        food: {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        } | null;
+    }>;
+    weatherDict: Record<string, {
+        name: string;
+        description: string;
+        functionDesc: string;
+        weatherId: string;
+        weatherLevel: number;
+        weatherType: string;
+        weatherTypeName: string;
+        weatherIconId: string;
+        buffId: string | null;
+    }>;
 }, {
+    name: string;
     stageDict: Record<string, {
         excel: {
             code: string;
@@ -60716,9 +62871,8 @@ export declare const SandboxActZod: z.ZodObject<{
             description: string;
             stageId: string;
             levelId: string;
-            loadingPicId: string;
             actionCost: number;
-            powerCost: number;
+            actionCostEnemyRush: number;
         };
         levels: {
             options: {
@@ -60876,6 +63030,7 @@ export declare const SandboxActZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -60998,6 +63153,14 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -61007,6 +63170,10 @@ export declare const SandboxActZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -61105,10 +63272,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -61134,10 +63303,12 @@ export declare const SandboxActZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -61410,6 +63581,68 @@ export declare const SandboxActZod: z.ZodObject<{
             operaConfig?: string | null | undefined;
             runtimeData?: null | undefined;
         };
+    }>;
+    itemDict: Record<string, {
+        data: {
+            itemId: string;
+            sortId: number;
+            obtainApproach: string;
+            itemName: string;
+            itemUsage: string;
+            itemType: string;
+            itemDesc: string;
+            itemRarity: number;
+        };
+        craft: {
+            type: string;
+            itemId: string;
+            buildingUnlockDesc: string;
+            materialItems: Record<string, number>;
+            upgradeItems: Record<string, number> | null;
+            withdrawRatio: number;
+            repairCost: number;
+            isHidden: boolean;
+            craftGroupId: string;
+            recipeLevel: number;
+        } | null;
+        drink: {
+            type: string;
+            id: string;
+            count: number;
+        } | null;
+        foodMat: {
+            type: string;
+            id: string;
+            sortId: number;
+            attribute: string;
+            buffDesc: string | null;
+        } | null;
+        food: {
+            id: string;
+            attributes: string[];
+            sortId: number;
+            recipes: {
+                foodId: string;
+                mats: string[];
+            }[] | null;
+            duration: number;
+            itemName: string;
+            generalName: string | null;
+            enhancedName: string | null;
+            itemUsage: string;
+            enhancedUsage: string | null;
+        } | null;
+    }>;
+    weatherDict: Record<string, {
+        name: string;
+        description: string;
+        functionDesc: string;
+        weatherId: string;
+        weatherLevel: number;
+        weatherType: string;
+        weatherTypeName: string;
+        weatherIconId: string;
+        buffId: string | null;
     }>;
 }>;
 export declare const SkillZod: z.ZodObject<{
@@ -61475,11 +63708,11 @@ export declare const SkillZod: z.ZodObject<{
             levelUpCost: null;
             maxChargeTime: number;
         };
+        duration: number;
         rangeId: string | null;
         skillType: string;
         durationType: string;
         prefabId: string | null;
-        duration: number;
     }, {
         name: string;
         description: string | null;
@@ -61496,11 +63729,11 @@ export declare const SkillZod: z.ZodObject<{
             levelUpCost: null;
             maxChargeTime: number;
         };
+        duration: number;
         rangeId: string | null;
         skillType: string;
         durationType: string;
         prefabId: string | null;
-        duration: number;
     }>, "many">;
 }, "strict", z.ZodTypeAny, {
     hidden: boolean;
@@ -61521,11 +63754,11 @@ export declare const SkillZod: z.ZodObject<{
             levelUpCost: null;
             maxChargeTime: number;
         };
+        duration: number;
         rangeId: string | null;
         skillType: string;
         durationType: string;
         prefabId: string | null;
-        duration: number;
     }[];
     skillId: string;
 }, {
@@ -61547,11 +63780,11 @@ export declare const SkillZod: z.ZodObject<{
             levelUpCost: null;
             maxChargeTime: number;
         };
+        duration: number;
         rangeId: string | null;
         skillType: string;
         durationType: string;
         prefabId: string | null;
-        duration: number;
     }[];
     skillId: string;
 }>;
@@ -62868,6 +65101,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -62891,6 +65125,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -62914,6 +65149,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
             alias: z.ZodNull;
             lifePointReduce: z.ZodNumber;
@@ -63018,6 +65254,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -63075,6 +65312,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -63323,6 +65561,26 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
                     stunImmune: z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
@@ -63364,6 +65622,16 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     }>>;
                     levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                         m_defined: z.ZodBoolean;
                         m_value: z.ZodNullable<z.ZodBoolean>;
                     }, "strict", z.ZodTypeAny, {
@@ -63454,6 +65722,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -63463,6 +65739,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -63547,6 +65827,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -63556,6 +65844,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -63816,6 +66108,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -63825,6 +66125,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -63985,6 +66289,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -63994,6 +66306,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -64159,6 +66475,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -64168,6 +66492,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -64333,6 +66661,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -64342,6 +66678,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -64440,10 +66780,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -64460,10 +66802,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -64480,10 +66824,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
             }, "strict", z.ZodTypeAny, {
@@ -64504,10 +66850,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }, {
@@ -64528,10 +66876,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }>, "many">;
@@ -64559,10 +66909,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -64590,10 +66942,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -64619,10 +66973,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                     randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
                     weight: z.ZodOptional<z.ZodNumber>;
                     dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                     isValid: z.ZodOptional<z.ZodBoolean>;
                     extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
                 }, "strict", z.ZodTypeAny, {
                     interval: number;
                     key: string;
@@ -64639,10 +66995,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }, {
                     interval: number;
                     key: string;
@@ -64659,10 +67017,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }>, "many">;
                 m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                 m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -64685,10 +67045,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -64711,10 +67073,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -64739,10 +67103,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -64767,10 +67133,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -66261,6 +68629,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -66383,6 +68752,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -66392,6 +68769,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -66490,10 +68871,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -66519,10 +68902,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -66950,6 +69335,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -67072,6 +69458,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -67081,6 +69475,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -67179,10 +69577,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -67208,10 +69608,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -67729,6 +70131,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -67851,6 +70254,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -67860,6 +70271,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -67958,10 +70373,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -67987,10 +70404,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -68508,6 +70927,7 @@ export declare const StageZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             description: null;
             lifePointReduce: number;
@@ -68630,6 +71050,14 @@ export declare const StageZod: z.ZodObject<{
                         m_defined: boolean;
                         m_value: number | null;
                     } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
                     sleepImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
@@ -68639,6 +71067,10 @@ export declare const StageZod: z.ZodObject<{
                         m_value: boolean | null;
                     } | undefined;
                     levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
                         m_defined: boolean;
                         m_value: boolean | null;
                     } | undefined;
@@ -68737,10 +71169,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 name?: string | null | undefined;
             }[];
@@ -68766,10 +71200,12 @@ export declare const StageZod: z.ZodObject<{
                     randomSpawnGroupKey?: string | null | undefined;
                     randomSpawnGroupPackKey?: string | null | undefined;
                     randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
                     weight?: number | undefined;
                     dontBlockWave?: boolean | undefined;
                     isValid?: boolean | undefined;
                     extraMeta?: null | undefined;
+                    actionId?: null | undefined;
                 }[];
                 m_randomActionGroups?: null | undefined;
                 m_actionWithRandomSpawn?: null | undefined;
@@ -69138,11 +71574,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }, {
             name: string;
             description: string | null;
@@ -69159,11 +71595,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }>, "many">;
     }, "strict", z.ZodTypeAny, {
         hidden: boolean;
@@ -69184,11 +71620,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }[];
         skillId: string;
     }, {
@@ -69210,11 +71646,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }[];
         skillId: string;
     }>, "many">;
@@ -71189,6 +73625,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: z.ZodBoolean;
                     frozenImmune: z.ZodBoolean;
                     levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
                 }, "strict", z.ZodTypeAny, {
                     maxHp: number;
                     atk: number;
@@ -71212,6 +73649,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }, {
                     maxHp: number;
                     atk: number;
@@ -71235,6 +73673,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }>;
                 alias: z.ZodNull;
                 lifePointReduce: z.ZodNumber;
@@ -71339,6 +73778,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -71396,6 +73836,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -71644,6 +74085,26 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         }>>;
+                        damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
                         stunImmune: z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
@@ -71685,6 +74146,16 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         }>>;
                         levitateImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
                             m_defined: z.ZodBoolean;
                             m_value: z.ZodNullable<z.ZodBoolean>;
                         }, "strict", z.ZodTypeAny, {
@@ -71775,6 +74246,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -71784,6 +74263,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -71868,6 +74351,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -71877,6 +74368,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -72137,6 +74632,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -72146,6 +74649,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -72306,6 +74813,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -72315,6 +74830,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -72480,6 +74999,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -72489,6 +75016,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -72654,6 +75185,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -72663,6 +75202,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -72761,10 +75304,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -72781,10 +75326,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -72801,10 +75348,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                 }, "strict", z.ZodTypeAny, {
@@ -72825,10 +75374,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }, {
@@ -72849,10 +75400,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }>, "many">;
@@ -72880,10 +75433,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -72911,10 +75466,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -72940,10 +75497,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
                         randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
                         weight: z.ZodOptional<z.ZodNumber>;
                         dontBlockWave: z.ZodOptional<z.ZodBoolean>;
                         isValid: z.ZodOptional<z.ZodBoolean>;
                         extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
                     }, "strict", z.ZodTypeAny, {
                         interval: number;
                         key: string;
@@ -72960,10 +75519,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }, {
                         interval: number;
                         key: string;
@@ -72980,10 +75541,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }>, "many">;
                     m_randomActionGroups: z.ZodOptional<z.ZodNull>;
                     m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
@@ -73006,10 +75569,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -73032,10 +75597,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -73060,10 +75627,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -73088,10 +75657,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -74582,6 +77153,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -74704,6 +77276,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -74713,6 +77293,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -74811,10 +77395,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -74840,10 +77426,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -75271,6 +77859,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -75393,6 +77982,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -75402,6 +77999,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -75500,10 +78101,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -75529,10 +78132,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -75987,6 +78592,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -76109,6 +78715,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -76118,6 +78732,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -76216,10 +78834,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -76245,10 +78865,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -76703,6 +79325,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -76825,6 +79448,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -76834,6 +79465,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -76932,10 +79567,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -76961,10 +79598,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -77382,6 +80021,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: z.ZodBoolean;
                     frozenImmune: z.ZodBoolean;
                     levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
                 }, "strict", z.ZodTypeAny, {
                     maxHp: number;
                     atk: number;
@@ -77405,6 +80045,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }, {
                     maxHp: number;
                     atk: number;
@@ -77428,6 +80069,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 }>;
             }, "strict", z.ZodTypeAny, {
                 data: {
@@ -77453,6 +80095,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }, {
@@ -77479,6 +80122,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }>, "many">;
@@ -77523,6 +80167,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -77559,6 +80204,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -77927,6 +80573,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: z.ZodBoolean;
                 frozenImmune: z.ZodBoolean;
                 levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
             }, "strict", z.ZodTypeAny, {
                 maxHp: number;
                 atk: number;
@@ -77950,6 +80597,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }, {
                 maxHp: number;
                 atk: number;
@@ -77973,6 +80621,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             }>;
         }, "strict", z.ZodTypeAny, {
             data: {
@@ -77998,6 +80647,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }, {
@@ -78024,6 +80674,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }>, "many">;
@@ -78126,6 +80777,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -78135,6 +80787,8 @@ export declare const OperatorZod: z.ZodObject<{
                 count: number;
             }[] | null;
         }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
         canUseGeneralPotentialItem: boolean;
         canUseActivityPotentialItem: boolean;
         potentialItemId: string | null;
@@ -78146,8 +80800,6 @@ export declare const OperatorZod: z.ZodObject<{
         displayNumber: string | null;
         appellation: string;
         tagList: string[];
-        itemUsage: string | null;
-        itemDesc: string | null;
         itemObtainApproach: string | null;
         isNotObtainable: boolean;
         isSpChar: boolean;
@@ -78236,6 +80888,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }[];
@@ -78304,6 +80957,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -78313,6 +80967,8 @@ export declare const OperatorZod: z.ZodObject<{
                 count: number;
             }[] | null;
         }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
         canUseGeneralPotentialItem: boolean;
         canUseActivityPotentialItem: boolean;
         potentialItemId: string | null;
@@ -78324,8 +80980,6 @@ export declare const OperatorZod: z.ZodObject<{
         displayNumber: string | null;
         appellation: string;
         tagList: string[];
-        itemUsage: string | null;
-        itemDesc: string | null;
         itemObtainApproach: string | null;
         isNotObtainable: boolean;
         isSpChar: boolean;
@@ -78414,6 +81068,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }[];
@@ -78484,6 +81139,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -78493,6 +81149,8 @@ export declare const OperatorZod: z.ZodObject<{
                 count: number;
             }[] | null;
         }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
         canUseGeneralPotentialItem: boolean;
         canUseActivityPotentialItem: boolean;
         potentialItemId: string | null;
@@ -78504,8 +81162,6 @@ export declare const OperatorZod: z.ZodObject<{
         displayNumber: string | null;
         appellation: string;
         tagList: string[];
-        itemUsage: string | null;
-        itemDesc: string | null;
         itemObtainApproach: string | null;
         isNotObtainable: boolean;
         isSpChar: boolean;
@@ -78594,6 +81250,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }[];
@@ -78629,11 +81286,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }[];
         skillId: string;
     }[];
@@ -78982,6 +81639,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -79104,6 +81762,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -79113,6 +81779,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -79211,10 +81881,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -79240,10 +81912,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
@@ -79572,6 +82246,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 level: number;
             }[];
@@ -79581,6 +82256,8 @@ export declare const OperatorZod: z.ZodObject<{
                 count: number;
             }[] | null;
         }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
         canUseGeneralPotentialItem: boolean;
         canUseActivityPotentialItem: boolean;
         potentialItemId: string | null;
@@ -79592,8 +82269,6 @@ export declare const OperatorZod: z.ZodObject<{
         displayNumber: string | null;
         appellation: string;
         tagList: string[];
-        itemUsage: string | null;
-        itemDesc: string | null;
         itemObtainApproach: string | null;
         isNotObtainable: boolean;
         isSpChar: boolean;
@@ -79682,6 +82357,7 @@ export declare const OperatorZod: z.ZodObject<{
                 sleepImmune: boolean;
                 frozenImmune: boolean;
                 levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
             };
             level: number;
         }[];
@@ -79717,11 +82393,11 @@ export declare const OperatorZod: z.ZodObject<{
                 levelUpCost: null;
                 maxChargeTime: number;
             };
+            duration: number;
             rangeId: string | null;
             skillType: string;
             durationType: string;
             prefabId: string | null;
-            duration: number;
         }[];
         skillId: string;
     }[];
@@ -80070,6 +82746,7 @@ export declare const OperatorZod: z.ZodObject<{
                     sleepImmune: boolean;
                     frozenImmune: boolean;
                     levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
                 };
                 description: null;
                 lifePointReduce: number;
@@ -80192,6 +82869,14 @@ export declare const OperatorZod: z.ZodObject<{
                             m_defined: boolean;
                             m_value: number | null;
                         } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
                         sleepImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
@@ -80201,6 +82886,10 @@ export declare const OperatorZod: z.ZodObject<{
                             m_value: boolean | null;
                         } | undefined;
                         levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
                             m_defined: boolean;
                             m_value: boolean | null;
                         } | undefined;
@@ -80299,10 +82988,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     name?: string | null | undefined;
                 }[];
@@ -80328,10 +83019,12 @@ export declare const OperatorZod: z.ZodObject<{
                         randomSpawnGroupKey?: string | null | undefined;
                         randomSpawnGroupPackKey?: string | null | undefined;
                         randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
                         weight?: number | undefined;
                         dontBlockWave?: boolean | undefined;
                         isValid?: boolean | undefined;
                         extraMeta?: null | undefined;
+                        actionId?: null | undefined;
                     }[];
                     m_randomActionGroups?: null | undefined;
                     m_actionWithRandomSpawn?: null | undefined;
