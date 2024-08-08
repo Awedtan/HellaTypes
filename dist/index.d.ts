@@ -12708,6 +12708,251 @@ declare const RogueVariationZod: z.ZodObject<{
     functionDesc: string;
     sound: string | null;
 }>;
+declare const SandboxItemZod: z.ZodObject<{
+    craft: z.ZodNullable<z.ZodObject<{
+        itemId: z.ZodString;
+        type: z.ZodString;
+        buildingUnlockDesc: z.ZodString;
+        materialItems: z.ZodRecord<z.ZodString, z.ZodNumber>;
+        upgradeItems: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodNumber>>;
+        withdrawRatio: z.ZodNumber;
+        repairCost: z.ZodNumber;
+        isHidden: z.ZodBoolean;
+        craftGroupId: z.ZodString;
+        recipeLevel: z.ZodNumber;
+    }, "strict", z.ZodTypeAny, {
+        type: string;
+        itemId: string;
+        buildingUnlockDesc: string;
+        materialItems: Record<string, number>;
+        upgradeItems: Record<string, number> | null;
+        withdrawRatio: number;
+        repairCost: number;
+        isHidden: boolean;
+        craftGroupId: string;
+        recipeLevel: number;
+    }, {
+        type: string;
+        itemId: string;
+        buildingUnlockDesc: string;
+        materialItems: Record<string, number>;
+        upgradeItems: Record<string, number> | null;
+        withdrawRatio: number;
+        repairCost: number;
+        isHidden: boolean;
+        craftGroupId: string;
+        recipeLevel: number;
+    }>>;
+    drink: z.ZodNullable<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodString;
+        count: z.ZodNumber;
+    }, "strict", z.ZodTypeAny, {
+        type: string;
+        id: string;
+        count: number;
+    }, {
+        type: string;
+        id: string;
+        count: number;
+    }>>;
+    foodMat: z.ZodNullable<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodString;
+        attribute: z.ZodString;
+        buffDesc: z.ZodNullable<z.ZodString>;
+        sortId: z.ZodNumber;
+    }, "strict", z.ZodTypeAny, {
+        type: string;
+        id: string;
+        sortId: number;
+        attribute: string;
+        buffDesc: string | null;
+    }, {
+        type: string;
+        id: string;
+        sortId: number;
+        attribute: string;
+        buffDesc: string | null;
+    }>>;
+    food: z.ZodNullable<z.ZodObject<{
+        id: z.ZodString;
+        attributes: z.ZodArray<z.ZodString, "many">;
+        recipes: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            foodId: z.ZodString;
+            mats: z.ZodArray<z.ZodString, "many">;
+        }, "strict", z.ZodTypeAny, {
+            foodId: string;
+            mats: string[];
+        }, {
+            foodId: string;
+            mats: string[];
+        }>, "many">>;
+        duration: z.ZodNumber;
+        itemName: z.ZodString;
+        generalName: z.ZodNullable<z.ZodString>;
+        enhancedName: z.ZodNullable<z.ZodString>;
+        itemUsage: z.ZodString;
+        enhancedUsage: z.ZodNullable<z.ZodString>;
+        sortId: z.ZodNumber;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        attributes: string[];
+        sortId: number;
+        recipes: {
+            foodId: string;
+            mats: string[];
+        }[] | null;
+        duration: number;
+        itemName: string;
+        generalName: string | null;
+        enhancedName: string | null;
+        itemUsage: string;
+        enhancedUsage: string | null;
+    }, {
+        id: string;
+        attributes: string[];
+        sortId: number;
+        recipes: {
+            foodId: string;
+            mats: string[];
+        }[] | null;
+        duration: number;
+        itemName: string;
+        generalName: string | null;
+        enhancedName: string | null;
+        itemUsage: string;
+        enhancedUsage: string | null;
+    }>>;
+    data: z.ZodObject<{
+        itemId: z.ZodString;
+        itemType: z.ZodString;
+        itemName: z.ZodString;
+        itemUsage: z.ZodString;
+        itemDesc: z.ZodString;
+        itemRarity: z.ZodNumber;
+        sortId: z.ZodNumber;
+        obtainApproach: z.ZodString;
+    }, "strict", z.ZodTypeAny, {
+        itemId: string;
+        sortId: number;
+        obtainApproach: string;
+        itemName: string;
+        itemUsage: string;
+        itemType: string;
+        itemDesc: string;
+        itemRarity: number;
+    }, {
+        itemId: string;
+        sortId: number;
+        obtainApproach: string;
+        itemName: string;
+        itemUsage: string;
+        itemType: string;
+        itemDesc: string;
+        itemRarity: number;
+    }>;
+}, "strict", z.ZodTypeAny, {
+    data: {
+        itemId: string;
+        sortId: number;
+        obtainApproach: string;
+        itemName: string;
+        itemUsage: string;
+        itemType: string;
+        itemDesc: string;
+        itemRarity: number;
+    };
+    craft: {
+        type: string;
+        itemId: string;
+        buildingUnlockDesc: string;
+        materialItems: Record<string, number>;
+        upgradeItems: Record<string, number> | null;
+        withdrawRatio: number;
+        repairCost: number;
+        isHidden: boolean;
+        craftGroupId: string;
+        recipeLevel: number;
+    } | null;
+    drink: {
+        type: string;
+        id: string;
+        count: number;
+    } | null;
+    foodMat: {
+        type: string;
+        id: string;
+        sortId: number;
+        attribute: string;
+        buffDesc: string | null;
+    } | null;
+    food: {
+        id: string;
+        attributes: string[];
+        sortId: number;
+        recipes: {
+            foodId: string;
+            mats: string[];
+        }[] | null;
+        duration: number;
+        itemName: string;
+        generalName: string | null;
+        enhancedName: string | null;
+        itemUsage: string;
+        enhancedUsage: string | null;
+    } | null;
+}, {
+    data: {
+        itemId: string;
+        sortId: number;
+        obtainApproach: string;
+        itemName: string;
+        itemUsage: string;
+        itemType: string;
+        itemDesc: string;
+        itemRarity: number;
+    };
+    craft: {
+        type: string;
+        itemId: string;
+        buildingUnlockDesc: string;
+        materialItems: Record<string, number>;
+        upgradeItems: Record<string, number> | null;
+        withdrawRatio: number;
+        repairCost: number;
+        isHidden: boolean;
+        craftGroupId: string;
+        recipeLevel: number;
+    } | null;
+    drink: {
+        type: string;
+        id: string;
+        count: number;
+    } | null;
+    foodMat: {
+        type: string;
+        id: string;
+        sortId: number;
+        attribute: string;
+        buffDesc: string | null;
+    } | null;
+    food: {
+        id: string;
+        attributes: string[];
+        sortId: number;
+        recipes: {
+            foodId: string;
+            mats: string[];
+        }[] | null;
+        duration: number;
+        itemName: string;
+        generalName: string | null;
+        enhancedName: string | null;
+        itemUsage: string;
+        enhancedUsage: string | null;
+    } | null;
+}>;
 declare const SandboxStageZod: z.ZodObject<{
     excel: z.ZodObject<{
         stageId: z.ZodString;
@@ -19721,6 +19966,37 @@ declare const SandboxStageZod: z.ZodObject<{
         operaConfig?: string | null | undefined;
         runtimeData?: null | undefined;
     };
+}>;
+declare const SandboxWeatherZod: z.ZodObject<{
+    weatherId: z.ZodString;
+    name: z.ZodString;
+    weatherLevel: z.ZodNumber;
+    weatherType: z.ZodString;
+    weatherTypeName: z.ZodString;
+    weatherIconId: z.ZodString;
+    functionDesc: z.ZodString;
+    description: z.ZodString;
+    buffId: z.ZodNullable<z.ZodString>;
+}, "strict", z.ZodTypeAny, {
+    name: string;
+    description: string;
+    functionDesc: string;
+    weatherId: string;
+    weatherLevel: number;
+    weatherType: string;
+    weatherTypeName: string;
+    weatherIconId: string;
+    buffId: string | null;
+}, {
+    name: string;
+    description: string;
+    functionDesc: string;
+    weatherId: string;
+    weatherLevel: number;
+    weatherType: string;
+    weatherTypeName: string;
+    weatherIconId: string;
+    buffId: string | null;
 }>;
 export declare const BaseZod: z.ZodObject<{
     buffId: z.ZodString;
@@ -83316,7 +83592,9 @@ export type RogueRelic = z.infer<typeof RogueRelicZod>;
 export type RogueStage = z.infer<typeof RogueStageZod>;
 export type RogueVariation = z.infer<typeof RogueVariationZod>;
 export type SandboxAct = z.infer<typeof SandboxActZod>;
+export type SandboxItem = z.infer<typeof SandboxItemZod>;
 export type SandboxStage = z.infer<typeof SandboxStageZod>;
+export type SandboxWeather = z.infer<typeof SandboxWeatherZod>;
 export type Skill = z.infer<typeof SkillZod>;
 export type Skin = z.infer<typeof SkinZod>;
 export type Stage = z.infer<typeof StageZod>;

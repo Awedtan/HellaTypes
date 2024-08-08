@@ -1092,6 +1092,7 @@ export const OperatorZod = z.strictObject({
         ),
     }),
 });
+
 export type Blackboard = z.infer<typeof BlackboardZod>;
 export type Base = z.infer<typeof BaseZod>;
 export type CCStage = z.infer<typeof CCStageZod>;
@@ -1109,7 +1110,9 @@ export type RogueRelic = z.infer<typeof RogueRelicZod>;
 export type RogueStage = z.infer<typeof RogueStageZod>;
 export type RogueVariation = z.infer<typeof RogueVariationZod>;
 export type SandboxAct = z.infer<typeof SandboxActZod>;
+export type SandboxItem = z.infer<typeof SandboxItemZod>;
 export type SandboxStage = z.infer<typeof SandboxStageZod>;
+export type SandboxWeather = z.infer<typeof SandboxWeatherZod>;
 export type Skill = z.infer<typeof SkillZod>;
 export type Skin = z.infer<typeof SkinZod>;
 export type Stage = z.infer<typeof StageZod>;
