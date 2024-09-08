@@ -27044,1213 +27044,6 @@ export declare const DefinitionZod: z.ZodObject<{
     termId: string;
     termName: string;
 }>;
-export declare const DeployableZod: z.ZodObject<{
-    name: z.ZodString;
-    description: z.ZodNullable<z.ZodString>;
-    canUseGeneralPotentialItem: z.ZodBoolean;
-    canUseActivityPotentialItem: z.ZodBoolean;
-    potentialItemId: z.ZodNullable<z.ZodString>;
-    activityPotentialItemId: z.ZodNullable<z.ZodString>;
-    classicPotentialItemId: z.ZodNullable<z.ZodString>;
-    nationId: z.ZodNullable<z.ZodString>;
-    groupId: z.ZodNullable<z.ZodString>;
-    teamId: z.ZodNullable<z.ZodString>;
-    displayNumber: z.ZodNullable<z.ZodString>;
-    appellation: z.ZodString;
-    position: z.ZodString;
-    tagList: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
-    itemUsage: z.ZodNullable<z.ZodString>;
-    itemDesc: z.ZodNullable<z.ZodString>;
-    itemObtainApproach: z.ZodNullable<z.ZodString>;
-    isNotObtainable: z.ZodBoolean;
-    isSpChar: z.ZodBoolean;
-    maxPotentialLevel: z.ZodNumber;
-    rarity: z.ZodString;
-    profession: z.ZodString;
-    subProfessionId: z.ZodString;
-    trait: z.ZodNullable<z.ZodObject<{
-        candidates: z.ZodArray<z.ZodObject<{
-            unlockCondition: z.ZodObject<{
-                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                level: z.ZodNumber;
-            }, "strict", z.ZodTypeAny, {
-                level: number;
-                phase: string | number;
-            }, {
-                level: number;
-                phase: string | number;
-            }>;
-            requiredPotentialRank: z.ZodNumber;
-            blackboard: z.ZodArray<z.ZodObject<{
-                key: z.ZodString;
-                value: z.ZodNullable<z.ZodNumber>;
-                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-            }, "strict", z.ZodTypeAny, {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }, {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }>, "many">;
-            overrideDescripton: z.ZodNullable<z.ZodString>;
-            prefabKey: z.ZodNullable<z.ZodString>;
-            rangeId: z.ZodNullable<z.ZodString>;
-        }, "strict", z.ZodTypeAny, {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }, {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }>, "many">;
-    }, "strict", z.ZodTypeAny, {
-        candidates: {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }[];
-    }, {
-        candidates: {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }[];
-    }>>;
-    phases: z.ZodArray<z.ZodObject<{
-        characterPrefabKey: z.ZodString;
-        rangeId: z.ZodNullable<z.ZodString>;
-        maxLevel: z.ZodNumber;
-        attributesKeyFrames: z.ZodArray<z.ZodObject<{
-            level: z.ZodNumber;
-            data: z.ZodObject<{
-                maxHp: z.ZodNumber;
-                atk: z.ZodNumber;
-                def: z.ZodNumber;
-                magicResistance: z.ZodNumber;
-                cost: z.ZodNumber;
-                blockCnt: z.ZodNumber;
-                moveSpeed: z.ZodNumber;
-                attackSpeed: z.ZodNumber;
-                baseAttackTime: z.ZodNumber;
-                respawnTime: z.ZodNumber;
-                hpRecoveryPerSec: z.ZodNumber;
-                spRecoveryPerSec: z.ZodNumber;
-                maxDeployCount: z.ZodNumber;
-                maxDeckStackCnt: z.ZodNumber;
-                tauntLevel: z.ZodNumber;
-                massLevel: z.ZodNumber;
-                baseForceLevel: z.ZodNumber;
-                stunImmune: z.ZodBoolean;
-                silenceImmune: z.ZodBoolean;
-                sleepImmune: z.ZodBoolean;
-                frozenImmune: z.ZodBoolean;
-                levitateImmune: z.ZodBoolean;
-                disarmedCombatImmune: z.ZodBoolean;
-            }, "strict", z.ZodTypeAny, {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            }, {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            }>;
-        }, "strict", z.ZodTypeAny, {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }, {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }>, "many">;
-        evolveCost: z.ZodUnion<[z.ZodArray<z.ZodObject<{
-            id: z.ZodString;
-            count: z.ZodNumber;
-            type: z.ZodString;
-        }, "strict", z.ZodTypeAny, {
-            type: string;
-            id: string;
-            count: number;
-        }, {
-            type: string;
-            id: string;
-            count: number;
-        }>, "many">, z.ZodNull]>;
-    }, "strict", z.ZodTypeAny, {
-        rangeId: string | null;
-        characterPrefabKey: string;
-        maxLevel: number;
-        attributesKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[];
-        evolveCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }, {
-        rangeId: string | null;
-        characterPrefabKey: string;
-        maxLevel: number;
-        attributesKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[];
-        evolveCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }>, "many">;
-    skills: z.ZodArray<z.ZodObject<{
-        skillId: z.ZodNullable<z.ZodString>;
-        overridePrefabKey: z.ZodNullable<z.ZodString>;
-        overrideTokenKey: z.ZodNullable<z.ZodString>;
-        levelUpCostCond: z.ZodArray<z.ZodObject<{
-            unlockCond: z.ZodObject<{
-                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                level: z.ZodNumber;
-            }, "strict", z.ZodTypeAny, {
-                level: number;
-                phase: string | number;
-            }, {
-                level: number;
-                phase: string | number;
-            }>;
-            lvlUpTime: z.ZodNumber;
-            levelUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
-                id: z.ZodString;
-                count: z.ZodNumber;
-                type: z.ZodString;
-            }, "strict", z.ZodTypeAny, {
-                type: string;
-                id: string;
-                count: number;
-            }, {
-                type: string;
-                id: string;
-                count: number;
-            }>, "many">>;
-        }, "strict", z.ZodTypeAny, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }>, "many">;
-        unlockCond: z.ZodObject<{
-            phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-            level: z.ZodNumber;
-        }, "strict", z.ZodTypeAny, {
-            level: number;
-            phase: string | number;
-        }, {
-            level: number;
-            phase: string | number;
-        }>;
-    }, "strict", z.ZodTypeAny, {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        skillId: string | null;
-        overridePrefabKey: string | null;
-        overrideTokenKey: string | null;
-        levelUpCostCond: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }, {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        skillId: string | null;
-        overridePrefabKey: string | null;
-        overrideTokenKey: string | null;
-        levelUpCostCond: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }>, "many">;
-    displayTokenDict: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodBoolean>>;
-    talents: z.ZodNullable<z.ZodArray<z.ZodObject<{
-        candidates: z.ZodNullable<z.ZodArray<z.ZodObject<{
-            unlockCondition: z.ZodObject<{
-                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                level: z.ZodNumber;
-            }, "strict", z.ZodTypeAny, {
-                level: number;
-                phase: string | number;
-            }, {
-                level: number;
-                phase: string | number;
-            }>;
-            requiredPotentialRank: z.ZodNumber;
-            prefabKey: z.ZodString;
-            name: z.ZodNullable<z.ZodString>;
-            description: z.ZodNullable<z.ZodString>;
-            rangeId: z.ZodNullable<z.ZodString>;
-            blackboard: z.ZodArray<z.ZodObject<{
-                key: z.ZodString;
-                value: z.ZodNullable<z.ZodNumber>;
-                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-            }, "strict", z.ZodTypeAny, {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }, {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }>, "many">;
-            tokenKey: z.ZodNullable<z.ZodString>;
-        }, "strict", z.ZodTypeAny, {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }, {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }>, "many">>;
-    }, "strict", z.ZodTypeAny, {
-        candidates: {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }[] | null;
-    }, {
-        candidates: {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }[] | null;
-    }>, "many">>;
-    potentialRanks: z.ZodArray<z.ZodObject<{
-        type: z.ZodString;
-        description: z.ZodString;
-        buff: z.ZodNullable<z.ZodObject<{
-            attributes: z.ZodObject<{
-                abnormalFlags: z.ZodNull;
-                abnormalImmunes: z.ZodNull;
-                abnormalAntis: z.ZodNull;
-                abnormalCombos: z.ZodNull;
-                abnormalComboImmunes: z.ZodNull;
-                attributeModifiers: z.ZodArray<z.ZodObject<{
-                    attributeType: z.ZodString;
-                    formulaItem: z.ZodString;
-                    value: z.ZodNumber;
-                    loadFromBlackboard: z.ZodBoolean;
-                    fetchBaseValueFromSourceEntity: z.ZodBoolean;
-                }, "strict", z.ZodTypeAny, {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }, {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }>, "many">;
-            }, "strict", z.ZodTypeAny, {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            }, {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            }>;
-        }, "strict", z.ZodTypeAny, {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        }, {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        }>>;
-        equivalentCost: z.ZodNull;
-    }, "strict", z.ZodTypeAny, {
-        type: string;
-        description: string;
-        buff: {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        } | null;
-        equivalentCost: null;
-    }, {
-        type: string;
-        description: string;
-        buff: {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        } | null;
-        equivalentCost: null;
-    }>, "many">;
-    favorKeyFrames: z.ZodNullable<z.ZodArray<z.ZodObject<{
-        level: z.ZodNumber;
-        data: z.ZodObject<{
-            maxHp: z.ZodNumber;
-            atk: z.ZodNumber;
-            def: z.ZodNumber;
-            magicResistance: z.ZodNumber;
-            cost: z.ZodNumber;
-            blockCnt: z.ZodNumber;
-            moveSpeed: z.ZodNumber;
-            attackSpeed: z.ZodNumber;
-            baseAttackTime: z.ZodNumber;
-            respawnTime: z.ZodNumber;
-            hpRecoveryPerSec: z.ZodNumber;
-            spRecoveryPerSec: z.ZodNumber;
-            maxDeployCount: z.ZodNumber;
-            maxDeckStackCnt: z.ZodNumber;
-            tauntLevel: z.ZodNumber;
-            massLevel: z.ZodNumber;
-            baseForceLevel: z.ZodNumber;
-            stunImmune: z.ZodBoolean;
-            silenceImmune: z.ZodBoolean;
-            sleepImmune: z.ZodBoolean;
-            frozenImmune: z.ZodBoolean;
-            levitateImmune: z.ZodBoolean;
-            disarmedCombatImmune: z.ZodBoolean;
-        }, "strict", z.ZodTypeAny, {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        }, {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        }>;
-    }, "strict", z.ZodTypeAny, {
-        data: {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        };
-        level: number;
-    }, {
-        data: {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        };
-        level: number;
-    }>, "many">>;
-    allSkillLvlup: z.ZodArray<z.ZodObject<{
-        unlockCond: z.ZodObject<{
-            phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-            level: z.ZodNumber;
-        }, "strict", z.ZodTypeAny, {
-            level: number;
-            phase: string | number;
-        }, {
-            level: number;
-            phase: string | number;
-        }>;
-        lvlUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
-            id: z.ZodString;
-            count: z.ZodNumber;
-            type: z.ZodString;
-        }, "strict", z.ZodTypeAny, {
-            type: string;
-            id: string;
-            count: number;
-        }, {
-            type: string;
-            id: string;
-            count: number;
-        }>, "many">>;
-    }, "strict", z.ZodTypeAny, {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        lvlUpCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }, {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        lvlUpCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }>, "many">;
-}, "strict", z.ZodTypeAny, {
-    name: string;
-    position: string;
-    description: string | null;
-    skills: {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        skillId: string | null;
-        overridePrefabKey: string | null;
-        overrideTokenKey: string | null;
-        levelUpCostCond: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }[];
-    rarity: string;
-    phases: {
-        rangeId: string | null;
-        characterPrefabKey: string;
-        maxLevel: number;
-        attributesKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[];
-        evolveCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }[];
-    itemUsage: string | null;
-    itemDesc: string | null;
-    canUseGeneralPotentialItem: boolean;
-    canUseActivityPotentialItem: boolean;
-    potentialItemId: string | null;
-    activityPotentialItemId: string | null;
-    classicPotentialItemId: string | null;
-    nationId: string | null;
-    groupId: string | null;
-    teamId: string | null;
-    displayNumber: string | null;
-    appellation: string;
-    tagList: string[] | null;
-    itemObtainApproach: string | null;
-    isNotObtainable: boolean;
-    isSpChar: boolean;
-    maxPotentialLevel: number;
-    profession: string;
-    subProfessionId: string;
-    trait: {
-        candidates: {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }[];
-    } | null;
-    displayTokenDict: Record<string, boolean> | null;
-    talents: {
-        candidates: {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }[] | null;
-    }[] | null;
-    potentialRanks: {
-        type: string;
-        description: string;
-        buff: {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        } | null;
-        equivalentCost: null;
-    }[];
-    favorKeyFrames: {
-        data: {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        };
-        level: number;
-    }[] | null;
-    allSkillLvlup: {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        lvlUpCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }[];
-}, {
-    name: string;
-    position: string;
-    description: string | null;
-    skills: {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        skillId: string | null;
-        overridePrefabKey: string | null;
-        overrideTokenKey: string | null;
-        levelUpCostCond: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpTime: number;
-            levelUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }[];
-    rarity: string;
-    phases: {
-        rangeId: string | null;
-        characterPrefabKey: string;
-        maxLevel: number;
-        attributesKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[];
-        evolveCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }[];
-    itemUsage: string | null;
-    itemDesc: string | null;
-    canUseGeneralPotentialItem: boolean;
-    canUseActivityPotentialItem: boolean;
-    potentialItemId: string | null;
-    activityPotentialItemId: string | null;
-    classicPotentialItemId: string | null;
-    nationId: string | null;
-    groupId: string | null;
-    teamId: string | null;
-    displayNumber: string | null;
-    appellation: string;
-    tagList: string[] | null;
-    itemObtainApproach: string | null;
-    isNotObtainable: boolean;
-    isSpChar: boolean;
-    maxPotentialLevel: number;
-    profession: string;
-    subProfessionId: string;
-    trait: {
-        candidates: {
-            prefabKey: string | null;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            overrideDescripton: string | null;
-            rangeId: string | null;
-        }[];
-    } | null;
-    displayTokenDict: Record<string, boolean> | null;
-    talents: {
-        candidates: {
-            name: string | null;
-            description: string | null;
-            prefabKey: string;
-            blackboard: {
-                key: string;
-                value: number | null;
-                valueStr?: string | null | undefined;
-            }[];
-            unlockCondition: {
-                level: number;
-                phase: string | number;
-            };
-            requiredPotentialRank: number;
-            rangeId: string | null;
-            tokenKey: string | null;
-        }[] | null;
-    }[] | null;
-    potentialRanks: {
-        type: string;
-        description: string;
-        buff: {
-            attributes: {
-                abnormalFlags: null;
-                abnormalImmunes: null;
-                abnormalAntis: null;
-                abnormalCombos: null;
-                abnormalComboImmunes: null;
-                attributeModifiers: {
-                    value: number;
-                    attributeType: string;
-                    formulaItem: string;
-                    loadFromBlackboard: boolean;
-                    fetchBaseValueFromSourceEntity: boolean;
-                }[];
-            };
-        } | null;
-        equivalentCost: null;
-    }[];
-    favorKeyFrames: {
-        data: {
-            maxHp: number;
-            atk: number;
-            def: number;
-            magicResistance: number;
-            cost: number;
-            blockCnt: number;
-            moveSpeed: number;
-            attackSpeed: number;
-            baseAttackTime: number;
-            respawnTime: number;
-            hpRecoveryPerSec: number;
-            spRecoveryPerSec: number;
-            maxDeployCount: number;
-            maxDeckStackCnt: number;
-            tauntLevel: number;
-            massLevel: number;
-            baseForceLevel: number;
-            stunImmune: boolean;
-            silenceImmune: boolean;
-            sleepImmune: boolean;
-            frozenImmune: boolean;
-            levitateImmune: boolean;
-            disarmedCombatImmune: boolean;
-        };
-        level: number;
-    }[] | null;
-    allSkillLvlup: {
-        unlockCond: {
-            level: number;
-            phase: string | number;
-        };
-        lvlUpCost: {
-            type: string;
-            id: string;
-            count: number;
-        }[] | null;
-    }[];
-}>;
 export declare const EnemyZod: z.ZodObject<{
     excel: z.ZodObject<{
         enemyId: z.ZodString;
@@ -31312,15 +30105,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }, {
                         name: string | null;
@@ -31331,15 +30124,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }>, "many">>;
                 }, "strict", z.ZodTypeAny, {
@@ -31352,15 +30145,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 }, {
@@ -31373,15 +30166,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 }>;
@@ -31427,9 +30220,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }, {
                         prefabKey: string | null;
                         blackboard: {
@@ -31442,9 +30235,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }>, "many">>;
                 }, "strict", z.ZodTypeAny, {
                     candidates: {
@@ -31459,9 +30252,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 }, {
                     candidates: {
@@ -31476,9 +30269,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 }>;
             }, "strict", z.ZodTypeAny, {
@@ -31495,15 +30288,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31520,9 +30313,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }, {
@@ -31539,15 +30332,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31564,9 +30357,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }>, "many">;
@@ -31612,15 +30405,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31637,9 +30430,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -31669,15 +30462,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31694,9 +30487,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -31728,15 +30521,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31753,9 +30546,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -31787,15 +30580,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31812,9 +30605,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -31848,15 +30641,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31873,9 +30666,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -31935,15 +30728,15 @@ export declare const ModuleZod: z.ZodObject<{
                             value: number | null;
                             valueStr?: string | null | undefined;
                         }[];
+                        displayRangeId: boolean;
+                        upgradeDescription: string;
+                        talentIndex: number;
                         unlockCondition: {
                             level: number;
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
                         rangeId: string | null;
-                        displayRangeId: boolean;
-                        upgradeDescription: string;
-                        talentIndex: number;
                         tokenKey?: string | undefined;
                     }[] | null;
                 };
@@ -31960,9 +30753,9 @@ export declare const ModuleZod: z.ZodObject<{
                             phase: string | number;
                         };
                         requiredPotentialRank: number;
-                        overrideDescripton: string | null;
                         rangeId: string | null;
                         additionalDescription: string | null;
+                        overrideDescripton: string | null;
                     }[] | null;
                 };
             }[];
@@ -72962,11 +71755,10 @@ export declare const StageZod: z.ZodObject<{
         runtimeData?: null | undefined;
     };
 }>;
-export declare const OperatorZod: z.ZodObject<{
+export declare const DeployableZod: z.ZodObject<{
     id: z.ZodString;
-    recruit: z.ZodNumber;
     archetype: z.ZodString;
-    range: z.ZodObject<{
+    range: z.ZodNullable<z.ZodObject<{
         id: z.ZodString;
         direction: z.ZodNumber;
         grids: z.ZodArray<z.ZodObject<{
@@ -72993,7 +71785,2838 @@ export declare const OperatorZod: z.ZodObject<{
             col: number;
             row: number;
         }[];
+    }>>;
+    data: z.ZodObject<{
+        name: z.ZodString;
+        description: z.ZodNullable<z.ZodString>;
+        canUseGeneralPotentialItem: z.ZodBoolean;
+        canUseActivityPotentialItem: z.ZodBoolean;
+        potentialItemId: z.ZodNullable<z.ZodString>;
+        activityPotentialItemId: z.ZodNullable<z.ZodString>;
+        classicPotentialItemId: z.ZodNullable<z.ZodString>;
+        nationId: z.ZodNullable<z.ZodString>;
+        groupId: z.ZodNullable<z.ZodString>;
+        teamId: z.ZodNullable<z.ZodString>;
+        displayNumber: z.ZodNullable<z.ZodString>;
+        appellation: z.ZodString;
+        position: z.ZodString;
+        tagList: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+        itemUsage: z.ZodNullable<z.ZodString>;
+        itemDesc: z.ZodNullable<z.ZodString>;
+        itemObtainApproach: z.ZodNullable<z.ZodString>;
+        isNotObtainable: z.ZodBoolean;
+        isSpChar: z.ZodBoolean;
+        maxPotentialLevel: z.ZodNumber;
+        rarity: z.ZodString;
+        profession: z.ZodString;
+        subProfessionId: z.ZodString;
+        trait: z.ZodNullable<z.ZodObject<{
+            candidates: z.ZodArray<z.ZodObject<{
+                unlockCondition: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                requiredPotentialRank: z.ZodNumber;
+                blackboard: z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">;
+                overrideDescripton: z.ZodNullable<z.ZodString>;
+                prefabKey: z.ZodNullable<z.ZodString>;
+                rangeId: z.ZodNullable<z.ZodString>;
+            }, "strict", z.ZodTypeAny, {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }, {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        }, {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        }>>;
+        phases: z.ZodArray<z.ZodObject<{
+            characterPrefabKey: z.ZodString;
+            rangeId: z.ZodNullable<z.ZodString>;
+            maxLevel: z.ZodNumber;
+            attributesKeyFrames: z.ZodArray<z.ZodObject<{
+                level: z.ZodNumber;
+                data: z.ZodObject<{
+                    maxHp: z.ZodNumber;
+                    atk: z.ZodNumber;
+                    def: z.ZodNumber;
+                    magicResistance: z.ZodNumber;
+                    cost: z.ZodNumber;
+                    blockCnt: z.ZodNumber;
+                    moveSpeed: z.ZodNumber;
+                    attackSpeed: z.ZodNumber;
+                    baseAttackTime: z.ZodNumber;
+                    respawnTime: z.ZodNumber;
+                    hpRecoveryPerSec: z.ZodNumber;
+                    spRecoveryPerSec: z.ZodNumber;
+                    maxDeployCount: z.ZodNumber;
+                    maxDeckStackCnt: z.ZodNumber;
+                    tauntLevel: z.ZodNumber;
+                    massLevel: z.ZodNumber;
+                    baseForceLevel: z.ZodNumber;
+                    stunImmune: z.ZodBoolean;
+                    silenceImmune: z.ZodBoolean;
+                    sleepImmune: z.ZodBoolean;
+                    frozenImmune: z.ZodBoolean;
+                    levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
+                }, "strict", z.ZodTypeAny, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }>;
+            }, "strict", z.ZodTypeAny, {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }, {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }>, "many">;
+            evolveCost: z.ZodUnion<[z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                count: z.ZodNumber;
+                type: z.ZodString;
+            }, "strict", z.ZodTypeAny, {
+                type: string;
+                id: string;
+                count: number;
+            }, {
+                type: string;
+                id: string;
+                count: number;
+            }>, "many">, z.ZodNull]>;
+        }, "strict", z.ZodTypeAny, {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }, {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }>, "many">;
+        skills: z.ZodArray<z.ZodObject<{
+            skillId: z.ZodNullable<z.ZodString>;
+            overridePrefabKey: z.ZodNullable<z.ZodString>;
+            overrideTokenKey: z.ZodNullable<z.ZodString>;
+            levelUpCostCond: z.ZodArray<z.ZodObject<{
+                unlockCond: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                lvlUpTime: z.ZodNumber;
+                levelUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    count: z.ZodNumber;
+                    type: z.ZodString;
+                }, "strict", z.ZodTypeAny, {
+                    type: string;
+                    id: string;
+                    count: number;
+                }, {
+                    type: string;
+                    id: string;
+                    count: number;
+                }>, "many">>;
+            }, "strict", z.ZodTypeAny, {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }, {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }>, "many">;
+            unlockCond: z.ZodObject<{
+                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                level: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                level: number;
+                phase: string | number;
+            }, {
+                level: number;
+                phase: string | number;
+            }>;
+        }, "strict", z.ZodTypeAny, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }>, "many">;
+        displayTokenDict: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodBoolean>>;
+        talents: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            candidates: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                unlockCondition: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                requiredPotentialRank: z.ZodNumber;
+                prefabKey: z.ZodString;
+                name: z.ZodNullable<z.ZodString>;
+                description: z.ZodNullable<z.ZodString>;
+                rangeId: z.ZodNullable<z.ZodString>;
+                blackboard: z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">;
+                tokenKey: z.ZodNullable<z.ZodString>;
+            }, "strict", z.ZodTypeAny, {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }, {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }, {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }>, "many">>;
+        potentialRanks: z.ZodArray<z.ZodObject<{
+            type: z.ZodString;
+            description: z.ZodString;
+            buff: z.ZodNullable<z.ZodObject<{
+                attributes: z.ZodObject<{
+                    abnormalFlags: z.ZodNull;
+                    abnormalImmunes: z.ZodNull;
+                    abnormalAntis: z.ZodNull;
+                    abnormalCombos: z.ZodNull;
+                    abnormalComboImmunes: z.ZodNull;
+                    attributeModifiers: z.ZodArray<z.ZodObject<{
+                        attributeType: z.ZodString;
+                        formulaItem: z.ZodString;
+                        value: z.ZodNumber;
+                        loadFromBlackboard: z.ZodBoolean;
+                        fetchBaseValueFromSourceEntity: z.ZodBoolean;
+                    }, "strict", z.ZodTypeAny, {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }, {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }>, "many">;
+                }, "strict", z.ZodTypeAny, {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                }, {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                }>;
+            }, "strict", z.ZodTypeAny, {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            }, {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            }>>;
+            equivalentCost: z.ZodNull;
+        }, "strict", z.ZodTypeAny, {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }, {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }>, "many">;
+        favorKeyFrames: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            level: z.ZodNumber;
+            data: z.ZodObject<{
+                maxHp: z.ZodNumber;
+                atk: z.ZodNumber;
+                def: z.ZodNumber;
+                magicResistance: z.ZodNumber;
+                cost: z.ZodNumber;
+                blockCnt: z.ZodNumber;
+                moveSpeed: z.ZodNumber;
+                attackSpeed: z.ZodNumber;
+                baseAttackTime: z.ZodNumber;
+                respawnTime: z.ZodNumber;
+                hpRecoveryPerSec: z.ZodNumber;
+                spRecoveryPerSec: z.ZodNumber;
+                maxDeployCount: z.ZodNumber;
+                maxDeckStackCnt: z.ZodNumber;
+                tauntLevel: z.ZodNumber;
+                massLevel: z.ZodNumber;
+                baseForceLevel: z.ZodNumber;
+                stunImmune: z.ZodBoolean;
+                silenceImmune: z.ZodBoolean;
+                sleepImmune: z.ZodBoolean;
+                frozenImmune: z.ZodBoolean;
+                levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
+            }, "strict", z.ZodTypeAny, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }>;
+        }, "strict", z.ZodTypeAny, {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }, {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }>, "many">>;
+        allSkillLvlup: z.ZodArray<z.ZodObject<{
+            unlockCond: z.ZodObject<{
+                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                level: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                level: number;
+                phase: string | number;
+            }, {
+                level: number;
+                phase: string | number;
+            }>;
+            lvlUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                count: z.ZodNumber;
+                type: z.ZodString;
+            }, "strict", z.ZodTypeAny, {
+                type: string;
+                id: string;
+                count: number;
+            }, {
+                type: string;
+                id: string;
+                count: number;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }>, "many">;
+    }, "strict", z.ZodTypeAny, {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+    }, {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
     }>;
+}, "strict", z.ZodTypeAny, {
+    data: {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+    };
+    id: string;
+    archetype: string;
+    range: {
+        id: string;
+        direction: number;
+        grids: {
+            col: number;
+            row: number;
+        }[];
+    } | null;
+}, {
+    data: {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+    };
+    id: string;
+    archetype: string;
+    range: {
+        id: string;
+        direction: number;
+        grids: {
+            col: number;
+            row: number;
+        }[];
+    } | null;
+}>;
+export declare const OperatorZod: z.ZodObject<{
+    data: z.ZodObject<{
+        name: z.ZodString;
+        description: z.ZodNullable<z.ZodString>;
+        canUseGeneralPotentialItem: z.ZodBoolean;
+        canUseActivityPotentialItem: z.ZodBoolean;
+        potentialItemId: z.ZodNullable<z.ZodString>;
+        activityPotentialItemId: z.ZodNullable<z.ZodString>;
+        classicPotentialItemId: z.ZodNullable<z.ZodString>;
+        nationId: z.ZodNullable<z.ZodString>;
+        groupId: z.ZodNullable<z.ZodString>;
+        teamId: z.ZodNullable<z.ZodString>;
+        displayNumber: z.ZodNullable<z.ZodString>;
+        appellation: z.ZodString;
+        position: z.ZodString;
+        tagList: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+        itemUsage: z.ZodNullable<z.ZodString>;
+        itemDesc: z.ZodNullable<z.ZodString>;
+        itemObtainApproach: z.ZodNullable<z.ZodString>;
+        isNotObtainable: z.ZodBoolean;
+        isSpChar: z.ZodBoolean;
+        maxPotentialLevel: z.ZodNumber;
+        rarity: z.ZodString;
+        profession: z.ZodString;
+        subProfessionId: z.ZodString;
+        trait: z.ZodNullable<z.ZodObject<{
+            candidates: z.ZodArray<z.ZodObject<{
+                unlockCondition: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                requiredPotentialRank: z.ZodNumber;
+                blackboard: z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">;
+                overrideDescripton: z.ZodNullable<z.ZodString>;
+                prefabKey: z.ZodNullable<z.ZodString>;
+                rangeId: z.ZodNullable<z.ZodString>;
+            }, "strict", z.ZodTypeAny, {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }, {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        }, {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        }>>;
+        phases: z.ZodArray<z.ZodObject<{
+            characterPrefabKey: z.ZodString;
+            rangeId: z.ZodNullable<z.ZodString>;
+            maxLevel: z.ZodNumber;
+            attributesKeyFrames: z.ZodArray<z.ZodObject<{
+                level: z.ZodNumber;
+                data: z.ZodObject<{
+                    maxHp: z.ZodNumber;
+                    atk: z.ZodNumber;
+                    def: z.ZodNumber;
+                    magicResistance: z.ZodNumber;
+                    cost: z.ZodNumber;
+                    blockCnt: z.ZodNumber;
+                    moveSpeed: z.ZodNumber;
+                    attackSpeed: z.ZodNumber;
+                    baseAttackTime: z.ZodNumber;
+                    respawnTime: z.ZodNumber;
+                    hpRecoveryPerSec: z.ZodNumber;
+                    spRecoveryPerSec: z.ZodNumber;
+                    maxDeployCount: z.ZodNumber;
+                    maxDeckStackCnt: z.ZodNumber;
+                    tauntLevel: z.ZodNumber;
+                    massLevel: z.ZodNumber;
+                    baseForceLevel: z.ZodNumber;
+                    stunImmune: z.ZodBoolean;
+                    silenceImmune: z.ZodBoolean;
+                    sleepImmune: z.ZodBoolean;
+                    frozenImmune: z.ZodBoolean;
+                    levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
+                }, "strict", z.ZodTypeAny, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }>;
+            }, "strict", z.ZodTypeAny, {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }, {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }>, "many">;
+            evolveCost: z.ZodUnion<[z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                count: z.ZodNumber;
+                type: z.ZodString;
+            }, "strict", z.ZodTypeAny, {
+                type: string;
+                id: string;
+                count: number;
+            }, {
+                type: string;
+                id: string;
+                count: number;
+            }>, "many">, z.ZodNull]>;
+        }, "strict", z.ZodTypeAny, {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }, {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }>, "many">;
+        skills: z.ZodArray<z.ZodObject<{
+            skillId: z.ZodNullable<z.ZodString>;
+            overridePrefabKey: z.ZodNullable<z.ZodString>;
+            overrideTokenKey: z.ZodNullable<z.ZodString>;
+            levelUpCostCond: z.ZodArray<z.ZodObject<{
+                unlockCond: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                lvlUpTime: z.ZodNumber;
+                levelUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    count: z.ZodNumber;
+                    type: z.ZodString;
+                }, "strict", z.ZodTypeAny, {
+                    type: string;
+                    id: string;
+                    count: number;
+                }, {
+                    type: string;
+                    id: string;
+                    count: number;
+                }>, "many">>;
+            }, "strict", z.ZodTypeAny, {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }, {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }>, "many">;
+            unlockCond: z.ZodObject<{
+                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                level: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                level: number;
+                phase: string | number;
+            }, {
+                level: number;
+                phase: string | number;
+            }>;
+        }, "strict", z.ZodTypeAny, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }>, "many">;
+        displayTokenDict: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodBoolean>>;
+        talents: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            candidates: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                unlockCondition: z.ZodObject<{
+                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    phase: string | number;
+                }, {
+                    level: number;
+                    phase: string | number;
+                }>;
+                requiredPotentialRank: z.ZodNumber;
+                prefabKey: z.ZodString;
+                name: z.ZodNullable<z.ZodString>;
+                description: z.ZodNullable<z.ZodString>;
+                rangeId: z.ZodNullable<z.ZodString>;
+                blackboard: z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">;
+                tokenKey: z.ZodNullable<z.ZodString>;
+            }, "strict", z.ZodTypeAny, {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }, {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }, {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }>, "many">>;
+        potentialRanks: z.ZodArray<z.ZodObject<{
+            type: z.ZodString;
+            description: z.ZodString;
+            buff: z.ZodNullable<z.ZodObject<{
+                attributes: z.ZodObject<{
+                    abnormalFlags: z.ZodNull;
+                    abnormalImmunes: z.ZodNull;
+                    abnormalAntis: z.ZodNull;
+                    abnormalCombos: z.ZodNull;
+                    abnormalComboImmunes: z.ZodNull;
+                    attributeModifiers: z.ZodArray<z.ZodObject<{
+                        attributeType: z.ZodString;
+                        formulaItem: z.ZodString;
+                        value: z.ZodNumber;
+                        loadFromBlackboard: z.ZodBoolean;
+                        fetchBaseValueFromSourceEntity: z.ZodBoolean;
+                    }, "strict", z.ZodTypeAny, {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }, {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }>, "many">;
+                }, "strict", z.ZodTypeAny, {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                }, {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                }>;
+            }, "strict", z.ZodTypeAny, {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            }, {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            }>>;
+            equivalentCost: z.ZodNull;
+        }, "strict", z.ZodTypeAny, {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }, {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }>, "many">;
+        favorKeyFrames: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            level: z.ZodNumber;
+            data: z.ZodObject<{
+                maxHp: z.ZodNumber;
+                atk: z.ZodNumber;
+                def: z.ZodNumber;
+                magicResistance: z.ZodNumber;
+                cost: z.ZodNumber;
+                blockCnt: z.ZodNumber;
+                moveSpeed: z.ZodNumber;
+                attackSpeed: z.ZodNumber;
+                baseAttackTime: z.ZodNumber;
+                respawnTime: z.ZodNumber;
+                hpRecoveryPerSec: z.ZodNumber;
+                spRecoveryPerSec: z.ZodNumber;
+                maxDeployCount: z.ZodNumber;
+                maxDeckStackCnt: z.ZodNumber;
+                tauntLevel: z.ZodNumber;
+                massLevel: z.ZodNumber;
+                baseForceLevel: z.ZodNumber;
+                stunImmune: z.ZodBoolean;
+                silenceImmune: z.ZodBoolean;
+                sleepImmune: z.ZodBoolean;
+                frozenImmune: z.ZodBoolean;
+                levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
+            }, "strict", z.ZodTypeAny, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }>;
+        }, "strict", z.ZodTypeAny, {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }, {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }>, "many">>;
+        allSkillLvlup: z.ZodArray<z.ZodObject<{
+            unlockCond: z.ZodObject<{
+                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                level: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                level: number;
+                phase: string | number;
+            }, {
+                level: number;
+                phase: string | number;
+            }>;
+            lvlUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                count: z.ZodNumber;
+                type: z.ZodString;
+            }, "strict", z.ZodTypeAny, {
+                type: string;
+                id: string;
+                count: number;
+            }, {
+                type: string;
+                id: string;
+                count: number;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }, {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }>, "many">;
+    }, "strict", z.ZodTypeAny, {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+    }, {
+        name: string;
+        position: string;
+        description: string | null;
+        skills: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            skillId: string | null;
+            overridePrefabKey: string | null;
+            overrideTokenKey: string | null;
+            levelUpCostCond: {
+                unlockCond: {
+                    level: number;
+                    phase: string | number;
+                };
+                lvlUpTime: number;
+                levelUpCost: {
+                    type: string;
+                    id: string;
+                    count: number;
+                }[] | null;
+            }[];
+        }[];
+        rarity: string;
+        phases: {
+            rangeId: string | null;
+            characterPrefabKey: string;
+            maxLevel: number;
+            attributesKeyFrames: {
+                data: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                level: number;
+            }[];
+            evolveCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+        itemUsage: string | null;
+        itemDesc: string | null;
+        canUseGeneralPotentialItem: boolean;
+        canUseActivityPotentialItem: boolean;
+        potentialItemId: string | null;
+        activityPotentialItemId: string | null;
+        classicPotentialItemId: string | null;
+        nationId: string | null;
+        groupId: string | null;
+        teamId: string | null;
+        displayNumber: string | null;
+        appellation: string;
+        tagList: string[] | null;
+        itemObtainApproach: string | null;
+        isNotObtainable: boolean;
+        isSpChar: boolean;
+        maxPotentialLevel: number;
+        profession: string;
+        subProfessionId: string;
+        trait: {
+            candidates: {
+                prefabKey: string | null;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                overrideDescripton: string | null;
+            }[];
+        } | null;
+        displayTokenDict: Record<string, boolean> | null;
+        talents: {
+            candidates: {
+                name: string | null;
+                description: string | null;
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                unlockCondition: {
+                    level: number;
+                    phase: string | number;
+                };
+                requiredPotentialRank: number;
+                rangeId: string | null;
+                tokenKey: string | null;
+            }[] | null;
+        }[] | null;
+        potentialRanks: {
+            type: string;
+            description: string;
+            buff: {
+                attributes: {
+                    abnormalFlags: null;
+                    abnormalImmunes: null;
+                    abnormalAntis: null;
+                    abnormalCombos: null;
+                    abnormalComboImmunes: null;
+                    attributeModifiers: {
+                        value: number;
+                        attributeType: string;
+                        formulaItem: string;
+                        loadFromBlackboard: boolean;
+                        fetchBaseValueFromSourceEntity: boolean;
+                    }[];
+                };
+            } | null;
+            equivalentCost: null;
+        }[];
+        favorKeyFrames: {
+            data: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            level: number;
+        }[] | null;
+        allSkillLvlup: {
+            unlockCond: {
+                level: number;
+                phase: string | number;
+            };
+            lvlUpCost: {
+                type: string;
+                id: string;
+                count: number;
+            }[] | null;
+        }[];
+    }>;
+    id: z.ZodString;
+    archetype: z.ZodString;
+    range: z.ZodNullable<z.ZodObject<{
+        id: z.ZodString;
+        direction: z.ZodNumber;
+        grids: z.ZodArray<z.ZodObject<{
+            row: z.ZodNumber;
+            col: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            col: number;
+            row: number;
+        }, {
+            col: number;
+            row: number;
+        }>, "many">;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        direction: number;
+        grids: {
+            col: number;
+            row: number;
+        }[];
+    }, {
+        id: string;
+        direction: number;
+        grids: {
+            col: number;
+            row: number;
+        }[];
+    }>>;
+    recruit: z.ZodNumber;
     skills: z.ZodArray<z.ZodObject<{
         skillId: z.ZodString;
         iconId: z.ZodNullable<z.ZodString>;
@@ -73272,15 +74895,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }, {
                             name: string | null;
@@ -73291,15 +74914,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }>, "many">>;
                     }, "strict", z.ZodTypeAny, {
@@ -73312,15 +74935,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     }, {
@@ -73333,15 +74956,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     }>;
@@ -73387,9 +75010,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }, {
                             prefabKey: string | null;
                             blackboard: {
@@ -73402,9 +75025,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }>, "many">>;
                     }, "strict", z.ZodTypeAny, {
                         candidates: {
@@ -73419,9 +75042,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     }, {
                         candidates: {
@@ -73436,9 +75059,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     }>;
                 }, "strict", z.ZodTypeAny, {
@@ -73455,15 +75078,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73480,9 +75103,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }, {
@@ -73499,15 +75122,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73524,9 +75147,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }>, "many">;
@@ -73572,15 +75195,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73597,9 +75220,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -73629,15 +75252,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73654,9 +75277,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -73688,15 +75311,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73713,9 +75336,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -73747,15 +75370,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73772,9 +75395,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -73808,15 +75431,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73833,9 +75456,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -73895,15 +75518,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -73920,9 +75543,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -81360,1213 +82983,6 @@ export declare const OperatorZod: z.ZodObject<{
             runtimeData?: null | undefined;
         };
     }>>;
-    data: z.ZodObject<{
-        name: z.ZodString;
-        description: z.ZodNullable<z.ZodString>;
-        canUseGeneralPotentialItem: z.ZodBoolean;
-        canUseActivityPotentialItem: z.ZodBoolean;
-        potentialItemId: z.ZodNullable<z.ZodString>;
-        activityPotentialItemId: z.ZodNullable<z.ZodString>;
-        classicPotentialItemId: z.ZodNullable<z.ZodString>;
-        nationId: z.ZodNullable<z.ZodString>;
-        groupId: z.ZodNullable<z.ZodString>;
-        teamId: z.ZodNullable<z.ZodString>;
-        displayNumber: z.ZodNullable<z.ZodString>;
-        appellation: z.ZodString;
-        position: z.ZodString;
-        tagList: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
-        itemUsage: z.ZodNullable<z.ZodString>;
-        itemDesc: z.ZodNullable<z.ZodString>;
-        itemObtainApproach: z.ZodNullable<z.ZodString>;
-        isNotObtainable: z.ZodBoolean;
-        isSpChar: z.ZodBoolean;
-        maxPotentialLevel: z.ZodNumber;
-        rarity: z.ZodString;
-        profession: z.ZodString;
-        subProfessionId: z.ZodString;
-        trait: z.ZodNullable<z.ZodObject<{
-            candidates: z.ZodArray<z.ZodObject<{
-                unlockCondition: z.ZodObject<{
-                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                    level: z.ZodNumber;
-                }, "strict", z.ZodTypeAny, {
-                    level: number;
-                    phase: string | number;
-                }, {
-                    level: number;
-                    phase: string | number;
-                }>;
-                requiredPotentialRank: z.ZodNumber;
-                blackboard: z.ZodArray<z.ZodObject<{
-                    key: z.ZodString;
-                    value: z.ZodNullable<z.ZodNumber>;
-                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-                }, "strict", z.ZodTypeAny, {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }, {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }>, "many">;
-                overrideDescripton: z.ZodNullable<z.ZodString>;
-                prefabKey: z.ZodNullable<z.ZodString>;
-                rangeId: z.ZodNullable<z.ZodString>;
-            }, "strict", z.ZodTypeAny, {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }, {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }>, "many">;
-        }, "strict", z.ZodTypeAny, {
-            candidates: {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }[];
-        }, {
-            candidates: {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }[];
-        }>>;
-        phases: z.ZodArray<z.ZodObject<{
-            characterPrefabKey: z.ZodString;
-            rangeId: z.ZodNullable<z.ZodString>;
-            maxLevel: z.ZodNumber;
-            attributesKeyFrames: z.ZodArray<z.ZodObject<{
-                level: z.ZodNumber;
-                data: z.ZodObject<{
-                    maxHp: z.ZodNumber;
-                    atk: z.ZodNumber;
-                    def: z.ZodNumber;
-                    magicResistance: z.ZodNumber;
-                    cost: z.ZodNumber;
-                    blockCnt: z.ZodNumber;
-                    moveSpeed: z.ZodNumber;
-                    attackSpeed: z.ZodNumber;
-                    baseAttackTime: z.ZodNumber;
-                    respawnTime: z.ZodNumber;
-                    hpRecoveryPerSec: z.ZodNumber;
-                    spRecoveryPerSec: z.ZodNumber;
-                    maxDeployCount: z.ZodNumber;
-                    maxDeckStackCnt: z.ZodNumber;
-                    tauntLevel: z.ZodNumber;
-                    massLevel: z.ZodNumber;
-                    baseForceLevel: z.ZodNumber;
-                    stunImmune: z.ZodBoolean;
-                    silenceImmune: z.ZodBoolean;
-                    sleepImmune: z.ZodBoolean;
-                    frozenImmune: z.ZodBoolean;
-                    levitateImmune: z.ZodBoolean;
-                    disarmedCombatImmune: z.ZodBoolean;
-                }, "strict", z.ZodTypeAny, {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                }, {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                }>;
-            }, "strict", z.ZodTypeAny, {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }, {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }>, "many">;
-            evolveCost: z.ZodUnion<[z.ZodArray<z.ZodObject<{
-                id: z.ZodString;
-                count: z.ZodNumber;
-                type: z.ZodString;
-            }, "strict", z.ZodTypeAny, {
-                type: string;
-                id: string;
-                count: number;
-            }, {
-                type: string;
-                id: string;
-                count: number;
-            }>, "many">, z.ZodNull]>;
-        }, "strict", z.ZodTypeAny, {
-            rangeId: string | null;
-            characterPrefabKey: string;
-            maxLevel: number;
-            attributesKeyFrames: {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }[];
-            evolveCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }, {
-            rangeId: string | null;
-            characterPrefabKey: string;
-            maxLevel: number;
-            attributesKeyFrames: {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }[];
-            evolveCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }>, "many">;
-        skills: z.ZodArray<z.ZodObject<{
-            skillId: z.ZodNullable<z.ZodString>;
-            overridePrefabKey: z.ZodNullable<z.ZodString>;
-            overrideTokenKey: z.ZodNullable<z.ZodString>;
-            levelUpCostCond: z.ZodArray<z.ZodObject<{
-                unlockCond: z.ZodObject<{
-                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                    level: z.ZodNumber;
-                }, "strict", z.ZodTypeAny, {
-                    level: number;
-                    phase: string | number;
-                }, {
-                    level: number;
-                    phase: string | number;
-                }>;
-                lvlUpTime: z.ZodNumber;
-                levelUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
-                    id: z.ZodString;
-                    count: z.ZodNumber;
-                    type: z.ZodString;
-                }, "strict", z.ZodTypeAny, {
-                    type: string;
-                    id: string;
-                    count: number;
-                }, {
-                    type: string;
-                    id: string;
-                    count: number;
-                }>, "many">>;
-            }, "strict", z.ZodTypeAny, {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }, {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }>, "many">;
-            unlockCond: z.ZodObject<{
-                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                level: z.ZodNumber;
-            }, "strict", z.ZodTypeAny, {
-                level: number;
-                phase: string | number;
-            }, {
-                level: number;
-                phase: string | number;
-            }>;
-        }, "strict", z.ZodTypeAny, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            skillId: string | null;
-            overridePrefabKey: string | null;
-            overrideTokenKey: string | null;
-            levelUpCostCond: {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }[];
-        }, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            skillId: string | null;
-            overridePrefabKey: string | null;
-            overrideTokenKey: string | null;
-            levelUpCostCond: {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }[];
-        }>, "many">;
-        displayTokenDict: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodBoolean>>;
-        talents: z.ZodNullable<z.ZodArray<z.ZodObject<{
-            candidates: z.ZodNullable<z.ZodArray<z.ZodObject<{
-                unlockCondition: z.ZodObject<{
-                    phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                    level: z.ZodNumber;
-                }, "strict", z.ZodTypeAny, {
-                    level: number;
-                    phase: string | number;
-                }, {
-                    level: number;
-                    phase: string | number;
-                }>;
-                requiredPotentialRank: z.ZodNumber;
-                prefabKey: z.ZodString;
-                name: z.ZodNullable<z.ZodString>;
-                description: z.ZodNullable<z.ZodString>;
-                rangeId: z.ZodNullable<z.ZodString>;
-                blackboard: z.ZodArray<z.ZodObject<{
-                    key: z.ZodString;
-                    value: z.ZodNullable<z.ZodNumber>;
-                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-                }, "strict", z.ZodTypeAny, {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }, {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }>, "many">;
-                tokenKey: z.ZodNullable<z.ZodString>;
-            }, "strict", z.ZodTypeAny, {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }, {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }>, "many">>;
-        }, "strict", z.ZodTypeAny, {
-            candidates: {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }[] | null;
-        }, {
-            candidates: {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }[] | null;
-        }>, "many">>;
-        potentialRanks: z.ZodArray<z.ZodObject<{
-            type: z.ZodString;
-            description: z.ZodString;
-            buff: z.ZodNullable<z.ZodObject<{
-                attributes: z.ZodObject<{
-                    abnormalFlags: z.ZodNull;
-                    abnormalImmunes: z.ZodNull;
-                    abnormalAntis: z.ZodNull;
-                    abnormalCombos: z.ZodNull;
-                    abnormalComboImmunes: z.ZodNull;
-                    attributeModifiers: z.ZodArray<z.ZodObject<{
-                        attributeType: z.ZodString;
-                        formulaItem: z.ZodString;
-                        value: z.ZodNumber;
-                        loadFromBlackboard: z.ZodBoolean;
-                        fetchBaseValueFromSourceEntity: z.ZodBoolean;
-                    }, "strict", z.ZodTypeAny, {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }, {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }>, "many">;
-                }, "strict", z.ZodTypeAny, {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                }, {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                }>;
-            }, "strict", z.ZodTypeAny, {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            }, {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            }>>;
-            equivalentCost: z.ZodNull;
-        }, "strict", z.ZodTypeAny, {
-            type: string;
-            description: string;
-            buff: {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            } | null;
-            equivalentCost: null;
-        }, {
-            type: string;
-            description: string;
-            buff: {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            } | null;
-            equivalentCost: null;
-        }>, "many">;
-        favorKeyFrames: z.ZodNullable<z.ZodArray<z.ZodObject<{
-            level: z.ZodNumber;
-            data: z.ZodObject<{
-                maxHp: z.ZodNumber;
-                atk: z.ZodNumber;
-                def: z.ZodNumber;
-                magicResistance: z.ZodNumber;
-                cost: z.ZodNumber;
-                blockCnt: z.ZodNumber;
-                moveSpeed: z.ZodNumber;
-                attackSpeed: z.ZodNumber;
-                baseAttackTime: z.ZodNumber;
-                respawnTime: z.ZodNumber;
-                hpRecoveryPerSec: z.ZodNumber;
-                spRecoveryPerSec: z.ZodNumber;
-                maxDeployCount: z.ZodNumber;
-                maxDeckStackCnt: z.ZodNumber;
-                tauntLevel: z.ZodNumber;
-                massLevel: z.ZodNumber;
-                baseForceLevel: z.ZodNumber;
-                stunImmune: z.ZodBoolean;
-                silenceImmune: z.ZodBoolean;
-                sleepImmune: z.ZodBoolean;
-                frozenImmune: z.ZodBoolean;
-                levitateImmune: z.ZodBoolean;
-                disarmedCombatImmune: z.ZodBoolean;
-            }, "strict", z.ZodTypeAny, {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            }, {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            }>;
-        }, "strict", z.ZodTypeAny, {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }, {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }>, "many">>;
-        allSkillLvlup: z.ZodArray<z.ZodObject<{
-            unlockCond: z.ZodObject<{
-                phase: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
-                level: z.ZodNumber;
-            }, "strict", z.ZodTypeAny, {
-                level: number;
-                phase: string | number;
-            }, {
-                level: number;
-                phase: string | number;
-            }>;
-            lvlUpCost: z.ZodNullable<z.ZodArray<z.ZodObject<{
-                id: z.ZodString;
-                count: z.ZodNumber;
-                type: z.ZodString;
-            }, "strict", z.ZodTypeAny, {
-                type: string;
-                id: string;
-                count: number;
-            }, {
-                type: string;
-                id: string;
-                count: number;
-            }>, "many">>;
-        }, "strict", z.ZodTypeAny, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }, {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }>, "many">;
-    }, "strict", z.ZodTypeAny, {
-        name: string;
-        position: string;
-        description: string | null;
-        skills: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            skillId: string | null;
-            overridePrefabKey: string | null;
-            overrideTokenKey: string | null;
-            levelUpCostCond: {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }[];
-        }[];
-        rarity: string;
-        phases: {
-            rangeId: string | null;
-            characterPrefabKey: string;
-            maxLevel: number;
-            attributesKeyFrames: {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }[];
-            evolveCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-        itemUsage: string | null;
-        itemDesc: string | null;
-        canUseGeneralPotentialItem: boolean;
-        canUseActivityPotentialItem: boolean;
-        potentialItemId: string | null;
-        activityPotentialItemId: string | null;
-        classicPotentialItemId: string | null;
-        nationId: string | null;
-        groupId: string | null;
-        teamId: string | null;
-        displayNumber: string | null;
-        appellation: string;
-        tagList: string[] | null;
-        itemObtainApproach: string | null;
-        isNotObtainable: boolean;
-        isSpChar: boolean;
-        maxPotentialLevel: number;
-        profession: string;
-        subProfessionId: string;
-        trait: {
-            candidates: {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }[];
-        } | null;
-        displayTokenDict: Record<string, boolean> | null;
-        talents: {
-            candidates: {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }[] | null;
-        }[] | null;
-        potentialRanks: {
-            type: string;
-            description: string;
-            buff: {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            } | null;
-            equivalentCost: null;
-        }[];
-        favorKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[] | null;
-        allSkillLvlup: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }, {
-        name: string;
-        position: string;
-        description: string | null;
-        skills: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            skillId: string | null;
-            overridePrefabKey: string | null;
-            overrideTokenKey: string | null;
-            levelUpCostCond: {
-                unlockCond: {
-                    level: number;
-                    phase: string | number;
-                };
-                lvlUpTime: number;
-                levelUpCost: {
-                    type: string;
-                    id: string;
-                    count: number;
-                }[] | null;
-            }[];
-        }[];
-        rarity: string;
-        phases: {
-            rangeId: string | null;
-            characterPrefabKey: string;
-            maxLevel: number;
-            attributesKeyFrames: {
-                data: {
-                    maxHp: number;
-                    atk: number;
-                    def: number;
-                    magicResistance: number;
-                    cost: number;
-                    blockCnt: number;
-                    moveSpeed: number;
-                    attackSpeed: number;
-                    baseAttackTime: number;
-                    respawnTime: number;
-                    hpRecoveryPerSec: number;
-                    spRecoveryPerSec: number;
-                    maxDeployCount: number;
-                    maxDeckStackCnt: number;
-                    tauntLevel: number;
-                    massLevel: number;
-                    baseForceLevel: number;
-                    stunImmune: boolean;
-                    silenceImmune: boolean;
-                    sleepImmune: boolean;
-                    frozenImmune: boolean;
-                    levitateImmune: boolean;
-                    disarmedCombatImmune: boolean;
-                };
-                level: number;
-            }[];
-            evolveCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-        itemUsage: string | null;
-        itemDesc: string | null;
-        canUseGeneralPotentialItem: boolean;
-        canUseActivityPotentialItem: boolean;
-        potentialItemId: string | null;
-        activityPotentialItemId: string | null;
-        classicPotentialItemId: string | null;
-        nationId: string | null;
-        groupId: string | null;
-        teamId: string | null;
-        displayNumber: string | null;
-        appellation: string;
-        tagList: string[] | null;
-        itemObtainApproach: string | null;
-        isNotObtainable: boolean;
-        isSpChar: boolean;
-        maxPotentialLevel: number;
-        profession: string;
-        subProfessionId: string;
-        trait: {
-            candidates: {
-                prefabKey: string | null;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                overrideDescripton: string | null;
-                rangeId: string | null;
-            }[];
-        } | null;
-        displayTokenDict: Record<string, boolean> | null;
-        talents: {
-            candidates: {
-                name: string | null;
-                description: string | null;
-                prefabKey: string;
-                blackboard: {
-                    key: string;
-                    value: number | null;
-                    valueStr?: string | null | undefined;
-                }[];
-                unlockCondition: {
-                    level: number;
-                    phase: string | number;
-                };
-                requiredPotentialRank: number;
-                rangeId: string | null;
-                tokenKey: string | null;
-            }[] | null;
-        }[] | null;
-        potentialRanks: {
-            type: string;
-            description: string;
-            buff: {
-                attributes: {
-                    abnormalFlags: null;
-                    abnormalImmunes: null;
-                    abnormalAntis: null;
-                    abnormalCombos: null;
-                    abnormalComboImmunes: null;
-                    attributeModifiers: {
-                        value: number;
-                        attributeType: string;
-                        formulaItem: string;
-                        loadFromBlackboard: boolean;
-                        fetchBaseValueFromSourceEntity: boolean;
-                    }[];
-                };
-            } | null;
-            equivalentCost: null;
-        }[];
-        favorKeyFrames: {
-            data: {
-                maxHp: number;
-                atk: number;
-                def: number;
-                magicResistance: number;
-                cost: number;
-                blockCnt: number;
-                moveSpeed: number;
-                attackSpeed: number;
-                baseAttackTime: number;
-                respawnTime: number;
-                hpRecoveryPerSec: number;
-                spRecoveryPerSec: number;
-                maxDeployCount: number;
-                maxDeckStackCnt: number;
-                tauntLevel: number;
-                massLevel: number;
-                baseForceLevel: number;
-                stunImmune: boolean;
-                silenceImmune: boolean;
-                sleepImmune: boolean;
-                frozenImmune: boolean;
-                levitateImmune: boolean;
-                disarmedCombatImmune: boolean;
-            };
-            level: number;
-        }[] | null;
-        allSkillLvlup: {
-            unlockCond: {
-                level: number;
-                phase: string | number;
-            };
-            lvlUpCost: {
-                type: string;
-                id: string;
-                count: number;
-            }[] | null;
-        }[];
-    }>;
 }, "strict", z.ZodTypeAny, {
     data: {
         name: string;
@@ -82664,8 +83080,8 @@ export declare const OperatorZod: z.ZodObject<{
                     phase: string | number;
                 };
                 requiredPotentialRank: number;
-                overrideDescripton: string | null;
                 rangeId: string | null;
+                overrideDescripton: string | null;
             }[];
         } | null;
         displayTokenDict: Record<string, boolean> | null;
@@ -82777,7 +83193,6 @@ export declare const OperatorZod: z.ZodObject<{
         }[];
         skillId: string;
     }[];
-    recruit: number;
     archetype: string;
     range: {
         id: string;
@@ -82786,7 +83201,8 @@ export declare const OperatorZod: z.ZodObject<{
             col: number;
             row: number;
         }[];
-    };
+    } | null;
+    recruit: number;
     modules: {
         data: {
             phases: {
@@ -82805,15 +83221,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -82830,9 +83246,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];
@@ -83771,8 +84187,8 @@ export declare const OperatorZod: z.ZodObject<{
                     phase: string | number;
                 };
                 requiredPotentialRank: number;
-                overrideDescripton: string | null;
                 rangeId: string | null;
+                overrideDescripton: string | null;
             }[];
         } | null;
         displayTokenDict: Record<string, boolean> | null;
@@ -83884,7 +84300,6 @@ export declare const OperatorZod: z.ZodObject<{
         }[];
         skillId: string;
     }[];
-    recruit: number;
     archetype: string;
     range: {
         id: string;
@@ -83893,7 +84308,8 @@ export declare const OperatorZod: z.ZodObject<{
             col: number;
             row: number;
         }[];
-    };
+    } | null;
+    recruit: number;
     modules: {
         data: {
             phases: {
@@ -83912,15 +84328,15 @@ export declare const OperatorZod: z.ZodObject<{
                                 value: number | null;
                                 valueStr?: string | null | undefined;
                             }[];
+                            displayRangeId: boolean;
+                            upgradeDescription: string;
+                            talentIndex: number;
                             unlockCondition: {
                                 level: number;
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
                             rangeId: string | null;
-                            displayRangeId: boolean;
-                            upgradeDescription: string;
-                            talentIndex: number;
                             tokenKey?: string | undefined;
                         }[] | null;
                     };
@@ -83937,9 +84353,9 @@ export declare const OperatorZod: z.ZodObject<{
                                 phase: string | number;
                             };
                             requiredPotentialRank: number;
-                            overrideDescripton: string | null;
                             rangeId: string | null;
                             additionalDescription: string | null;
+                            overrideDescripton: string | null;
                         }[] | null;
                     };
                 }[];

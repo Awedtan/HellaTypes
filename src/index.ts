@@ -585,110 +585,6 @@ export const DefinitionZod = z.strictObject({
     termName: z.string(),
     description: z.string(),
 });
-export const DeployableZod = z.strictObject({
-    name: z.string(),
-    description: z.string().nullable(),
-    canUseGeneralPotentialItem: z.boolean(),
-    canUseActivityPotentialItem: z.boolean(),
-    potentialItemId: z.string().nullable(),
-    activityPotentialItemId: z.string().nullable(),
-    classicPotentialItemId: z.string().nullable(),
-    nationId: z.string().nullable(),
-    groupId: z.string().nullable(),
-    teamId: z.string().nullable(),
-    displayNumber: z.string().nullable(),
-    appellation: z.string(),
-    position: z.string(),
-    tagList: z.array(z.string()).nullable(),
-    itemUsage: z.string().nullable(),
-    itemDesc: z.string().nullable(),
-    itemObtainApproach: z.string().nullable(),
-    isNotObtainable: z.boolean(),
-    isSpChar: z.boolean(),
-    maxPotentialLevel: z.number(),
-    rarity: z.string(),
-    profession: z.string(),
-    subProfessionId: z.string(),
-    trait: z.strictObject({
-        candidates: z.array(
-            z.strictObject({
-                unlockCondition: OperatorUnlockCondZod,
-                requiredPotentialRank: z.number(),
-                blackboard: z.array(BlackboardZod),
-                overrideDescripton: z.string().nullable(),
-                prefabKey: z.string().nullable(),
-                rangeId: z.string().nullable(),
-            })
-        ),
-    }).nullable(),
-    phases: z.array(
-        z.strictObject({
-            characterPrefabKey: z.string(),
-            rangeId: z.string().nullable(),
-            maxLevel: z.number(),
-            attributesKeyFrames: z.array(AttributesKeyFrameZod),
-            evolveCost: z.union([z.array(LevelUpCostZod), z.null()]),
-        })
-    ),
-    skills: z.array(
-        z.strictObject({
-            skillId: z.string().nullable(),
-            overridePrefabKey: z.string().nullable(),
-            overrideTokenKey: z.string().nullable(),
-            levelUpCostCond: z.array(LevelUpCostCondZod),
-            unlockCond: OperatorUnlockCondZod,
-        })
-    ),
-    displayTokenDict: z.record(z.boolean()).nullable(),
-    talents: z.array(
-        z.strictObject({
-            candidates: z.array(
-                z.strictObject({
-                    unlockCondition: OperatorUnlockCondZod,
-                    requiredPotentialRank: z.number(),
-                    prefabKey: z.string(),
-                    name: z.string().nullable(),
-                    description: z.string().nullable(),
-                    rangeId: z.string().nullable(),
-                    blackboard: z.array(BlackboardZod),
-                    tokenKey: z.string().nullable(),
-                })
-            ).nullable(),
-        })
-    ).nullable(),
-    potentialRanks: z.array(
-        z.strictObject({
-            type: z.string(),
-            description: z.string(),
-            buff: z.strictObject({
-                attributes: z.strictObject({
-                    abnormalFlags: z.null(),
-                    abnormalImmunes: z.null(),
-                    abnormalAntis: z.null(),
-                    abnormalCombos: z.null(),
-                    abnormalComboImmunes: z.null(),
-                    attributeModifiers: z.array(
-                        z.strictObject({
-                            attributeType: z.string(),
-                            formulaItem: z.string(),
-                            value: z.number(),
-                            loadFromBlackboard: z.boolean(),
-                            fetchBaseValueFromSourceEntity: z.boolean(),
-                        })
-                    ),
-                }),
-            }).nullable(),
-            equivalentCost: z.null(),
-        })
-    ),
-    favorKeyFrames: z.array(AttributesKeyFrameZod).nullable(),
-    allSkillLvlup: z.array(
-        z.strictObject({
-            unlockCond: OperatorUnlockCondZod,
-            lvlUpCost: z.array(LevelUpCostZod).nullable(),
-        })
-    ),
-});
 export const EnemyZod = z.strictObject({
     excel: z.strictObject({
         enemyId: z.string(),
@@ -1073,11 +969,117 @@ export const StageZod = z.strictObject({
     }),
     levels: StageDataZod,
 });
-export const OperatorZod = z.strictObject({
+export const DeployableZod = z.strictObject({
     id: z.string(),
-    recruit: z.number(),
     archetype: z.string(),
-    range: GridRangeZod,
+    range: GridRangeZod.nullable(),
+    data: z.strictObject({
+        name: z.string(),
+        description: z.string().nullable(),
+        canUseGeneralPotentialItem: z.boolean(),
+        canUseActivityPotentialItem: z.boolean(),
+        potentialItemId: z.string().nullable(),
+        activityPotentialItemId: z.string().nullable(),
+        classicPotentialItemId: z.string().nullable(),
+        nationId: z.string().nullable(),
+        groupId: z.string().nullable(),
+        teamId: z.string().nullable(),
+        displayNumber: z.string().nullable(),
+        appellation: z.string(),
+        position: z.string(),
+        tagList: z.array(z.string()).nullable(),
+        itemUsage: z.string().nullable(),
+        itemDesc: z.string().nullable(),
+        itemObtainApproach: z.string().nullable(),
+        isNotObtainable: z.boolean(),
+        isSpChar: z.boolean(),
+        maxPotentialLevel: z.number(),
+        rarity: z.string(),
+        profession: z.string(),
+        subProfessionId: z.string(),
+        trait: z.strictObject({
+            candidates: z.array(
+                z.strictObject({
+                    unlockCondition: OperatorUnlockCondZod,
+                    requiredPotentialRank: z.number(),
+                    blackboard: z.array(BlackboardZod),
+                    overrideDescripton: z.string().nullable(),
+                    prefabKey: z.string().nullable(),
+                    rangeId: z.string().nullable(),
+                })
+            ),
+        }).nullable(),
+        phases: z.array(
+            z.strictObject({
+                characterPrefabKey: z.string(),
+                rangeId: z.string().nullable(),
+                maxLevel: z.number(),
+                attributesKeyFrames: z.array(AttributesKeyFrameZod),
+                evolveCost: z.union([z.array(LevelUpCostZod), z.null()]),
+            })
+        ),
+        skills: z.array(
+            z.strictObject({
+                skillId: z.string().nullable(),
+                overridePrefabKey: z.string().nullable(),
+                overrideTokenKey: z.string().nullable(),
+                levelUpCostCond: z.array(LevelUpCostCondZod),
+                unlockCond: OperatorUnlockCondZod,
+            })
+        ),
+        displayTokenDict: z.record(z.boolean()).nullable(),
+        talents: z.array(
+            z.strictObject({
+                candidates: z.array(
+                    z.strictObject({
+                        unlockCondition: OperatorUnlockCondZod,
+                        requiredPotentialRank: z.number(),
+                        prefabKey: z.string(),
+                        name: z.string().nullable(),
+                        description: z.string().nullable(),
+                        rangeId: z.string().nullable(),
+                        blackboard: z.array(BlackboardZod),
+                        tokenKey: z.string().nullable(),
+                    })
+                ).nullable(),
+            })
+        ).nullable(),
+        potentialRanks: z.array(
+            z.strictObject({
+                type: z.string(),
+                description: z.string(),
+                buff: z.strictObject({
+                    attributes: z.strictObject({
+                        abnormalFlags: z.null(),
+                        abnormalImmunes: z.null(),
+                        abnormalAntis: z.null(),
+                        abnormalCombos: z.null(),
+                        abnormalComboImmunes: z.null(),
+                        attributeModifiers: z.array(
+                            z.strictObject({
+                                attributeType: z.string(),
+                                formulaItem: z.string(),
+                                value: z.number(),
+                                loadFromBlackboard: z.boolean(),
+                                fetchBaseValueFromSourceEntity: z.boolean(),
+                            })
+                        ),
+                    }),
+                }).nullable(),
+                equivalentCost: z.null(),
+            })
+        ),
+        favorKeyFrames: z.array(AttributesKeyFrameZod).nullable(),
+        allSkillLvlup: z.array(
+            z.strictObject({
+                unlockCond: OperatorUnlockCondZod,
+                lvlUpCost: z.array(LevelUpCostZod).nullable(),
+            })
+        ),
+    }),
+});;
+export const OperatorZod = DeployableZod.extend({
+    recruit: z.number(),
     skills: z.array(SkillZod),
     modules: z.array(ModuleZod),
     skins: z.array(SkinZod),
@@ -1091,8 +1093,7 @@ export const OperatorZod = z.strictObject({
         })
     ),
     paradox: ParadoxZod.nullable(),
-    data: DeployableZod,
-});
+})
 
 export type Blackboard = z.infer<typeof BlackboardZod>;
 export type Base = z.infer<typeof BaseZod>;
