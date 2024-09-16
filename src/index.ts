@@ -620,6 +620,86 @@ export const EnemyZod = z.strictObject({
         ),
     }),
 });
+export const GachaPoolZod = z.strictObject({
+    client: z.strictObject({
+        gachaPoolId: z.string(),
+        gachaIndex: z.number(),
+        openTime: z.number(),
+        endTime: z.number(),
+        gachaPoolName: z.string(),
+        gachaPoolSummary: z.string(),
+        gachaPoolDetail: z.string().nullable(),
+        guarantee5Avail: z.number(),
+        guarantee5Count: z.number(),
+        LMTGSID: z.null(),
+        CDPrimColor: z.null(),
+        CDSecColor: z.null(),
+        gachaRuleType: z.string(),
+        dynMeta: z.union([
+            z.strictObject({
+                chooseRuleConst: z.string().optional(),
+                homeDescConst: z.string().optional(),
+                rarityPickCharDict: z.record(z.string(), z.array(z.string())).optional(),
+                scrollIndex: z.number(),
+                star5ChooseRuleConst: z.string().optional(),
+                star6ChooseRuleConst: z.string().optional(),
+            }),
+            z.strictObject({
+                main6RarityCharId: z.string().optional(),
+                rare5CharList: z.array(z.string()).optional(),
+                scrollIndex: z.number(),
+                sub6RarityCharId: z.string().optional(),
+            }),
+        ]).nullable(),
+        linkageRuleId: z.string().nullable(),
+        linkageParam: z.strictObject({
+            guaranteeTarget6Count: z.number(),
+        }).nullable(),
+    }),
+    details: z.strictObject({
+        detailInfo: z.strictObject({
+            gachaObjGroups: z.array(z.strictObject({
+                groupType: z.number(),
+                startIndex: z.number(),
+                endIndex: z.number(),
+            })).nullable(),
+            availCharInfo: z.strictObject({
+                perAvailList: z.array(
+                    z.strictObject({
+                        rarityRank: z.number(),
+                        charIdList: z.array(z.string()),
+                        totalPercent: z.number(),
+                    })
+                ),
+            }),
+            upCharInfo: z.strictObject({
+                perCharList: z.array(
+                    z.strictObject({
+                        rarityRank: z.number(),
+                        charIdList: z.array(z.string()),
+                        percent: z.number(),
+                        count: z.number(),
+                    })
+                ),
+            }),
+            limitedChar: z.null(),
+            weightUpCharInfoList: z.null(),
+            gachaObjList: z.array(
+                z.strictObject({
+                    gachaObject: z.string(),
+                    type: z.number(),
+                    imageType: z.number(),
+                    param: z.string().nullable(),
+                })
+            ),
+        }),
+        gachaObjGroupType: z.number(),
+        playerDataDelta: z.strictObject({
+            modified: z.strictObject({}),
+            deleted: z.strictObject({}),
+        }),
+    }),
+});
 export const GameEventZod = z.strictObject({
     id: z.string(),
     type: z.string(),
@@ -1101,6 +1181,7 @@ export type CCStage = z.infer<typeof CCStageZod>;
 export type Definition = z.infer<typeof DefinitionZod>;
 export type Deployable = z.infer<typeof DeployableZod>;
 export type Enemy = z.infer<typeof EnemyZod>;
+export type GachaPool = z.infer<typeof GachaPoolZod>;
 export type GameEvent = z.infer<typeof GameEventZod>;
 export type GridRange = z.infer<typeof GridRangeZod>;
 export type Item = z.infer<typeof ItemZod>;

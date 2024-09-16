@@ -29322,6 +29322,553 @@ export declare const EnemyZod: z.ZodObject<{
         }[];
     };
 }>;
+export declare const GachaPoolZod: z.ZodObject<{
+    client: z.ZodObject<{
+        gachaPoolId: z.ZodString;
+        gachaIndex: z.ZodNumber;
+        openTime: z.ZodNumber;
+        endTime: z.ZodNumber;
+        gachaPoolName: z.ZodString;
+        gachaPoolSummary: z.ZodString;
+        gachaPoolDetail: z.ZodNullable<z.ZodString>;
+        guarantee5Avail: z.ZodNumber;
+        guarantee5Count: z.ZodNumber;
+        LMTGSID: z.ZodNull;
+        CDPrimColor: z.ZodNull;
+        CDSecColor: z.ZodNull;
+        gachaRuleType: z.ZodString;
+        dynMeta: z.ZodNullable<z.ZodUnion<[z.ZodObject<{
+            chooseRuleConst: z.ZodOptional<z.ZodString>;
+            homeDescConst: z.ZodOptional<z.ZodString>;
+            rarityPickCharDict: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodArray<z.ZodString, "many">>>;
+            scrollIndex: z.ZodNumber;
+            star5ChooseRuleConst: z.ZodOptional<z.ZodString>;
+            star6ChooseRuleConst: z.ZodOptional<z.ZodString>;
+        }, "strict", z.ZodTypeAny, {
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        }, {
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        }>, z.ZodObject<{
+            main6RarityCharId: z.ZodOptional<z.ZodString>;
+            rare5CharList: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            scrollIndex: z.ZodNumber;
+            sub6RarityCharId: z.ZodOptional<z.ZodString>;
+        }, "strict", z.ZodTypeAny, {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }, {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }>]>>;
+        linkageRuleId: z.ZodNullable<z.ZodString>;
+        linkageParam: z.ZodNullable<z.ZodObject<{
+            guaranteeTarget6Count: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            guaranteeTarget6Count: number;
+        }, {
+            guaranteeTarget6Count: number;
+        }>>;
+    }, "strict", z.ZodTypeAny, {
+        endTime: number;
+        gachaPoolId: string;
+        gachaIndex: number;
+        openTime: number;
+        gachaPoolName: string;
+        gachaPoolSummary: string;
+        gachaPoolDetail: string | null;
+        guarantee5Avail: number;
+        guarantee5Count: number;
+        LMTGSID: null;
+        CDPrimColor: null;
+        CDSecColor: null;
+        gachaRuleType: string;
+        dynMeta: (({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }) & ({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        } | undefined)) | null;
+        linkageRuleId: string | null;
+        linkageParam: {
+            guaranteeTarget6Count: number;
+        } | null;
+    }, {
+        endTime: number;
+        gachaPoolId: string;
+        gachaIndex: number;
+        openTime: number;
+        gachaPoolName: string;
+        gachaPoolSummary: string;
+        gachaPoolDetail: string | null;
+        guarantee5Avail: number;
+        guarantee5Count: number;
+        LMTGSID: null;
+        CDPrimColor: null;
+        CDSecColor: null;
+        gachaRuleType: string;
+        dynMeta: (({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }) & ({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        } | undefined)) | null;
+        linkageRuleId: string | null;
+        linkageParam: {
+            guaranteeTarget6Count: number;
+        } | null;
+    }>;
+    details: z.ZodObject<{
+        detailInfo: z.ZodObject<{
+            gachaObjGroups: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                groupType: z.ZodNumber;
+                startIndex: z.ZodNumber;
+                endIndex: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }, {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }>, "many">>;
+            availCharInfo: z.ZodObject<{
+                perAvailList: z.ZodArray<z.ZodObject<{
+                    rarityRank: z.ZodNumber;
+                    charIdList: z.ZodArray<z.ZodString, "many">;
+                    totalPercent: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }, {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            }, {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            }>;
+            upCharInfo: z.ZodObject<{
+                perCharList: z.ZodArray<z.ZodObject<{
+                    rarityRank: z.ZodNumber;
+                    charIdList: z.ZodArray<z.ZodString, "many">;
+                    percent: z.ZodNumber;
+                    count: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }, {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            }, {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            }>;
+            limitedChar: z.ZodNull;
+            weightUpCharInfoList: z.ZodNull;
+            gachaObjList: z.ZodArray<z.ZodObject<{
+                gachaObject: z.ZodString;
+                type: z.ZodNumber;
+                imageType: z.ZodNumber;
+                param: z.ZodNullable<z.ZodString>;
+            }, "strict", z.ZodTypeAny, {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }, {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        }, {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        }>;
+        gachaObjGroupType: z.ZodNumber;
+        playerDataDelta: z.ZodObject<{
+            modified: z.ZodObject<{}, "strict", z.ZodTypeAny, {}, {}>;
+            deleted: z.ZodObject<{}, "strict", z.ZodTypeAny, {}, {}>;
+        }, "strict", z.ZodTypeAny, {
+            modified: {};
+            deleted: {};
+        }, {
+            modified: {};
+            deleted: {};
+        }>;
+    }, "strict", z.ZodTypeAny, {
+        detailInfo: {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        };
+        gachaObjGroupType: number;
+        playerDataDelta: {
+            modified: {};
+            deleted: {};
+        };
+    }, {
+        detailInfo: {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        };
+        gachaObjGroupType: number;
+        playerDataDelta: {
+            modified: {};
+            deleted: {};
+        };
+    }>;
+}, "strict", z.ZodTypeAny, {
+    details: {
+        detailInfo: {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        };
+        gachaObjGroupType: number;
+        playerDataDelta: {
+            modified: {};
+            deleted: {};
+        };
+    };
+    client: {
+        endTime: number;
+        gachaPoolId: string;
+        gachaIndex: number;
+        openTime: number;
+        gachaPoolName: string;
+        gachaPoolSummary: string;
+        gachaPoolDetail: string | null;
+        guarantee5Avail: number;
+        guarantee5Count: number;
+        LMTGSID: null;
+        CDPrimColor: null;
+        CDSecColor: null;
+        gachaRuleType: string;
+        dynMeta: (({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }) & ({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        } | undefined)) | null;
+        linkageRuleId: string | null;
+        linkageParam: {
+            guaranteeTarget6Count: number;
+        } | null;
+    };
+}, {
+    details: {
+        detailInfo: {
+            gachaObjGroups: {
+                groupType: number;
+                startIndex: number;
+                endIndex: number;
+            }[] | null;
+            availCharInfo: {
+                perAvailList: {
+                    rarityRank: number;
+                    charIdList: string[];
+                    totalPercent: number;
+                }[];
+            };
+            upCharInfo: {
+                perCharList: {
+                    percent: number;
+                    count: number;
+                    rarityRank: number;
+                    charIdList: string[];
+                }[];
+            };
+            limitedChar: null;
+            weightUpCharInfoList: null;
+            gachaObjList: {
+                type: number;
+                param: string | null;
+                gachaObject: string;
+                imageType: number;
+            }[];
+        };
+        gachaObjGroupType: number;
+        playerDataDelta: {
+            modified: {};
+            deleted: {};
+        };
+    };
+    client: {
+        endTime: number;
+        gachaPoolId: string;
+        gachaIndex: number;
+        openTime: number;
+        gachaPoolName: string;
+        gachaPoolSummary: string;
+        gachaPoolDetail: string | null;
+        guarantee5Avail: number;
+        guarantee5Count: number;
+        LMTGSID: null;
+        CDPrimColor: null;
+        CDSecColor: null;
+        gachaRuleType: string;
+        dynMeta: (({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        }) & ({
+            scrollIndex: number;
+            chooseRuleConst?: string | undefined;
+            homeDescConst?: string | undefined;
+            rarityPickCharDict?: Record<string, string[]> | undefined;
+            star5ChooseRuleConst?: string | undefined;
+            star6ChooseRuleConst?: string | undefined;
+        } | {
+            scrollIndex: number;
+            main6RarityCharId?: string | undefined;
+            rare5CharList?: string[] | undefined;
+            sub6RarityCharId?: string | undefined;
+        } | undefined)) | null;
+        linkageRuleId: string | null;
+        linkageParam: {
+            guaranteeTarget6Count: number;
+        } | null;
+    };
+}>;
 export declare const GameEventZod: z.ZodObject<{
     id: z.ZodString;
     type: z.ZodString;
@@ -85204,6 +85751,7 @@ export type CCStage = z.infer<typeof CCStageZod>;
 export type Definition = z.infer<typeof DefinitionZod>;
 export type Deployable = z.infer<typeof DeployableZod>;
 export type Enemy = z.infer<typeof EnemyZod>;
+export type GachaPool = z.infer<typeof GachaPoolZod>;
 export type GameEvent = z.infer<typeof GameEventZod>;
 export type GridRange = z.infer<typeof GridRangeZod>;
 export type Item = z.infer<typeof ItemZod>;
