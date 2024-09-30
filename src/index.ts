@@ -571,7 +571,7 @@ export const BaseZod = z.strictObject({
     roomType: z.string(),
     description: z.string(),
 });
-export const CCStageZod = z.strictObject({
+export const CCStageLegacyZod = z.strictObject({
     const: z.strictObject({
         levelId: z.string(),
         location: z.string(),
@@ -579,6 +579,27 @@ export const CCStageZod = z.strictObject({
         description: z.string(),
     }),
     levels: StageDataZod,
+});
+export const CCStageZod = z.strictObject({
+    excel: z.strictObject({
+        stageId: z.string(),
+        mapId: z.string(),
+        levelId: z.string(),
+        stageType: z.string(),
+        code: z.string(),
+        name: z.string(),
+        loadingPicId: z.string(),
+        description: z.string(),
+        picId: z.string(),
+        logoPicId: z.string(),
+        startTime: z.number(),
+        rewardEndTime: z.number(),
+    }),
+    levels: StageDataZod,
+});
+export const CCSeasonZod = z.strictObject({
+    seasonId: z.string(),
+    stageDict: z.record(z.string(), CCStageZod),
 });
 export const DefinitionZod = z.strictObject({
     termId: z.string(),
@@ -1177,7 +1198,9 @@ export const OperatorZod = DeployableZod.extend({
 
 export type Blackboard = z.infer<typeof BlackboardZod>;
 export type Base = z.infer<typeof BaseZod>;
+export type CCStageLegacy = z.infer<typeof CCStageLegacyZod>;
 export type CCStage = z.infer<typeof CCStageZod>;
+export type CCSeason = z.infer<typeof CCSeasonZod>;
 export type Definition = z.infer<typeof DefinitionZod>;
 export type Deployable = z.infer<typeof DeployableZod>;
 export type Enemy = z.infer<typeof EnemyZod>;

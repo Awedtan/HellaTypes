@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OperatorZod = exports.DeployableZod = exports.StageZod = exports.SkinZod = exports.SkillZod = exports.SandboxActZod = exports.RogueThemeZod = exports.ParadoxZod = exports.ModuleZod = exports.ItemZod = exports.GridRangeZod = exports.GameEventZod = exports.GachaPoolZod = exports.EnemyZod = exports.DefinitionZod = exports.CCStageZod = exports.BaseZod = void 0;
+exports.OperatorZod = exports.DeployableZod = exports.StageZod = exports.SkinZod = exports.SkillZod = exports.SandboxActZod = exports.RogueThemeZod = exports.ParadoxZod = exports.ModuleZod = exports.ItemZod = exports.GridRangeZod = exports.GameEventZod = exports.GachaPoolZod = exports.EnemyZod = exports.DefinitionZod = exports.CCSeasonZod = exports.CCStageZod = exports.CCStageLegacyZod = exports.BaseZod = void 0;
 var z = require("zod");
 var BlackboardZod = z.strictObject({
     key: z.string(),
@@ -542,7 +542,7 @@ exports.BaseZod = z.strictObject({
     roomType: z.string(),
     description: z.string(),
 });
-exports.CCStageZod = z.strictObject({
+exports.CCStageLegacyZod = z.strictObject({
     const: z.strictObject({
         levelId: z.string(),
         location: z.string(),
@@ -550,6 +550,27 @@ exports.CCStageZod = z.strictObject({
         description: z.string(),
     }),
     levels: StageDataZod,
+});
+exports.CCStageZod = z.strictObject({
+    excel: z.strictObject({
+        stageId: z.string(),
+        mapId: z.string(),
+        levelId: z.string(),
+        stageType: z.string(),
+        code: z.string(),
+        name: z.string(),
+        loadingPicId: z.string(),
+        description: z.string(),
+        picId: z.string(),
+        logoPicId: z.string(),
+        startTime: z.number(),
+        rewardEndTime: z.number(),
+    }),
+    levels: StageDataZod,
+});
+exports.CCSeasonZod = z.strictObject({
+    seasonId: z.string(),
+    stageDict: z.record(z.string(), exports.CCStageZod),
 });
 exports.DefinitionZod = z.strictObject({
     termId: z.string(),

@@ -20032,7 +20032,7 @@ export declare const BaseZod: z.ZodObject<{
     buffCategory: string;
     roomType: string;
 }>;
-export declare const CCStageZod: z.ZodObject<{
+export declare const CCStageLegacyZod: z.ZodObject<{
     const: z.ZodObject<{
         levelId: z.ZodString;
         location: z.ZodString;
@@ -27031,6 +27031,15537 @@ export declare const CCStageZod: z.ZodObject<{
         levelId: string;
     };
 }>;
+export declare const CCStageZod: z.ZodObject<{
+    excel: z.ZodObject<{
+        stageId: z.ZodString;
+        mapId: z.ZodString;
+        levelId: z.ZodString;
+        stageType: z.ZodString;
+        code: z.ZodString;
+        name: z.ZodString;
+        loadingPicId: z.ZodString;
+        description: z.ZodString;
+        picId: z.ZodString;
+        logoPicId: z.ZodString;
+        startTime: z.ZodNumber;
+        rewardEndTime: z.ZodNumber;
+    }, "strict", z.ZodTypeAny, {
+        code: string;
+        startTime: number;
+        name: string;
+        description: string;
+        stageId: string;
+        levelId: string;
+        mapId: string;
+        loadingPicId: string;
+        stageType: string;
+        picId: string;
+        logoPicId: string;
+        rewardEndTime: number;
+    }, {
+        code: string;
+        startTime: number;
+        name: string;
+        description: string;
+        stageId: string;
+        levelId: string;
+        mapId: string;
+        loadingPicId: string;
+        stageType: string;
+        picId: string;
+        logoPicId: string;
+        rewardEndTime: number;
+    }>;
+    levels: z.ZodObject<{
+        options: z.ZodObject<{
+            characterLimit: z.ZodNumber;
+            maxLifePoint: z.ZodNumber;
+            initialCost: z.ZodNumber;
+            maxCost: z.ZodNumber;
+            costIncreaseTime: z.ZodNumber;
+            moveMultiplier: z.ZodNumber;
+            steeringEnabled: z.ZodBoolean;
+            isTrainingLevel: z.ZodBoolean;
+            isHardTrainingLevel: z.ZodOptional<z.ZodBoolean>;
+            isPredefinedCardsSelectable: z.ZodOptional<z.ZodBoolean>;
+            maxPlayTime: z.ZodOptional<z.ZodNumber>;
+            functionDisableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            configBlackBoard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                value: z.ZodNullable<z.ZodNumber>;
+                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }>, "many">>>;
+        }, "strict", z.ZodTypeAny, {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        }, {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        }>;
+        levelId: z.ZodNullable<z.ZodString>;
+        mapId: z.ZodNullable<z.ZodString>;
+        bgmEvent: z.ZodNullable<z.ZodString>;
+        environmentSe: z.ZodNullable<z.ZodString>;
+        mapData: z.ZodObject<{
+            map: z.ZodArray<z.ZodArray<z.ZodNumber, "many">, "many">;
+            tiles: z.ZodArray<z.ZodObject<{
+                tileKey: z.ZodString;
+                heightType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                buildableType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                passableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                playerSideMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>;
+                effects: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    offset: z.ZodObject<{
+                        x: z.ZodNumber;
+                        y: z.ZodNumber;
+                        z: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        x: number;
+                        y: number;
+                        z: number;
+                    }, {
+                        x: number;
+                        y: number;
+                        z: number;
+                    }>;
+                    direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                }, "strict", z.ZodTypeAny, {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }, {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }>, "many">>;
+            }, "strict", z.ZodTypeAny, {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }, {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }>, "many">;
+            blockEdges: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                pos: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                blockMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            }, "strict", z.ZodTypeAny, {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }, {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }>, "many">>;
+            tags: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+            effects: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                offset: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                    z: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                    z: number;
+                }, {
+                    x: number;
+                    y: number;
+                    z: number;
+                }>;
+                direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            }, "strict", z.ZodTypeAny, {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }, {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }>, "many">>;
+            layerRects: z.ZodOptional<z.ZodNull>;
+            width: z.ZodOptional<z.ZodNumber>;
+            height: z.ZodOptional<z.ZodNumber>;
+        }, "strict", z.ZodTypeAny, {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        }, {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        }>;
+        tilesDisallowToLocate: z.ZodTuple<[], null>;
+        runes: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            difficultyMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            key: z.ZodString;
+            professionMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            buildableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            blackboard: z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                value: z.ZodNullable<z.ZodNumber>;
+                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }, {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }>, "many">>;
+        globalBuffs: z.ZodNullable<z.ZodArray<z.ZodObject<{
+            prefabKey: z.ZodString;
+            blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                value: z.ZodNullable<z.ZodNumber>;
+                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }>, "many">>;
+            overrideCameraEffect: z.ZodNull;
+            passProfessionMaskFlag: z.ZodOptional<z.ZodBoolean>;
+            professionMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            useExtraData: z.ZodOptional<z.ZodBoolean>;
+        }, "strict", z.ZodTypeAny, {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }, {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }>, "many">>;
+        routes: z.ZodArray<z.ZodNullable<z.ZodObject<{
+            motionMode: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            startPosition: z.ZodObject<{
+                row: z.ZodNumber;
+                col: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                col: number;
+                row: number;
+            }, {
+                col: number;
+                row: number;
+            }>;
+            endPosition: z.ZodObject<{
+                row: z.ZodNumber;
+                col: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                col: number;
+                row: number;
+            }, {
+                col: number;
+                row: number;
+            }>;
+            spawnRandomRange: z.ZodObject<{
+                x: z.ZodNumber;
+                y: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                x: number;
+                y: number;
+            }, {
+                x: number;
+                y: number;
+            }>;
+            spawnOffset: z.ZodObject<{
+                x: z.ZodNumber;
+                y: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                x: number;
+                y: number;
+            }, {
+                x: number;
+                y: number;
+            }>;
+            checkpoints: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                type: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                time: z.ZodNumber;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                reachOffset: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                randomizeReachOffset: z.ZodBoolean;
+                reachDistance: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }, {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }>, "many">>;
+            allowDiagonalMove: z.ZodBoolean;
+            visitEveryTileCenter: z.ZodBoolean;
+            visitEveryNodeCenter: z.ZodBoolean;
+            visitEveryCheckPoint: z.ZodOptional<z.ZodBoolean>;
+        }, "strict", z.ZodTypeAny, {
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        }, {
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        }>>, "many">;
+        extraRoutes: z.ZodOptional<z.ZodArray<z.ZodNullable<z.ZodObject<{
+            motionMode: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+            startPosition: z.ZodObject<{
+                row: z.ZodNumber;
+                col: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                col: number;
+                row: number;
+            }, {
+                col: number;
+                row: number;
+            }>;
+            endPosition: z.ZodObject<{
+                row: z.ZodNumber;
+                col: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                col: number;
+                row: number;
+            }, {
+                col: number;
+                row: number;
+            }>;
+            spawnRandomRange: z.ZodObject<{
+                x: z.ZodNumber;
+                y: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                x: number;
+                y: number;
+            }, {
+                x: number;
+                y: number;
+            }>;
+            spawnOffset: z.ZodObject<{
+                x: z.ZodNumber;
+                y: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                x: number;
+                y: number;
+            }, {
+                x: number;
+                y: number;
+            }>;
+            checkpoints: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                type: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                time: z.ZodNumber;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                reachOffset: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                randomizeReachOffset: z.ZodBoolean;
+                reachDistance: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }, {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }>, "many">>;
+            allowDiagonalMove: z.ZodBoolean;
+            visitEveryTileCenter: z.ZodBoolean;
+            visitEveryNodeCenter: z.ZodBoolean;
+            visitEveryCheckPoint: z.ZodOptional<z.ZodBoolean>;
+        }, "strict", z.ZodTypeAny, {
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        }, {
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        }>>, "many">>;
+        enemies: z.ZodArray<z.ZodObject<{
+            name: z.ZodNull;
+            description: z.ZodNull;
+            key: z.ZodString;
+            attributes: z.ZodObject<{
+                maxHp: z.ZodNumber;
+                atk: z.ZodNumber;
+                def: z.ZodNumber;
+                magicResistance: z.ZodNumber;
+                cost: z.ZodNumber;
+                blockCnt: z.ZodNumber;
+                moveSpeed: z.ZodNumber;
+                attackSpeed: z.ZodNumber;
+                baseAttackTime: z.ZodNumber;
+                respawnTime: z.ZodNumber;
+                hpRecoveryPerSec: z.ZodNumber;
+                spRecoveryPerSec: z.ZodNumber;
+                maxDeployCount: z.ZodNumber;
+                maxDeckStackCnt: z.ZodNumber;
+                tauntLevel: z.ZodNumber;
+                massLevel: z.ZodNumber;
+                baseForceLevel: z.ZodNumber;
+                stunImmune: z.ZodBoolean;
+                silenceImmune: z.ZodBoolean;
+                sleepImmune: z.ZodBoolean;
+                frozenImmune: z.ZodBoolean;
+                levitateImmune: z.ZodBoolean;
+                disarmedCombatImmune: z.ZodBoolean;
+            }, "strict", z.ZodTypeAny, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }, {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            }>;
+            alias: z.ZodNull;
+            lifePointReduce: z.ZodNumber;
+            rangeRadius: z.ZodNumber;
+            numOfExtraDrops: z.ZodNumber;
+            viewRadius: z.ZodNumber;
+            levelType: z.ZodNumber;
+            talentBlackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                value: z.ZodNullable<z.ZodNumber>;
+                valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }, {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }>, "many">>;
+            skills: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                prefabKey: z.ZodString;
+                priority: z.ZodNumber;
+                cooldown: z.ZodNumber;
+                initCooldown: z.ZodNumber;
+                spCost: z.ZodNumber;
+                blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>;
+            }, "strict", z.ZodTypeAny, {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }, {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }>, "many">>;
+            spData: z.ZodNullable<z.ZodObject<{
+                spType: z.ZodString;
+                maxSp: z.ZodNumber;
+                initSp: z.ZodNumber;
+                increment: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            }, {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            }>>;
+        }, "strict", z.ZodTypeAny, {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }, {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }>, "many">;
+        enemyDbRefs: z.ZodArray<z.ZodObject<{
+            useDb: z.ZodBoolean;
+            id: z.ZodString;
+            level: z.ZodNumber;
+            overwrittenData: z.ZodNullable<z.ZodObject<{
+                name: z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>;
+                description: z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>;
+                prefabKey: z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>;
+                attributes: z.ZodObject<{
+                    maxHp: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    atk: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    def: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    magicResistance: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    cost: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    blockCnt: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    moveSpeed: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    attackSpeed: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    baseAttackTime: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    respawnTime: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    hpRecoveryPerSec: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    spRecoveryPerSec: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    maxDeployCount: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    massLevel: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    baseForceLevel: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    tauntLevel: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    epDamageResistance: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    epResistance: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    stunImmune: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>;
+                    silenceImmune: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>;
+                    sleepImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    frozenImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    levitateImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                }, "strict", z.ZodTypeAny, {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                }, {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                }>;
+                applyWay: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>>;
+                motion: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>>;
+                enemyTags: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                }>>;
+                lifePointReduce: z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>;
+                levelType: z.ZodOptional<z.ZodUnion<[z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodString>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: string | null;
+                }>, z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>]>>;
+                rangeRadius: z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>;
+                numOfExtraDrops: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>>;
+                viewRadius: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodNumber>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: number | null;
+                }>>;
+                notCountInTotal: z.ZodOptional<z.ZodObject<{
+                    m_defined: z.ZodBoolean;
+                    m_value: z.ZodNullable<z.ZodBoolean>;
+                }, "strict", z.ZodTypeAny, {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                }, {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                }>>;
+                talentBlackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>;
+                skills: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    prefabKey: z.ZodString;
+                    priority: z.ZodNumber;
+                    cooldown: z.ZodNumber;
+                    initCooldown: z.ZodNumber;
+                    spCost: z.ZodNumber;
+                    blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }, {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }>, "many">>;
+                spData: z.ZodNullable<z.ZodObject<{
+                    spType: z.ZodString;
+                    maxSp: z.ZodNumber;
+                    initSp: z.ZodNumber;
+                    increment: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                }, {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                }>>;
+            }, "strict", z.ZodTypeAny, {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            }, {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            }>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }, {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }>, "many">;
+        waves: z.ZodArray<z.ZodObject<{
+            preDelay: z.ZodNumber;
+            postDelay: z.ZodNumber;
+            maxTimeWaitingForNextWave: z.ZodNumber;
+            fragments: z.ZodArray<z.ZodObject<{
+                preDelay: z.ZodNumber;
+                actions: z.ZodArray<z.ZodObject<{
+                    actionType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    managedByScheduler: z.ZodBoolean;
+                    key: z.ZodString;
+                    count: z.ZodNumber;
+                    preDelay: z.ZodNumber;
+                    interval: z.ZodNumber;
+                    routeIndex: z.ZodNumber;
+                    blockFragment: z.ZodBoolean;
+                    autoPreviewRoute: z.ZodBoolean;
+                    autoDisplayEnemyInfo: z.ZodOptional<z.ZodBoolean>;
+                    isUnharmfulAndAlwaysCountAsKilled: z.ZodBoolean;
+                    hiddenGroup: z.ZodNullable<z.ZodString>;
+                    randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
+                    weight: z.ZodOptional<z.ZodNumber>;
+                    dontBlockWave: z.ZodOptional<z.ZodBoolean>;
+                    isValid: z.ZodOptional<z.ZodBoolean>;
+                    extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
+                }, "strict", z.ZodTypeAny, {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }, {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }>, "many">;
+                name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }, {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }>, "many">;
+            advancedWaveTag: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        }, "strict", z.ZodTypeAny, {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }, {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }>, "many">;
+        branches: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodObject<{
+            phases: z.ZodArray<z.ZodObject<{
+                preDelay: z.ZodNumber;
+                actions: z.ZodArray<z.ZodObject<{
+                    actionType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    managedByScheduler: z.ZodBoolean;
+                    key: z.ZodString;
+                    count: z.ZodNumber;
+                    preDelay: z.ZodNumber;
+                    interval: z.ZodNumber;
+                    routeIndex: z.ZodNumber;
+                    blockFragment: z.ZodBoolean;
+                    autoPreviewRoute: z.ZodBoolean;
+                    autoDisplayEnemyInfo: z.ZodOptional<z.ZodBoolean>;
+                    isUnharmfulAndAlwaysCountAsKilled: z.ZodBoolean;
+                    hiddenGroup: z.ZodNullable<z.ZodString>;
+                    randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    refreshType: z.ZodOptional<z.ZodString>;
+                    weight: z.ZodOptional<z.ZodNumber>;
+                    dontBlockWave: z.ZodOptional<z.ZodBoolean>;
+                    isValid: z.ZodOptional<z.ZodBoolean>;
+                    extraMeta: z.ZodOptional<z.ZodNull>;
+                    actionId: z.ZodOptional<z.ZodNull>;
+                }, "strict", z.ZodTypeAny, {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }, {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }>, "many">;
+                m_randomActionGroups: z.ZodOptional<z.ZodNull>;
+                m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
+                m_validActionPackKeys: z.ZodOptional<z.ZodNull>;
+            }, "strict", z.ZodTypeAny, {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }, {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }>>>;
+        predefines: z.ZodNullable<z.ZodObject<{
+            characterInsts: z.ZodArray<z.ZodObject<{
+                hidden: z.ZodBoolean;
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            }, "strict", z.ZodTypeAny, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }>, "many">;
+            tokenInsts: z.ZodArray<z.ZodObject<{
+                hidden: z.ZodBoolean;
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            }, "strict", z.ZodTypeAny, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }>, "many">;
+            characterCards: z.ZodArray<z.ZodObject<{
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                hidden: z.ZodBoolean;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+            }, "strict", z.ZodTypeAny, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }>, "many">;
+            tokenCards: z.ZodArray<z.ZodObject<{
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                hidden: z.ZodBoolean;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+            }, "strict", z.ZodTypeAny, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        }, {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        }>>;
+        hardPredefines: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+            characterInsts: z.ZodArray<z.ZodObject<{
+                hidden: z.ZodBoolean;
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            }, "strict", z.ZodTypeAny, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }>, "many">;
+            tokenInsts: z.ZodArray<z.ZodObject<{
+                hidden: z.ZodBoolean;
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+                position: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+            }, "strict", z.ZodTypeAny, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }, {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }>, "many">;
+            characterCards: z.ZodArray<z.ZodObject<{
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                hidden: z.ZodBoolean;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+            }, "strict", z.ZodTypeAny, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }>, "many">;
+            tokenCards: z.ZodArray<z.ZodObject<{
+                initialCnt: z.ZodOptional<z.ZodNumber>;
+                hidden: z.ZodBoolean;
+                alias: z.ZodNullable<z.ZodString>;
+                uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    level: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    level: number;
+                }, {
+                    key: string;
+                    level: number;
+                }>, "many">>>;
+                inst: z.ZodObject<{
+                    characterKey: z.ZodString;
+                    level: z.ZodNumber;
+                    phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    favorPoint: z.ZodNumber;
+                    potentialRank: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }, {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                }>;
+                skillIndex: z.ZodNumber;
+                mainSkillLvl: z.ZodNumber;
+                skinId: z.ZodNullable<z.ZodString>;
+                tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+            }, "strict", z.ZodTypeAny, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }, {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }>, "many">;
+        }, "strict", z.ZodTypeAny, {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        }, {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        }>>>;
+        excludeCharIdList: z.ZodNull;
+        randomSeed: z.ZodNumber;
+        operaConfig: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        runtimeData: z.ZodOptional<z.ZodNull>;
+    }, "strict", z.ZodTypeAny, {
+        options: {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        };
+        levelId: string | null;
+        mapId: string | null;
+        bgmEvent: string | null;
+        environmentSe: string | null;
+        mapData: {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        };
+        tilesDisallowToLocate: [];
+        runes: {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }[] | null;
+        globalBuffs: {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }[] | null;
+        routes: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[];
+        enemies: {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }[];
+        enemyDbRefs: {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }[];
+        waves: {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }[];
+        branches: Record<string, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }> | null;
+        predefines: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null;
+        excludeCharIdList: null;
+        randomSeed: number;
+        extraRoutes?: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[] | undefined;
+        hardPredefines?: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null | undefined;
+        operaConfig?: string | null | undefined;
+        runtimeData?: null | undefined;
+    }, {
+        options: {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        };
+        levelId: string | null;
+        mapId: string | null;
+        bgmEvent: string | null;
+        environmentSe: string | null;
+        mapData: {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        };
+        tilesDisallowToLocate: [];
+        runes: {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }[] | null;
+        globalBuffs: {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }[] | null;
+        routes: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[];
+        enemies: {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }[];
+        enemyDbRefs: {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }[];
+        waves: {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }[];
+        branches: Record<string, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }> | null;
+        predefines: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null;
+        excludeCharIdList: null;
+        randomSeed: number;
+        extraRoutes?: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[] | undefined;
+        hardPredefines?: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null | undefined;
+        operaConfig?: string | null | undefined;
+        runtimeData?: null | undefined;
+    }>;
+}, "strict", z.ZodTypeAny, {
+    excel: {
+        code: string;
+        startTime: number;
+        name: string;
+        description: string;
+        stageId: string;
+        levelId: string;
+        mapId: string;
+        loadingPicId: string;
+        stageType: string;
+        picId: string;
+        logoPicId: string;
+        rewardEndTime: number;
+    };
+    levels: {
+        options: {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        };
+        levelId: string | null;
+        mapId: string | null;
+        bgmEvent: string | null;
+        environmentSe: string | null;
+        mapData: {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        };
+        tilesDisallowToLocate: [];
+        runes: {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }[] | null;
+        globalBuffs: {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }[] | null;
+        routes: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[];
+        enemies: {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }[];
+        enemyDbRefs: {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }[];
+        waves: {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }[];
+        branches: Record<string, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }> | null;
+        predefines: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null;
+        excludeCharIdList: null;
+        randomSeed: number;
+        extraRoutes?: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[] | undefined;
+        hardPredefines?: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null | undefined;
+        operaConfig?: string | null | undefined;
+        runtimeData?: null | undefined;
+    };
+}, {
+    excel: {
+        code: string;
+        startTime: number;
+        name: string;
+        description: string;
+        stageId: string;
+        levelId: string;
+        mapId: string;
+        loadingPicId: string;
+        stageType: string;
+        picId: string;
+        logoPicId: string;
+        rewardEndTime: number;
+    };
+    levels: {
+        options: {
+            characterLimit: number;
+            maxLifePoint: number;
+            initialCost: number;
+            maxCost: number;
+            costIncreaseTime: number;
+            moveMultiplier: number;
+            steeringEnabled: boolean;
+            isTrainingLevel: boolean;
+            functionDisableMask: string | number;
+            isHardTrainingLevel?: boolean | undefined;
+            isPredefinedCardsSelectable?: boolean | undefined;
+            maxPlayTime?: number | undefined;
+            configBlackBoard?: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null | undefined;
+        };
+        levelId: string | null;
+        mapId: string | null;
+        bgmEvent: string | null;
+        environmentSe: string | null;
+        mapData: {
+            map: number[][];
+            tiles: {
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                tileKey: string;
+                heightType: string | number;
+                buildableType: string | number;
+                passableMask: string | number;
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                playerSideMask?: string | number | undefined;
+            }[];
+            effects: {
+                offset: {
+                    x: number;
+                    y: number;
+                    z: number;
+                };
+                key: string;
+                direction: string | number;
+            }[] | null;
+            blockEdges: {
+                direction: string | number;
+                pos: {
+                    col: number;
+                    row: number;
+                };
+                blockMask: string | number;
+            }[] | null;
+            tags: string[] | null;
+            layerRects?: null | undefined;
+            width?: number | undefined;
+            height?: number | undefined;
+        };
+        tilesDisallowToLocate: [];
+        runes: {
+            key: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[];
+            difficultyMask: string | number;
+            buildableMask: string | number;
+            professionMask?: string | number | undefined;
+        }[] | null;
+        globalBuffs: {
+            prefabKey: string;
+            blackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            overrideCameraEffect: null;
+            passProfessionMaskFlag?: boolean | undefined;
+            professionMask?: string | number | undefined;
+            useExtraData?: boolean | undefined;
+        }[] | null;
+        routes: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[];
+        enemies: {
+            key: string;
+            name: null;
+            attributes: {
+                maxHp: number;
+                atk: number;
+                def: number;
+                magicResistance: number;
+                cost: number;
+                blockCnt: number;
+                moveSpeed: number;
+                attackSpeed: number;
+                baseAttackTime: number;
+                respawnTime: number;
+                hpRecoveryPerSec: number;
+                spRecoveryPerSec: number;
+                maxDeployCount: number;
+                maxDeckStackCnt: number;
+                tauntLevel: number;
+                massLevel: number;
+                baseForceLevel: number;
+                stunImmune: boolean;
+                silenceImmune: boolean;
+                sleepImmune: boolean;
+                frozenImmune: boolean;
+                levitateImmune: boolean;
+                disarmedCombatImmune: boolean;
+            };
+            description: null;
+            lifePointReduce: number;
+            levelType: number;
+            rangeRadius: number;
+            numOfExtraDrops: number;
+            viewRadius: number;
+            talentBlackboard: {
+                key: string;
+                value: number | null;
+                valueStr?: string | null | undefined;
+            }[] | null;
+            skills: {
+                priority: number;
+                prefabKey: string;
+                cooldown: number;
+                initCooldown: number;
+                spCost: number;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+            }[] | null;
+            spData: {
+                spType: string;
+                maxSp: number;
+                initSp: number;
+                increment: number;
+            } | null;
+            alias: null;
+        }[];
+        enemyDbRefs: {
+            id: string;
+            level: number;
+            useDb: boolean;
+            overwrittenData: {
+                name: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                attributes: {
+                    maxHp: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    atk: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    def: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    magicResistance: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    cost: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    blockCnt: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    moveSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    attackSpeed: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseAttackTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    respawnTime: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    hpRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    spRecoveryPerSec: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    maxDeployCount: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    massLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    baseForceLevel: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    stunImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    silenceImmune: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    };
+                    tauntLevel?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epDamageResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    epResistance?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitratePhysical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    damageHitrateMagical?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    sleepImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    frozenImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    levitateImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                    disarmedCombatImmune?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                };
+                description: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                prefabKey: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                };
+                lifePointReduce: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                rangeRadius: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                };
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                applyWay?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                motion?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | undefined;
+                enemyTags?: {
+                    m_defined: boolean;
+                    m_value: string[] | null;
+                } | undefined;
+                levelType?: {
+                    m_defined: boolean;
+                    m_value: string | null;
+                } | {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                numOfExtraDrops?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                viewRadius?: {
+                    m_defined: boolean;
+                    m_value: number | null;
+                } | undefined;
+                notCountInTotal?: {
+                    m_defined: boolean;
+                    m_value: boolean | null;
+                } | undefined;
+            } | null;
+        }[];
+        waves: {
+            preDelay: number;
+            postDelay: number;
+            maxTimeWaitingForNextWave: number;
+            fragments: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                name?: string | null | undefined;
+            }[];
+            advancedWaveTag?: string | null | undefined;
+            name?: string | null | undefined;
+        }[];
+        branches: Record<string, {
+            phases: {
+                preDelay: number;
+                actions: {
+                    interval: number;
+                    key: string;
+                    count: number;
+                    actionType: string | number;
+                    managedByScheduler: boolean;
+                    preDelay: number;
+                    routeIndex: number;
+                    blockFragment: boolean;
+                    autoPreviewRoute: boolean;
+                    isUnharmfulAndAlwaysCountAsKilled: boolean;
+                    hiddenGroup: string | null;
+                    autoDisplayEnemyInfo?: boolean | undefined;
+                    randomSpawnGroupKey?: string | null | undefined;
+                    randomSpawnGroupPackKey?: string | null | undefined;
+                    randomType?: string | number | undefined;
+                    refreshType?: string | undefined;
+                    weight?: number | undefined;
+                    dontBlockWave?: boolean | undefined;
+                    isValid?: boolean | undefined;
+                    extraMeta?: null | undefined;
+                    actionId?: null | undefined;
+                }[];
+                m_randomActionGroups?: null | undefined;
+                m_actionWithRandomSpawn?: null | undefined;
+                m_validActionPackKeys?: null | undefined;
+            }[];
+        }> | null;
+        predefines: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null;
+        excludeCharIdList: null;
+        randomSeed: number;
+        extraRoutes?: ({
+            motionMode: string | number;
+            startPosition: {
+                col: number;
+                row: number;
+            };
+            endPosition: {
+                col: number;
+                row: number;
+            };
+            spawnRandomRange: {
+                x: number;
+                y: number;
+            };
+            spawnOffset: {
+                x: number;
+                y: number;
+            };
+            checkpoints: {
+                type: string | number;
+                time: number;
+                position: {
+                    col: number;
+                    row: number;
+                };
+                reachOffset: {
+                    x: number;
+                    y: number;
+                };
+                randomizeReachOffset: boolean;
+                reachDistance: number;
+            }[] | null;
+            allowDiagonalMove: boolean;
+            visitEveryTileCenter: boolean;
+            visitEveryNodeCenter: boolean;
+            visitEveryCheckPoint?: boolean | undefined;
+        } | null)[] | undefined;
+        hardPredefines?: {
+            characterInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            tokenInsts: {
+                position: {
+                    col: number;
+                    row: number;
+                };
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+                direction?: string | number | undefined;
+            }[];
+            characterCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+            tokenCards: {
+                hidden: boolean;
+                alias: string | null;
+                inst: {
+                    level: number;
+                    characterKey: string;
+                    favorPoint: number;
+                    potentialRank: number;
+                    phase?: string | number | undefined;
+                };
+                skillIndex: number;
+                mainSkillLvl: number;
+                skinId: string | null;
+                initialCnt?: number | undefined;
+                uniEquipIds?: {
+                    key: string;
+                    level: number;
+                }[] | null | undefined;
+                tmplId?: string | null | undefined;
+                overrideSkillBlackboard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }[];
+        } | null | undefined;
+        operaConfig?: string | null | undefined;
+        runtimeData?: null | undefined;
+    };
+}>;
+export declare const CCSeasonZod: z.ZodObject<{
+    seasonId: z.ZodString;
+    stageDict: z.ZodRecord<z.ZodString, z.ZodObject<{
+        excel: z.ZodObject<{
+            stageId: z.ZodString;
+            mapId: z.ZodString;
+            levelId: z.ZodString;
+            stageType: z.ZodString;
+            code: z.ZodString;
+            name: z.ZodString;
+            loadingPicId: z.ZodString;
+            description: z.ZodString;
+            picId: z.ZodString;
+            logoPicId: z.ZodString;
+            startTime: z.ZodNumber;
+            rewardEndTime: z.ZodNumber;
+        }, "strict", z.ZodTypeAny, {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        }, {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        }>;
+        levels: z.ZodObject<{
+            options: z.ZodObject<{
+                characterLimit: z.ZodNumber;
+                maxLifePoint: z.ZodNumber;
+                initialCost: z.ZodNumber;
+                maxCost: z.ZodNumber;
+                costIncreaseTime: z.ZodNumber;
+                moveMultiplier: z.ZodNumber;
+                steeringEnabled: z.ZodBoolean;
+                isTrainingLevel: z.ZodBoolean;
+                isHardTrainingLevel: z.ZodOptional<z.ZodBoolean>;
+                isPredefinedCardsSelectable: z.ZodOptional<z.ZodBoolean>;
+                maxPlayTime: z.ZodOptional<z.ZodNumber>;
+                functionDisableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                configBlackBoard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>>;
+            }, "strict", z.ZodTypeAny, {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }, {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            }>;
+            levelId: z.ZodNullable<z.ZodString>;
+            mapId: z.ZodNullable<z.ZodString>;
+            bgmEvent: z.ZodNullable<z.ZodString>;
+            environmentSe: z.ZodNullable<z.ZodString>;
+            mapData: z.ZodObject<{
+                map: z.ZodArray<z.ZodArray<z.ZodNumber, "many">, "many">;
+                tiles: z.ZodArray<z.ZodObject<{
+                    tileKey: z.ZodString;
+                    heightType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    buildableType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    passableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    playerSideMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                    blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>;
+                    effects: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        offset: z.ZodObject<{
+                            x: z.ZodNumber;
+                            y: z.ZodNumber;
+                            z: z.ZodNumber;
+                        }, "strict", z.ZodTypeAny, {
+                            x: number;
+                            y: number;
+                            z: number;
+                        }, {
+                            x: number;
+                            y: number;
+                            z: number;
+                        }>;
+                        direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    }, "strict", z.ZodTypeAny, {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }, {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }>, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }, {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }>, "many">;
+                blockEdges: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    pos: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    blockMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                }, "strict", z.ZodTypeAny, {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }, {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }>, "many">>;
+                tags: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+                effects: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    offset: z.ZodObject<{
+                        x: z.ZodNumber;
+                        y: z.ZodNumber;
+                        z: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        x: number;
+                        y: number;
+                        z: number;
+                    }, {
+                        x: number;
+                        y: number;
+                        z: number;
+                    }>;
+                    direction: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                }, "strict", z.ZodTypeAny, {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }, {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }>, "many">>;
+                layerRects: z.ZodOptional<z.ZodNull>;
+                width: z.ZodOptional<z.ZodNumber>;
+                height: z.ZodOptional<z.ZodNumber>;
+            }, "strict", z.ZodTypeAny, {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            }, {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            }>;
+            tilesDisallowToLocate: z.ZodTuple<[], null>;
+            runes: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                difficultyMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                key: z.ZodString;
+                professionMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                buildableMask: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                blackboard: z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }, {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }>, "many">>;
+            globalBuffs: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                prefabKey: z.ZodString;
+                blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>;
+                overrideCameraEffect: z.ZodNull;
+                passProfessionMaskFlag: z.ZodOptional<z.ZodBoolean>;
+                professionMask: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                useExtraData: z.ZodOptional<z.ZodBoolean>;
+            }, "strict", z.ZodTypeAny, {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }, {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }>, "many">>;
+            routes: z.ZodArray<z.ZodNullable<z.ZodObject<{
+                motionMode: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                startPosition: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                endPosition: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                spawnRandomRange: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                spawnOffset: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                checkpoints: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    type: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    time: z.ZodNumber;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    reachOffset: z.ZodObject<{
+                        x: z.ZodNumber;
+                        y: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        x: number;
+                        y: number;
+                    }, {
+                        x: number;
+                        y: number;
+                    }>;
+                    randomizeReachOffset: z.ZodBoolean;
+                    reachDistance: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }, {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }>, "many">>;
+                allowDiagonalMove: z.ZodBoolean;
+                visitEveryTileCenter: z.ZodBoolean;
+                visitEveryNodeCenter: z.ZodBoolean;
+                visitEveryCheckPoint: z.ZodOptional<z.ZodBoolean>;
+            }, "strict", z.ZodTypeAny, {
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            }, {
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            }>>, "many">;
+            extraRoutes: z.ZodOptional<z.ZodArray<z.ZodNullable<z.ZodObject<{
+                motionMode: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                startPosition: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                endPosition: z.ZodObject<{
+                    row: z.ZodNumber;
+                    col: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    col: number;
+                    row: number;
+                }, {
+                    col: number;
+                    row: number;
+                }>;
+                spawnRandomRange: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                spawnOffset: z.ZodObject<{
+                    x: z.ZodNumber;
+                    y: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    x: number;
+                    y: number;
+                }, {
+                    x: number;
+                    y: number;
+                }>;
+                checkpoints: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    type: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                    time: z.ZodNumber;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    reachOffset: z.ZodObject<{
+                        x: z.ZodNumber;
+                        y: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        x: number;
+                        y: number;
+                    }, {
+                        x: number;
+                        y: number;
+                    }>;
+                    randomizeReachOffset: z.ZodBoolean;
+                    reachDistance: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }, {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }>, "many">>;
+                allowDiagonalMove: z.ZodBoolean;
+                visitEveryTileCenter: z.ZodBoolean;
+                visitEveryNodeCenter: z.ZodBoolean;
+                visitEveryCheckPoint: z.ZodOptional<z.ZodBoolean>;
+            }, "strict", z.ZodTypeAny, {
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            }, {
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            }>>, "many">>;
+            enemies: z.ZodArray<z.ZodObject<{
+                name: z.ZodNull;
+                description: z.ZodNull;
+                key: z.ZodString;
+                attributes: z.ZodObject<{
+                    maxHp: z.ZodNumber;
+                    atk: z.ZodNumber;
+                    def: z.ZodNumber;
+                    magicResistance: z.ZodNumber;
+                    cost: z.ZodNumber;
+                    blockCnt: z.ZodNumber;
+                    moveSpeed: z.ZodNumber;
+                    attackSpeed: z.ZodNumber;
+                    baseAttackTime: z.ZodNumber;
+                    respawnTime: z.ZodNumber;
+                    hpRecoveryPerSec: z.ZodNumber;
+                    spRecoveryPerSec: z.ZodNumber;
+                    maxDeployCount: z.ZodNumber;
+                    maxDeckStackCnt: z.ZodNumber;
+                    tauntLevel: z.ZodNumber;
+                    massLevel: z.ZodNumber;
+                    baseForceLevel: z.ZodNumber;
+                    stunImmune: z.ZodBoolean;
+                    silenceImmune: z.ZodBoolean;
+                    sleepImmune: z.ZodBoolean;
+                    frozenImmune: z.ZodBoolean;
+                    levitateImmune: z.ZodBoolean;
+                    disarmedCombatImmune: z.ZodBoolean;
+                }, "strict", z.ZodTypeAny, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }, {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                }>;
+                alias: z.ZodNull;
+                lifePointReduce: z.ZodNumber;
+                rangeRadius: z.ZodNumber;
+                numOfExtraDrops: z.ZodNumber;
+                viewRadius: z.ZodNumber;
+                levelType: z.ZodNumber;
+                talentBlackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    key: z.ZodString;
+                    value: z.ZodNullable<z.ZodNumber>;
+                    valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }, {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }>, "many">>;
+                skills: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                    prefabKey: z.ZodString;
+                    priority: z.ZodNumber;
+                    cooldown: z.ZodNumber;
+                    initCooldown: z.ZodNumber;
+                    spCost: z.ZodNumber;
+                    blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }, {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }>, "many">>;
+                spData: z.ZodNullable<z.ZodObject<{
+                    spType: z.ZodString;
+                    maxSp: z.ZodNumber;
+                    initSp: z.ZodNumber;
+                    increment: z.ZodNumber;
+                }, "strict", z.ZodTypeAny, {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                }, {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                }>>;
+            }, "strict", z.ZodTypeAny, {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }, {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }>, "many">;
+            enemyDbRefs: z.ZodArray<z.ZodObject<{
+                useDb: z.ZodBoolean;
+                id: z.ZodString;
+                level: z.ZodNumber;
+                overwrittenData: z.ZodNullable<z.ZodObject<{
+                    name: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>;
+                    description: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>;
+                    prefabKey: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>;
+                    attributes: z.ZodObject<{
+                        maxHp: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        atk: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        def: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        magicResistance: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        cost: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        blockCnt: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        moveSpeed: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        attackSpeed: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        baseAttackTime: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        respawnTime: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        hpRecoveryPerSec: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        spRecoveryPerSec: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        maxDeployCount: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        massLevel: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        baseForceLevel: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>;
+                        tauntLevel: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        epDamageResistance: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        epResistance: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitratePhysical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        damageHitrateMagical: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodNumber>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        }>>;
+                        stunImmune: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>;
+                        silenceImmune: z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>;
+                        sleepImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        frozenImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        levitateImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                        disarmedCombatImmune: z.ZodOptional<z.ZodObject<{
+                            m_defined: z.ZodBoolean;
+                            m_value: z.ZodNullable<z.ZodBoolean>;
+                        }, "strict", z.ZodTypeAny, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }, {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        }>>;
+                    }, "strict", z.ZodTypeAny, {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    }, {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    }>;
+                    applyWay: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>>;
+                    motion: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>>;
+                    enemyTags: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    }>>;
+                    lifePointReduce: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    levelType: z.ZodOptional<z.ZodUnion<[z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodString>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    }>, z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>]>>;
+                    rangeRadius: z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>;
+                    numOfExtraDrops: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    viewRadius: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodNumber>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    }>>;
+                    notCountInTotal: z.ZodOptional<z.ZodObject<{
+                        m_defined: z.ZodBoolean;
+                        m_value: z.ZodNullable<z.ZodBoolean>;
+                    }, "strict", z.ZodTypeAny, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }, {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    }>>;
+                    talentBlackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>;
+                    skills: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        prefabKey: z.ZodString;
+                        priority: z.ZodNumber;
+                        cooldown: z.ZodNumber;
+                        initCooldown: z.ZodNumber;
+                        spCost: z.ZodNumber;
+                        blackboard: z.ZodNullable<z.ZodArray<z.ZodObject<{
+                            key: z.ZodString;
+                            value: z.ZodNullable<z.ZodNumber>;
+                            valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                        }, "strict", z.ZodTypeAny, {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }, {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }>, "many">>;
+                    }, "strict", z.ZodTypeAny, {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }, {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }>, "many">>;
+                    spData: z.ZodNullable<z.ZodObject<{
+                        spType: z.ZodString;
+                        maxSp: z.ZodNumber;
+                        initSp: z.ZodNumber;
+                        increment: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    }, {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    }>>;
+                }, "strict", z.ZodTypeAny, {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                }, {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                }>>;
+            }, "strict", z.ZodTypeAny, {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }, {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }>, "many">;
+            waves: z.ZodArray<z.ZodObject<{
+                preDelay: z.ZodNumber;
+                postDelay: z.ZodNumber;
+                maxTimeWaitingForNextWave: z.ZodNumber;
+                fragments: z.ZodArray<z.ZodObject<{
+                    preDelay: z.ZodNumber;
+                    actions: z.ZodArray<z.ZodObject<{
+                        actionType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                        managedByScheduler: z.ZodBoolean;
+                        key: z.ZodString;
+                        count: z.ZodNumber;
+                        preDelay: z.ZodNumber;
+                        interval: z.ZodNumber;
+                        routeIndex: z.ZodNumber;
+                        blockFragment: z.ZodBoolean;
+                        autoPreviewRoute: z.ZodBoolean;
+                        autoDisplayEnemyInfo: z.ZodOptional<z.ZodBoolean>;
+                        isUnharmfulAndAlwaysCountAsKilled: z.ZodBoolean;
+                        hiddenGroup: z.ZodNullable<z.ZodString>;
+                        randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                        randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                        randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
+                        weight: z.ZodOptional<z.ZodNumber>;
+                        dontBlockWave: z.ZodOptional<z.ZodBoolean>;
+                        isValid: z.ZodOptional<z.ZodBoolean>;
+                        extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
+                    }, "strict", z.ZodTypeAny, {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }, {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }>, "many">;
+                    name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                }, "strict", z.ZodTypeAny, {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }, {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }>, "many">;
+                advancedWaveTag: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            }, "strict", z.ZodTypeAny, {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }, {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }>, "many">;
+            branches: z.ZodNullable<z.ZodRecord<z.ZodString, z.ZodObject<{
+                phases: z.ZodArray<z.ZodObject<{
+                    preDelay: z.ZodNumber;
+                    actions: z.ZodArray<z.ZodObject<{
+                        actionType: z.ZodUnion<[z.ZodString, z.ZodNumber]>;
+                        managedByScheduler: z.ZodBoolean;
+                        key: z.ZodString;
+                        count: z.ZodNumber;
+                        preDelay: z.ZodNumber;
+                        interval: z.ZodNumber;
+                        routeIndex: z.ZodNumber;
+                        blockFragment: z.ZodBoolean;
+                        autoPreviewRoute: z.ZodBoolean;
+                        autoDisplayEnemyInfo: z.ZodOptional<z.ZodBoolean>;
+                        isUnharmfulAndAlwaysCountAsKilled: z.ZodBoolean;
+                        hiddenGroup: z.ZodNullable<z.ZodString>;
+                        randomSpawnGroupKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                        randomSpawnGroupPackKey: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                        randomType: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        refreshType: z.ZodOptional<z.ZodString>;
+                        weight: z.ZodOptional<z.ZodNumber>;
+                        dontBlockWave: z.ZodOptional<z.ZodBoolean>;
+                        isValid: z.ZodOptional<z.ZodBoolean>;
+                        extraMeta: z.ZodOptional<z.ZodNull>;
+                        actionId: z.ZodOptional<z.ZodNull>;
+                    }, "strict", z.ZodTypeAny, {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }, {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }>, "many">;
+                    m_randomActionGroups: z.ZodOptional<z.ZodNull>;
+                    m_actionWithRandomSpawn: z.ZodOptional<z.ZodNull>;
+                    m_validActionPackKeys: z.ZodOptional<z.ZodNull>;
+                }, "strict", z.ZodTypeAny, {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }, {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }>>>;
+            predefines: z.ZodNullable<z.ZodObject<{
+                characterInsts: z.ZodArray<z.ZodObject<{
+                    hidden: z.ZodBoolean;
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                }, "strict", z.ZodTypeAny, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }>, "many">;
+                tokenInsts: z.ZodArray<z.ZodObject<{
+                    hidden: z.ZodBoolean;
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                }, "strict", z.ZodTypeAny, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }>, "many">;
+                characterCards: z.ZodArray<z.ZodObject<{
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    hidden: z.ZodBoolean;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                }, "strict", z.ZodTypeAny, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }>, "many">;
+                tokenCards: z.ZodArray<z.ZodObject<{
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    hidden: z.ZodBoolean;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                }, "strict", z.ZodTypeAny, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            }, {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            }>>;
+            hardPredefines: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+                characterInsts: z.ZodArray<z.ZodObject<{
+                    hidden: z.ZodBoolean;
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                }, "strict", z.ZodTypeAny, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }>, "many">;
+                tokenInsts: z.ZodArray<z.ZodObject<{
+                    hidden: z.ZodBoolean;
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                    position: z.ZodObject<{
+                        row: z.ZodNumber;
+                        col: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        col: number;
+                        row: number;
+                    }, {
+                        col: number;
+                        row: number;
+                    }>;
+                    direction: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                }, "strict", z.ZodTypeAny, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }, {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }>, "many">;
+                characterCards: z.ZodArray<z.ZodObject<{
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    hidden: z.ZodBoolean;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                }, "strict", z.ZodTypeAny, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }>, "many">;
+                tokenCards: z.ZodArray<z.ZodObject<{
+                    initialCnt: z.ZodOptional<z.ZodNumber>;
+                    hidden: z.ZodBoolean;
+                    alias: z.ZodNullable<z.ZodString>;
+                    uniEquipIds: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        level: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        level: number;
+                    }, {
+                        key: string;
+                        level: number;
+                    }>, "many">>>;
+                    inst: z.ZodObject<{
+                        characterKey: z.ZodString;
+                        level: z.ZodNumber;
+                        phase: z.ZodOptional<z.ZodUnion<[z.ZodString, z.ZodNumber]>>;
+                        favorPoint: z.ZodNumber;
+                        potentialRank: z.ZodNumber;
+                    }, "strict", z.ZodTypeAny, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }, {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    }>;
+                    skillIndex: z.ZodNumber;
+                    mainSkillLvl: z.ZodNumber;
+                    skinId: z.ZodNullable<z.ZodString>;
+                    tmplId: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    overrideSkillBlackboard: z.ZodOptional<z.ZodNullable<z.ZodArray<z.ZodObject<{
+                        key: z.ZodString;
+                        value: z.ZodNullable<z.ZodNumber>;
+                        valueStr: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+                    }, "strict", z.ZodTypeAny, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }, {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }>, "many">>>;
+                }, "strict", z.ZodTypeAny, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }, {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }>, "many">;
+            }, "strict", z.ZodTypeAny, {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            }, {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            }>>>;
+            excludeCharIdList: z.ZodNull;
+            randomSeed: z.ZodNumber;
+            operaConfig: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+            runtimeData: z.ZodOptional<z.ZodNull>;
+        }, "strict", z.ZodTypeAny, {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        }, {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        }>;
+    }, "strict", z.ZodTypeAny, {
+        excel: {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        };
+        levels: {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        };
+    }, {
+        excel: {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        };
+        levels: {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        };
+    }>>;
+}, "strict", z.ZodTypeAny, {
+    seasonId: string;
+    stageDict: Record<string, {
+        excel: {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        };
+        levels: {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        };
+    }>;
+}, {
+    seasonId: string;
+    stageDict: Record<string, {
+        excel: {
+            code: string;
+            startTime: number;
+            name: string;
+            description: string;
+            stageId: string;
+            levelId: string;
+            mapId: string;
+            loadingPicId: string;
+            stageType: string;
+            picId: string;
+            logoPicId: string;
+            rewardEndTime: number;
+        };
+        levels: {
+            options: {
+                characterLimit: number;
+                maxLifePoint: number;
+                initialCost: number;
+                maxCost: number;
+                costIncreaseTime: number;
+                moveMultiplier: number;
+                steeringEnabled: boolean;
+                isTrainingLevel: boolean;
+                functionDisableMask: string | number;
+                isHardTrainingLevel?: boolean | undefined;
+                isPredefinedCardsSelectable?: boolean | undefined;
+                maxPlayTime?: number | undefined;
+                configBlackBoard?: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null | undefined;
+            };
+            levelId: string | null;
+            mapId: string | null;
+            bgmEvent: string | null;
+            environmentSe: string | null;
+            mapData: {
+                map: number[][];
+                tiles: {
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    tileKey: string;
+                    heightType: string | number;
+                    buildableType: string | number;
+                    passableMask: string | number;
+                    effects: {
+                        offset: {
+                            x: number;
+                            y: number;
+                            z: number;
+                        };
+                        key: string;
+                        direction: string | number;
+                    }[] | null;
+                    playerSideMask?: string | number | undefined;
+                }[];
+                effects: {
+                    offset: {
+                        x: number;
+                        y: number;
+                        z: number;
+                    };
+                    key: string;
+                    direction: string | number;
+                }[] | null;
+                blockEdges: {
+                    direction: string | number;
+                    pos: {
+                        col: number;
+                        row: number;
+                    };
+                    blockMask: string | number;
+                }[] | null;
+                tags: string[] | null;
+                layerRects?: null | undefined;
+                width?: number | undefined;
+                height?: number | undefined;
+            };
+            tilesDisallowToLocate: [];
+            runes: {
+                key: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[];
+                difficultyMask: string | number;
+                buildableMask: string | number;
+                professionMask?: string | number | undefined;
+            }[] | null;
+            globalBuffs: {
+                prefabKey: string;
+                blackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                overrideCameraEffect: null;
+                passProfessionMaskFlag?: boolean | undefined;
+                professionMask?: string | number | undefined;
+                useExtraData?: boolean | undefined;
+            }[] | null;
+            routes: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[];
+            enemies: {
+                key: string;
+                name: null;
+                attributes: {
+                    maxHp: number;
+                    atk: number;
+                    def: number;
+                    magicResistance: number;
+                    cost: number;
+                    blockCnt: number;
+                    moveSpeed: number;
+                    attackSpeed: number;
+                    baseAttackTime: number;
+                    respawnTime: number;
+                    hpRecoveryPerSec: number;
+                    spRecoveryPerSec: number;
+                    maxDeployCount: number;
+                    maxDeckStackCnt: number;
+                    tauntLevel: number;
+                    massLevel: number;
+                    baseForceLevel: number;
+                    stunImmune: boolean;
+                    silenceImmune: boolean;
+                    sleepImmune: boolean;
+                    frozenImmune: boolean;
+                    levitateImmune: boolean;
+                    disarmedCombatImmune: boolean;
+                };
+                description: null;
+                lifePointReduce: number;
+                levelType: number;
+                rangeRadius: number;
+                numOfExtraDrops: number;
+                viewRadius: number;
+                talentBlackboard: {
+                    key: string;
+                    value: number | null;
+                    valueStr?: string | null | undefined;
+                }[] | null;
+                skills: {
+                    priority: number;
+                    prefabKey: string;
+                    cooldown: number;
+                    initCooldown: number;
+                    spCost: number;
+                    blackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                }[] | null;
+                spData: {
+                    spType: string;
+                    maxSp: number;
+                    initSp: number;
+                    increment: number;
+                } | null;
+                alias: null;
+            }[];
+            enemyDbRefs: {
+                id: string;
+                level: number;
+                useDb: boolean;
+                overwrittenData: {
+                    name: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    attributes: {
+                        maxHp: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        atk: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        def: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        magicResistance: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        cost: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        blockCnt: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        moveSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        attackSpeed: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseAttackTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        respawnTime: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        hpRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        spRecoveryPerSec: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        maxDeployCount: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        massLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        baseForceLevel: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        };
+                        stunImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        silenceImmune: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        };
+                        tauntLevel?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epDamageResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        epResistance?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitratePhysical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        damageHitrateMagical?: {
+                            m_defined: boolean;
+                            m_value: number | null;
+                        } | undefined;
+                        sleepImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        frozenImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        levitateImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                        disarmedCombatImmune?: {
+                            m_defined: boolean;
+                            m_value: boolean | null;
+                        } | undefined;
+                    };
+                    description: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    prefabKey: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    };
+                    lifePointReduce: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    rangeRadius: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    };
+                    talentBlackboard: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null;
+                    skills: {
+                        priority: number;
+                        prefabKey: string;
+                        cooldown: number;
+                        initCooldown: number;
+                        spCost: number;
+                        blackboard: {
+                            key: string;
+                            value: number | null;
+                            valueStr?: string | null | undefined;
+                        }[] | null;
+                    }[] | null;
+                    spData: {
+                        spType: string;
+                        maxSp: number;
+                        initSp: number;
+                        increment: number;
+                    } | null;
+                    applyWay?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    motion?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | undefined;
+                    enemyTags?: {
+                        m_defined: boolean;
+                        m_value: string[] | null;
+                    } | undefined;
+                    levelType?: {
+                        m_defined: boolean;
+                        m_value: string | null;
+                    } | {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    numOfExtraDrops?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    viewRadius?: {
+                        m_defined: boolean;
+                        m_value: number | null;
+                    } | undefined;
+                    notCountInTotal?: {
+                        m_defined: boolean;
+                        m_value: boolean | null;
+                    } | undefined;
+                } | null;
+            }[];
+            waves: {
+                preDelay: number;
+                postDelay: number;
+                maxTimeWaitingForNextWave: number;
+                fragments: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    name?: string | null | undefined;
+                }[];
+                advancedWaveTag?: string | null | undefined;
+                name?: string | null | undefined;
+            }[];
+            branches: Record<string, {
+                phases: {
+                    preDelay: number;
+                    actions: {
+                        interval: number;
+                        key: string;
+                        count: number;
+                        actionType: string | number;
+                        managedByScheduler: boolean;
+                        preDelay: number;
+                        routeIndex: number;
+                        blockFragment: boolean;
+                        autoPreviewRoute: boolean;
+                        isUnharmfulAndAlwaysCountAsKilled: boolean;
+                        hiddenGroup: string | null;
+                        autoDisplayEnemyInfo?: boolean | undefined;
+                        randomSpawnGroupKey?: string | null | undefined;
+                        randomSpawnGroupPackKey?: string | null | undefined;
+                        randomType?: string | number | undefined;
+                        refreshType?: string | undefined;
+                        weight?: number | undefined;
+                        dontBlockWave?: boolean | undefined;
+                        isValid?: boolean | undefined;
+                        extraMeta?: null | undefined;
+                        actionId?: null | undefined;
+                    }[];
+                    m_randomActionGroups?: null | undefined;
+                    m_actionWithRandomSpawn?: null | undefined;
+                    m_validActionPackKeys?: null | undefined;
+                }[];
+            }> | null;
+            predefines: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null;
+            excludeCharIdList: null;
+            randomSeed: number;
+            extraRoutes?: ({
+                motionMode: string | number;
+                startPosition: {
+                    col: number;
+                    row: number;
+                };
+                endPosition: {
+                    col: number;
+                    row: number;
+                };
+                spawnRandomRange: {
+                    x: number;
+                    y: number;
+                };
+                spawnOffset: {
+                    x: number;
+                    y: number;
+                };
+                checkpoints: {
+                    type: string | number;
+                    time: number;
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    reachOffset: {
+                        x: number;
+                        y: number;
+                    };
+                    randomizeReachOffset: boolean;
+                    reachDistance: number;
+                }[] | null;
+                allowDiagonalMove: boolean;
+                visitEveryTileCenter: boolean;
+                visitEveryNodeCenter: boolean;
+                visitEveryCheckPoint?: boolean | undefined;
+            } | null)[] | undefined;
+            hardPredefines?: {
+                characterInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                tokenInsts: {
+                    position: {
+                        col: number;
+                        row: number;
+                    };
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                    direction?: string | number | undefined;
+                }[];
+                characterCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+                tokenCards: {
+                    hidden: boolean;
+                    alias: string | null;
+                    inst: {
+                        level: number;
+                        characterKey: string;
+                        favorPoint: number;
+                        potentialRank: number;
+                        phase?: string | number | undefined;
+                    };
+                    skillIndex: number;
+                    mainSkillLvl: number;
+                    skinId: string | null;
+                    initialCnt?: number | undefined;
+                    uniEquipIds?: {
+                        key: string;
+                        level: number;
+                    }[] | null | undefined;
+                    tmplId?: string | null | undefined;
+                    overrideSkillBlackboard?: {
+                        key: string;
+                        value: number | null;
+                        valueStr?: string | null | undefined;
+                    }[] | null | undefined;
+                }[];
+            } | null | undefined;
+            operaConfig?: string | null | undefined;
+            runtimeData?: null | undefined;
+        };
+    }>;
+}>;
 export declare const DefinitionZod: z.ZodObject<{
     termId: z.ZodString;
     termName: z.ZodString;
@@ -29890,8 +45421,8 @@ export declare const GameEventZod: z.ZodObject<{
     startTime: number;
     id: string;
     name: string;
-    displayType: string;
     rewardEndTime: number;
+    displayType: string;
     displayOnHome: boolean;
     hasStage: boolean;
     templateShopId: string | null;
@@ -29905,8 +45436,8 @@ export declare const GameEventZod: z.ZodObject<{
     startTime: number;
     id: string;
     name: string;
-    displayType: string;
     rewardEndTime: number;
+    displayType: string;
     displayOnHome: boolean;
     hasStage: boolean;
     templateShopId: string | null;
@@ -31395,6 +46926,7 @@ export declare const ParadoxZod: z.ZodObject<{
         stageId: string;
         levelId: string;
         loadingPicId: string;
+        picId: string;
         charId: string;
         zoneId: string;
         unlockParam: {
@@ -31410,7 +46942,6 @@ export declare const ParadoxZod: z.ZodObject<{
         }[];
         stageNameForShow: string;
         zoneNameForShow: string;
-        picId: string;
         stageGetTime: number;
     }, {
         code: string;
@@ -31419,6 +46950,7 @@ export declare const ParadoxZod: z.ZodObject<{
         stageId: string;
         levelId: string;
         loadingPicId: string;
+        picId: string;
         charId: string;
         zoneId: string;
         unlockParam: {
@@ -31434,7 +46966,6 @@ export declare const ParadoxZod: z.ZodObject<{
         }[];
         stageNameForShow: string;
         zoneNameForShow: string;
-        picId: string;
         stageGetTime: number;
     }>;
     levels: z.ZodObject<{
@@ -36998,6 +52529,7 @@ export declare const ParadoxZod: z.ZodObject<{
         stageId: string;
         levelId: string;
         loadingPicId: string;
+        picId: string;
         charId: string;
         zoneId: string;
         unlockParam: {
@@ -37013,7 +52545,6 @@ export declare const ParadoxZod: z.ZodObject<{
         }[];
         stageNameForShow: string;
         zoneNameForShow: string;
-        picId: string;
         stageGetTime: number;
     };
     levels: {
@@ -37731,6 +53262,7 @@ export declare const ParadoxZod: z.ZodObject<{
         stageId: string;
         levelId: string;
         loadingPicId: string;
+        picId: string;
         charId: string;
         zoneId: string;
         unlockParam: {
@@ -37746,7 +53278,6 @@ export declare const ParadoxZod: z.ZodObject<{
         }[];
         stageNameForShow: string;
         zoneNameForShow: string;
-        picId: string;
         stageGetTime: number;
     };
     levels: {
@@ -64990,12 +80521,12 @@ export declare const StageZod: z.ZodObject<{
         levelId: string;
         loadingPicId: string;
         difficulty: string;
+        stageType: string;
         unlockCondition: {
             stageId: string;
             completeState: string;
         }[];
         zoneId: string;
-        stageType: string;
         performanceStageFlag: string;
         diffGroup: string;
         hardStagedId: string | null;
@@ -65077,12 +80608,12 @@ export declare const StageZod: z.ZodObject<{
         levelId: string;
         loadingPicId: string;
         difficulty: string;
+        stageType: string;
         unlockCondition: {
             stageId: string;
             completeState: string;
         }[];
         zoneId: string;
-        stageType: string;
         performanceStageFlag: string;
         diffGroup: string;
         hardStagedId: string | null;
@@ -70719,12 +86250,12 @@ export declare const StageZod: z.ZodObject<{
         levelId: string;
         loadingPicId: string;
         difficulty: string;
+        stageType: string;
         unlockCondition: {
             stageId: string;
             completeState: string;
         }[];
         zoneId: string;
-        stageType: string;
         performanceStageFlag: string;
         diffGroup: string;
         hardStagedId: string | null;
@@ -71515,12 +87046,12 @@ export declare const StageZod: z.ZodObject<{
         levelId: string;
         loadingPicId: string;
         difficulty: string;
+        stageType: string;
         unlockCondition: {
             stageId: string;
             completeState: string;
         }[];
         zoneId: string;
-        stageType: string;
         performanceStageFlag: string;
         diffGroup: string;
         hardStagedId: string | null;
@@ -76468,6 +91999,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -76483,7 +92015,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         }, {
             code: string;
@@ -76492,6 +92023,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -76507,7 +92039,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         }>;
         levels: z.ZodObject<{
@@ -82071,6 +97602,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -82086,7 +97618,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         };
         levels: {
@@ -82804,6 +98335,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -82819,7 +98351,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         };
         levels: {
@@ -83911,6 +99442,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -83926,7 +99458,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         };
         levels: {
@@ -85018,6 +100549,7 @@ export declare const OperatorZod: z.ZodObject<{
             stageId: string;
             levelId: string;
             loadingPicId: string;
+            picId: string;
             charId: string;
             zoneId: string;
             unlockParam: {
@@ -85033,7 +100565,6 @@ export declare const OperatorZod: z.ZodObject<{
             }[];
             stageNameForShow: string;
             zoneNameForShow: string;
-            picId: string;
             stageGetTime: number;
         };
         levels: {
@@ -85747,7 +101278,9 @@ export declare const OperatorZod: z.ZodObject<{
 }>;
 export type Blackboard = z.infer<typeof BlackboardZod>;
 export type Base = z.infer<typeof BaseZod>;
+export type CCStageLegacy = z.infer<typeof CCStageLegacyZod>;
 export type CCStage = z.infer<typeof CCStageZod>;
+export type CCSeason = z.infer<typeof CCSeasonZod>;
 export type Definition = z.infer<typeof DefinitionZod>;
 export type Deployable = z.infer<typeof DeployableZod>;
 export type Enemy = z.infer<typeof EnemyZod>;
